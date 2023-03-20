@@ -118,7 +118,7 @@ public class DiagnosisRepositoryTest {
         antibiotics = secondary.getAntibiotics();
         assertEquals(2, antibiotics.size());
 
-        // Test that primary treatment has both mixture and tablet instances
+        // Test that secondary treatment has both mixture and tablet instances
         mixture = null;
         if (antibiotics.get(0) instanceof Mixture) {
                 mixture = (Mixture) antibiotics.get(0);
@@ -145,7 +145,7 @@ public class DiagnosisRepositoryTest {
         antibiotics = allergy.getAntibiotics();
         assertEquals(2, antibiotics.size());
 
-        // Test that primary treatment has both mixture and tablet instances
+        // Test that penicillin allergy treatment has both mixture and tablet instances
         mixture = null;
         if (antibiotics.get(0) instanceof Mixture) {
             mixture = (Mixture) antibiotics.get(0);
