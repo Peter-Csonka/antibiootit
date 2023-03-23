@@ -8,10 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import fi.tuni.koodimankelit.antibiootit.database.data.Antibiotic;
 import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
@@ -26,12 +29,21 @@ import fi.tuni.koodimankelit.antibiootit.database.data.Treatment;
  * Tests for DiagnosisRepository class. 
  * Tests mainly focus on that the data structure stays correct after the data is fetched from database.
  */
-@SpringBootTest
-@AutoConfigureDataMongo
+@ExtendWith(SpringExtension.class)
+@DataMongoTest
 public class DiagnosisRepositoryTest {
 
     @Autowired
+    private MongoTemplate mongoTemplate;
+
+    @Autowired
     private DiagnosisRepository diagnosisRepository;
+
+    @BeforeEach
+    public void setUp() {
+        mongoTemplate.dropCollection(Diagnosis.class);
+        mongoTemplate.insertAll(null);
+    }
 
     @Test
     public void testFindDiagnosisByIdNoAntibiotics() {
