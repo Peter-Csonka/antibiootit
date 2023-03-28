@@ -5,6 +5,10 @@ export default function Treatment(props) {
 
     const [activeChoice, setActiveChoice] = useState(props.antibiotic[0])
 
+    const style = {
+        backgroundColor: "white"
+    }
+
     function toggleChoise(name) {
         /**for(let i = 0; i < props.antibiotic.length; i++) {
             if(props.antibiotic[i].name === name) {
@@ -63,7 +67,12 @@ export default function Treatment(props) {
             </div>
             <div className="treatment-choises">
                 <div className="choise-container">
-                    {AntibioticElements}
+                    {props.diagnosis !== "Bronkiitti" ? AntibioticElements : 
+                    <div className="choise" style={style}>
+                        <div className="choise-inner">
+                            <p>Bronkiitin hoitoon <strong>ei suositella antibioottia.</strong></p>
+                        </div>
+                    </div>}
                 </div>
             </div>
             <div className="treatment-extra">
