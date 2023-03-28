@@ -95,6 +95,7 @@ export default function Antibiotics() {
     }
 
     console.log(treatments.length);
+    console.log(treatments);
 
     function changeInstruction(index) {
         setInstruction(infoTexts[index]);
@@ -125,7 +126,7 @@ export default function Antibiotics() {
 
             {formSubmitted && <Treatment 
                 diagnosis={chosenDiagnosis}
-                antibiotic={antibiotic}
+                antibiotic={treatments}
                 setAntibiotic={setAntibiotic}
                 activeRecipe={activeRecipe}
                 setActiveRecipe={setActiveRecipe}

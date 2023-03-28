@@ -6,6 +6,10 @@ export default function Treatment(props) {
     function toggleChoise(name) {
         for(let i = 0; i < props.antibiotic.length; i++) {
             if(props.antibiotic[i].name === name) {
+                // Tähän resepti pitää ottaa esim props.antibiotic[i].dosageResult.value jne
+                // ja ne yhdistää tulokseks joka sitte laittaa tohon
+                // setActiveRecipe
+                // eli const recipe = `${juttuja}`
                 props.setActiveRecipe(props.antibiotic[i].recipe)
             }
         }
@@ -23,13 +27,13 @@ export default function Treatment(props) {
         <Choise
             key={antibiote.id}
             index={index}
-            name={antibiote.name}
-            dosage={antibiote.dosage}
-            dose={antibiote.dose}
-            doseInDay={antibiote.doseInDay}
-            instruction={antibiote.instruction}
+            name={antibiote.antibiotic}
+            dosage={`${antibiote.dosageFormula.strength.text}`}
+            dose={`${antibiote.dosageResult.dose.value} ${antibiote.dosageResult.dose.unit}`}
+            doseInDay={`${antibiote.dosageResult.dose.value * antibiote.instructions.dosesPerDay} ${antibiote.dosageResult.dose.unit}`}
+            instruction={`${antibiote.instructions.dosesPerDay} krt/vrk, yht ${antibiote.instructions.days} vrk ajan`}
             toggleChoise={toggleChoise}
-            choise={antibiote.choise}
+            choise={index === 0 ? true : false}
             diagnose={props.diagnose}
             length={props.antibiotic.length}
         />
