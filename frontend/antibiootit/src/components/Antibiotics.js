@@ -16,7 +16,7 @@ export default function Antibiotics() {
     const [diagnoses, setDiagnoses] = useState(null);
     const [infoTexts, setInfoTexts] = useState(null);
 
-    const [treatments, setTreatments] = useState([]);
+    const [treatments, setTreatments] = useState(null);
 
     const [instruction, setInstruction] = useState([]);
 
@@ -70,8 +70,11 @@ export default function Antibiotics() {
             choise: false
         }
     ]);
-
-    const [activeRecipe, setActiveRecipe] = useState(antibiotic[0].recipe);
+    
+    // Tää pitää tehä sit ekaks niin että kokoaa sen reseptin treatments[0]:sta?
+    // Ja sit päivittää uuteen Treatment.js:ssä ku käyttäjä klikkaa vaihtoehtojen
+    // välillä
+    const [activeRecipe, setActiveRecipe] = useState("");
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -94,7 +97,7 @@ export default function Antibiotics() {
         }
     }
 
-    console.log(treatments.length);
+    //console.log(treatments.length);
     console.log(treatments);
 
     function changeInstruction(index) {
@@ -124,12 +127,12 @@ export default function Antibiotics() {
                 formSubmitted={formSubmitted} 
             />
 
-            {formSubmitted && <Treatment 
+            {formSubmitted && treatments && <Treatment 
                 diagnosis={chosenDiagnosis}
                 antibiotic={treatments}
-                setAntibiotic={setAntibiotic}
                 activeRecipe={activeRecipe}
                 setActiveRecipe={setActiveRecipe}
+                format={treatments[0].format}
             />}
             {formSubmitted && <Recipe abChoices={antibiotic} activeRecipe={activeRecipe} diagnosis={chosenDiagnosis} />}
         </div>
