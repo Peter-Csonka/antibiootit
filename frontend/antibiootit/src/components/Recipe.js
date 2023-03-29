@@ -2,41 +2,34 @@ import React, { useState, useEffect } from "react";
 
 export default function Recipe(props) {
 
-    const abChoices = props.abChoices;
-    const choice = props.activeRecipe;
+    const treatments = props.treatments;
+    const activeRecipe = props.activeRecipe;
 
+    console.log(activeRecipe)
 
-
-    const [chosenAb, setChosenAb] = useState("");
+    const [chosenAb, setChosenAb] = useState(null);
     const [dosageInstructions, setDosageInstructions] = useState("");
-    //const [diagnosisCode, setDiagnosisCode] = useState("");
     const [showNotification, setShowNotification] = useState(false);
-    const diagnosisCode = props.abChoices[0].id;
+    const diagnosisCode = props.treatments[0].id;
 
     const TIMEOUT_DURATION = 1000;
 
-    useEffect(() => {
+    if (!activeRecipe && !chosenAb) {
+        setChosenAb(treatments[0].antibiotic);
+    }
 
-        const getChosenAb = () => {
-            // NB! Need to add case bronchitis!
-            if (choice === "Toisen vaihtoehdon resepti") {
-                return  abChoices[1];
-            }
-            else {
-                return abChoices[0];
-            }
-        }
-        const abData = getChosenAb().name + " " + getChosenAb().dosage;
-        const abInfo = getChosenAb().instruction;
-        setChosenAb(abData);
-        setDosageInstructions(abInfo);
+    useEffect(() => {
+        
+        setChosenAb(activeRecipe.name);
+        setDosageInstructions(activeRecipe.instruction);
+        
+        
         // NB! This hardcoding is temporary!
         if (props.diagnosis === "Bronkiitti") {
             setDosageInstructions("Ei antibioottihoitoa")
             setChosenAb("Ei antibioottisuositusta")
         }
-        console.log("choice " + abData)
-    }, [choice, abChoices, props.diagnosis]);
+    }, [activeRecipe, chosenAb, treatments, props.diagnosis]);
 
 
     /**

@@ -150,6 +150,7 @@ export default function Form(props) {
 
     const handleClick = (e) => {
         e.preventDefault();
+        //console.log(e.target)
         if (isWeightOk) {
             const checkBoxes = [
                 {
