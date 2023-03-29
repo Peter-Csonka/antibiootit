@@ -36,10 +36,6 @@ button, a, li, input {
     margin-right: 40px;
 }
 
-Link {
-    text-decoration: none;
-}
-
 .header--title-link {
     background: none!important;
     text-decoration: none;

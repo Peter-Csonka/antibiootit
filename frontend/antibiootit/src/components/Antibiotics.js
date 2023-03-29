@@ -55,10 +55,11 @@ export default function Antibiotics() {
         }
 
         // Case bronchitis not yet implemented
-        if (data.diagnosisID !== 'J20.9') {
+        if (data.diagnosisID !== 'J20.9' && data.diagnosisID !== 'J21.9') {
             GetRecommendedTreatment(data)
             .then(response => {
                 setTreatments(response.treatments);
+                console.log(treatments.length);
             })
             .catch(error => {
                 console.log(error)
@@ -66,9 +67,6 @@ export default function Antibiotics() {
             
         }
     }
-
-    //console.log(treatments.length);
-    console.log(treatments);
 
     function changeInstruction(index) {
         setInstruction(infoTexts[index]);
