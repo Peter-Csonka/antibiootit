@@ -7,4 +7,18 @@ package fi.tuni.koodimankelit.antibiootit.exceptions;
  */
 public class TreatmentNotFoundException extends RuntimeException {
 
+    private String message;
+
+    public TreatmentNotFoundException() {
+        super();
+    }
+
+    public TreatmentNotFoundException(String message) {
+        super(message);
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
 }
