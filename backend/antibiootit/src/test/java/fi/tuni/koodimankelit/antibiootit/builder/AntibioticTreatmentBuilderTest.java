@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import fi.tuni.koodimankelit.antibiootit.database.data.DoseMultiplier;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
+import fi.tuni.koodimankelit.antibiootit.exceptions.TreatmentNotFoundException;
 import fi.tuni.koodimankelit.antibiootit.models.AntibioticTreatment;
 
 public abstract class AntibioticTreatmentBuilderTest {
@@ -57,7 +58,7 @@ public abstract class AntibioticTreatmentBuilderTest {
      */
     @Test
     public void testNegativeWeightThrowsException() {
-        assertThrows(RuntimeException.class, () -> getTreatment(-1));
+        assertThrows(TreatmentNotFoundException.class, () -> getTreatment(-1));
     }
 
     /**
@@ -67,7 +68,7 @@ public abstract class AntibioticTreatmentBuilderTest {
     public void testEmptyStrengthListThrowsException() {
         ArrayList<Strength> emptyStrengths = new ArrayList<>();
         AntibioticTreatmentBuilder builder = getBuilderWithStrengths(emptyStrengths, getValidWeight());
-        assertThrows(RuntimeException.class, () -> builder.build());
+        assertThrows(TreatmentNotFoundException.class, () -> builder.build());
     }
 
     /**
