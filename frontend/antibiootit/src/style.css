@@ -223,6 +223,13 @@ aside {
     margin-top: 24px;
 }
 
+.kg-text-disabled {
+    position: absolute;
+    margin-left: -80px;
+    margin-top: 24px;
+    color: #929292;
+}
+
 .form--input {
     height: 50px;
     width: 250px;

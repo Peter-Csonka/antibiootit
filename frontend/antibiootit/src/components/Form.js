@@ -341,7 +341,7 @@ export default function Form(props) {
                         inputMode="numeric"
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
-                    /><span className="kg-text">kg</span>
+                    /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>kg</span>
                     {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage}</div>}
             </div>
             <div className="checkbox-container">
