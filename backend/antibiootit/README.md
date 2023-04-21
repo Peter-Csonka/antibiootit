@@ -1,6 +1,6 @@
 # Backend - Antibiootit
 
-## Vaatimukset
+## Requirements
 
 - Java 17
 - Maven 4.0
@@ -9,19 +9,30 @@
 - springdoc-openapi v2.0.2
 
 
-## Ympäristöasetukset
-Palvelin vaatii toimiakseen ympäristömuuttujaksi `apikey` muuttujan. Se voi olla määritettynä joko ympäristömuuttujana tai määritetty tiedostossa `secrets.properties` projektin juurikansiossa.
-Tätä tiedostoa **ei tule** lisätä versionhallintaan.
-Kysy tarvittaessa `apikey` arvoa ylläpitäjältä.
-Jos arvoa ei ole määritetty kummassakaan, sen arvo on tyhjä.
 
-### Hostauspalvelu
-Hostauspalvelussa `apikey` muuttuja määritetään ympäristömuuttujana.
+## Environment
 
-### Paikallinen debuggaus
-Paikallisesti muuttujan arvo kannattaa määrittää `secrets.properties` tiedostossa:
+### Local debugging
+
+Server requires `apikey` variable. In local debugging, it is recommended to be defined in file `src/main/resources/secrets.properties`. It should **not** be added to version control. The value for `apikey` can be found in Railway hosting service.
+
+Server connects to MongoDB hosted in Railway in local debugging mode. It requires `MONGO_URL` environment variable. It is also set in `secrets.properties` file. The value can be found in Railway hosting service.
+
+Below is an example of the contents of `secrets.properties`:
+
 ```
-apikey=API-KEY-VALUE
+apikey=<value>
+MONGO_URL=<value>
 ```
 
-Toinen vaihtoehto on määrittää arvo ympäristömuuttujana (ei suositeltavaa).
+### Hosting service
+Required environment variables are set in Railway.
+
+## Running the program
+Recommended way to run in debugging mode is to use IDE. Alternative way is to build Maven project and run it.
+
+## Deploying to Railway
+CI/CD-pipeline has been set up to deploy changes in `main` branch automatically to Railway. It automatically fetches the codes, builds the server and deploys it automatically. Deployed application is reachable from [api.antibiootit.fi](api.antibiootit.fi) or [via Railway's domain](backend-production-0993.up.railway.app)
+
+## OpenAPI documentation
+OpenAPI (Swagger) documentation can be found in [swagger-ui](https://api.antibiootit.fi/swagger-ui/index.html). Authorize by giving the `apikey` (can be found in Railway) in order to try out the endpoints.
