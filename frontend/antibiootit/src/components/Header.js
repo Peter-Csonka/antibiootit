@@ -8,7 +8,7 @@ export default function Header() {
             <NavLink to="/" 
                 className="header--title-link"
                 onClick={() => window.location.href = "/"}>
-                    <img src="./icons/Antibiootit.fi-logo2.svg" className="logo" alt="logo" /></NavLink>
+                    <img src="./icons/Antibiootit.fi-logo.svg" className="logo" alt="logo" /></NavLink>
             <div className="header--links">
                 <NavLink to="/" 
                     className={({ isActive }) => 
