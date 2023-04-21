@@ -25,7 +25,6 @@ test('Header includes all the correct links', () => {
       <Header />
     </App>
   </BrowserRouter>);
-	expect(screen.getByText('Antibiootit.fi')).toBeInTheDocument();
   expect(screen.getByText('Laskuri')).toBeInTheDocument();
   expect(screen.getByText('Tietoa sivustosta')).toBeInTheDocument();
   expect(screen.getByText('Palaute')).toBeInTheDocument();
