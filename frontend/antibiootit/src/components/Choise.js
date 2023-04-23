@@ -2,10 +2,10 @@ import React from "react";
 
 export default function Choise(props) {
     
-    const styles = {
-        backgroundColor: props.choise ? "white" : "#D7E2F2",
-        cursor: props.choise ? "auto" : "pointer"
-    };
+        const styles = {
+            backgroundColor: props.choise ? "white" : (props.index === 0 ? "#D7E2F2" : "#CACACA"),
+            cursor: props.choise ? "auto" : "pointer"
+          };
 
     const choiseNbr = props.index === 0 ? "Ensisijainen" : "Toissijainen"
 
@@ -32,6 +32,7 @@ export default function Choise(props) {
     return (
         <div className="choise" data-testid="choise-element" style={styles} onClick={() => props.toggleChoise(props.name)}>
             <ChoiseTxt />
+            {console.log(props.choise)}
         </div>
     );
 }
