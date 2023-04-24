@@ -761,6 +761,10 @@ aside {
     border: none;
 }
 
+#hidden {
+    display: none;
+}
+
 @media only screen and (max-width: 1500px) {
     aside {
         grid-column-start: 1;

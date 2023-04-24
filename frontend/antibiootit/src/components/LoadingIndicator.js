@@ -38,4 +38,13 @@ export default function LoadingIndicator(props) {
                 </div>
         )
     }
+
+    if(props.loading === "feedback") {
+        return (
+            <div className="loading-container">
+                <div className="loading-animation-calculations"></div>
+                <p>Haetaan palautelomaketta...</p>
+            </div>
+        )
+    }
 }
