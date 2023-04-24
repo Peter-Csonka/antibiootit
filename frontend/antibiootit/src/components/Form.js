@@ -170,7 +170,6 @@ export default function Form(props) {
     const handleInput = (e) => {
         e.preventDefault();
         const input = e.target.value;
-        console.log(input)
         if (!VALID_WEIGHT_INPUT.test(input)) {
             setIsWeightOk(false);
             setFormatWeight(false);
