@@ -196,7 +196,7 @@ export default function Form(props) {
             }
             else {
                 setIsWeightOk(false);
-                if (input.length > 1) {
+                if (input.length >= 1 && props.formSubmitted) {
                     setFormatWeight(false);
                 }
                 
