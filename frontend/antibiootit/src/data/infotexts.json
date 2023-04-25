@@ -94,5 +94,10 @@
       "id": "feedbackDone",
       "header": "",
       "text": "Vastaus lähetetty. Palaat automaattisesti takaisin laskuriin 10 sekunnin kuluttua."
+    },
+    {
+      "id": "privacyPolicy",
+      "header": "",
+      "text": "Sivuston toimintaa seurataan Google Analytics -työkalun avulla ja kerättyjä tietoja hyödynnetään Antibiootit.fi-sivuston kehittämisessä. Sivusto tallentaa myös Antibioottilaskuriin syötetyt arvot, joiden avulla tutkitaan, millaisen tiedon hakemiseen sivustoa käytetään. Antibiootit.fi-sivusto ei kerää käyttäjän henkilötietoja."
     }
 ]

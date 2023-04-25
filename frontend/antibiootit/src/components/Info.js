@@ -114,9 +114,15 @@ export default function Info() {
     }
 
     const Privacy = () => {
-        return (
-            <p>Sivulla ei vielä ole sisältöä</p>
-        )   
+        if (!!infoTexts) {
+            const privacyPolicy = infoTexts[18].text;
+            return (
+                <p>{privacyPolicy}</p> 
+            )
+        }
+        else {
+            return <p>Haetaan tietoja...</p>
+        }
     }
 
 
