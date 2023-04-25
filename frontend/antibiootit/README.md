@@ -51,7 +51,11 @@ npm run start
 CI/CD-pipeline has been set up to deploy changes in `main` branch automatically to Railway. It automatically fetches the codes, builds the new production server and deploys it automatically. Deployed application is reachable from [antibiootit.fi](antibiootit.fi) or [via Railway's domain](frontend-production-a67f.up.railway.app)
 
 ## The frontend component structure
+
+![Image of the component structure](./components.jpg)
+
 Our web application follows a frontend component structure that originates from App.js, which hosts the Header, Main, and Footer components. Depending on the path, the Main component's content changes (see Routing).
+
 ### Routing
 The routing in the web application has been implemented using React Router. The routes are implemented in the App.js file, with routes to the main (calculator) view, the information page, and feedback page.
 
@@ -68,5 +72,3 @@ The information page has four links to different page contents. The default page
 The feedback page contains an embedded Google Forms questionnaire.
 ### Style
 All the website’s styling is in style.css.
-
-![Image of the component structure](./components.jpg)
