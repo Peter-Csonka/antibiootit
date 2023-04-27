@@ -43,7 +43,7 @@ export default function Info() {
 
       const InfoParagraph = ({ text, citation, onClick }) => (
         <>
-          {text} <a href="#" onClick={onClick}>{citation}</a>
+          {text} <a href="scrollToReferences" onClick={onClick}>{citation}</a>
         </>
       );
 
