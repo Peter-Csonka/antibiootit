@@ -7,7 +7,32 @@
     {
       "id": "background",
       "header": "Tausta",
-      "text": "Antibiootit ovat lapsille eniten määrätty lääkeaineryhmä [1]. Vaikka antibiootit ovat välttämättömiä bakteeriperäisten infektioiden hoidossa, niiden liiallinen käyttö johtaa multiresistenttien bakteerien yleistymiseen [2]. Suosituksesta poikkeava antibioottivalinta voi johtaa myös hoidon epäonnistumiseen vastustuskykyisten taudinaiheuttajien takia. Toistuvat antibioottihoidot - erityisesti imeväis- ja leikki-iässä - horjuttavat suoliston bakteerikannan tasapainoa ja mahdollisesti lisäävät useiden kroonisten sairauksien (mm. astma, diabetes, tulehdukselliset suolistosairaudet) ja ylipainon riskiä. [3–6] Antibioottien liiallinen käyttö tavanomaisten ja usein itsestään paranevien lasten hengitystieinfektioiden hoidossa on merkittävä kansanterveydellinen ongelma [7].\n\nLasten infektiosairauksiin liittyviä Käypä hoito -suosituksia on julkaistu vuosien varrella useita,[8] mutta niiden jalkauttaminen käytännön tasolle on ollut haastavaa. Pelkkä muistutus hoitosuositusten olemassaolosta ei näytä merkittävästi vaikuttavan avoterveydenhuollon käytäntöihin. [11, 16, 17] Lasten antibioottimääräyksissä hoitosuosituksista poikkeaminen on harvoin aiheellista edes allergian takia, sillä lasten penisilliiniallergia on erittäin harvinainen. Kaikista antibioottiallergiaepäilystä alle 5 % varmistuu allergiaksi. [9] Vaikean penisilliiniallergian esiintyvyys on noin 0,0005 % [10].\n\nTutkimusten mukaan lasten riski saada hoitosuosituksista poikkeavaa antibioottihoitoa (toisin sanoen, turhaan määrätty tai vääränlainen antibiootti) on korkeampi avoterveydenhuollossa erikoissairaanhoitoon verrattuna. [11–14] Keskeiset tunnistetut ongelmat ovat seuraavat: 1) virusperäisiä ylä- ja alahengitystietulehduksia hoidetaan virheellisesti antibiooteilla; 2) keuhkoputkentulehdukseen (itsestään paraneva virusperäinen bronkiitti) määrätään edelleen aktiivisesti antibiootteja, erityisesti makrolideja; 3) makrolideja käytetään tarpeettoman usein välikorvatulehduksen, sivuontelotulehduksen ja avohoitopneumonian hoidossa. Nämä havainnot ovat merkittäviä, sillä suurin osa antibioottimääräyksistä tapahtuu nimenomaan avoterveydenhuollossa. [15]\n\nAntibiootit.fi-sivuston tavoitteena on tukea ja nopeuttaa lääkärin työtä lasten yleisimpien hengitystieinfektioiden hoidossa. Antibiootit.fi-sivu on tarkoitettu vain lääkäreille. Lääkevalinnat ja lääkkeiden annosteluohjeet perustuvat Käypä hoito -suosituksiin, Lääkäriseura Duodecimin julkaisemaan Lääkärin käsikirjaan sekä Pharmaca Fennican ohjeisiin. Sivuston sisällöstä ja oikeellisuudesta vastaa lasten infektiosairauksien hoitoon erikoistunut asiantuntijaryhmä."
+      "text": "Antibiootit ovat lapsille eniten määrätty lääkeaineryhmä.",
+      "citation": "[1]",
+      "text2": " Vaikka antibiootit ovat välttämättömiä bakteeriperäisten infektioiden hoidossa, niiden liiallinen käyttö johtaa multiresistenttien bakteerien yleistymiseen.",
+      "citation2": "[2]",
+      "text3": " Suosituksesta poikkeava antiboottivalinta voi johtaa myös hoidon epäonnistumiseen vastustuskykyisten taudinaiheuttajien takia. Toistuvat antibioottihoidot - erityisesti imeväis- ja leikki-iässä - horjuttavat suoliston bakteerikannan tasapainoa ja mahdollisesti lisäävät useiden kroonisten sairauksien (mm. astma, diabetes, tulehdukselliset suolistosairaudet) ja ylipainon riskiä.",
+      "citation3": "[3–6]",
+      "text4": " Antibioottien liiallinen käyttö tavanomaisten ja usein itsestään paranevien lasten hengitystieinfektioiden hoidossa on merkittävä kansanterveydellinen ongelma.",
+      "citation4": "[7]",
+
+      "text5": "Lasten infektiosairauksiin liittyviä Käypä hoito -suosituksia on julkaistu vuosien varrella useita,",
+      "citation5": "[8]",
+      "text6": " mutta niiden jalkauttaminen käytännön tasolle on ollut haastavaa. Pelkkä muistutus hoitosuositusten olemassaolosta ei näytä merkittävästi vaikuttavan avoterveydenhuollon käytäntöihin.",
+      "citation6": "[9–11]",
+      "text7": " Lasten antibioottimääräyksissä hoitosuosituksista poikkeaminen on harvoin aiheellista edes allergian takia, sillä lasten penisilliiniallergia on erittäin harvinainen. Kaikista antibioottiallergiaepäilystä alle 5 % varmistuu allergiaksi.",
+      "citation7": "[12]",
+      "text8": " Vaikean penisilliiniallergian esiintyvyys on noin 0.0005 %.",
+      "citation8": "[13]",
+
+      "text9": "Tutkimusten mukaan lasten riski saada hoitosuosituksista poikkeavaa antibioottihoitoa (toisin sanoen, turhaan määrätty tai vääränlainen antibiootti) on korkeampi avoterveydenhuollossa erikoissairaanhoitoon verrattuna.",
+      "citation9": "[10,14–16]",
+      "text10": " Keskeiset tunnistetut ongelmat ovat seuraavat: 1) virusperäisiä ylä- ja alahengitystietulehduksia hoidetaan virheellisesti antibooteilla; 2) keuhkoputkentulehdukseen (itsestään paraneva virusperäinen bronkiitti) määrätään edelleen aktiivisesti antibiootteja, erityisesti makrolideja; 3) makrolideja käytetään tarpeettoman usein välikorvatulehduksen, sivuontelotulehduksen ja avohoitopneumonian hoidossa. Nämä havainnot ovat merkittäviä, sillä suurin osa antibioottimääräyksistä tapahtuu nimenomaan avoterveydenhuollossa.",
+      "citation10": "[17]",
+
+      "infoHeader": "Tavoitteet",
+      "info1": "Antibiootit.fi -sivuston tavoitteena on",
+      "info2": " tukea ja nopeuttaa lääkärin työtä lasten yleisimpien hengitystieinfektioiden hoidossa. Antibiootit.fi -sivu on tarkoitettu vain lääkäreille. Lääkevalinnat ja lääkkeiden annosteluohjeet perustuvat Käypä hoito -suosituksiin, Lääkäriseura Duodecim julkaisemaan Lääkärin käsikirjaan sekä Pharmaca Fennican ohjeisiin. Sivuston sisällöstä ja oikeudellisuudesta vastaa lasten infektiosairauksien hoitoon erikoistunut asiantuntijaryhmä."
     },
     {
       "id": "disclaimer",
@@ -22,7 +47,7 @@
     {
       "id": "medicalProfessionals",
       "header": "Lääketieteen asiantuntijat",
-      "text": "Marjo Renko, LT, lastentautiopin professori, lasten infektiosairauksien erikoislääkäri, Itä-Suomen yliopisto. Marjo on tehnyt tutkimustyötä lasten infektiosairauksien epidemiologiasta. Erityisen innostunut näyttöön perustuvasta lääketieteestä, sen opettamisesta ja jalkauttamisesta käytäntöön. Siviilissä villapaitoja neulova mummi.\n\nMatti Korppi, LT, lastentautiopin emeritusprofessori, lasten infektiosairauksien erikoislääkäri, Tampereen yliopisto. Matti on tutkinut hyvin laajalti lasten infektiosairauksien hoitoa ja on ollut luomassa valtakunnallisia hoitosuosituksia.\n\nIlari Kuitunen, LT, epidemiologian dosentti, lastentauteihin erikoistuva lääkäri, Itä-Suomen yliopisto. Ilari on tehnyt tutkimusta lasten infektiosairauksien hoidosta ja diagnostiikasta."
+      "text": "Marjo Renko, LT, lastentautiopin professori, lasten infektiosairauksien erikoislääkäri, Itä-Suomen yliopisto. Marjo on tehnyt tutkimustyötä lasten infektiosairauksien epidemiologiasta. Erityisen innostunut näyttöön perustuvasta lääketieteestä, sen opettamisesta ja jalkauttamisesta käytäntöön. Siviilissä villapaitoja neulova mummi.\n\nMatti Korppi, LT, lastentautiopin emeritusprofessori, lasten infektiosairauksien erikoislääkäri, Tampereen yliopisto. Matti on tutkinut hyvin laajalti lasten infektiosairauksien hoitoa ja on ollut luomassa valtakunnallisia hoitosuosituksia.\n\nMika Mäkelä, LT kliinisen allergologian professori, lastentautien erikoislääkäri, lastenallergologi, HUS Iho- ja allergiasairaala.\n\nIlari Kuitunen, LT, epidemiologian dosentti, lastentauteihin erikoistuva lääkäri, Itä-Suomen yliopisto. Ilari on tehnyt tutkimusta lasten infektiosairauksien hoidosta ja diagnostiikasta."
     },
     {
       "id": "ITProfessionals",

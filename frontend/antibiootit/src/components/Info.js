@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import GetInfoTexts from "./GetInfoTexts";
 import getReferences from "./GetReferences";
+
 
 export default function Info() {
 
@@ -9,6 +10,12 @@ export default function Info() {
     const [activeButton, setActiveButton] = useState("background");
     const [infoTexts, setInfoTexts] = useState(null);
     const [references, setReferences] = useState(null);
+    const myRef = useRef(null);
+
+    const handleRefClick = (event) => {
+        event.preventDefault();
+        myRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const location = useLocation();
     let from = location.state ? location.state : "";
@@ -34,28 +41,73 @@ export default function Info() {
         fetchData();
     }, []);
 
+      const InfoParagraph = ({ text, citation, onClick }) => (
+        <>
+          {text} <a href="scrollToReferences" onClick={onClick}>{citation}</a>
+        </>
+      );
+
+    const InfoTexts = ({ infoTexts, handleRefClick }) => {
+        const { header, text, citation, text2, citation2, text3, citation3, text4, citation4, text5, citation5, text6, citation6, text7, citation7, text8, citation8, text9, citation9, text10, citation10, infoHeader, info1, info2 } = infoTexts[1];
+      
+        return (
+          <>
+            <h3>{header}</h3>
+            <p className="info-paragraph">
+              <InfoParagraph text={text} citation={citation} onClick={handleRefClick} />
+              <InfoParagraph text={text2} citation={citation2} onClick={handleRefClick} />
+              <InfoParagraph text={text3} citation={citation3} onClick={handleRefClick} />
+              <InfoParagraph text={text4} citation={citation4} onClick={handleRefClick} />
+            </p>
+            <p className="info-paragraph">
+              <InfoParagraph text={text5} citation={citation5} onClick={handleRefClick} />
+              <InfoParagraph text={text6} citation={citation6} onClick={handleRefClick} />
+              <InfoParagraph text={text7} citation={citation7} onClick={handleRefClick} />
+              <InfoParagraph text={text8} citation={citation8} onClick={handleRefClick} />
+            </p>
+            <p className="info-paragraph">
+              <InfoParagraph text={text9} citation={citation9} onClick={handleRefClick} />
+              <InfoParagraph text={text10} citation={citation10} onClick={handleRefClick} />
+            </p>
+            <h3>{infoHeader}</h3>
+            <p className="info-paragraph">
+              <span className="info-bolded-text">{info1}</span>
+              <span>{info2}</span>
+            </p>
+          </>
+        );
+      };
+
+    const References = ({ references }) => (
+        <>
+        <h3 ref={myRef}>{references[0].header}</h3>
+          {references.map((reference) => (
+            <p key={reference.citation} className="info-references">
+              <span>{reference.text}</span>
+              <span>
+                <a href={reference.citation}>{reference.citation}</a>
+                {reference.bonusText && <span>{reference.bonusText}</span>}
+              </span>
+            </p>
+          ))}
+        </>
+      );
+
     const Background = () => {
         if (!!infoTexts && !!references) {
-            const backgroundInfo = infoTexts[1].text;
-            const paragraphs = backgroundInfo.split("\n\n");
+
             return (
                 <>
-                    <div>{paragraphs.map((paragraph, index) => (
-                        <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                    ))}</div>
-                    <ul className="info-references">{references.map((item) => (
-                        <li key={item.id}>
-                            [{item.id}] {item.text}
-                        </li>
-                    ))}</ul>
+                    <InfoTexts infoTexts={infoTexts} handleRefClick={handleRefClick} />
+                    <References references={references}/>
                 </>
-                
+
             )
         }
         else {
             return <p>Haetaan tietoja...</p>
         }
-    
+
     }
     const Makers = () => {
         if (!!infoTexts) {
@@ -68,25 +120,25 @@ export default function Info() {
 
             return (
                 <>
-                <h3>{leaderInfo.header}</h3>
+                    <h3>{leaderInfo.header}</h3>
                     <div>
                         {paragraphs1.map((paragraph, index) => (
-                        <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                    ))}</div>
+                            <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
+                        ))}</div>
 
-                <h3>{medicalProfessionalsInfo.header}</h3>
+                    <h3>{medicalProfessionalsInfo.header}</h3>
                     <div>
                         {paragraphs2.map((paragraph, index) => (
-                        <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                    ))}</div>
+                            <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
+                        ))}</div>
 
-                <h3>{itProfessionalsInfo.header}</h3>
+                    <h3>{itProfessionalsInfo.header}</h3>
                     <div>
                         {paragraphs3.map((paragraph, index) => (
-                        <p className="info-it" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                    ))}</div>
+                            <p className="info-it" key={index}>{paragraph.split("\n").join("<br>")}</p>
+                        ))}</div>
                 </>
-                
+
             )
         }
         else {
@@ -104,20 +156,20 @@ export default function Info() {
                         <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
                     ))}</div>
                 </>
-                
+
             )
         }
         else {
             return <p>Haetaan tietoja...</p>
         }
-    
+
     }
 
     const Privacy = () => {
         if (!!infoTexts) {
             const privacyPolicy = infoTexts[18].text;
             return (
-                <p>{privacyPolicy}</p> 
+                <p>{privacyPolicy}</p>
             )
         }
         else {
@@ -143,7 +195,7 @@ export default function Info() {
                         setContent("makers")
                         setActiveButton("makers")
                     }}
-                    >Tekijät</button>
+                >Tekijät</button>
                 <button
                     className={activeButton === "disclaimer" ? 'info-active' : ''}
                     onClick={() => {
@@ -163,6 +215,6 @@ export default function Info() {
             {content === "disclaimer" && <Disclaimer />}
             {content === "privacy" && <Privacy />}
         </div>
-        
+
     )
 }

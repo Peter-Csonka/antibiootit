@@ -722,8 +722,12 @@ aside {
     margin-bottom: 10px;
 }
 
+.info-bolded-text {
+    font-weight: bold;
+  }
+
 .info-references {
-    margin-top: 60px;
+    margin-top: 3px;
     list-style-type: none;
     font-size: small;
     line-height: 1.4;
@@ -838,3 +842,6 @@ aside {
       transform: rotate(360deg);
     }
   }
+
+
+
