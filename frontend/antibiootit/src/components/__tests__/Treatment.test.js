@@ -95,18 +95,3 @@ test('Should render calculations after clicking laskukaava-button', async() => {
     fireEvent.click(screen.getByText('Laskukaava'));
     expect(screen.getByTestId('calculations')).toBeInTheDocument();
 });
-
-
-
-/*
-test('Should show primary choice text with Amoksisilliini jauhe', async () => {
-    render(<TestWrapper />);
-
-    expect(screen.queryByText('Ensisijainen valinta: Amoksisilliini jauhe 100 mg/ml')).toBeInTheDocument();
-});
-
-test('Should show secondary choice text with Amoksisilliini-klavulaanihappo', async () => {
-    render(<TestWrapper />);
-    
-    expect(screen.queryByText('Toissijainen valinta: Amoksisilliini-klavulaanihappo jauhe 80/11.4 mg/ml')).toBeInTheDocument();
-}); <-- nää choice testipaikkaan? koska ei toimi täälä ainakaan :( */
