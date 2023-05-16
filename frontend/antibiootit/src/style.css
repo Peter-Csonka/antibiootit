@@ -841,16 +841,19 @@ aside {
         align-items: center;
         margin-top: 10px;
         margin-bottom: 15px;
-    }
-     .header--links {
+    } .header--links {
         display: none;
     } ion-icon {
         color: white;
+    } .antibiotic-instructions > p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;      
     } aside {
         grid-column-start: 1;
         grid-row-start: 14;
         margin-bottom: 40px;
-        width: 70%;
+        width: 100%;
         background-color: white;
         overflow-x: hidden;
     } .treatment-header {
@@ -869,6 +872,29 @@ aside {
         margin-bottom: 15px;
     } .diagnosis-menu {
         margin-top: 20px;
+    } section {
+        max-height:fit-content;
+    } .checkbox-container {
+        height: 50px;
+    } .treatment-container {
+        margin-top: 25px;
+    } .treatment-header > h2 {
+        font-size: 19px;
+    } .choise-inner {
+        margin-top: 8px;
+        height: fit-content;
+        gap: 0px;
+    } .btn-elements > p {
+        font-size: 14px;
+        margin-right: 10px;
+    } .strepto-info {
+        font-size: 20px;
+    } .copy-button {
+        font-size: 14px;
+        margin-right: 6px;
+    } .copy--image {
+        width: 17px;
+        margin-right: 5px;
     }
 }
 
