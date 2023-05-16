@@ -21,7 +21,8 @@ export default function Antibiotics() {
     const [chosenWeight, setChosenWeight] = useState(null);
     const [noAntibioticTreatment, setNoAntibioticTreatment] = useState(null);
     const [formData, setFormData] = useState(null);
-    const [hasFormData, setHasFormData] = useState(false)
+    const [hasFormData, setHasFormData] = useState(false);
+    const [isWeightOk, setIsWeightOk] = useState(false);
     
     const [diagnoses, setDiagnoses] = useState(null);
     const [infoTexts, setInfoTexts] = useState(null);
@@ -169,9 +170,11 @@ export default function Antibiotics() {
                 formSubmitted={formSubmitted} 
                 formData={formData}
                 hasFormData={hasFormData}
+                isWeightOk={isWeightOk}
+                setIsWeightOk={setIsWeightOk}
             />
             {formSubmitted && !!noAntibioticTreatment && <NoTreatment />}
-            {formSubmitted && (treatments && diagnosisData.needsAntibiotics)  && <Treatment 
+            {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
                 loading={loading}
                 needsAntibiotics={diagnosisData.needsAntibiotics}
                 description={description}
@@ -180,7 +183,7 @@ export default function Antibiotics() {
                 setActiveRecipe={setActiveRecipe}
                 format={treatments[0].format}
             />}
-            {formSubmitted && (treatments || !!noAntibioticTreatment) && <Recipe 
+            {formSubmitted && (treatments || !!noAntibioticTreatment) && isWeightOk && <Recipe 
                 loading={loading}
                 treatments={treatments} 
                 activeRecipe={activeRecipe} 

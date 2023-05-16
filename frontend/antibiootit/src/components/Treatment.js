@@ -5,10 +5,8 @@ import { InlineMath } from 'react-katex';
 import LoadingIndicator from "./LoadingIndicator";
 
 export default function Treatment(props) {
-    //console.log(props.loading);
 
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
-
     const [activeVariables, setActiveVariables] = useState(giveValues());
 
     // This updates the variables when the diagnosis is changed
@@ -133,7 +131,7 @@ export default function Treatment(props) {
     )
 
     const [openCalculations, setOpenCalculations] = React.useState(false);
-    
+
     function calculate() {
         setOpenCalculations(prevStatus => !prevStatus)
     }
@@ -167,7 +165,8 @@ export default function Treatment(props) {
                 </div>
             </div>}
             <div className="treatment-extra">
-                <button className="btn-calculate" onClick={calculate} disabled={!props.needsAntibiotics || props.format === 'tabletti'}>
+                <button className="btn-calculate" onClick={calculate} 
+                    disabled={!props.needsAntibiotics || props.format === 'tabletti'}>
                     {openCalculations ?
                     <div className="btn-elements">
                         <img className="func-icon-closed" src="./icons/function-icon-closed.svg" alt="icon-closed"/>

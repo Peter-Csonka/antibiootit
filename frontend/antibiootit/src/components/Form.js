@@ -160,7 +160,7 @@ export default function Form(props) {
     }
 
     const [weight, setWeight] = useState("");
-    const [isWeightOk, setIsWeightOk] = useState(false);
+    //const [isWeightOk, setIsWeightOk] = useState(false);
     const [formatWeight, setFormatWeight] = useState(true);
     const inputErrorMessage = "Tarkista paino";
     const MIN_WEIGHT = 4;
@@ -171,7 +171,7 @@ export default function Form(props) {
         e.preventDefault();
         const input = e.target.value;
         if (!VALID_WEIGHT_INPUT.test(input)) {
-            setIsWeightOk(false);
+            props.setIsWeightOk(false);
             setFormatWeight(false);
         }
         else {
@@ -183,7 +183,7 @@ export default function Form(props) {
             const roundedWeight = Math.round(parseFloat(input.replace(",", ".")) * 100) / 100;
             const weightForCalculations = roundedWeight.toFixed(2).replace(",", ".");
             if (weightForCalculations >= MIN_WEIGHT && weightForCalculations <= MAX_WEIGHT) {
-                setIsWeightOk(true);
+                props.setIsWeightOk(true);
                 setFormatWeight(true);
                 if (props.hasFormData) {
                     const newData = {
@@ -195,7 +195,7 @@ export default function Form(props) {
                 }
             }
             else {
-                setIsWeightOk(false);
+                props.setIsWeightOk(false);
                 if (input.length >= 1 && props.formSubmitted) {
                     setFormatWeight(false);
                 }
@@ -221,7 +221,7 @@ export default function Form(props) {
 
     const handleClick = (e) => {
         e.preventDefault();
-        if (isWeightOk) {
+        if (props.isWeightOk) {
             const checkBoxes = [
                 {
                     id: 'EBV-001',
@@ -241,7 +241,7 @@ export default function Form(props) {
             
             const weightForCalculations = roundedWeight.toFixed(2).replace(",", ".");
             if (weightForCalculations >= MIN_WEIGHT && weightForCalculations <= MAX_WEIGHT) {
-                setIsWeightOk(true);
+                props.setIsWeightOk(true);
                 setWeight(formattedWeight);
                 props.setChosenWeight(formattedWeight);
                 setFormatWeight(true);
@@ -265,7 +265,7 @@ export default function Form(props) {
 
             }            
         }
-        else if (diagnosis && !isWeightOk && needsAntibiotics) {
+        else if (diagnosis && !props.isWeightOk && needsAntibiotics) {
             setFormatWeight(false);
         }
     }
