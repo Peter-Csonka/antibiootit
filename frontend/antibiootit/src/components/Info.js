@@ -85,7 +85,7 @@ export default function Info() {
             <p key={reference.citation} className="info-references">
               <span>{reference.text}</span>
               <span>
-                <a href={reference.citation}>{reference.citation}</a>
+                <a href={reference.citation} target="_blank" rel="noopener noreferrer">{reference.citation}</a>
                 {reference.bonusText && <span>{reference.bonusText}</span>}
               </span>
             </p>
@@ -187,7 +187,9 @@ export default function Info() {
                     <p>{fundingText}</p>
                     <br></br>
                     <ul>{add1}
-                        <li style={{marginLeft : '20px', marginTop : '5px'}}><a href="https://www.hes-saatio.fi/">{add2}</a></li>
+                        <li style={{marginLeft : '20px', marginTop : '5px'}}>
+                            <a href="https://www.hes-saatio.fi/" target="_blank" rel="noopener noreferrer">{add2}</a>
+                        </li>
                     </ul>
                 </>
             )
