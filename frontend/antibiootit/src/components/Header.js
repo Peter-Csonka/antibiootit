@@ -1,7 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
+   
+    function toggleMenu() {
+      setShowMobileMenu(!showMobileMenu);
+      console.log("click")
+      console.log(showMobileMenu)
+    }
     return (
         <header className="header">
             
@@ -25,6 +32,35 @@ export default function Header() {
                         (isActive ? "active-class" : "not-active-class")}>
                     Palaute
                 </NavLink>          
+            </div>
+            <div className="mobile-container">
+                <nav className="mobile-nav">            
+                    <button
+                        className="mobile-menu-btn"
+                        onClick={toggleMenu}>
+                        <ion-icon  name="menu" size="large"></ion-icon>
+                    </button>
+                    <div className={`mobile-nav-links ${showMobileMenu ? 'show-menu' : ''}`}>
+                        <NavLink 
+                            to="/"
+                            className="nav-link"
+                            onClick={() => setShowMobileMenu(false)}>
+                            Laskuri
+                        </NavLink>
+                        <NavLink 
+                            to="/tietoa"
+                            className="nav-link"
+                            onClick={() => setShowMobileMenu(false)}>
+                            Tietoa sivustosta
+                        </NavLink>
+                        <NavLink 
+                            to="/palaute"
+                            className="nav-link"
+                            onClick={() => setShowMobileMenu(false)}>
+                            Palaute
+                        </NavLink>
+                    </div>
+                </nav>
             </div>
         </header>
     )
