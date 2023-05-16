@@ -106,6 +106,7 @@ main {
     grid-template-columns: 2fr 1fr;
     max-width: 800px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 .main-centered {
@@ -549,7 +550,7 @@ aside {
 }
 
 .strepto-info {
-    padding: 5px;
+    padding: 20px;
     display: flex;
     width: 400px;
     height: 40px;
@@ -792,12 +793,49 @@ aside {
     font-size: 16px;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 500px) {
+    main {
+        max-width: 500px;
+    } aside {
+        grid-column-start: 1;
+        grid-row-start: 14;
+        margin-bottom: 40px;
+        width: 70%;
+        background-color: white;
+        overflow-x: hidden;
+    } .treatment-container {
+        width: 70%;
+    } .recipe-container {
+        width: 70%;
+    } .treatment-header {
+        font-size: 14px;
+    } .antibiotic-instructions {
+        width: 70%;
+        font-size: 16px;
+    } section > h1 {
+        font-size: 22px;
+    } .diagnosis-form {
+        width: 70%;
+    } .form--button {
+        width: 200px;
+    } .form--input {
+        width: 200px;
+    } .strepto-info {
+        width: 100%;
+    } 
+}
+
+
+@media only screen and (min-width: 501px) {
     aside {
         grid-column-start: 1;
         grid-row-start: 14;
         margin-bottom: 40px;
         background-color: white;
+    } .active-class {
+        margin-left: 30px;
+    } .not-active-class {
+        margin-left: 30px;
     }
 }
 
