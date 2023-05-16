@@ -177,7 +177,25 @@ export default function Info() {
         }
     }
 
-
+    const Funding = () => {
+        if (!!infoTexts) {
+            const fundingText = infoTexts[19].text;
+            const add1 = infoTexts[19].addition1;
+            const add2 = infoTexts[19].addition2;
+            return (
+                <>
+                    <p>{fundingText}</p>
+                    <br></br>
+                    <ul>{add1}
+                        <li style={{marginLeft : '20px', marginTop : '5px'}}><a href="https://www.hes-saatio.fi/">{add2}</a></li>
+                    </ul>
+                </>
+            )
+        }
+        else {
+            return <p>Haetaan tietoja...</p>
+        }
+    }
 
     return (
         <div className="info-container">
@@ -194,8 +212,7 @@ export default function Info() {
                     onClick={() => {
                         setContent("makers")
                         setActiveButton("makers")
-                    }}
-                >Tekijät</button>
+                    }}>Tekijät</button>
                 <button
                     className={activeButton === "disclaimer" ? 'info-active' : ''}
                     onClick={() => {
@@ -208,12 +225,19 @@ export default function Info() {
                         setContent("privacy")
                         setActiveButton("privacy")
                     }}>Tietosuojaseloste</button>
+                <button
+                    className={activeButton === "funding" ? 'info-active' : ''}
+                    onClick={() => {
+                        setContent("funding")
+                        setActiveButton("funding")
+                    }}>Rahoitus</button>
             </div>
             <hr className="info-line" />
             {content === "background" && <Background />}
             {content === "makers" && <Makers />}
             {content === "disclaimer" && <Disclaimer />}
             {content === "privacy" && <Privacy />}
+            {content === "funding" && <Funding />}
         </div>
 
     )
