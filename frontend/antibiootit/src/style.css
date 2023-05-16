@@ -806,8 +806,9 @@ aside {
 .mobile-menu-btn {
     background-color: #5D769A;
     border: none;
-    position: relative;
-    margin: auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .mobile-nav {
@@ -830,7 +831,7 @@ aside {
 
 .show-menu {
     display: block;
-    margin-top: 150px;
+    margin-top: 195px;
   }
 
 @media only screen and (max-width: 500px) {

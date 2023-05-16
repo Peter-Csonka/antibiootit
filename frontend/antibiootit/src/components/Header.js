@@ -33,18 +33,18 @@ export default function Header() {
                     Palaute
                 </NavLink>          
             </div>
-            <div className="mobile-container">
-                <nav className="mobile-nav">            
+            <div className="mobile-container">            
                     <button
                         className="mobile-menu-btn"
                         onClick={toggleMenu}>
                         <ion-icon  name="menu" size="large"></ion-icon>
                     </button>
+                    <nav className="mobile-nav">
                     <div className={`mobile-nav-links ${showMobileMenu ? 'show-menu' : ''}`}>
                         <NavLink 
                             to="/"
                             className="nav-link"
-                            onClick={() => setShowMobileMenu(false)}>
+                            onClick={() => setShowMobileMenu(false) }>
                             Laskuri
                         </NavLink>
                         <NavLink 
@@ -60,7 +60,7 @@ export default function Header() {
                             Palaute
                         </NavLink>
                     </div>
-                </nav>
+                </nav>    
             </div>
         </header>
     )
