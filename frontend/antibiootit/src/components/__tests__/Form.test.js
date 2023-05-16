@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Form from '../Form';
@@ -41,17 +41,21 @@ const formData = null;
 const hasFormData = false;
 
 const TestWrapper = () => {
-  return (
-    <Form 
-    diagnoses={diagnoses}
-    handleSubmit={receiveInput} 
-    changeInstruction={changeInstruction} 
-    setChosenDiagnosis={setChosenDiagnosis}
-    setChosenWeight={setChosenWeight}
-    formSubmitted={formSubmitted} 
-    formData={formData}
-    hasFormData={hasFormData}
-/>
+    const [isWeightOk, setIsWeightOk] = useState(false);
+    
+    return (
+        <Form 
+        diagnoses={diagnoses}
+        handleSubmit={receiveInput} 
+        changeInstruction={changeInstruction} 
+        setChosenDiagnosis={setChosenDiagnosis}
+        setChosenWeight={setChosenWeight}
+        formSubmitted={formSubmitted} 
+        formData={formData}
+        hasFormData={hasFormData}
+        isWeightOk={isWeightOk}
+        setIsWeightOk={setIsWeightOk}
+    />
   );
 };
 
