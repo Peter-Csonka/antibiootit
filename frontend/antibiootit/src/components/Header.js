@@ -21,17 +21,17 @@ export default function Header() {
             <div className="header--links">
                 <NavLink to="/" 
                     className={({ isActive }) => 
-                        (isActive ? "active-class" : "not-active-class")}>
+                        (isActive ? "active-class" : "not-active-class")} data-testid="calculator-link">
                     Laskuri
                 </NavLink>
                 <NavLink to="/tietoa" 
                     className={({ isActive }) => 
-                        (isActive ? "active-class" : "not-active-class")}>
+                        (isActive ? "active-class" : "not-active-class")} data-testid="info-link">
                     Tietoa sivustosta
                 </NavLink>
                 <NavLink to="/palaute" 
                     className={({ isActive }) => 
-                        (isActive ? "active-class" : "not-active-class")}>
+                        (isActive ? "active-class" : "not-active-class")} data-testid="feedback-link">
                     Palaute
                 </NavLink>          
             </div>
