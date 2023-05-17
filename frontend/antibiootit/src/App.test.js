@@ -20,14 +20,21 @@ test('Should render Header', async () => {
 });
 
 test('Header includes all the correct links', () => {
+  window.innerWidth = 1024;
+  window.innerHeight = 1800;
+
 	render(<BrowserRouter>
     <App>
       <Header />
     </App>
   </BrowserRouter>);
-  expect(screen.getByText('Laskuri')).toBeInTheDocument();
-  expect(screen.getByText('Tietoa sivustosta')).toBeInTheDocument();
-  expect(screen.getByText('Palaute')).toBeInTheDocument();
+
+  expect(screen.getByTestId('calculator-link')).toBeInTheDocument();
+  expect(screen.getByTestId('info-link')).toBeInTheDocument();
+  expect(screen.getByTestId('feedback-link')).toBeInTheDocument();
+  
+  delete window.innerWidth;
+  delete window.innerHeight;
 });
 
 

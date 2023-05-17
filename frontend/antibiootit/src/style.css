@@ -106,6 +106,7 @@ main {
     grid-template-columns: 2fr 1fr;
     max-width: 800px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 .main-centered {
@@ -549,7 +550,7 @@ aside {
 }
 
 .strepto-info {
-    padding: 5px;
+    padding: 20px;
     display: flex;
     width: 400px;
     height: 40px;
@@ -691,8 +692,8 @@ aside {
 }
 
 .info-links {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
 }
 
 .info-links button {
@@ -792,13 +793,170 @@ aside {
     font-size: 16px;
 }
 
-@media only screen and (max-width: 1500px) {
-    aside {
+.mobile-container {
+    display: block;
+    margin: 0px;
+    max-width: 200px;
+}
+
+.mobile-nav-links {
+    display: none;
+}
+
+.mobile-menu-btn {
+    background-color: #5D769A;
+    color: white;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.mobile-nav {
+    position: relative;
+    max-width: 480px;
+    background-color: #5D769A;
+    z-index: 4;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 14px 16px;
+}
+
+.mobile-nav-links :nth-child(odd) {
+    background-color: #4c627e;
+}
+
+.show-menu {
+    display: block;
+    margin-top: 195px;  
+  }
+
+/*Scalability to mobile screen*/
+@media only screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    } .header--links {
+        display: none;
+    } .antibiotic-instructions > p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;      
+    } .antibiotics {
+        margin-left: 4%;
+        margin-right: 4%;
+    } .feedback-container {
+       width: 100%;
+       max-width: 100%; 
+       padding: 0 20px;
+    } .feedback-form {
+        width: 100%;
+        max-width: 100%;
+    } .aside {
         grid-column-start: 1;
         grid-row-start: 14;
         margin-bottom: 40px;
+        width: 100%;
         background-color: white;
+        overflow-x: hidden;
+    } .treatment-header {
+        font-size: 14px;
+    } section > h1 {
+        font-size: 22px;
+        margin-top: 30px;
+    } .strepto-info {
+        width: 100%;
+    } .weight-input {
+        padding-right: 0px;
+    } .diagnosis-form  {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    } .diagnosis-menu {
+        margin-top: 20px;
+    } section {
+        max-height:fit-content;
+    } .checkbox-container {
+        height: 50px;
+    } .treatment-container {
+        margin-top: 25px;
+    } .treatment-header > h2 {
+        font-size: 19px;
+    } .choise-inner {
+        margin-top: 8px;
+        height: fit-content;
+        gap: 0px;
+    } .btn-elements > p {
+        font-size: 14px;
+        margin-right: 10px;
+    } .strepto-info {
+        font-size: 20px;
+    } .copy-button {
+        font-size: 14px;
+        margin-right: 6px;
+    } .copy--image {
+        width: 17px;
+        margin-right: 5px;
+    } .info-container {
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        padding: 20px;
+    } .main-centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } .info-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-start;
+        margin-left: 15px;
+    } .info-links > * {
+        margin-bottom: 12px;
+    } .info-line {
+        margin-bottom: 20px;
+    } .info-container > h2 {
+        margin-bottom: 45px;
+    } .mobile-nav {
+        right: -10px;
     }
+}
+
+@media only screen and (min-width: 601px) {
+    .mobile-container {
+        display: none;
+    } .antibiotics {
+       margin-left: 4%;
+    }  .active-class {
+        margin-left: 25px;
+    } .not-active-class {
+        margin-left: 25px;
+    }   
+}
+
+@media only screen and (min-width: 720px){
+    .antibiotics {
+        margin-left: 10%;
+     } 
+    .active-class {
+        margin-left: 60px;
+    } .not-active-class {
+        margin-left: 60px;
+    }    
 }
 
 @media only screen and (min-width: 1500px) {
@@ -807,7 +965,19 @@ aside {
     }
     .diagnosis-menu {
         margin-left: 100px;
+    } .mobile-container {
+        display: none;
+    } .aside {
+        background-color: #FBFBFB;
+        z-index: -1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
     }
+       
 }
 
 .loading-container {
