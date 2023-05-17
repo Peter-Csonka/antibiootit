@@ -692,8 +692,10 @@ aside {
 }
 
 .info-links {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
 .info-links button {
@@ -795,7 +797,7 @@ aside {
 
 .mobile-container {
     display: block;
-    margin: 10px;
+    margin: 0px;
     max-width: 200px;
 }
 
@@ -805,6 +807,7 @@ aside {
 
 .mobile-menu-btn {
     background-color: #5D769A;
+    color: white;
     border: none;
     position: absolute;
     top: 10px;
@@ -831,11 +834,11 @@ aside {
 
 .show-menu {
     display: block;
-    margin-top: 195px;
+    margin-top: 195px;  
   }
 
 /*Scalability to mobile screen*/
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     main {
         display: flex;
         flex-direction: column;
@@ -844,13 +847,21 @@ aside {
         margin-bottom: 15px;
     } .header--links {
         display: none;
-    } ion-icon {
-        color: white;
     } .antibiotic-instructions > p {
         display: flex;
         flex-direction: column;
         align-items: center;      
-    } aside {
+    } .antibiotics {
+        margin-left: 4%;
+        margin-right: 4%;
+    } .feedback-container {
+       width: 100%;
+       max-width: 100%; 
+       padding: 0 20px;
+    } .feedback-form {
+        width: 100%;
+        max-width: 100%;
+    } .aside {
         grid-column-start: 1;
         grid-row-start: 14;
         margin-bottom: 40px;
@@ -861,6 +872,7 @@ aside {
         font-size: 14px;
     } section > h1 {
         font-size: 22px;
+        margin-top: 30px;
     } .strepto-info {
         width: 100%;
     } .weight-input {
@@ -896,22 +908,64 @@ aside {
     } .copy--image {
         width: 17px;
         margin-right: 5px;
+    } .info-container {
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        padding: 20px;
+    } .main-centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } .info-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-start;
+        margin-left: 15px;
+    } .info-links > * {
+        margin-bottom: 12px;
+    } .info-line {
+        margin-bottom: 20px;
+    } .info-container > h2 {
+        margin-bottom: 45px;
+    } .mobile-nav {
+        right: -10px;
     }
 }
 
-@media only screen and (min-width: 501px) {
+@media only screen and (min-width: 601px) {
     aside {
         grid-column-start: 1;
         grid-row-start: 14;
         margin-bottom: 40px;
         background-color: white;
-    } .active-class {
+    }  .mobile-container {
+        display: none;
+    } .antibiotics {
+       margin-left: 4%;
+    }  .active-class {
+        margin-left: 25px;
+    } .not-active-class {
+        margin-left: 25px;
+    }   .antibiotic-instructions {
+        max-width:fit-content;
+    } 
+}
+
+@media only screen and (min-width: 720px){
+    .antibiotics {
+        margin-left: 10%;
+     } 
+    .active-class {
         margin-left: 60px;
     } .not-active-class {
         margin-left: 60px;
-    } .mobile-container {
-        display: none;
-    }
+    }    
 }
 
 @media only screen and (min-width: 1500px) {
@@ -922,7 +976,7 @@ aside {
         margin-left: 100px;
     } .mobile-container {
         display: none;
-    }
+    }    
 }
 
 .loading-container {

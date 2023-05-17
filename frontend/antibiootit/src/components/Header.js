@@ -6,11 +6,11 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
    
     function toggleMenu() {
-      setShowMobileMenu(!showMobileMenu);
-      setIsMenuOpen(!isMenuOpen);
-      console.log("click")
-      console.log(showMobileMenu)
-    }
+        setShowMobileMenu(!showMobileMenu);
+        setIsMenuOpen(!isMenuOpen);
+        console.log("click")
+        console.log(showMobileMenu)
+      }
     return (
         <header className="header">
             
