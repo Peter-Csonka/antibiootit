@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
    
     function toggleMenu() {
       setShowMobileMenu(!showMobileMenu);
+      setIsMenuOpen(!isMenuOpen);
       console.log("click")
       console.log(showMobileMenu)
     }
@@ -37,8 +39,12 @@ export default function Header() {
                     <button
                         className="mobile-menu-btn"
                         onClick={toggleMenu}>
-                        <ion-icon  name="menu" size="large"></ion-icon>
-                    </button>
+                            {isMenuOpen ? (
+                            <ion-icon name="close-outline" size="large"></ion-icon>
+                             ) : (
+                            <ion-icon name="menu" size="large"></ion-icon>
+                            )}
+                     </button>    
                     <nav className="mobile-nav">
                     <div className={`mobile-nav-links ${showMobileMenu ? 'show-menu' : ''}`}>
                         <NavLink 
