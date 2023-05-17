@@ -834,6 +834,7 @@ aside {
     margin-top: 195px;
   }
 
+/*Scalability to mobile screen*/
 @media only screen and (max-width: 500px) {
     main {
         display: flex;
@@ -898,7 +899,6 @@ aside {
     }
 }
 
-
 @media only screen and (min-width: 501px) {
     aside {
         grid-column-start: 1;
@@ -906,9 +906,9 @@ aside {
         margin-bottom: 40px;
         background-color: white;
     } .active-class {
-        margin-left: 30px;
+        margin-left: 60px;
     } .not-active-class {
-        margin-left: 30px;
+        margin-left: 60px;
     } .mobile-container {
         display: none;
     }
