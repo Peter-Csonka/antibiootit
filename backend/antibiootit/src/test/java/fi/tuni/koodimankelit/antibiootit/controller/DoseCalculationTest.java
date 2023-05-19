@@ -184,6 +184,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
                 null,
                 new AccurateDosageResult(
                     new Measurement("ml", 3.5),
+                    new Measurement("ml", 3.457),
                     new Measurement("ml", 3.457)
                 )
             )

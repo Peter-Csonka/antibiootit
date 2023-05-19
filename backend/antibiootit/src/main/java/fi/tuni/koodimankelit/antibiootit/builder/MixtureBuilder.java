@@ -33,11 +33,13 @@ public class MixtureBuilder extends AntibioticTreatmentBuilder {
     protected DosageResult buildResult() {
         Double dosageResult = calculateDosageResult();
         Double roundedResult = roundToNearestHalf(dosageResult);
+        Double accResult = accurateDosageResult();
         String resultUnit = antibiotic.getResultUnit();
 
         return new AccurateDosageResult(
             new Measurement(resultUnit, roundedResult),
-            new Measurement(resultUnit, dosageResult)
+            new Measurement(resultUnit, dosageResult),
+            new Measurement(resultUnit, accResult)
         );
     }
 
@@ -51,6 +53,24 @@ public class MixtureBuilder extends AntibioticTreatmentBuilder {
         if(dosagePerDay > dosage.getMaxDosePerDay()) {
             dosagePerDay = (double) dosage.getMaxDosePerDay();
         }
+        Double totalDosageInDay = dosagePerDay / strength.getValue();
+        Double accurateResult = totalDosageInDay / antibiotic.getInstructions().getDosesPerDay();
+
+        BigDecimal bd = BigDecimal.valueOf(accurateResult);
+        bd = bd.setScale(3, RoundingMode.HALF_UP);
+        double roundedResult = bd.doubleValue();
+
+        return roundedResult;
+    }
+
+    /**
+     * Calculates accurate antibiotic dosage based on weight. Doesn't take max dosage
+     * into account
+     * @return Double one-time dosage. Unit depends on antibiotic
+     */
+    private Double accurateDosageResult() {
+        Dosage dosage = antibiotic.getDosage();
+        Double dosagePerDay = dosage.getDosagePerWeightPerDay() * weight;
         Double totalDosageInDay = dosagePerDay / strength.getValue();
         Double accurateResult = totalDosageInDay / antibiotic.getInstructions().getDosesPerDay();
 
