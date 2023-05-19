@@ -217,13 +217,13 @@ aside {
 
 .kg-text {
     position: absolute;
-    margin-left: -80px;
+    margin-left: -70px;
     margin-top: 24px;
 }
 
 .kg-text-disabled {
     position: absolute;
-    margin-left: -80px;
+    margin-left: -70px;
     margin-top: 24px;
     color: #929292;
 }
@@ -894,6 +894,9 @@ aside {
         margin-bottom: 15px;
     } .diagnosis-menu {
         margin-top: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 280px;
     }  section {
         max-height:fit-content;
     } .checkbox-container {
@@ -950,6 +953,19 @@ aside {
         height: 48px;
     }  .menu--items {
         line-height: 45px;
+    } .form--input {
+        height: 55px;
+        width: 280px;
+        margin-top: 0px;
+    } .kg-text-disabled {
+        margin-top: 17px;
+    } .kg-text {
+        margin-top: 17px;
+    } .dropdown-content {
+        width: 280px;
+    } .form--button {
+        width: 280px;
+        height: 55px;
     }
 }
 
