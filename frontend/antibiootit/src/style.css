@@ -441,7 +441,7 @@ aside {
 
 .treatment-header {
     color: black;
-    margin-top: 6px;
+    margin-top: 8px;
     margin-left: 23px;
     display: flex;
     gap: 14px;
@@ -529,7 +529,6 @@ aside {
     color: #395174;
     background-color: #E9E9E9;
     font-size: 15px;
-    /*text-align: center;*/
     cursor: pointer;
 }
 
@@ -560,7 +559,7 @@ aside {
     padding: 20px;
     display: flex;
     width: 400px;
-    height: 40px;
+    height: 20px;
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
@@ -884,6 +883,8 @@ aside {
         margin-top: 30px;
     } .strepto-info {
         width: 100%;
+        height: 2.7em;
+        padding-right: 10px;
     } .weight-input {
         padding-right: 0px;
     } .diagnosis-form  {
