@@ -6,11 +6,18 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
    
     function toggleMenu() {
-        setShowMobileMenu(!showMobileMenu);
-        setIsMenuOpen(!isMenuOpen);
-        console.log("click")
-        console.log(showMobileMenu)
+        if (showMobileMenu) {
+            setShowMobileMenu(false);
+            setIsMenuOpen(false);
+        } else {
+            setShowMobileMenu(!showMobileMenu);
+            setIsMenuOpen(!isMenuOpen);
+            console.log("click")
+            console.log(showMobileMenu)
+        }
       }
+
+    
     return (
         <header className="header">
             
@@ -50,19 +57,28 @@ export default function Header() {
                         <NavLink 
                             to="/"
                             className="nav-link"
-                            onClick={() => setShowMobileMenu(false) }>
+                            onClick={() =>  {
+                                setShowMobileMenu(false);
+                                setIsMenuOpen(false);
+                            }}>
                             Laskuri
                         </NavLink>
                         <NavLink 
                             to="/tietoa"
                             className="nav-link"
-                            onClick={() => setShowMobileMenu(false)}>
+                            onClick={() =>  {
+                                setShowMobileMenu(false);
+                                setIsMenuOpen(false);
+                            }}>
                             Tietoa sivustosta
                         </NavLink>
                         <NavLink 
                             to="/palaute"
                             className="nav-link"
-                            onClick={() => setShowMobileMenu(false)}>
+                            onClick={() =>  {
+                                setShowMobileMenu(false);
+                                setIsMenuOpen(false);
+                            }}>
                             Palaute
                         </NavLink>
                     </div>

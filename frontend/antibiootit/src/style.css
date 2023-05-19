@@ -5,7 +5,9 @@
 }
 
 .body {
-    background-color: #F5F5F5;
+    margin: 0;
+    padding-top: env(safe-area-inset-top);
+    background-color:#5D769A;
     font-family: Inter, sans-serif;
 }
 
@@ -933,6 +935,8 @@ aside {
         margin-bottom: 45px;
     } .mobile-nav {
         right: -10px;
+    } .logo {
+        padding-left: 0px;
     }
 }
 
