@@ -902,6 +902,8 @@ aside {
         max-height:fit-content;
     } .checkbox-container {
         height: 50px;
+        align-self: flex-start;
+        margin-left: 80px;
     } .treatment-container {
         margin-top: 25px;
     } .treatment-header > h2 {
@@ -967,7 +969,7 @@ aside {
     } .form--button {
         width: 280px;
         height: 55px;
-    }
+    } 
 }
 
 @media only screen and (min-width: 601px) {
