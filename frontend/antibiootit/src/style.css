@@ -101,12 +101,13 @@ footer {
 
 main {
     font-family: Inter, sans-serif;
-    width: 100%;
+    width: 100;
     min-height: calc(100vh - 87px);
     position: relative;
     display: grid;
     grid-template-columns: 2fr 1fr;
     margin: 0 auto;
+    margin-left: px;
     overflow-x: hidden;
 }
 
@@ -851,7 +852,6 @@ aside {
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
-        margin-bottom: 15px;
     } .header--links {
         display: none;
     } .antibiotic-instructions > p {
@@ -981,7 +981,23 @@ aside {
         margin-left: 25px;
     } .not-active-class {
         margin-left: 25px;
-    }    
+    } main {
+        font-family: Inter, sans-serif;
+        width: 100%;
+        min-height: calc(100vh - 87px);
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        max-width: 800px;
+        margin: 0 auto;
+    } aside {
+        grid-column-start: 1;
+        grid-row-start: 14;
+        margin-bottom: 30px;     
+        background-color: white;
+    } .logo {
+        padding-left: 10px;
+    }  
 }
 
 @media only screen and (min-width: 720px){
@@ -998,13 +1014,13 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
-        max-width: 1400px;
+        max-width: 1400px;      
     }
     .diagnosis-menu {
         margin-left: 100px;
     } .mobile-container {
         display: none;
-    } .aside {
+    } aside {
         background-color: #FBFBFB;
         z-index: -1;
         height: 100%;
@@ -1013,6 +1029,8 @@ aside {
         align-items: center;
         font-weight: 400;
         font-size: 14px;
+        grid-column-start: 2;
+        grid-row-start: 1;
     }
        
 }
