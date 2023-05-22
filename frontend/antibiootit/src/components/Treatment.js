@@ -137,14 +137,19 @@ export default function Treatment(props) {
     }
     
     // "Antibiootin päivän maksimiannos ylittyy (tulos > max), joten tarjotaan maksimiannosta"
-    let maxRes = activeChoice.dosageResult.accurateDose.value;
-    let realRes = activeChoice.dosageResult.maxAccurateDose.value;
-    let unit = activeChoice.dosageResult.maxAccurateDose.unit;
+    let maxRes = 0;
+    let realRes = 0;
+    let unit = props.treatments[0].dosageResult.dose.unit;
     let greater = false;
-    if(realRes > maxRes) {
-        greater = true;
-    } else {
-        greater = false;
+    if(props.format === "mikstuura") {
+        maxRes = activeChoice.dosageResult.accurateDose.value;
+        realRes = activeChoice.dosageResult.maxAccurateDose.value;
+        unit = activeChoice.dosageResult.maxAccurateDose.unit;
+        if(realRes > maxRes) {
+            greater = true;
+        } else {
+            greater = false;
+        }
     }
 
     function MathFormula(mathprops) {
