@@ -114,8 +114,6 @@ export default function Treatment(props) {
         }
     }
 
-    //console.log(activeChoice);
-
     let AntibioticElements = props.treatments.map((antibiote, index) => 
         <Choise
             key={index}
