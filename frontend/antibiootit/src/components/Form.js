@@ -163,6 +163,7 @@ export default function Form(props) {
     //const [isWeightOk, setIsWeightOk] = useState(false);
     const [formatWeight, setFormatWeight] = useState(true);
     const inputErrorMessage = "Tarkista paino";
+    const [inputErrorMessage1, setInputErrorMessage1] = useState("");
     const MIN_WEIGHT = 4;
     const MAX_WEIGHT = 100;
     const VALID_WEIGHT_INPUT = /^\d*([.,])?\d*$/;
@@ -171,6 +172,7 @@ export default function Form(props) {
         e.preventDefault();
         const input = e.target.value;
         if (!VALID_WEIGHT_INPUT.test(input)) {
+            setInputErrorMessage1("Syötä vain numeroita tai desimaalierotin , tai .");
             props.setIsWeightOk(false);
             setFormatWeight(false);
         }
@@ -195,6 +197,7 @@ export default function Form(props) {
                 }
             }
             else {
+                setInputErrorMessage1(`Hyväksyttävä painoväli on ${MIN_WEIGHT}kg - ${MAX_WEIGHT}kg`);
                 props.setIsWeightOk(false);
                 if (input.length >= 1 && props.formSubmitted) {
                     setFormatWeight(false);
@@ -342,7 +345,7 @@ export default function Form(props) {
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
                     /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>kg</span>
-                    {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage}</div>}
+                    {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage1}</div>}
             </div>
             <div className="checkbox-container">
                 {diagnosis &&
