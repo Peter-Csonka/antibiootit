@@ -5,7 +5,7 @@ import { InlineMath } from 'react-katex';
 import LoadingIndicator from "./LoadingIndicator";
 
 export default function Treatment(props) {
-    console.log(props.treatments);
+
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
     const [activeVariables, setActiveVariables] = useState(giveValues());
 
