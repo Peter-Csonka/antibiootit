@@ -135,13 +135,25 @@ export default function Treatment(props) {
     function calculate() {
         setOpenCalculations(prevStatus => !prevStatus)
     }
+    
+    // "Antibiootin päivän maksimiannos ylittyy (tulos > max), joten tarjotaan maksimiannosta"
+    let maxRes = activeChoice.dosageResult.accurateDose.value;
+    let realRes = activeChoice.dosageResult.maxAccurateDose.value;
+    let unit = activeChoice.dosageResult.maxAccurateDose.unit;
+    let greater = false;
+    if(realRes > maxRes) {
+        greater = true;
+    } else {
+        greater = false;
+    }
 
     function MathFormula(mathprops) {
+        // =${mathprops.accResult} \\approx ${mathprops.result}`}/>
         return (
             <div className="calculations-container">
                 <InlineMath math={`\\frac{\\frac{${mathprops.weight} \\cdot 
                 ${mathprops.doseInDay}}{${mathprops.dosesPerDay}}}{${mathprops.strength}}
-                =${mathprops.accResult} \\approx ${mathprops.result}`}/>
+                =${greater ? '\\text{\\color{red}' + realRes + unit + '}' : mathprops.accResult} \\approx ${mathprops.result}`}/>
             </div>
         )
     }
@@ -183,6 +195,9 @@ export default function Treatment(props) {
                         <p><ion-icon name="help-circle-outline"></ion-icon></p>
                         <p>{props.description}</p>
                     </div>}
+                </div>}
+                {openCalculations && greater && <div className="max-dosage-container">
+                    <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{realRes}ml {">"} {maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
             </div>
             {props.loading? 
