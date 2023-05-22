@@ -12,14 +12,14 @@ const chosenWeight = 22;
 const treatments = [
 {
     antibiotic: 'Amoksisilliini jauhe',
-    dosageResult: {dose: {unit: "ml", value: 4.5}, accurateDose: {unit: "ml", value: 4.4}},
+    dosageResult: {dose: {unit: "ml", value: 4.5}, accurateDose: {unit: "ml", value: 4.4}, maxAccurateDose: {unit: "ml", value: 4.4}},
     format: "mikstuura",
     formula: {strength: {unit: "mg/ml", value: 100, text: "100 mg/ml"}, dosage: {unit: "mg/kg/vrk", value: 40}},
     instructions: {days: 5, dosesPerDay: 2, recipeText: "kahdesti päivässä", doseMultipliers: [{ id: 0, multiplier: 1 }]}
 },
 {
     antibiotic: 'Amoksisilliini-klavulaanihappo jauhe',
-    dosageResult: {dose: {unit: "ml", value: 5.5}, accurateDose: {unit: "ml", value: 5.5}},
+    dosageResult: {dose: {unit: "ml", value: 5.5}, accurateDose: {unit: "ml", value: 5.5}, maxAccurateDose: {unit: "ml", value: 5.5}},
     format: "mikstuura",
     formula: {strength: {unit: "mg/ml", value: 80, text: "80/11.4 mg/ml"}, dosage: {unit: "mg/kg/vrk", value: 40}},
     instructions: {days: 5, dosesPerDay: 2, recipeText: "kahdesti päivässä", doseMultipliers: [{ id: 0, multiplier: 1 }]}

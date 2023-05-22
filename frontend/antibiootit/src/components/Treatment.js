@@ -5,7 +5,7 @@ import { InlineMath } from 'react-katex';
 import LoadingIndicator from "./LoadingIndicator";
 
 export default function Treatment(props) {
-
+    console.log(props.treatments);
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
     const [activeVariables, setActiveVariables] = useState(giveValues());
 
@@ -137,29 +137,25 @@ export default function Treatment(props) {
     function calculate() {
         setOpenCalculations(prevStatus => !prevStatus)
     }
+    
     // "Antibiootin päivän maksimiannos ylittyy (tulos > max), joten tarjotaan maksimiannosta"
     let maxRes = activeChoice.dosageResult.accurateDose.value;
     let realRes = activeChoice.dosageResult.maxAccurateDose.value;
+    let unit = activeChoice.dosageResult.maxAccurateDose.unit;
     let greater = false;
     if(realRes > maxRes) {
         greater = true;
     } else {
         greater = false;
     }
-    const styles = {
-        color: 'red',
-        fontSize: '12px',
-        marginTop: '14px',
-        marginRight: '70px'
-    };
+
     function MathFormula(mathprops) {
-        console.log(mathprops.accResult);
         // =${mathprops.accResult} \\approx ${mathprops.result}`}/>
         return (
             <div className="calculations-container">
                 <InlineMath math={`\\frac{\\frac{${mathprops.weight} \\cdot 
                 ${mathprops.doseInDay}}{${mathprops.dosesPerDay}}}{${mathprops.strength}}
-                =${greater ? '\\text{\\color{red}' + realRes + '}' : mathprops.accResult} \\approx ${mathprops.result}`}/>
+                =${greater ? '\\text{\\color{red}' + realRes + unit + '}' : mathprops.accResult} \\approx ${mathprops.result}`}/>
             </div>
         )
     }
@@ -202,7 +198,9 @@ export default function Treatment(props) {
                         <p>{props.description}</p>
                     </div>}
                 </div>}
-                {openCalculations && greater && <p style={styles}>Vuorokauden maksimiannos ylittyy {"("}{realRes}ml {">"} {maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>}
+                {openCalculations && greater && <div className="max-dosage-container">
+                    <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{realRes}ml {">"} {maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
+                </div>}
             </div>
             {props.loading? 
             <LoadingIndicator 
