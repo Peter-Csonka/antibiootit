@@ -5,7 +5,9 @@
 }
 
 .body {
-    background-color: #F5F5F5;
+    margin: 0;
+    padding-top: env(safe-area-inset-top);
+    background-color:#5D769A;
     font-family: Inter, sans-serif;
 }
 
@@ -99,13 +101,13 @@ footer {
 
 main {
     font-family: Inter, sans-serif;
-    width: 100%;
+    width: 100;
     min-height: calc(100vh - 87px);
     position: relative;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    max-width: 800px;
     margin: 0 auto;
+    margin-left: px;
     overflow-x: hidden;
 }
 
@@ -216,13 +218,13 @@ aside {
 
 .kg-text {
     position: absolute;
-    margin-left: -80px;
+    margin-left: -70px;
     margin-top: 24px;
 }
 
 .kg-text-disabled {
     position: absolute;
-    margin-left: -80px;
+    margin-left: -70px;
     margin-top: 24px;
     color: #929292;
 }
@@ -288,7 +290,7 @@ aside {
 
 .dropdown-btn ion-icon {
     position: absolute;
-    right: 12px;
+    right: 16px;
 }
 
 .dropdown-btn {
@@ -296,7 +298,7 @@ aside {
     border: none;
     font-size: 16px;
     margin-top: 5px;
-    margin-left: 8px;
+    margin-left: 18px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -320,6 +322,7 @@ aside {
     position: relative;
     vertical-align: top;
 }
+
 
 .disabled {
     color: #929292;
@@ -381,14 +384,15 @@ aside {
     width: 250px;
     padding: 0;
     margin-left: -1px;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-top: 10px;
     background-color: #D7E2F2;
     border-bottom: 1.5px solid #395174;
     border-left: 1.5px solid #395174;
     border-right: 1.5px solid #395174;
     border-radius: 0px 0px 20px 20px;
 }
+
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -419,6 +423,10 @@ aside {
     color: white;
 }
 
+.menu--items :last-child {
+    border-radius: 0px 0px 20px 20px;
+}
+
 .recipe-container {
     position: relative;
     display: flex;
@@ -434,7 +442,7 @@ aside {
 
 .treatment-header {
     color: black;
-    margin-top: 6px;
+    margin-top: 8px;
     margin-left: 23px;
     display: flex;
     gap: 14px;
@@ -536,7 +544,6 @@ aside {
     color: #395174;
     background-color: #E9E9E9;
     font-size: 15px;
-    /*text-align: center;*/
     cursor: pointer;
 }
 
@@ -567,7 +574,7 @@ aside {
     padding: 20px;
     display: flex;
     width: 400px;
-    height: 40px;
+    height: 20px;
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
@@ -626,7 +633,7 @@ aside {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 2.5%;
-    padding: 0px;
+    padding: 2px;
 }
 
 .recipe-text {
@@ -637,7 +644,7 @@ aside {
     font-size: 16px;
     padding: 10px;
     margin: 0;
-    margin-left: 14px;
+    margin-left: 8px;
     margin-bottom: 20px;
     width: 90%;
 }
@@ -647,13 +654,14 @@ aside {
     width: 95%;
     justify-content: space-between;
     background-color: white;
-    padding-bottom: 5px;
-    margin-left: 0;
+    padding-bottom: 8px;
+    margin-left: 0px;
+    padding: 8px;
 }
 
 .copy-button {
     position: absolute;
-    bottom: 10%;
+    bottom: 9%;
     right: 3%;
     background-color: white;
     min-width: 25%;
@@ -664,7 +672,8 @@ aside {
     color: #395174;
     box-shadow: 0 1.5px #7b7979;
     padding: 10px;
-    text-indent: 5px;
+    text-indent: 7px;
+    margin-right: 5px;
 }
 
 .copy--image {
@@ -848,6 +857,7 @@ aside {
     display: block;
     margin-top: 195px;  
   }
+  
 
 /*Scalability to mobile screen*/
 @media only screen and (max-width: 600px) {
@@ -856,7 +866,6 @@ aside {
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
-        margin-bottom: 15px;
     } .header--links {
         display: none;
     } .antibiotic-instructions > p {
@@ -864,6 +873,7 @@ aside {
         flex-direction: column;
         align-items: center;      
     } .antibiotics {
+        width: 85%;
         margin-left: 4%;
         margin-right: 4%;
     } .feedback-container {
@@ -887,6 +897,8 @@ aside {
         margin-top: 30px;
     } .strepto-info {
         width: 100%;
+        height: 2.7em;
+        padding-right: 10px;
     } .weight-input {
         padding-right: 0px;
     } .diagnosis-form  {
@@ -897,10 +909,15 @@ aside {
         margin-bottom: 15px;
     } .diagnosis-menu {
         margin-top: 20px;
-    } section {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 280px;
+    }  section {
         max-height:fit-content;
     } .checkbox-container {
         height: 50px;
+        align-self: flex-start;
+        margin-left: 80px;
     } .treatment-container {
         margin-top: 25px;
     } .treatment-header > h2 {
@@ -947,7 +964,26 @@ aside {
         margin-bottom: 45px;
     } .mobile-nav {
         right: -10px;
-    }
+    } .logo {
+        padding-left: 0px;
+    } .menu--items > li {
+        height: 48px;
+    }  .menu--items {
+        line-height: 45px;
+    } .form--input {
+        height: 55px;
+        width: 280px;
+        margin-top: 0px;
+    } .kg-text-disabled {
+        margin-top: 17px;
+    } .kg-text {
+        margin-top: 17px;
+    } .dropdown-content {
+        width: 280px;
+    } .form--button {
+        width: 280px;
+        height: 55px;
+    } 
 }
 
 @media only screen and (min-width: 601px) {
@@ -959,13 +995,29 @@ aside {
         margin-left: 25px;
     } .not-active-class {
         margin-left: 25px;
-    }   
+    } main {
+        font-family: Inter, sans-serif;
+        width: 100%;
+        min-height: calc(100vh - 87px);
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        max-width: 800px;
+        margin: 0 auto;
+    } aside {
+        grid-column-start: 1;
+        grid-row-start: 14;
+        margin-bottom: 30px;     
+        background-color: white;
+    } .logo {
+        padding-left: 10px;
+    }  
 }
 
 @media only screen and (min-width: 720px){
     .antibiotics {
         margin-left: 10%;
-     } 
+    } 
     .active-class {
         margin-left: 60px;
     } .not-active-class {
@@ -973,15 +1025,16 @@ aside {
     } 
 }
 
+
 @media only screen and (min-width: 1500px) {
     main {
-        max-width: 1400px;
+        max-width: 1400px;      
     }
     .diagnosis-menu {
         margin-left: 100px;
     } .mobile-container {
         display: none;
-    } .aside {
+    } aside {
         background-color: #FBFBFB;
         z-index: -1;
         height: 100%;
@@ -990,7 +1043,9 @@ aside {
         align-items: center;
         font-weight: 400;
         font-size: 14px;
-    } 
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
        
 }
 
