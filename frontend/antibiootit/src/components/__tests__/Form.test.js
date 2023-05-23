@@ -20,6 +20,9 @@ const diagnoses = [
         {id: 'MYK-001', name: 'Mykoplasmainfektio'}]}
 ]
 
+const MIN_WEIGHT = 4;
+const MAX_WEIGHT = 100;
+
 const receiveInput = () => {
     console.log("Testdata received")
 }
@@ -191,7 +194,7 @@ test('Should not allow weight input below 4 kg', async () => {
     expect(input).toHaveValue('3.99');
 
     fireEvent.click(screen.queryByText('Laske suositus'));
-    expect(screen.getByText('Tarkista paino')).toBeInTheDocument();
+    expect(screen.getByText(`Hyväksyttävä painoväli on ${MIN_WEIGHT}kg - ${MAX_WEIGHT}kg`)).toBeInTheDocument();
 
     fireEvent.change(input, { target: { value: '' } });
 })
@@ -213,7 +216,7 @@ test('Should not allow weight input above 100 kg', async () => {
     expect(input).toHaveValue('100.5');
 
     fireEvent.click(screen.queryByText('Laske suositus'));
-    expect(screen.getByText('Tarkista paino')).toBeInTheDocument();
+    expect(screen.getByText(`Hyväksyttävä painoväli on ${MIN_WEIGHT}kg - ${MAX_WEIGHT}kg`)).toBeInTheDocument();
 
     fireEvent.change(input, { target: { value: '' } });
 })
