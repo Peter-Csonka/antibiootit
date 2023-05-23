@@ -25,6 +25,23 @@ const treatments = [
     instructions: {days: 5, dosesPerDay: 2, recipeText: "kahdesti päivässä", doseMultipliers: [{ id: 0, multiplier: 1 }]}
 }];
 
+const treatmentsMax = [
+    {
+        antibiotic: 'Amoksisilliini jauhe',
+        dosageResult: {dose: {unit: "ml", value: 10}, accurateDose: {unit: "ml", value: 10}, maxAccurateDose: {unit: "ml", value: 10.4}},
+        format: "mikstuura",
+        formula: {strength: {unit: "mg/ml", value: 100, text: "100 mg/ml"}, dosage: {unit: "mg/kg/vrk", value: 80}},
+        instructions: {days: 5, dosesPerDay: 3, recipeText: "kolmesti päivässä", doseMultipliers: [{ id: 0, multiplier: 1 }]}
+    },
+    {
+        antibiotic: 'Atsitromysiini jauhe',
+        dosageResult: {dose: {unit: "ml", value: 5}, accurateDose: {unit: "ml", value: 4.875}, maxAccurateDose: {unit: "ml", value: 4.875}},
+        format: "mikstuura",
+        formula: {strength: {unit: "mg/ml", value: 40, text: "40 mg/ml"}, dosage: {unit: "mg/kg/vrk", value: 5}},
+        instructions: {days: 5, dosesPerDay: 1, recipeText: "kerran päivässä", dosemultipliers: [{id: 0, multiplier: 1}, {id: 1, multiplier: 2}]}
+    }
+]
+
 const TestWrapper = () => {
   const [activeRecipe, setActiveRecipe] = useState({
     text: "4.5 ml kahdesti päivässä 5 vrk:n ajan",
@@ -44,6 +61,26 @@ const TestWrapper = () => {
     />
   );
 };
+
+const TestWrapperMax = () => {
+    const [activeRecipe, setActiveRecipe] = useState({
+        text: "10 ml kolmesti päivässä 5 vrk:n ajan",
+        antibioteName: "Amoksisilliini jauhe",
+        antibioteStrength: "100 mg/ml"
+    });
+
+    return (
+        <Treatment
+            loading={loading}
+            needsAntibiotics={needsAntibiotics}
+            description={description}
+            weight={39}
+            treatments={treatmentsMax}
+            setActiveRecipe={setActiveRecipe}
+            format={treatments[0].format}
+        />
+    );
+}
 
 test('Should render Treatment', async() => {
     render(<TestWrapper />);
@@ -95,3 +132,11 @@ test('Should render calculations after clicking laskukaava-button', async() => {
     fireEvent.click(screen.getByText('Laskukaava'));
     expect(screen.getByTestId('calculations')).toBeInTheDocument();
 });
+
+test('Should show additional info when result is over max', async() => {
+    render(<TestWrapperMax />);
+
+    fireEvent.click(screen.getByText('Laskukaava'));
+    expect(screen.queryByText('Vuorokauden maksimiannos ylittyy (10.4ml > 10ml), joten tarjotaan maksimiannosta')).toBeInTheDocument();
+});
+
