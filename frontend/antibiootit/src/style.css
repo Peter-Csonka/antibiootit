@@ -127,7 +127,7 @@ main {
     margin-left: 10%;
     margin-right: 10%;
     max-width: 750px;
-    width: 80%;
+    width: 100%;
 }
 
 section {
@@ -359,8 +359,9 @@ aside {
 
 .diagnosis-form {
     display: grid;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 15px;
+    justify-content: center;
 }
 
 .diagnosis-menu {
@@ -1014,6 +1015,11 @@ aside {
         padding-left: 10px;
     } .diagnosis-form {
         max-width: 100%;
+        margin-top: 30px;
+    } .weight-input {
+        padding-right: 0px;
+    } .treatment-container {
+        width: 600px;
     }
 }
 
@@ -1025,7 +1031,9 @@ aside {
         margin-left: 60px;
     } .not-active-class {
         margin-left: 60px;
-    } 
+    } .treatment-container {
+        width: 600px;
+    }
 }
 
 
@@ -1050,7 +1058,11 @@ aside {
         grid-row-start: 1;
     }  .antibiotics {
         max-width: 750px;
-    }     
+    }   .weight-input {
+        padding-right: 200px;
+    }  .treatment-container {
+        width: 100%;
+    }
 }
 
 .loading-container {
