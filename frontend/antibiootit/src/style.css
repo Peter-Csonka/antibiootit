@@ -780,11 +780,12 @@ aside {
     display: block;
     position: absolute;
     z-index: 5;
-    margin-top: -80px;
-    margin-left: 80px;
+    margin-top: -77px;
+    margin-left: 20px;
     color: red;
-    width: 200px;
+    width: 260px;
     border-radius: 20px;
+    font-size: 12px;
 }
 
 .feedback-form {

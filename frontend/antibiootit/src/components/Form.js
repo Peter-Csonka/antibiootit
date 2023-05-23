@@ -162,17 +162,25 @@ export default function Form(props) {
     const [weight, setWeight] = useState("");
     //const [isWeightOk, setIsWeightOk] = useState(false);
     const [formatWeight, setFormatWeight] = useState(true);
-    const inputErrorMessage = "Tarkista paino";
+    //const inputErrorMessage = "Tarkista paino";
+    const [inputErrorMessage1, setInputErrorMessage1] = useState("");
     const MIN_WEIGHT = 4;
     const MAX_WEIGHT = 100;
-    const VALID_WEIGHT_INPUT = /^\d*([.,])?\d*$/;
+    const VALID_WEIGHT_INPUT =  /^\d*([.,])?\d*$/;
+    const VALID_DECIMALS = /^\d*([.,]?\d{0,2})?$/;
 
     const handleInput = (e) => {
         e.preventDefault();
         const input = e.target.value;
         if (!VALID_WEIGHT_INPUT.test(input)) {
+            setInputErrorMessage1("Syötä vain numeroita tai desimaalierotin , tai .");
             props.setIsWeightOk(false);
             setFormatWeight(false);
+        }
+        else if(!VALID_DECIMALS.test(input)) {
+            // Placeholder
+            // We want to do nothing. This is just so that the user cannot input more than
+            // 2 decimals in the weight input field.
         }
         else {
             setWeight(input);
@@ -195,6 +203,7 @@ export default function Form(props) {
                 }
             }
             else {
+                setInputErrorMessage1(`Hyväksyttävä painoväli on ${MIN_WEIGHT}kg - ${MAX_WEIGHT}kg`);
                 props.setIsWeightOk(false);
                 if (input.length >= 1 && props.formSubmitted) {
                     setFormatWeight(false);
@@ -271,9 +280,24 @@ export default function Form(props) {
     }
 
     let placeholder = "Syötä paino"
-
-    const emptyPlaceholder = () => {
+    
+    const selectText = () => {
+        const inputField = document.getElementById('weight-input');
+        inputField.select();
+    }
+    /*const emptyPlaceholder = () => {
         placeholder = "";
+    }*/
+    const [selected, setSelected] = useState(false);
+    const handleSelect = () => {
+        if(weight) {
+            if(selected) {
+                setSelected(prevStatus => !prevStatus);
+            } else {
+                setSelected(prevStatus => !prevStatus);
+                setTimeout(selectText, 0);
+            }
+        }
     }
 
     const handlePenicillinAllergy = () => {
@@ -333,7 +357,8 @@ export default function Form(props) {
                         data-testid="weight-input"
                         className={formatWeight ? "form--input" : "form--input-notok" }
                         placeholder={placeholder}
-                        onFocus={emptyPlaceholder}
+                        //onFocus={emptyPlaceholder}
+                        onClick={handleSelect}
                         name="weight"   
                         value={weight}
                         onChange={handleInput}
@@ -342,7 +367,7 @@ export default function Form(props) {
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
                     /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>kg</span>
-                    {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage}</div>}
+                    {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage1}</div>}
             </div>
             <div className="checkbox-container">
                 {diagnosis &&
