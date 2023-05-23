@@ -18,7 +18,10 @@ export default function Treatment(props) {
                 dosesPerDay: `${props.treatments[0].instructions.dosesPerDay} krt/vrk`,
                 strength: `${props.treatments[0].formula.strength.text}`,
                 result: `${props.treatments[0].dosageResult.dose.value} ${props.treatments[0].dosageResult.dose.unit}`,
-                accResult: `${props.treatments[0].dosageResult.accurateDose.value} ${props.treatments[0].dosageResult.accurateDose.unit}`
+                accResult: `${props.treatments[0].dosageResult.accurateDose.value} ${props.treatments[0].dosageResult.accurateDose.unit}`,
+                maxRes: props.treatments[0].dosageResult.accurateDose.value,
+                realRes: props.treatments[0].dosageResult.maxAccurateDose.value,
+                unit: props.treatments[0].dosageResult.accurateDose.unit
             });
         } else {
             setActiveVariables({
@@ -44,7 +47,10 @@ export default function Treatment(props) {
                 dosesPerDay: `${props.treatments[0].instructions.dosesPerDay} krt/vrk`,
                 strength: `${props.treatments[0].formula.strength.text}`,
                 result: `${props.treatments[0].dosageResult.dose.value} ${props.treatments[0].dosageResult.dose.unit}`,
-                accResult: `${props.treatments[0].dosageResult.accurateDose.value} ${props.treatments[0].dosageResult.accurateDose.unit}`
+                accResult: `${props.treatments[0].dosageResult.accurateDose.value} ${props.treatments[0].dosageResult.accurateDose.unit}`,
+                maxRes: props.treatments[0].dosageResult.accurateDose.value,
+                realRes: props.treatments[0].dosageResult.maxAccurateDose.value,
+                unit: props.treatments[0].dosageResult.accurateDose.unit
             });
         } else {
             return ({
@@ -82,7 +88,10 @@ export default function Treatment(props) {
                         dosesPerDay: `${props.treatments[i].instructions.dosesPerDay} krt/vrk`,
                         strength: `${props.treatments[i].formula.strength.text}`,
                         result: `${props.treatments[i].dosageResult.dose.value} ${props.treatments[i].dosageResult.dose.unit}`,
-                        accResult: `${props.treatments[i].dosageResult.accurateDose.value} ${props.treatments[i].dosageResult.accurateDose.unit}`
+                        accResult: `${props.treatments[i].dosageResult.accurateDose.value} ${props.treatments[i].dosageResult.accurateDose.unit}`,
+                        maxRes: props.treatments[i].dosageResult.accurateDose.value,
+                        realRes: props.treatments[i].dosageResult.maxAccurateDose.value,
+                        unit: props.treatments[0].dosageResult.accurateDose.unit
                     });
                 } else {
                     setActiveVariables({
@@ -136,15 +145,15 @@ export default function Treatment(props) {
         setOpenCalculations(prevStatus => !prevStatus)
     }
     
-    // "Antibiootin päivän maksimiannos ylittyy (tulos > max), joten tarjotaan maksimiannosta"
-    let maxRes = activeChoice.dosageResult.accurateDose.value;
-    let realRes = activeChoice.dosageResult.maxAccurateDose.value;
-    let unit = activeChoice.dosageResult.maxAccurateDose.unit;
     let greater = false;
-    if(realRes > maxRes) {
-        greater = true;
-    } else {
-        greater = false;
+    if(props.format === "mikstuura") {
+        let maxRes = activeVariables.maxRes;
+        let realRes = activeVariables.realRes;
+        if(realRes > maxRes) {
+            greater = true;
+        } else {
+            greater = false;
+        }
     }
 
     function MathFormula(mathprops) {
@@ -153,7 +162,7 @@ export default function Treatment(props) {
             <div className="calculations-container">
                 <InlineMath math={`\\frac{\\frac{${mathprops.weight} \\cdot 
                 ${mathprops.doseInDay}}{${mathprops.dosesPerDay}}}{${mathprops.strength}}
-                =${greater ? '\\text{\\color{red}' + realRes + unit + '}' : mathprops.accResult} \\approx ${mathprops.result}`}/>
+                =${greater ? '\\text{\\color{red}' + mathprops.realRes + mathprops.unit + '}' : mathprops.accResult} \\approx ${mathprops.result}`}/>
             </div>
         )
     }
@@ -197,7 +206,7 @@ export default function Treatment(props) {
                     </div>}
                 </div>}
                 {openCalculations && greater && <div className="max-dosage-container">
-                    <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{realRes}ml {">"} {maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
+                    <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
             </div>
             {props.loading? 
@@ -212,6 +221,8 @@ export default function Treatment(props) {
                     strength={activeVariables.strength}
                     result={activeVariables.result}
                     accResult={activeVariables.accResult}
+                    realRes={activeVariables.realRes}
+                    unit={activeVariables.unit}
                 />
             </div>}
         </div>
