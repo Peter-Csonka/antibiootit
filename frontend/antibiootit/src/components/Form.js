@@ -162,11 +162,12 @@ export default function Form(props) {
     const [weight, setWeight] = useState("");
     //const [isWeightOk, setIsWeightOk] = useState(false);
     const [formatWeight, setFormatWeight] = useState(true);
-    const inputErrorMessage = "Tarkista paino";
+    //const inputErrorMessage = "Tarkista paino";
     const [inputErrorMessage1, setInputErrorMessage1] = useState("");
     const MIN_WEIGHT = 4;
     const MAX_WEIGHT = 100;
-    const VALID_WEIGHT_INPUT = /^\d*([.,])?\d*$/;
+    const VALID_WEIGHT_INPUT =  /^\d*([.,])?\d*$/; // /^\d*([.,])?\d*$/;
+    const VALID_DECIMALS = /^\d*([.,]?\d{0,2})?$/;
 
     const handleInput = (e) => {
         e.preventDefault();
@@ -175,6 +176,9 @@ export default function Form(props) {
             setInputErrorMessage1("Syötä vain numeroita tai desimaalierotin , tai .");
             props.setIsWeightOk(false);
             setFormatWeight(false);
+        }
+        else if(!VALID_DECIMALS.test(input)) {
+            console.log("More than 2 decimals >:(");
         }
         else {
             setWeight(input);
@@ -274,9 +278,24 @@ export default function Form(props) {
     }
 
     let placeholder = "Syötä paino"
-
-    const emptyPlaceholder = () => {
+    
+    const selectText = () => {
+        const inputField = document.getElementById('weight-input');
+        inputField.select();
+    }
+    /*const emptyPlaceholder = () => {
         placeholder = "";
+    }*/
+    const [selected, setSelected] = useState(false);
+    const handleSelect = () => {
+        if(weight) {
+            if(selected) {
+                setSelected(prevStatus => !prevStatus);
+            } else {
+                setSelected(prevStatus => !prevStatus);
+                setTimeout(selectText, 0);
+            }
+        }
     }
 
     const handlePenicillinAllergy = () => {
@@ -336,7 +355,8 @@ export default function Form(props) {
                         data-testid="weight-input"
                         className={formatWeight ? "form--input" : "form--input-notok" }
                         placeholder={placeholder}
-                        onFocus={emptyPlaceholder}
+                        //onFocus={emptyPlaceholder}
+                        onClick={handleSelect}
                         name="weight"   
                         value={weight}
                         onChange={handleInput}
