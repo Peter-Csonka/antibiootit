@@ -166,7 +166,7 @@ export default function Form(props) {
     const [inputErrorMessage1, setInputErrorMessage1] = useState("");
     const MIN_WEIGHT = 4;
     const MAX_WEIGHT = 100;
-    const VALID_WEIGHT_INPUT =  /^\d*([.,])?\d*$/; // /^\d*([.,])?\d*$/;
+    const VALID_WEIGHT_INPUT =  /^\d*([.,])?\d*$/;
     const VALID_DECIMALS = /^\d*([.,]?\d{0,2})?$/;
 
     const handleInput = (e) => {
@@ -178,7 +178,9 @@ export default function Form(props) {
             setFormatWeight(false);
         }
         else if(!VALID_DECIMALS.test(input)) {
-            console.log("More than 2 decimals >:(");
+            // Placeholder
+            // We want to do nothing. This is just so that the user cannot input more than
+            // 2 decimals in the weight input field.
         }
         else {
             setWeight(input);
