@@ -992,7 +992,7 @@ aside {
         margin-top: 8px;
         height: fit-content;
         gap: 0px;
-    } .btn-elements > p {
+    }  .btn-elements > p {
         font-size: 14px;
         margin-right: 10px;
     } .strepto-info {
@@ -1088,6 +1088,8 @@ aside {
     } .description-container {
         align-self: flex-start;
         width: 100%;
+    } .treatment-calculations {
+        margin-top: 10px;
     }
 }
 
