@@ -221,10 +221,8 @@ aside {
 }
 
 .recipe-header-container {
-    position: absolute;
-    margin-top: -10px;
-    margin-bottom: 5px;
-    margin-left: 10px;
+    position: flex; 
+    margin-left: -33px;
     align-self: flex-start;
 }
 
@@ -663,7 +661,6 @@ aside {
 .recipe-container h3 {
     margin-top: 6px;
     margin-left: 23px;
-    margin-bottom: 0;
     align-self: flex-start;
     font-size: 17px;
     padding: 10px 10px 5px 10px;
@@ -1072,7 +1069,13 @@ aside {
     } .recipe-container-bottom {
         flex-direction: row;
         align-items: flex-end;
-    }  
+    } .recipe-header-container {
+        position: flex; 
+    }.treatment-icon {
+        margin-left: -5px;
+    } .pen-icon {
+        margin-left: -15px;
+    }
 }
 
 @media only screen and (min-width: 601px) {
