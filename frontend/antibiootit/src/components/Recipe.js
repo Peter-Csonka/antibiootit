@@ -98,8 +98,15 @@ export default function Recipe(props) {
 
     return (
         <div className="recipe-container">
-            <h3>Reseptin kirjoittaminen:</h3>
-            {props.loading ? <></> : <h4>{chosenAb}</h4>}
+            <div className="recipe-header">
+                <div className="recipe-icon-container">
+                    <img className="pen-icon" src="./icons/pen-icon.svg" alt="pen icon"/>
+                </div>
+                <div className="recipe-header-container">
+                    <h3>Reseptin kirjoittaminen:</h3>
+                    {props.loading ? <></> : <h4>{chosenAb}</h4>}
+                </div>
+            </div>
             {props.loading ? 
             <LoadingIndicator 
                 loading={"recipe"}

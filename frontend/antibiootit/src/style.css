@@ -212,6 +212,34 @@ aside {
     margin-top: 43px;
 }
 
+.recipe-header {
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    justify-self: center;
+}
+
+.recipe-header-container {
+    position: absolute;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    align-self: flex-start;
+}
+
+.recipe-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    text-align: center;
+    color: #5D769A;
+    margin-top: 5px;
+}
+
 .weight-input {
     grid-column-start: 2;
     padding-right: 200px;
@@ -588,7 +616,7 @@ aside {
     height: 40px;
 }
 
-.pill-icon {
+.pill-icon, .pen-icon {
     width: 80px;
     height: 80px;
 }
