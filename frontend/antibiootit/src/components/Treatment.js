@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Choise from "./Choise"
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
+import OpacityIcon from '@mui/icons-material/Opacity';
 import LoadingIndicator from "./LoadingIndicator";
 
 export default function Treatment(props) {
@@ -167,11 +168,17 @@ export default function Treatment(props) {
         )
     }
 
-
+    // <div className="treatment-icon"></div>
     return (
         <div className="treatment-container">
             <div className="treatment-header">
-                <div className="treatment-icon"></div>
+                <div className="treatment-icon-container">
+                    {props.format === 'mikstuura' ? 
+                    <div className="treatment-icon">
+                        <OpacityIcon/>
+                    </div> : 
+                    <img className="pill-icon" src="./icons/pill-icon.svg" alt="pill icon"/>}
+                </div>
                 <h2>{!props.needsAntibiotics ?
                 `Ei antibioottisuositusta` :
                 `Hoitosuositus ${props.format.toLowerCase()}na`}</h2>
