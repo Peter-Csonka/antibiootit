@@ -251,6 +251,12 @@ aside {
     margin-top: 24px;
 }
 
+.weight-icon {
+    position: absolute;
+    top: -29px;
+    right: -70px;
+}
+
 .kg-text-disabled {
     position: absolute;
     margin-left: -70px;
@@ -616,7 +622,7 @@ aside {
     height: 40px;
 }
 
-.pill-icon, .pen-icon {
+.pill-icon, .pen-icon, .weight-icon {
     width: 80px;
     height: 80px;
 }
