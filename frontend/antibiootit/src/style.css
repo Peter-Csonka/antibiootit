@@ -222,7 +222,7 @@ aside {
 
 .recipe-header-container {
     position: flex; 
-    margin-left: -33px;
+    margin-left: -25px;
     align-self: flex-start;
 }
 
@@ -997,7 +997,13 @@ aside {
         margin-right: 10px;
     } .strepto-info {
         font-size: 20px;
-    } .copy-button {
+        margin-top: 13px;
+        border-radius: 0px 0px 20px 20px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    } .strepto-info > p{
+        font-size: 13px;
+    }.copy-button {
         font-size: 14px;
         margin-right: 6px;
     } .copy--image {
@@ -1070,11 +1076,18 @@ aside {
         flex-direction: row;
         align-items: flex-end;
     } .recipe-header-container {
-        position: flex; 
+        margin-left: -35px;
     }.treatment-icon {
         margin-left: -5px;
-    } .pen-icon {
+    } .treatment-extra{
+        height: auto;
+        flex-direction: column;
+        align-self: flex-start;
+    }.pen-icon {
         margin-left: -15px;
+    } .description-container {
+        align-self: flex-start;
+        width: 100%;
     }
 }
 
