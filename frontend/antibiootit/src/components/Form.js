@@ -160,9 +160,7 @@ export default function Form(props) {
     }
 
     const [weight, setWeight] = useState("");
-    //const [isWeightOk, setIsWeightOk] = useState(false);
     const [formatWeight, setFormatWeight] = useState(true);
-    //const inputErrorMessage = "Tarkista paino";
     const [inputErrorMessage1, setInputErrorMessage1] = useState("");
     const MIN_WEIGHT = 4;
     const MAX_WEIGHT = 100;
@@ -366,7 +364,9 @@ export default function Form(props) {
                         inputMode="numeric"
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
-                    /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>kg</span>
+                    /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>
+                        <img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>
+                    </span>
                     {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage1}</div>}
             </div>
             <div className="checkbox-container">
