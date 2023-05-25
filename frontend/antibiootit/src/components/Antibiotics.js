@@ -173,7 +173,7 @@ export default function Antibiotics() {
                 isWeightOk={isWeightOk}
                 setIsWeightOk={setIsWeightOk}
             />
-            {formSubmitted && !!noAntibioticTreatment && <NoTreatment />}
+            {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
             {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
                 loading={loading}
                 needsAntibiotics={diagnosisData.needsAntibiotics}
@@ -183,7 +183,14 @@ export default function Antibiotics() {
                 setActiveRecipe={setActiveRecipe}
                 format={treatments[0].format}
             />}
-            {formSubmitted && (treatments || !!noAntibioticTreatment) && isWeightOk && <Recipe 
+            {formSubmitted && !!noAntibioticTreatment && <Recipe
+                loading={loading}
+                treatments={treatments} 
+                activeRecipe={activeRecipe} 
+                diagnosisData={diagnosisData}
+                noTreatment={noAntibioticTreatment}
+            />}
+            {formSubmitted && (treatments && diagnosisData.needsAntibiotics) && isWeightOk && <Recipe 
                 loading={loading}
                 treatments={treatments} 
                 activeRecipe={activeRecipe} 
