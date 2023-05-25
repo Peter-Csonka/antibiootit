@@ -986,7 +986,8 @@ aside {
         max-height:fit-content;
     } .checkbox-container {
         height: 70px;
-        margin-right: 40px;
+        margin-right: 50px;
+        margin-top: 20px;
     } .treatment-container {
         margin-top: 25px;
     } .treatment-header > h2 {
@@ -1052,7 +1053,13 @@ aside {
         height: 55px;
         width: 280px;
         margin-top: 0px;
-    } .kg-text-disabled {
+    }  .form--input-notok{
+        height: 55px;
+        width: 280px;
+        margin-top: 0px;
+    } .error {
+        margin-top: -8px;
+    }.kg-text-disabled {
         margin-top: 17px;
         font-size: 18px;
     } .kg-text {
@@ -1064,7 +1071,7 @@ aside {
         margin-top: -5px;
     } .dropdown-btn {
         margin-top: 0px;
-    }.form--button {
+    } .form--button {
         width: 280px;
         height: 55px;
         font-size: 18px;
@@ -1089,14 +1096,16 @@ aside {
         height: auto;
         flex-direction: column;
         align-self: flex-start;
-    }.pen-icon {
+    }.pen-icon  {
         margin-left: -15px;
     } .description-container {
         align-self: flex-start;
         width: 100%;
     } .treatment-calculations {
         margin-top: 10px;
-    } 
+    } .pill-icon {
+        margin-left: -10px;
+    }
 }
 
 @media only screen and (min-width: 601px) {
