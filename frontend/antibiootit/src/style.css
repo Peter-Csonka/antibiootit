@@ -324,6 +324,7 @@ aside {
 .dropdown-btn ion-icon {
     position: absolute;
     right: 10px;
+    color: black;
 }
 
 .dropdown-btn {
@@ -796,7 +797,7 @@ aside {
 .info-links button {
     font-size: 18px;
     border: none;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .info-links button:active {
@@ -814,6 +815,10 @@ aside {
 .info-line {
     margin-top: 4px;
     margin-bottom: 60px;
+}
+
+.info-links :last-child {
+    margin-bottom: 70px;
 }
 
 .info-paragraph {
@@ -1014,9 +1019,9 @@ aside {
         margin-top: 25px;
     } .treatment-header > h2 {
         font-weight: bolder;
-        font-size: 19px;
+        font-size: 21px;
         font-family: Arial, Helvetica, sans-serif;
-        margin-left: -10px;
+        margin-left: -6px;
     } .choise-inner {
         margin-top: 8px;
         height: fit-content;
@@ -1032,7 +1037,7 @@ aside {
         padding-top: 30px;
     } .strepto-info > p{
         font-size: 13px;
-    }.copy-button {
+    } .copy-button {
         width: 150px;
         height: 35px;
         font-size: 14px;
@@ -1050,6 +1055,7 @@ aside {
         margin-top: 0px;
         margin-bottom: 15px;
         padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
     } .main-centered {
         display: flex;
         flex-direction: column;
@@ -1062,11 +1068,22 @@ aside {
         margin-left: 15px;
     } .info-links > * {
         margin-bottom: 12px;
+        background-color: #395174;
     } .info-line {
-        margin-bottom: 20px;
+        display: none;
     } .info-container > h2 {
         margin-bottom: 45px;
-    } .mobile-nav {
+    } .info-active {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    } .info-container h3 {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    } .info-links button {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #ffffff;
+    }.mobile-nav {
         right: -10px;
     } .logo {
         padding-left: 0px;
@@ -1078,13 +1095,13 @@ aside {
         height: 55px;
         width: 280px;
         margin-top: 0px;
-    }  .form--input-notok{
+    } .form--input-notok{
         height: 55px;
         width: 280px;
         margin-top: 0px;
     } .error {
         margin-top: -8px;
-    }.kg-text-disabled {
+    } .kg-text-disabled {
         margin-top: 17px;
         font-size: 18px;
     } .kg-text {
@@ -1102,6 +1119,7 @@ aside {
         font-size: 18px;
         box-shadow:none;
         font-family: Arial, Helvetica, sans-serif;
+        color: black;
     } ::placeholder {
         font-size: 18px;
         margin-left: 100px;
