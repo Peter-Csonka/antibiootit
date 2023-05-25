@@ -1027,6 +1027,9 @@ aside {
     } section {
         max-height:fit-content;
     } .checkbox-container {
+        width: 240px;
+        grid-row-start: 1;
+        grid-column-start: 1;
         height: 70px;
         margin-right: 50px;
         margin-top: 20px;
