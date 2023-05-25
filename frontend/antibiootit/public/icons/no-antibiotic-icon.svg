@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666666 8.4666666"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="no-antibiotic-icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.9264142"
+     inkscape:cx="22.531601"
+     inkscape:cy="14.00613"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Taso 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#d6d6d6;fill-opacity:1;stroke-width:0.419672;stroke-linejoin:round"
+       id="path14937"
+       cx="4.2183714"
+       cy="4.2511983"
+       r="4.0870595"
+       sodipodi:insensitive="true" />
+    <path
+       id="path382-5-1-9"
+       style="fill:#5d769a;fill-opacity:1;stroke-width:0.58645;stroke-linejoin:round"
+       d="M 4.2281895,1.2422657 A 3.0557247,3.0343565 0 0 0 1.1725524,4.2767262 3.0557247,3.0343565 0 0 0 4.2281895,7.3111866 3.0557247,3.0343565 0 0 0 7.2842023,4.2767262 3.0557247,3.0343565 0 0 0 4.2281895,1.2422657 Z M 4.2005859,1.988308 A 2.2883026,2.2883026 0 0 1 6.4890042,4.2767262 2.2883026,2.2883026 0 0 1 4.2005867,6.5651442 2.2883026,2.2883026 0 0 1 1.9121674,4.2767262 2.2883026,2.2883026 0 0 1 4.2005859,1.988308 Z" />
+    <rect
+       style="fill:#5d769a;fill-opacity:1;stroke-width:0.352387;stroke-linejoin:round"
+       id="rect13377"
+       width="5.5191569"
+       height="0.97356504"
+       x="-1.494566"
+       y="5.479599"
+       transform="matrix(0.81308709,-0.58214206,0.56137218,0.82756346,0,0)" />
+  </g>
+</svg>

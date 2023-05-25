@@ -8,7 +8,9 @@ export default function NoTreatment() {
     return (
         <div className="treatment-container">
             <div className="treatment-header">
-                <div className="treatment-icon"></div>
+                <div className="no-treatment-icon-container">
+                    <img className="no-antibiotic-icon" src="./icons/no-antibiotic-icon.svg" alt="no antibiotic icon"/>
+                </div>
                 <h2>Ei antibioottisuositusta</h2>
             </div>
             <div className="treatment-choises">
