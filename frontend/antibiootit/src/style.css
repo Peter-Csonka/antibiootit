@@ -1015,11 +1015,14 @@ aside {
     } .strepto-info > p{
         font-size: 13px;
     }.copy-button {
+        width: 150px;
+        height: 35px;
         font-size: 14px;
-        margin-right: 6px;
+        margin-right: 3px;
+        text-indent: 0px;
+        overflow: hidden;
     } .copy--image {
         width: 17px;
-        margin-right: 5px;
     } .info-container {
         width: 100%;
         margin: 0px;
@@ -1084,9 +1087,7 @@ aside {
     } ::placeholder {
         font-size: 18px;
         margin-left: 100px;
-    } .recipe-text {
-        font-family: Arial, Helvetica, sans-serif;
-    } .antibiotic-instructions > h2 {
+    }  .antibiotic-instructions > h2 {
         font-family: Arial, Helvetica, sans-serif;
     } .recipe-container h3,h4 {
         font-family: Arial, Helvetica, sans-serif;
@@ -1110,7 +1111,7 @@ aside {
         margin-top: 10px;
     } .pill-icon {
         margin-left: -10px;
-    }
+    } 
 }
 
 @media only screen and (min-width: 601px) {
