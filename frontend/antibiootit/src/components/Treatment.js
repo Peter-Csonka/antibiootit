@@ -205,7 +205,7 @@ export default function Treatment(props) {
                     </div>}
                 </button>
                 {!openCalculations && <div className="description-container">
-                    {props.description!=="" &&
+                    {props.description !=="" && !props.loading &&
                     <div className="strepto-info">
                         <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
                         <p className="info-description">{props.description}</p>
