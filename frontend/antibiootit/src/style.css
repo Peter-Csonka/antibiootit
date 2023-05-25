@@ -971,7 +971,9 @@ aside {
         margin-bottom: 15px;
         font-family: Arial, Helvetica, sans-serif;
     } .diagnosis-menu-choose {
-        font-size: 18px;    
+        font-size: 18px; 
+        font-family: Arial, Helvetica, sans-serif;  
+        color: black; 
     } .diagnosis-menu {
         margin-top: 20px;
         padding-top: 15px;
@@ -982,6 +984,8 @@ aside {
     } .diagnosis-menu-name{
         font-size: 18px;
         margin-left: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
     } section {
         max-height:fit-content;
     } .checkbox-container {
@@ -1076,6 +1080,7 @@ aside {
         height: 55px;
         font-size: 18px;
         box-shadow:none;
+        font-family: Arial, Helvetica, sans-serif;
     } ::placeholder {
         font-size: 18px;
         margin-left: 100px;
