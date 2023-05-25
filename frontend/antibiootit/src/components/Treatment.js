@@ -168,7 +168,6 @@ export default function Treatment(props) {
         )
     }
 
-    // <div className="treatment-icon"></div>
     return (
         <div className="treatment-container">
             <div className="treatment-header">
@@ -206,10 +205,10 @@ export default function Treatment(props) {
                     </div>}
                 </button>
                 {!openCalculations && <div className="description-container">
-                    {props.description!=="" &&
+                    {props.description !=="" && !props.loading &&
                     <div className="strepto-info">
-                        <p><ion-icon name="help-circle-outline"></ion-icon></p>
-                        <p>{props.description}</p>
+                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
+                        <p className="info-description">{props.description}</p>
                     </div>}
                 </div>}
                 {openCalculations && greater && <div className="max-dosage-container">

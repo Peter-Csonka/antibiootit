@@ -649,8 +649,9 @@ aside {
 .strepto-info {
     padding: 20px;
     display: flex;
-    width: 400px;
-    height: 20px;
+    align-items: center;
+    width: 430px;
+    height: 45px;
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
@@ -659,8 +660,19 @@ aside {
 
 .strepto-info > p {
     font-weight: 400;
-    font-size: 12px;
     align-self: center;
+    justify-self: flex-end;
+}
+
+.info-description {
+    font-size: 14px;
+    width: 400px;
+}
+
+.help-circle {
+    font-size: 25px;
+    margin-left: -7px;
+    margin-top: 5px;
 }
 
 .treatment-calculations {
@@ -981,6 +993,12 @@ aside {
         width: 100%;
         height: 2.7em;
         padding-right: 10px;
+        justify-content: center;
+    } .info-description {
+        font-size: 15px;
+    } .help-circle {
+        margin-top: 3px;
+        font-size: 25px;
     } .weight-input {
         padding-right: 0px;
     } .diagnosis-form  {
@@ -1032,8 +1050,6 @@ aside {
         border-radius: 0px 0px 20px 20px;
         padding-bottom: 30px;
         padding-top: 30px;
-    } .strepto-info > p{
-        font-size: 13px;
     } .copy-button {
         width: 150px;
         height: 35px;
