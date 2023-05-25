@@ -1146,6 +1146,9 @@ aside {
         margin-top: 10px;
     } .pill-icon {
         margin-left: -10px;
+    } .btn-calculate {
+        border: 1.5px solid #395174;
+        background-color: #d4deee;
     } 
 }
 
