@@ -255,6 +255,14 @@ aside {
     right: -70px;
 }
 
+.weight-icon-disabled {
+    position: absolute;
+    top: -3.5px;
+    right: -42px;
+    width: 28px;
+    height: 28px;
+}
+
 .kg-text-disabled {
     position: absolute;
     margin-left: -70px;
@@ -642,7 +650,7 @@ aside {
     pointer-events: none;
 }
 
-.no-antibiotic-icon {
+.no-antibiotic-icon, .weight-icon-disabled {
     pointer-events: none;
 }
 
