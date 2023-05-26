@@ -342,8 +342,7 @@ export default function Form(props) {
         }
         setConcurrentMycoplasma(!concurrentMycoplasma)
     }
-    console.log(isIconLoaded);
-    //<img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>
+
     return (
         <form 
             className="diagnosis-form" 
