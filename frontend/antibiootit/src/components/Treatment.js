@@ -200,7 +200,9 @@ export default function Treatment(props) {
                         <p> Piilota kaava</p> 
                     </div> :
                     <div className="btn-elements">
-                        <img className="func-icon-open" src="./icons/function-icon-open.svg" alt="icon-open"/>
+                        {(!props.needsAntibiotics || props.format === 'tabletti') ?
+                            <img className="func-icon-open" src="./icons/function-icon-open-disabled.svg" alt="icon-open-disabled"/> :
+                            <img className="func-icon-open" src="./icons/function-icon-open.svg" alt="icon-open"/>}
                         <p> Laskukaava</p>
                     </div>}
                 </button>
