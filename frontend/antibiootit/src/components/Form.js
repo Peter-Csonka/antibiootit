@@ -17,6 +17,22 @@ export default function Form(props) {
     const [needsAntibiotics, setNeedsAntibiotics] = useState(false);
     const [additionalCheckboxes, setAdditionalCheckboxes] = useState();
 
+    const [isIconLoaded, setIsIconLoaded] = useState(false);
+
+    useEffect(() => {
+        const disabledWeightIcon = new Image();
+        disabledWeightIcon.src = "./icons/weight-icon-disabled.svg";
+        disabledWeightIcon.onload = () => {
+            setIsIconLoaded(true);
+        };
+
+        const enabledWeightIcon = new Image();
+        enabledWeightIcon.src = "./icons/weight-icon.svg";
+        enabledWeightIcon.onload = () => {
+            setIsIconLoaded(true);
+        };
+    }, []);
+
     useEffect(() =>{
         if (diagnosis) {
             const chosen = fullInfo.filter(infection => infection.name === diagnosis.name);
@@ -342,7 +358,8 @@ export default function Form(props) {
         }
         setConcurrentMycoplasma(!concurrentMycoplasma)
     }
-
+    console.log(isIconLoaded);
+    //<img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>
     return (
         <form 
             className="diagnosis-form" 
@@ -365,9 +382,9 @@ export default function Form(props) {
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
                     /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>
-                        {!needsAntibiotics || !diagnosis ? 
-                        <img className="weight-icon-disabled" src="./icons/weight-icon-disabled.svg" alt="weight icon disabled"/> : 
-                        <img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>}
+                            {(!needsAntibiotics || !diagnosis) ? 
+                            <img className="weight-icon-disabled" src="./icons/weight-icon-disabled.svg" alt="weight icon disabled"/> : 
+                            <img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>}
                     </span>
                     {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage1}</div>}
             </div>
