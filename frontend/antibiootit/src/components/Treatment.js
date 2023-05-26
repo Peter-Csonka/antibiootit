@@ -215,7 +215,7 @@ export default function Treatment(props) {
                     <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
             </div>
-            {props.loading? 
+            {props.loading && openCalculations ? 
             <LoadingIndicator 
                 loading={"calculations"}
             /> : 
