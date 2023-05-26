@@ -928,8 +928,8 @@ aside {
     color: white;
     border: none;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 15px;
 }
 
 .mobile-nav {
@@ -953,7 +953,7 @@ aside {
 .show-menu {
     display: block;
     margin-top: 195px;  
-  }
+}
   
 
 /*Scalability to mobile screen*/
@@ -1089,8 +1089,10 @@ aside {
         flex-direction: column;
         align-items: flex-start;
         align-self: flex-start;
+        font-family: Arial, Helvetica, sans-serif;
         margin-left: 15px;
     } .info-links > * {
+        font-family: Arial, Helvetica, sans-serif;
         margin-bottom: 12px;
         background-color: #395174;
     } .info-line {
@@ -1217,8 +1219,7 @@ aside {
 @media only screen and (min-width: 720px){
     .antibiotics {
         margin-left: 10%;
-    } 
-    .active-class {
+    } .active-class {
         margin-left: 60px;
     } .not-active-class {
         margin-left: 60px;
@@ -1227,12 +1228,48 @@ aside {
     }
 }
 
+@media only screen and (max-width: 850px) {
+    .info-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-start;
+    } .info-links button {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #ffffff;
+    } .info-links :last-child {
+        margin-bottom: 70px;
+    } .info-links > * {
+        margin-bottom: 12px;
+        background-color: #395174;
+    } .info-line {
+        display: none;
+    } .info-container > h2 {
+        margin-bottom: 45px;
+    } .info-active {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    } .info-container h3 {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    } .info-container > h2 {
+        align-self: center;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .main-centered {
+        background-color: white;
+    } .info-container {
+        width: 100%;
+    } 
+}
 
 @media only screen and (min-width: 1500px) {
     main {
         max-width: 1400px;      
-    }
-    .diagnosis-menu {
+    } .diagnosis-menu {
         margin-left: 100px;
     } .mobile-container {
         display: none;
@@ -1247,13 +1284,16 @@ aside {
         font-size: 14px;
         grid-column-start: 2;
         grid-row-start: 1;
-    }  .antibiotics {
+    } .antibiotics {
         max-width: 750px;
-    }   .weight-input {
+    }  .weight-input {
         padding-right: 200px;
-    }  .treatment-container {
+    } .treatment-container {
         width: 100%;
-    }
+    } .info-container {
+        width: 60%;
+    } 
+    
 }
 
 .loading-container {
