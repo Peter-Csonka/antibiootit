@@ -17,22 +17,6 @@ export default function Form(props) {
     const [needsAntibiotics, setNeedsAntibiotics] = useState(false);
     const [additionalCheckboxes, setAdditionalCheckboxes] = useState();
 
-    const [isIconLoaded, setIsIconLoaded] = useState(false);
-
-    useEffect(() => {
-        const disabledWeightIcon = new Image();
-        disabledWeightIcon.src = "./icons/weight-icon-disabled.svg";
-        disabledWeightIcon.onload = () => {
-            setIsIconLoaded(true);
-        };
-
-        const enabledWeightIcon = new Image();
-        enabledWeightIcon.src = "./icons/weight-icon.svg";
-        enabledWeightIcon.onload = () => {
-            setIsIconLoaded(true);
-        };
-    }, []);
-
     useEffect(() =>{
         if (diagnosis) {
             const chosen = fullInfo.filter(infection => infection.name === diagnosis.name);
