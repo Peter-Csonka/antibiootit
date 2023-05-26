@@ -365,7 +365,9 @@ export default function Form(props) {
                         disabled={!needsAntibiotics || !diagnosis}
                         required={true}
                     /><span className={!needsAntibiotics || !diagnosis ? "kg-text-disabled" : "kg-text"}>
-                        <img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>
+                        {!needsAntibiotics || !diagnosis ? 
+                        <img className="weight-icon-disabled" src="./icons/weight-icon-disabled.svg" alt="weight icon disabled"/> : 
+                        <img className="weight-icon" src="./icons/weight-icon.svg" alt="weight icon"/>}
                     </span>
                     {!formatWeight && <div className="error" id="inputErr">{inputErrorMessage1}</div>}
             </div>
