@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 628 465"
+   version="1.1"
+   sodipodi:docname="function-icon-open.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3753"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.8"
+     inkscape:cx="279.44444"
+     inkscape:cy="232.77778"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs3736">
+    <style
+       id="style3734">
+      .cls-1 {
+        fill: none;
+        stroke: #395174;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 26px;
+      }
+    </style>
+  </defs>
+  <path
+     class="cls-1"
+     d="m145.55,333.14c4.74,17.06,13.76,26.36,27,28,14.14-.54,22.34-8.57,28-36l19-108"
+     id="path3738"
+     style="stroke:#929292;stroke-opacity:1" />
+  <path
+     class="cls-1"
+     d="m287.89,133.98c-4.74-17.06-13.76-26.36-27-28-14.14.54-22.34,8.57-28,36l-19,108"
+     id="path3740"
+     style="stroke:#929292;stroke-opacity:1" />
+  <line
+     class="cls-1"
+     x1="181.55"
+     y1="225.14"
+     x2="256.55"
+     y2="225.14"
+     id="line3742"
+     style="stroke:#929292;stroke-opacity:1" />
+  <line
+     class="cls-1"
+     x1="351"
+     y1="229"
+     x2="424"
+     y2="304"
+     id="line3744"
+     style="stroke:#929292;stroke-opacity:1" />
+  <line
+     class="cls-1"
+     x1="348"
+     y1="304"
+     x2="424"
+     y2="227"
+     id="line3746"
+     style="stroke:#929292;stroke-opacity:1" />
+  <path
+     class="cls-1"
+     d="m444.55,196.14c39.9,50.84,39.51,99.67-1.71,144.09"
+     id="path3748"
+     style="stroke:#929292;stroke-opacity:1" />
+  <path
+     class="cls-1"
+     d="m322.08,195.75c-39.9,50.84-39.51,99.67,1.71,144.09"
+     id="path3750"
+     style="stroke:#929292;stroke-opacity:1" />
+</svg>

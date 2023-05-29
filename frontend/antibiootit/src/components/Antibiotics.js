@@ -28,7 +28,7 @@ export default function Antibiotics() {
     const [infoTexts, setInfoTexts] = useState(null);
 
     const [treatments, setTreatments] = useState(null);
-    const [description, setDescription] = useState(null);
+    //const [description, setDescription] = useState(null);
  
     const [instruction, setInstruction] = useState([]);
 
@@ -69,7 +69,7 @@ export default function Antibiotics() {
             GetRecommendedTreatment(data)
             .then(response => {
                 setTreatments(response.treatments);
-                setDescription(response.description);
+                //setDescription(response.description);
                 setLoading(false);
                 // Also set the first active recipe 
                 const dosageValue = response.treatments[0].dosageResult.dose.value;
@@ -177,7 +177,7 @@ export default function Antibiotics() {
             {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
                 loading={loading}
                 needsAntibiotics={diagnosisData.needsAntibiotics}
-                description={description}
+                //description={description}
                 weight={chosenWeight}
                 treatments={treatments}
                 setActiveRecipe={setActiveRecipe}
