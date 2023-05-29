@@ -9,9 +9,11 @@ import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
+import fi.tuni.koodimankelit.antibiootit.database.data.TargetedInfo;
 import fi.tuni.koodimankelit.antibiootit.database.data.Treatment;
 import fi.tuni.koodimankelit.antibiootit.exceptions.NoAntibioticTreatmentException;
 import fi.tuni.koodimankelit.antibiootit.exceptions.TreatmentNotFoundException;
+import fi.tuni.koodimankelit.antibiootit.models.APITargetedInfo;
 import fi.tuni.koodimankelit.antibiootit.models.AntibioticTreatment;
 import fi.tuni.koodimankelit.antibiootit.models.DiagnosisResponse;
 
@@ -105,6 +107,13 @@ public class DiagnosisResponseBuilder {
             diagnosisResponse.addTreatment(antibioticTreatment);
         }
 
+        List<TargetedInfo> targetedInfos = getTargetedInfos();
+
+        for(TargetedInfo targetedInfo : targetedInfos) {
+            APITargetedInfo apiTargetedInfo = new APITargetedInfo(targetedInfo.getCheckbox(), targetedInfo.getText());
+            diagnosisResponse.addTargetedInfo(apiTargetedInfo);
+        }
+
         return diagnosisResponse;
         
     }
@@ -128,6 +137,16 @@ public class DiagnosisResponseBuilder {
         treatments.sort((a, b) -> Integer.valueOf(a.getChoice()).compareTo(Integer.valueOf(b.getChoice())));
         return treatments;
         
+    }
+
+    private List<TargetedInfo> getTargetedInfos() {
+        List<TargetedInfo> targetedInfos = new ArrayList<>();
+
+        for(TargetedInfo targetedInfo : this.diagnosis.getTargetedInfo()) {
+            targetedInfos.add(targetedInfo);
+        }
+
+        return targetedInfos;
     }
 
     

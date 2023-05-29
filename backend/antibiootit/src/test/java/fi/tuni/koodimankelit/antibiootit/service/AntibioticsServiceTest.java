@@ -19,6 +19,7 @@ import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
+import fi.tuni.koodimankelit.antibiootit.database.data.TargetedInfo;
 import fi.tuni.koodimankelit.antibiootit.database.data.Treatment;
 import fi.tuni.koodimankelit.antibiootit.models.DiagnosisResponse;
 import fi.tuni.koodimankelit.antibiootit.models.request.InfectionSelection;
@@ -66,8 +67,9 @@ public class AntibioticsServiceTest {
                 ))
             )
         );
+        List<TargetedInfo> targetedInfos = new ArrayList<TargetedInfo>();
         when(dataHandler.getDiagnosisById(any())).thenReturn(
-            new Diagnosis(null, null, null, null, null, null, treatments, true)
+            new Diagnosis(null, null, null, null, null, null, treatments, true, targetedInfos)
         );
     }
 

@@ -42,7 +42,7 @@ public class DataHandlerTest {
     @Test
     public void testGetDiagnosisByIdSuccess() {
 
-        Diagnosis diagnosis = new Diagnosis("test", null, null, null, null, null, null, false);
+        Diagnosis diagnosis = new Diagnosis("test", null, null, null, null, null, null, false, null);
         when(repository.findById("test")).thenReturn(Optional.of(diagnosis));
 
         Diagnosis result = dataHandler.getDiagnosisById("test");
