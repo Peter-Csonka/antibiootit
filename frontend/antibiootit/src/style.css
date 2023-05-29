@@ -1205,6 +1205,8 @@ aside {
         padding-right: 0px;
     } .treatment-container {
         width: 600px;
+    } .recipe-container {
+        width: 600px;
     }
 }
 
@@ -1216,6 +1218,8 @@ aside {
     } .not-active-class {
         margin-left: 60px;
     } .treatment-container {
+        width: 600px;
+    } .recipe-container {
         width: 600px;
     }
 }
@@ -1284,7 +1288,9 @@ aside {
         width: 100%;
     } .info-container {
         width: 60%;
-    } 
+    } .recipe-container {
+        width: 100%;
+    }
     
 }
 
