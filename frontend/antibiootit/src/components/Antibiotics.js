@@ -70,6 +70,7 @@ export default function Antibiotics() {
             .then(response => {
                 setTreatments(response.treatments);
                 //setDescription(response.description);
+                console.log(response.description);
                 setLoading(false);
                 // Also set the first active recipe 
                 const dosageValue = response.treatments[0].dosageResult.dose.value;
@@ -149,7 +150,7 @@ export default function Antibiotics() {
             }
         }
     }, [chosenDiagnosis, diagnoses, infoTexts])
-    
+    console.log(diagnosisData);
     return (
         <div className="antibiotics">
             <section>

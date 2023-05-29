@@ -21,6 +21,7 @@ public class Diagnosis {
     private final List<Treatment> treatments;
     private final List<CheckBoxInfo> checkBoxes;
     private final boolean needsAntibiotics;
+    private final List<TargetedInfo> targetedInfo;
 
     /**
      * Default constructor
@@ -32,9 +33,11 @@ public class Diagnosis {
      * @param checkBoxes list of possibly needed checkboxes for diagnosis
      * @param treatments List of all treatment options 
      * @param needsAntibiotics tells if diagnosis needs antibiotics
+     * @param targetedInfo tells if diagnosis has targeted info for a certain checkbox selection
      */
     public Diagnosis(String id, String name, String etiology, String info, String infectionType, 
-                List<CheckBoxInfo> checkBoxes, List<Treatment> treatments, boolean needsAntibiotics) {
+                List<CheckBoxInfo> checkBoxes, List<Treatment> treatments, boolean needsAntibiotics,
+                List<TargetedInfo> targetedInfo) {
         super();
         this.id = id;
         this.name = name;
@@ -44,6 +47,7 @@ public class Diagnosis {
         this.treatments = treatments;
         this.checkBoxes = checkBoxes;
         this.needsAntibiotics = needsAntibiotics;
+        this.targetedInfo = targetedInfo;
     }
 
     /**
@@ -108,5 +112,13 @@ public class Diagnosis {
      */
     public boolean getNeedsAntibiotics() {
         return this.needsAntibiotics;
+    }
+
+    /**
+     * Returns list targeted info
+     * @return List<TargetedInfo> targetedInfo
+     */
+    public List<TargetedInfo> getTargetedInfo() {
+        return this.targetedInfo;
     }
 }
