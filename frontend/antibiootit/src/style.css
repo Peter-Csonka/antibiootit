@@ -412,13 +412,17 @@ aside {
     background-color:#D7E2F2;
 }
 
+.diagnosis-menu:hover {
+    border-radius: 20px 20px 0 0;
+}
+
 .dropdown-content {
     position: absolute;
     display:none;
     z-index: 1;
     width: 250px;
     padding: 0;
-    margin-left: -1px;
+    margin-left: -1.5px;
     padding-bottom: 0px;
     padding-top: 10px;
     background-color: #D7E2F2;
@@ -1122,7 +1126,7 @@ aside {
         font-size: 18px;
     } .dropdown-content {
         width: 280px;
-        margin-left: -1px;
+        margin-left: -1.5px;
         margin-top: -5px;
     } .dropdown-btn {
         margin-top: 0px;
