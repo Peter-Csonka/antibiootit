@@ -158,7 +158,6 @@ export default function Treatment(props) {
     }
 
     function MathFormula(mathprops) {
-        // =${mathprops.accResult} \\approx ${mathprops.result}`}/>
         return (
             <div className="calculations-container">
                 <InlineMath math={`\\frac{\\frac{${mathprops.weight} \\cdot 
@@ -167,15 +166,19 @@ export default function Treatment(props) {
             </div>
         )
     }
-    /**
-     * {!openCalculations && <div className="description-container">
-                    {props.description !=="" && !props.loading &&
-                    <div className="strepto-info">
-                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
-                        <p className="info-description">{props.description}</p>
-                    </div>}
-                </div>}
-     */
+
+    let targetedInfo;
+    if (props.targetedInfo.length > 0) {
+        if (props.penicillinAllergy && props.concurrentMycoplasma) {
+            targetedInfo = props.targetedInfo[0].text + "\n" + props.targetedInfo[1].text;
+        } else if (props.penicillinAllergy) {
+            targetedInfo = props.targetedInfo[0].text;
+        } else if (props.concurrentMycoplasma) {
+            targetedInfo = props.targetedInfo[1].text;
+        } else {
+            targetedInfo = "";
+        }
+    }
 
     return (
         <div className="treatment-container">
@@ -215,6 +218,14 @@ export default function Treatment(props) {
                         <p> Laskukaava</p>
                     </div>}
                 </button>
+                {!openCalculations && <div className="description-container">
+                    {(props.description !== "" || targetedInfo !== "") && !props.loading &&
+                    <div className="strepto-info">
+                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
+                        {props.description !== "" ? <p className="info-description">{props.description}</p> :
+                        <p className="info-description">{targetedInfo}</p>}
+                    </div>}
+                </div>}
                 {openCalculations && greater && <div className="max-dosage-container">
                     <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}

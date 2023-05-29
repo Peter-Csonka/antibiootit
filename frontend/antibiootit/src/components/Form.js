@@ -117,11 +117,11 @@ export default function Form(props) {
             const checkBoxes = [
                 {
                     id: 'EBV-001',
-                    value: concurrentEBV
+                    value: props.concurrentEBV
                 },
                 {
                     id: 'MYK-001',
-                    value: concurrentMycoplasma
+                    value: props.concurrentMycoplasma
                   }
             ];
             const matchingCheckBoxes = checkBoxes.filter(cb => {
@@ -154,8 +154,8 @@ export default function Form(props) {
     }
 
     const resetCheckboxes = () => {
-        setConcurrentEBV(false);
-        setConcurrentMycoplasma(false);
+        props.setConcurrentEBV(false);
+        props.setConcurrentMycoplasma(false);
         setAdditionalCheckboxes([]);
     }
 
@@ -211,9 +211,9 @@ export default function Form(props) {
         }
     }
 
-    const [penicillinAllergy, setPenicillinAllergy] = useState(false);
+    /*const [penicillinAllergy, setPenicillinAllergy] = useState(false);
     const [concurrentEBV, setConcurrentEBV] = useState(false);
-    const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
+    const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);*/
 
     const SubmitButton = () => {
         return (
@@ -232,11 +232,11 @@ export default function Form(props) {
             const checkBoxes = [
                 {
                     id: 'EBV-001',
-                    value: concurrentEBV
+                    value: props.concurrentEBV
                 },
                 {
                     id: 'MYK-001',
-                    value: concurrentMycoplasma
+                    value: props.concurrentMycoplasma
                   }
             ];
             const matchingCheckBoxes = checkBoxes.filter(cb => {
@@ -256,16 +256,16 @@ export default function Form(props) {
                 const data = { 
                                 diagnosisID: diagnosis.id,
                                 weight: weightForCalculations,
-                                penicillinAllergic: penicillinAllergy,
+                                penicillinAllergic: props.penicillinAllergy,
                                 checkBoxes: matchingCheckBoxes
                             }
 
                 logUserInputData(
                     diagnosis.name, 
                     weight, 
-                    penicillinAllergy, 
-                    concurrentEBV, 
-                    concurrentMycoplasma
+                    props.penicillinAllergy, 
+                    props.concurrentEBV, 
+                    props.concurrentMycoplasma
                     );
 
                 props.handleSubmit(data);
@@ -301,12 +301,12 @@ export default function Form(props) {
     const handlePenicillinAllergy = () => {
         const newData = {
             ...props.formData,
-            penicillinAllergic: !penicillinAllergy
+            penicillinAllergic: !props.penicillinAllergy
         }
         if (props.hasFormData) {
             props.handleSubmit(newData);
         }
-        setPenicillinAllergy(!penicillinAllergy)
+        props.setPenicillinAllergy(!props.penicillinAllergy)
     }
 
     const handleEBV = () => {
@@ -314,7 +314,7 @@ export default function Form(props) {
             const checkBoxes = [
                 {
                     id: 'EBV-001',
-                    value: !concurrentEBV
+                    value: !props.concurrentEBV
                 }
             ];
             const newData = {
@@ -323,7 +323,7 @@ export default function Form(props) {
             }
             props.handleSubmit(newData);
         }
-        setConcurrentEBV(!concurrentEBV)
+        props.setConcurrentEBV(!props.concurrentEBV)
     }
 
     const handleMycoplasma = () => {
@@ -331,7 +331,7 @@ export default function Form(props) {
             const checkBoxes = [
                 {
                     id: 'MYK-001',
-                    value: !concurrentMycoplasma
+                    value: !props.concurrentMycoplasma
                 }
             ];
             const newData = {
@@ -340,7 +340,7 @@ export default function Form(props) {
             }
             props.handleSubmit(newData);
         }
-        setConcurrentMycoplasma(!concurrentMycoplasma)
+        props.setConcurrentMycoplasma(!props.concurrentMycoplasma)
     }
 
     return (
