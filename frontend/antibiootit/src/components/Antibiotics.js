@@ -156,7 +156,7 @@ export default function Antibiotics() {
             }
         }
     }, [chosenDiagnosis, diagnoses, infoTexts])
-    
+    console.log(diagnosisData);
     return (
         <div className="antibiotics">
             <section>

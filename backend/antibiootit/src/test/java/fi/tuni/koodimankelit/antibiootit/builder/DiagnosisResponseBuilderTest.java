@@ -19,6 +19,7 @@ import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
+import fi.tuni.koodimankelit.antibiootit.database.data.TargetedInfo;
 import fi.tuni.koodimankelit.antibiootit.database.data.Treatment;
 import fi.tuni.koodimankelit.antibiootit.exceptions.NoAntibioticTreatmentException;
 import fi.tuni.koodimankelit.antibiootit.exceptions.TreatmentNotFoundException;
@@ -40,9 +41,10 @@ public class DiagnosisResponseBuilderTest {
 
     private final List<CheckBoxInfo> checkBoxInfos = new ArrayList<>();
     private final List<Treatment> treatments = new ArrayList<>();
+    private final List<TargetedInfo> targetedInfos = new ArrayList<>();
 
     private final Diagnosis diagnosis = new Diagnosis(
-        id, name, etiology, info, infectionType, checkBoxInfos, treatments, needsAntibiotics);
+        id, name, etiology, info, infectionType, checkBoxInfos, treatments, needsAntibiotics, targetedInfos);
 
 
     @BeforeEach

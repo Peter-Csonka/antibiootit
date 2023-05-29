@@ -18,7 +18,7 @@ public class DiagnosisResponse {
     private final String etiology;
     private final String description;
     private final ArrayList<AntibioticTreatment> treatments;
-
+    private final ArrayList<APITargetedInfo> targetedInfos;
 
     /**
      * Default constructor
@@ -31,6 +31,7 @@ public class DiagnosisResponse {
         this.etiology = etiology;
         this.description = description;
         this.treatments = new ArrayList<>();
+        this.targetedInfos = new ArrayList<>();
     }
 
     
@@ -42,6 +43,13 @@ public class DiagnosisResponse {
         this.treatments.add(treatment);
     }
 
+    /**
+     * Adds a new targeted info
+     * @param targetedInfo Targeted info 
+     */
+    public void addTargetedInfo(APITargetedInfo targetedInfo) {
+        this.targetedInfos.add(targetedInfo);
+    }
 
     
     /** 
@@ -79,6 +87,8 @@ public class DiagnosisResponse {
         return this.treatments;
     }
 
-
+    public List<APITargetedInfo> getTargetedInfos() {
+        return this.targetedInfos;
+    }
 
 }
