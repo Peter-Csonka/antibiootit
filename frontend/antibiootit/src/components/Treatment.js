@@ -167,6 +167,15 @@ export default function Treatment(props) {
             </div>
         )
     }
+    /**
+     * {!openCalculations && <div className="description-container">
+                    {props.description !=="" && !props.loading &&
+                    <div className="strepto-info">
+                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
+                        <p className="info-description">{props.description}</p>
+                    </div>}
+                </div>}
+     */
 
     return (
         <div className="treatment-container">
@@ -206,13 +215,6 @@ export default function Treatment(props) {
                         <p> Laskukaava</p>
                     </div>}
                 </button>
-                {!openCalculations && <div className="description-container">
-                    {props.description !=="" && !props.loading &&
-                    <div className="strepto-info">
-                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
-                        <p className="info-description">{props.description}</p>
-                    </div>}
-                </div>}
                 {openCalculations && greater && <div className="max-dosage-container">
                     <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
