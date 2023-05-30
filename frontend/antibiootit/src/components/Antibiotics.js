@@ -27,8 +27,13 @@ export default function Antibiotics() {
     const [diagnoses, setDiagnoses] = useState(null);
     const [infoTexts, setInfoTexts] = useState(null);
 
+    const [penicillinAllergy, setPenicillinAllergy] = useState(false);
+    const [concurrentEBV, setConcurrentEBV] = useState(false);
+    const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
+
     const [treatments, setTreatments] = useState(null);
-    //const [description, setDescription] = useState(null);
+    const [description, setDescription] = useState(null);
+    const [targetedInfo, setTargetedInfo] = useState(null);
  
     const [instruction, setInstruction] = useState([]);
 
@@ -69,8 +74,9 @@ export default function Antibiotics() {
             GetRecommendedTreatment(data)
             .then(response => {
                 setTreatments(response.treatments);
-                //setDescription(response.description);
-                console.log(response.description);
+                setDescription(response.description);
+                setTargetedInfo(response.targetedInfos);
+
                 setLoading(false);
                 // Also set the first active recipe 
                 const dosageValue = response.treatments[0].dosageResult.dose.value;
@@ -173,16 +179,25 @@ export default function Antibiotics() {
                 hasFormData={hasFormData}
                 isWeightOk={isWeightOk}
                 setIsWeightOk={setIsWeightOk}
+                penicillinAllergy={penicillinAllergy}
+                setPenicillinAllergy={setPenicillinAllergy}
+                concurrentEBV={concurrentEBV}
+                setConcurrentEBV={setConcurrentEBV}
+                concurrentMycoplasma={concurrentMycoplasma}
+                setConcurrentMycoplasma={setConcurrentMycoplasma}
             />
             {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
             {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
                 loading={loading}
                 needsAntibiotics={diagnosisData.needsAntibiotics}
-                //description={description}
+                description={description}
+                targetedInfo={targetedInfo}
                 weight={chosenWeight}
                 treatments={treatments}
                 setActiveRecipe={setActiveRecipe}
                 format={treatments[0].format}
+                penicillinAllergy={penicillinAllergy}
+                concurrentMycoplasma={concurrentMycoplasma}
             />}
             {formSubmitted && !!noAntibioticTreatment && <Recipe
                 loading={loading}
