@@ -74,13 +74,9 @@ export default function Antibiotics() {
             GetRecommendedTreatment(data)
             .then(response => {
                 setTreatments(response.treatments);
-<<<<<<< HEAD
                 setDescription(response.description);
                 setTargetedInfo(response.targetedInfos);
 
-=======
-                //setDescription(response.description);
->>>>>>> main
                 setLoading(false);
                 // Also set the first active recipe 
                 const dosageValue = response.treatments[0].dosageResult.dose.value;

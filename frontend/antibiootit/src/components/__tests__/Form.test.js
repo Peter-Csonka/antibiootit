@@ -45,6 +45,9 @@ const hasFormData = false;
 
 const TestWrapper = () => {
     const [isWeightOk, setIsWeightOk] = useState(false);
+    const [penicillinAllergy, setPenicillinAllergy] = useState(false);
+    const [concurrentEBV, setConcurrentEBV] = useState(false);
+    const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
     
     return (
         <Form 
@@ -58,6 +61,12 @@ const TestWrapper = () => {
         hasFormData={hasFormData}
         isWeightOk={isWeightOk}
         setIsWeightOk={setIsWeightOk}
+        penicillinAllergy={penicillinAllergy}
+        setPenicillinAllergy={setPenicillinAllergy}
+        concurrentEBV={concurrentEBV}
+        setConcurrentEBV={setConcurrentEBV}
+        concurrentMycoplasma={concurrentMycoplasma}
+        setConcurrentMycoplasma={setConcurrentMycoplasma}
     />
   );
 };
