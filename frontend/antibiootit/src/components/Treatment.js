@@ -70,10 +70,27 @@ export default function Treatment(props) {
         const multipliedDose = activeChoice.dosageResult.dose.value * multiplier;
         dose = `1. päivä ${multipliedDose} ${activeChoice.dosageResult.dose.unit}, sitten ${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit}`;
         doseInDay = `1. päivä ${multipliedDose * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}, sitten ${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}`;
-
+        if(props.format === 'tabletti') {
+            formatTablet(multipliedDose, dose);
+            formatTablet(multipliedDose * activeChoice.instructions.dosesPerDay, doseInDay);
+        }
     } else {
         dose = `${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit}`;
         doseInDay = `${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}`;
+        if(props.format === 'tabletti') {
+            formatTablet(activeChoice.dosageResult.dose.value, dose);
+            formatTablet(activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay, doseInDay);
+        }
+    }
+
+    function formatTablet(doseValue, doseStr) {
+        if(doseValue > 1) {
+            if(doseStr === dose) {
+                dose = `${doseStr}a`;
+            } else if (doseStr === doseInDay) {
+                doseInDay = `${doseStr}a`;
+            }
+        }
     }
 
     function toggleChoise(name) {
