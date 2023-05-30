@@ -39,4 +39,4 @@ export default async function GetRecommendedTreatment(props) {
         console.log(err);
         throw new Error("An error occurred");
     }
-}       
+}            

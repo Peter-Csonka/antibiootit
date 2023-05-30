@@ -579,10 +579,11 @@ aside {
 }
 
 .treatment-extra {
-    height: 55px;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: space-between;
+
 }
 
 .description-container {
@@ -606,6 +607,7 @@ aside {
 .btn-calculate {
     margin-top: 2px;
     margin-left: 2.5%;
+    margin-bottom: 10px;
     width: 147px;
     height: 36px;
     border: 1.5px solid #395174;
@@ -651,11 +653,13 @@ aside {
 }
 
 .strepto-info {
-    padding: 20px;
+    padding: 7px;
+    padding-left: 20px;
     display: flex;
     align-items: center;
-    width: 430px;
-    height: 45px;
+    width: 100%;
+    max-width: 410px;
+    height: auto;
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
@@ -993,11 +997,18 @@ aside {
         margin-left: 15px;
     }  .strepto-info {
         width: 100%;
-        height: 2.7em;
+        max-width: 558px;
+        height: auto;
         padding-right: 10px;
+        padding-left: 15px;
         justify-content: center;
+        font-size: 20px;
+        margin-top: 10px;
+        border-radius: 0px 0px 20px 20px;
     } .info-description {
         font-size: 15px;
+        max-width: 480px;
+        width: 100%;
     } .help-circle {
         margin-top: 3px;
         font-size: 25px;
@@ -1045,15 +1056,9 @@ aside {
         height: fit-content;
         gap: 0px;
     }  .btn-elements > p {
-        font-size: 14px;
+        font-size: 15px;
         margin-right: 10px;
-    } .strepto-info {
-        font-size: 20px;
-        margin-top: 13px;
-        border-radius: 0px 0px 20px 20px;
-        padding-bottom: 30px;
-        padding-top: 30px;
-    } .copy-button {
+    }  .copy-button {
         width: 150px;
         height: 35px;
         font-size: 14px;
@@ -1167,7 +1172,7 @@ aside {
         margin-left: -10px;
     } .btn-calculate {
         border: 1.5px solid #395174;
-        background-color: #d4deee;
+        margin-bottom: 5px;
     } 
 }
 
@@ -1287,6 +1292,13 @@ aside {
         width: 60%;
     } .recipe-container {
         width: 100%;
+    } .strepto-info{
+        width: 100%;
+        max-width: 500px;
+    } .info-description {
+        width: 100%;
+    } .btn-calculate {
+        margin-right: 20px;
     }
     
 }
