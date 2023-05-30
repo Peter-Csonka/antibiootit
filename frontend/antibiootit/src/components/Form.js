@@ -392,7 +392,7 @@ export default function Form(props) {
                         <input 
                             type="checkbox"
                             onClick={handleMycoplasma}
-                        /> Samanaikainen mykoplasma
+                        /> Varmistettu mykoplasmainfektio
                     </label>}
             </div>
             {diagnosis && <SubmitButton />}

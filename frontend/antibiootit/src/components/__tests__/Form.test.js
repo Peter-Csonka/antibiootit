@@ -79,7 +79,7 @@ test('Should not render checkboxes initially', async () => {
     render(<TestWrapper />);
     expect(screen.queryByText('Penisilliiniallergia')).toBeNull();
     expect(screen.queryByText('Samanaikainen EBV-infektio')).toBeNull();
-    expect(screen.queryByText('Samanaikainen mykoplasma')).toBeNull();
+    expect(screen.queryByText('Varmistettu mykoplasmainfektio')).toBeNull();
 });
 
 test('Should have the correct number of diagnoses in the menu', async () => {
@@ -104,7 +104,7 @@ test('Should render the correct checkboxes for streptokokkitonsilliitti', async 
     await waitFor(() => {
         expect(screen.queryByText('Penisilliiniallergia')).toBeInTheDocument();
         expect(screen.queryByText('Samanaikainen EBV-infektio')).toBeInTheDocument();
-        expect(screen.queryByText('Samanaikainen mykoplasma')).toBeNull();
+        expect(screen.queryByText('Varmistettu mykoplasmainfektio')).toBeNull();
       });
 })
 
@@ -119,7 +119,7 @@ test('Should render the correct checkboxes for avohoitopneumonia', async () => {
     await waitFor(() => {
         expect(screen.queryByText('Penisilliiniallergia')).toBeInTheDocument();
         expect(screen.queryByText('Samanaikainen EBV-infektio')).toBeNull();
-        expect(screen.queryByText('Samanaikainen mykoplasma')).toBeInTheDocument();
+        expect(screen.queryByText('Varmistettu mykoplasmainfektio')).toBeInTheDocument();
       });
 })
 
@@ -134,7 +134,7 @@ test('Should render the correct checkbox for bronkiitti', async () => {
     await waitFor(() => {
         expect(screen.queryByText('Penisilliiniallergia')).toBeInTheDocument();
         expect(screen.queryByText('Samanaikainen EBV-infektio')).toBeNull();
-        expect(screen.queryByText('Samanaikainen mykoplasma')).toBeNull();
+        expect(screen.queryByText('Varmistettu mykoplasmainfektio')).toBeNull();
       });
 })
 
