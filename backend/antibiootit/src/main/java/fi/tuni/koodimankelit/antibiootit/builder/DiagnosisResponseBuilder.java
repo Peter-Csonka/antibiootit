@@ -139,6 +139,10 @@ public class DiagnosisResponseBuilder {
         
     }
 
+    /**
+     * Returns targeted infos
+     * @return List<TargetedInfo> targeted info
+     */
     private List<TargetedInfo> getTargetedInfos() {
         List<TargetedInfo> targetedInfos = new ArrayList<>();
 

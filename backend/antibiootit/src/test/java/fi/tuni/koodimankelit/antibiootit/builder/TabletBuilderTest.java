@@ -81,7 +81,7 @@ public class TabletBuilderTest extends AntibioticTreatmentBuilderTest {
 
     @Test
     public void testCorrectResultUnit() {
-        assertEquals("kpl", getTreatment(getValidWeight()).getDosageResult().getDose().getUnit());
+        assertEquals("tabletti", getTreatment(getValidWeight()).getDosageResult().getDose().getUnit());
     }
 
     @Override
