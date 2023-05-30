@@ -268,6 +268,7 @@ aside {
     border-radius: 20px;
     text-align: center;
     margin: 10px;
+    -webkit-background-color: #D7E2F2;
     background-color: #D7E2F2;
     font-size: 16px;
     font-weight: bold;
@@ -288,6 +289,7 @@ aside {
 }
 
 .form--input:disabled {
+    -webkit-color: #929292;
     color: #929292;
     background-color: #E2E2E2;    
 }
@@ -306,6 +308,7 @@ aside {
 }
 
 .form--input:hover:enabled {
+    -webkit-background-color: #b5cdf1;
     background-color: #b5cdf1;
 }
 
@@ -369,6 +372,7 @@ aside {
     width: 250px;
     border-radius: 20px;
     margin: 10px;
+    -webkit-background-color: #CBDAEF;
     background-color: #CBDAEF;
     font-weight: bold;
     font-size: 16px;
@@ -382,11 +386,14 @@ aside {
 }
 
 .form--button:hover:enabled {
+    -webkit-background-color: #b5cdf1;
     background-color: #b5cdf1;
 }
 
 .form--button:disabled {
+    -webkit-background-color: #E2E2E2;
     background-color: #E2E2E2;
+    -webkit-color:gray;
     color: gray;
 }
 
@@ -410,6 +417,7 @@ aside {
     border: 1.5px solid #395174;
     border-radius: 20px;
     background-color:#D7E2F2;
+    -webkit-background-color:#D7E2F2;
 }
 
 .diagnosis-menu:hover {
@@ -425,6 +433,7 @@ aside {
     margin-left: -1.5px;
     padding-bottom: 0px;
     padding-top: 10px;
+    -webkit-background-color:#D7E2F2;
     background-color: #D7E2F2;
     border-bottom: 1.5px solid #395174;
     border-left: 1.5px solid #395174;
@@ -981,6 +990,7 @@ aside {
         max-width: 100%;
     } section {
         margin-bottom: 1px;
+        max-height: 250px;
     }.aside {
         grid-column-start: 1;
         grid-row-start: 14;
@@ -1027,7 +1037,8 @@ aside {
         margin-top: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
-        width: 280px;
+        width: 100%;
+        max-width: 280px;
         font-weight: 500;
         font-size: 18px;
     } .diagnosis-menu-name{
@@ -1038,11 +1049,11 @@ aside {
     } .diagnosis-menu-choose section {
         max-height:fit-content;
     } .checkbox-container {
-        width: 240px;
+        width: 250px;
         grid-row-start: 1;
         grid-column-start: 1;
         height: 70px;
-        margin-right: 50px;
+        margin-right: 40px;
         margin-top: 20px;
     } .treatment-container {
         margin-top: 25px;
@@ -1266,7 +1277,7 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
-        max-width: 1400px;      
+        max-width: 1400px; 
     } .diagnosis-menu {
         margin-left: 100px;
     } .mobile-container {
