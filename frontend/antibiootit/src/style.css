@@ -133,6 +133,7 @@ main {
 section {
     background-color: transparent;
     max-height: 180px;
+    margin-top: 10px;
 }
 
 section > h1 {
@@ -140,7 +141,7 @@ section > h1 {
     font-size: 32px;
     line-height: 39px;
     margin-top: 40px;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
 }
 
 .antibiotic-instructions {
@@ -209,7 +210,7 @@ aside {
     background-color: #E9E9E9;
     border-radius: 20px;
     height: 100%;
-    margin-top: 43px;
+    margin-top: 23px;
 }
 
 .recipe-header {
@@ -330,6 +331,12 @@ aside {
     color: black;
 }
 
+.form--button ion-icon {
+    padding-top: 3px;
+    color: white;
+    font-size: 40px;
+}
+
 .dropdown-btn {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -343,13 +350,13 @@ aside {
 
 .checkbox-container {
     grid-row-start: 2;
-    grid-column-start: 2;
+    grid-column-start: 1;
     height: 80px;
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 0px;
 }
 
 .form--checkbox input {
@@ -366,17 +373,18 @@ aside {
 }
 
 .form--button {
-    grid-row-start: 3;
-    grid-column-start: 2;
-    height: 50px;
-    width: 250px;
-    border-radius: 20px;
-    margin: 10px;
+    grid-row-start: 1;
+    grid-column-start: 3;
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    margin: 8px;
+    margin-left: 10px;
     -webkit-background-color: #CBDAEF;
-    background-color: #CBDAEF;
+    background-color: #5D769A;
     font-weight: bold;
     font-size: 16px;
-    border: 1.5px solid #395174;
+    border: 2.5px solid #445770;
     box-shadow: 0 1.5px #7b7979;
 }
 
@@ -397,11 +405,12 @@ aside {
     color: gray;
 }
 
+
 .diagnosis-form {
     display: grid;
     margin-top: 20px;
     margin-bottom: 15px;
-    justify-content: center;
+    justify-content: start;
 }
 
 .diagnosis-menu {
@@ -409,6 +418,7 @@ aside {
     display: inline-block;
     grid-column-start: 1;
     width: 250px;
+    height: 50px;
     padding: 0;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -571,6 +581,8 @@ aside {
     padding: 15px;
 }
 
+
+
 .choise-header {
     color: black;
     display: flex;
@@ -592,7 +604,7 @@ aside {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    flex-direction: row-reverse;
 }
 
 .description-container {
@@ -622,9 +634,10 @@ aside {
     border: 1.5px solid #395174;
     border-radius: 20px;
     color: #395174;
-    background-color: #E9E9E9;
+    background-color: #f3f3f3;
     font-size: 15px;
     cursor: pointer;
+    box-shadow: 0 1.5px #7b7979;
 }
 
 .btn-calculate:disabled {
@@ -672,7 +685,7 @@ aside {
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
-    border-radius: 20px 0px 20px 0px;
+    border-radius: 0px 20px 0px 0px;
 }
 
 .strepto-info > p {
@@ -768,15 +781,15 @@ aside {
     bottom: 9%;
     right: 3%;
     background-color: white;
-    min-width: 25%;
+    min-width: 23%;
     border: 1.5px solid #395174;
     border-radius: 20px;
     font-family: Inter, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     color: #395174;
     box-shadow: 0 1.5px #7b7979;
     padding: 10px;
-    text-indent: 7px;
+    text-indent: 5px;
     margin-right: 5px;
 }
 
@@ -1277,13 +1290,14 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
-        max-width: 1400px; 
+        max-width: 1550px; 
+        margin-right: 0px;
     } .diagnosis-menu {
-        margin-left: 100px;
+        margin-left: 0px;
     } .mobile-container {
         display: none;
     } aside {
-        background-color: #FBFBFB;
+        background-color: #f3f5fc;
         z-index: -1;
         height: 100%;
         display: flex;
@@ -1294,9 +1308,9 @@ aside {
         grid-column-start: 2;
         grid-row-start: 1;
     } .antibiotics {
-        max-width: 750px;
+        max-width: 700px;
     }  .weight-input {
-        padding-right: 200px;
+        padding-right: 0px;
     } .treatment-container {
         width: 100%;
     } .info-container {

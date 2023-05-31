@@ -221,7 +221,7 @@ export default function Form(props) {
                 className="form--button" 
                 type="submit"
                 disabled={!formatWeight || !needsAntibiotics}>
-                Laske suositus
+                <ion-icon name="arrow-forward-outline"></ion-icon>
             </button>
         )
     }
