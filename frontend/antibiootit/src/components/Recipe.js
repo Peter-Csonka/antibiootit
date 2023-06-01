@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingIndicator from "./LoadingIndicator";
+import { logUserInputData } from "./logUserInputData";
 
 export default function Recipe(props) {
 
@@ -57,6 +58,14 @@ export default function Recipe(props) {
     const copy = async () => {
         await navigator.clipboard.writeText(dosageInstructions);
         setShowNotification(true);
+        
+        logUserInputData(
+            diagnosisData.name, 
+            props.weight, 
+            props.penicillinAllergy, 
+            props.concurrentEBV, 
+            props.concurrentMycoplasma
+        );
     }
 
     const [copyText, setCopyText] = useState("Kopioi resepti")
