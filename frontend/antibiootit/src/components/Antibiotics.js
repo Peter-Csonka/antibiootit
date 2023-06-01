@@ -8,6 +8,7 @@ import GetInfoTexts from "./GetInfoTexts";
 import GetRecommendedTreatment from "./GetRecommendedTreatment";
 
 const STEP1 = 7;
+const STEP2 = 8;
 const STEP3 = 9;
 const STEP4 = 13;
 const CHECKPENISILLIN = 10;
@@ -110,7 +111,7 @@ export default function Antibiotics() {
     }
 
     function changeInstruction(index) {
-        if(index === STEP3) {
+        if(index === STEP2) {
             let checkText;
             const instruction = infoTexts[index].text;
             if (diagnosisData.checkBoxes.length > 0) {
@@ -123,7 +124,7 @@ export default function Antibiotics() {
             } else {
                 checkText = infoTexts[CHECKPENISILLIN].text;
             }
-            const resultText = `${checkText}\n${instruction}`;
+            const resultText = `${instruction}\n${checkText}`;
             const result = {
                 header: infoTexts[index].header,
                 text: (

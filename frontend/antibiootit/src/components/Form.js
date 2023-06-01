@@ -221,7 +221,7 @@ export default function Form(props) {
                 className="form--button" 
                 type="submit"
                 disabled={!formatWeight || !needsAntibiotics}>
-                <ion-icon name="arrow-forward-outline"></ion-icon>
+                Laske suositus
             </button>
         )
     }
@@ -395,6 +395,6 @@ export default function Form(props) {
                         /> Varmistettu mykoplasmainfektio
                     </label>}
             </div>
-            {diagnosis && <SubmitButton />}
+            {weight && <SubmitButton />} 
         </form>
     );}
