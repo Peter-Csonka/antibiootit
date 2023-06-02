@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingIndicator from "./LoadingIndicator";
-import { logUserInputData } from "./logUserInputData";
+import { logUserInputDataRecipe } from "./logUserInputDataRecipe";
 
 export default function Recipe(props) {
 
@@ -58,13 +58,19 @@ export default function Recipe(props) {
     const copy = async () => {
         await navigator.clipboard.writeText(dosageInstructions);
         setShowNotification(true);
+        let chosenRecipe = `Valinta: ${chosenAb}
+Reseptiteksti: ${dosageInstructions}
+ICD-10 koodi: ${diagnosisCode}`;
         
-        logUserInputData(
+        console.log(chosenRecipe);
+        
+        logUserInputDataRecipe(
             diagnosisData.name, 
             props.weight, 
             props.penicillinAllergy, 
             props.concurrentEBV, 
-            props.concurrentMycoplasma
+            props.concurrentMycoplasma,
+            chosenRecipe
         );
     }
 
