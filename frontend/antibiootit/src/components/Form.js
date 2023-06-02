@@ -138,6 +138,17 @@ export default function Form(props) {
                 diagnosisID: selectedInfo.id,
                 checkBoxes: matchingCheckBoxes
             }
+            console.log(newData);
+            if(props.formSubmitted) {
+                console.log(diagnosis.name);
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    newData.penicillinAllergic, 
+                    props.concurrentEBV, 
+                    props.concurrentMycoplasma
+                );
+            }
             
             props.handleSubmit(newData);
         }
@@ -304,6 +315,16 @@ export default function Form(props) {
             penicillinAllergic: !props.penicillinAllergy
         }
         if (props.hasFormData) {
+            if(props.formSubmitted) {
+                console.log(newData.penicillinAllergic);
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    newData.penicillinAllergic, 
+                    props.concurrentEBV, 
+                    props.concurrentMycoplasma
+                );
+            }
             props.handleSubmit(newData);
         }
         props.setPenicillinAllergy(!props.penicillinAllergy)
@@ -321,6 +342,16 @@ export default function Form(props) {
                 ...props.formData,
                 checkBoxes: checkBoxes
             }
+            if(props.formSubmitted) {
+                console.log(newData.checkBoxes[0].value);
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    props.penicillinAllergy, 
+                    newData.checkBoxes[0].value, 
+                    props.concurrentMycoplasma
+                );
+            }
             props.handleSubmit(newData);
         }
         props.setConcurrentEBV(!props.concurrentEBV)
@@ -337,6 +368,16 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes
+            }
+            if(props.formSubmitted) {
+                console.log(newData.checkBoxes[0].value);
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    props.penicillinAllergy, 
+                    props.concurrentEBV, 
+                    newData.checkBoxes[0].value
+                );
             }
             props.handleSubmit(newData);
         }
