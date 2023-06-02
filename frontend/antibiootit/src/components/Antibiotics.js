@@ -83,7 +83,7 @@ export default function Antibiotics() {
                 const dosageUnit = response.treatments[0].dosageResult.dose.unit;
                 const instructionDays = response.treatments[0].instructions.days;
                 const dosesPerDayText = response.treatments[0].instructions.recipeText;
-                const recipe = `${dosageValue} ${dosageUnit} ${dosesPerDayText} ${instructionDays} vrk:n ajan`;
+                const recipe = `${dosageValue} ${dosageUnit} ${dosesPerDayText} ${instructionDays} vuorokauden ajan`;
                 const antibiote = response.treatments[0].antibiotic;
                 const strength = response.treatments[0].formula.strength.text;
                 const dose = response.treatments[0].dosageResult.dose;

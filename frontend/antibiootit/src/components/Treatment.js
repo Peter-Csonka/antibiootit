@@ -124,7 +124,7 @@ export default function Treatment(props) {
                 const dosageUnit = props.treatments[i].dosageResult.dose.unit;
                 const instructionDosesPerDay = props.treatments[i].instructions.recipeText;
                 const instructionDays = props.treatments[i].instructions.days;
-                const recipe = `${dosageValue} ${dosageUnit} ${instructionDosesPerDay} ${instructionDays} vrk:n ajan`;
+                const recipe = `${dosageValue} ${dosageUnit} ${instructionDosesPerDay} ${instructionDays} vuorokauden ajan`;
                 const antibiote = props.treatments[i].antibiotic;
                 const strength = props.treatments[i].formula.strength.text;
 
