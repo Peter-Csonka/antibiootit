@@ -185,13 +185,23 @@ aside {
 .aside-text {
     width: 80%;
     margin-top: 86px;
+    font-size: 16px;
 }
 
 .aside-update {
     width: 80%;
-    text-align: end;
-    margin-top: 55px;
+    text-align: start;
+    margin-top: 120px;
     color: black;
+    font-size: 16px;
+}
+
+.aside-version-update {
+    width: 80%;
+    text-align: start;
+    margin-top: 4px;
+    color: black;
+    font-size: 16px;
 }
 
 .treatment-container {
@@ -1234,7 +1244,7 @@ aside {
         margin-right: 20px;
     } .dropdown-content {
         margin-left: -1.0px;
-    }
+    } 
 }
 
 @media only screen and (min-width: 720px){
@@ -1324,6 +1334,9 @@ aside {
         width: 100%;
     } .btn-calculate {
         margin-right: 20px;
+    } .aside-update, .aside-version-update {
+        text-align: end;
+        margin-right: 40px;
     }
     
 }

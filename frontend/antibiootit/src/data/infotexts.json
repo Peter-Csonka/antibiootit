@@ -1,7 +1,7 @@
 [
     {
       "id": "lastUpdated",
-      "header": "Päivitetty viimeksi: ",
+      "header": "Viimeisin päivitys ",
       "text": "29.03.2023"
     },
     {
@@ -131,5 +131,10 @@
       "text": "Antibiootit.fi -sivusto on riippumaton poliittisista, kaupallisista ja muista ulkopuolisista intresseistä. Sivuston ensimmäinen versio toteutettiin osana Tampereen yliopiston Software Engineering Project -kurssia. Lääketieteen asiantuntijoille ei makseta palkkioita. Ylläpidon ja jatkokehityksen kustannukset katetaan eri säätiöiltä saaduista apurahoista.",
       "addition1": "Tukijat",
       "addition2": "Hengityssairauksien tutkimussäätiö"
+    },
+    {
+      "id": "versionNumber",
+      "header": "Versio 1.0 julkaistu ",
+      "text": "2.6.2023"
     }
 ]
