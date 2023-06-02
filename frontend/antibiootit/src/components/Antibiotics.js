@@ -9,7 +9,6 @@ import GetRecommendedTreatment from "./GetRecommendedTreatment";
 
 const STEP1 = 7;
 const STEP2 = 8;
-const STEP3 = 9;
 const STEP4 = 13;
 const CHECKPENISILLIN = 10;
 const CHECKEBV = 11;
@@ -110,15 +109,15 @@ export default function Antibiotics() {
         }
     }
 
-    function changeInstruction(index) {
+    function changeInstruction(index, checkboxes) {
         if(index === STEP2) {
             let checkText;
             const instruction = infoTexts[index].text;
-            if (diagnosisData.checkBoxes.length > 0) {
-                if (diagnosisData.checkBoxes[0].id === "EBV-001") {
+            if (checkboxes.length > 0) {
+                if (checkboxes[0].id === "EBV-001") {
                     checkText = infoTexts[CHECKEBV].text;
                 }
-                if (diagnosisData.checkBoxes[0].id === "MYK-001") {
+                if (checkboxes[0].id === "MYK-001") {
                     checkText = infoTexts[CHECKMYKO].text;
                 }
             } else {
@@ -138,7 +137,7 @@ export default function Antibiotics() {
             setInstruction(infoTexts[index]);
         }
     }
-
+    
     useEffect(() => {   
         if (chosenDiagnosis !== null && diagnoses !== null) {
             setDiagnosisData(diagnoses.filter(infection => infection.name === chosenDiagnosis)[0]);
