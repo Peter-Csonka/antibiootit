@@ -133,6 +133,7 @@ main {
 section {
     background-color: transparent;
     max-height: 180px;
+    margin-top: 10px;
 }
 
 section > h1 {
@@ -140,7 +141,7 @@ section > h1 {
     font-size: 32px;
     line-height: 39px;
     margin-top: 40px;
-    margin-bottom: 24px;
+    margin-bottom: 34px;
 }
 
 .antibiotic-instructions {
@@ -202,7 +203,7 @@ aside {
     background-color: #E9E9E9;
     border-radius: 20px;
     height: 100%;
-    margin-top: 43px;
+    margin-top: 23px;
 }
 
 .recipe-header {
@@ -261,6 +262,7 @@ aside {
     border-radius: 20px;
     text-align: center;
     margin: 10px;
+    -webkit-background-color: #D7E2F2;
     background-color: #D7E2F2;
     font-size: 16px;
     font-weight: bold;
@@ -281,8 +283,10 @@ aside {
 }
 
 .form--input:disabled {
+    -webkit-color: #929292;
     color: #929292;
-    background-color: #E2E2E2;    
+    background-color: #E2E2E2;  
+    border: 1.5px solid #9e9e9e; 
 }
 
 ::placeholder {
@@ -295,10 +299,11 @@ aside {
 }
 
 .form--input:disabled::placeholder {
-    color: #606874;
+    color: #707479;
 }
 
 .form--input:hover:enabled {
+    -webkit-background-color: #b5cdf1;
     background-color: #b5cdf1;
 }
 
@@ -320,6 +325,12 @@ aside {
     color: black;
 }
 
+/*.form--button ion-icon {
+    padding-top: 3px;
+    color: white;
+    font-size: 40px;
+}*/
+
 .dropdown-btn {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -333,13 +344,13 @@ aside {
 
 .checkbox-container {
     grid-row-start: 2;
-    grid-column-start: 2;
+    grid-column-start: 1;
     height: 80px;
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 17px;
+    margin-top: 15px;
+    margin-bottom: 0px;
 }
 
 .form--checkbox input {
@@ -362,6 +373,7 @@ aside {
     width: 250px;
     border-radius: 20px;
     margin: 10px;
+    margin-top: -20px;
     background-color: #CBDAEF;
     font-weight: bold;
     font-size: 16px;
@@ -375,13 +387,19 @@ aside {
 }
 
 .form--button:hover:enabled {
+    -webkit-background-color: #b5cdf1;
     background-color: #b5cdf1;
 }
 
 .form--button:disabled {
+    -webkit-background-color: #E2E2E2;
     background-color: #E2E2E2;
+    -webkit-color:gray;
     color: gray;
+    border: 1.5px solid #9e9e9e; 
+    box-shadow: 0 0px #7b7979;
 }
+
 
 .diagnosis-form {
     display: grid;
@@ -395,6 +413,7 @@ aside {
     display: inline-block;
     grid-column-start: 1;
     width: 250px;
+    height: 50px;
     padding: 0;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -403,6 +422,7 @@ aside {
     border: 1.5px solid #395174;
     border-radius: 20px;
     background-color:#D7E2F2;
+    -webkit-background-color:#D7E2F2;
 }
 
 .diagnosis-menu:hover {
@@ -418,6 +438,7 @@ aside {
     margin-left: -1.5px;
     padding-bottom: 0px;
     padding-top: 10px;
+    -webkit-background-color:#D7E2F2;
     background-color: #D7E2F2;
     border-bottom: 1.5px solid #395174;
     border-left: 1.5px solid #395174;
@@ -555,6 +576,8 @@ aside {
     padding: 15px;
 }
 
+
+
 .choise-header {
     color: black;
     display: flex;
@@ -576,7 +599,7 @@ aside {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    flex-direction: row-reverse;
 }
 
 .description-container {
@@ -606,9 +629,10 @@ aside {
     border: 1.5px solid #395174;
     border-radius: 20px;
     color: #395174;
-    background-color: #E9E9E9;
+    background-color: #f3f3f3;
     font-size: 15px;
     cursor: pointer;
+    box-shadow: 0 1.5px #7b7979;
 }
 
 .btn-calculate:disabled {
@@ -618,7 +642,7 @@ aside {
 }
 
 .btn-calculate:hover:enabled {
-    background-color: #d6d5d5;
+    background-color: #f3f3f3;
     color: #395174;
 }
 
@@ -656,7 +680,7 @@ aside {
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
-    border-radius: 20px 0px 20px 0px;
+    border-radius: 0px 20px 0px 0px;
 }
 
 .strepto-info > p {
@@ -752,15 +776,15 @@ aside {
     bottom: 9%;
     right: 3%;
     background-color: white;
-    min-width: 25%;
+    min-width: 23%;
     border: 1.5px solid #395174;
     border-radius: 20px;
     font-family: Inter, sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     color: #395174;
     box-shadow: 0 1.5px #7b7979;
     padding: 10px;
-    text-indent: 7px;
+    text-indent: 5px;
     margin-right: 5px;
 }
 
@@ -974,6 +998,7 @@ aside {
         max-width: 100%;
     } section {
         margin-bottom: 1px;
+        max-height: 250px;
     }.aside {
         grid-column-start: 1;
         grid-row-start: 14;
@@ -996,7 +1021,6 @@ aside {
         padding-left: 15px;
         justify-content: center;
         font-size: 20px;
-        margin-top: 10px;
         border-radius: 0px 0px 20px 20px;
     } .info-description {
         font-size: 15px;
@@ -1020,7 +1044,8 @@ aside {
         margin-top: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
-        width: 280px;
+        width: 100%;
+        max-width: 280px;
         font-weight: 500;
         font-size: 18px;
     } .diagnosis-menu-name{
@@ -1031,12 +1056,13 @@ aside {
     } .diagnosis-menu-choose section {
         max-height:fit-content;
     } .checkbox-container {
-        width: 240px;
+        width: 250px;
         grid-row-start: 1;
         grid-column-start: 1;
         height: 70px;
-        margin-right: 50px;
+        margin-right: 40px;
         margin-top: 20px;
+        margin-bottom: 30px;
     } .treatment-container {
         margin-top: 25px;
     } .treatment-header > h2 {
@@ -1124,7 +1150,7 @@ aside {
         font-size: 18px;
     } .dropdown-content {
         width: 280px;
-        margin-left: -1.5px;
+        margin-left: -1.0px;
         margin-top: -5px;
     } .dropdown-btn {
         margin-top: 0px;
@@ -1154,18 +1180,19 @@ aside {
         height: auto;
         flex-direction: column;
         align-self: flex-start;
-    } .pen-icon  {
+    } .treatment-extra :first-child {
+        align-self: flex-end;
+    }.pen-icon  {
         margin-left: -15px;
     } .description-container {
         align-self: flex-start;
         width: 100%;
-    } .treatment-calculations {
-        margin-top: 10px;
-    } .pill-icon {
+    }  .pill-icon {
         margin-left: -10px;
     } .btn-calculate {
         border: 1.5px solid #395174;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
+        margin-right: 15px;
     } 
 }
 
@@ -1184,8 +1211,7 @@ aside {
         min-height: calc(100vh - 87px);
         position: relative;
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        max-width: 800px;
+        /*grid-template-columns: 2fr 1fr;*/
         margin: 0 auto;
     } aside {
         grid-column-start: 1;
@@ -1203,6 +1229,11 @@ aside {
         width: 600px;
     } .recipe-container {
         width: 600px;
+    } .btn-calculate {
+        margin-left: 0px;
+        margin-right: 20px;
+    } .dropdown-content {
+        margin-left: -1.0px;
     }
 }
 
@@ -1259,9 +1290,10 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
-        max-width: 1400px;      
+        max-width: 1550px; 
+        margin-right: 0px;
     } .diagnosis-menu {
-        margin-left: 100px;
+        margin-left: 0px;
     } .mobile-container {
         display: none;
     } aside {
@@ -1276,9 +1308,9 @@ aside {
         grid-column-start: 2;
         grid-row-start: 1;
     } .antibiotics {
-        max-width: 750px;
+        max-width: 700px;
     }  .weight-input {
-        padding-right: 200px;
+        padding-right: 0px;
     } .treatment-container {
         width: 100%;
     } .info-container {

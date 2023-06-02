@@ -48,6 +48,7 @@ const TestWrapper = () => {
     const [penicillinAllergy, setPenicillinAllergy] = useState(false);
     const [concurrentEBV, setConcurrentEBV] = useState(false);
     const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
+    const [weight, setWeigth] = useState(22);
     
     return (
         <Form 
@@ -140,48 +141,54 @@ test('Should render the correct checkbox for bronkiitti', async () => {
 
 test('Should not render submit button initially', async () => {
     render(<TestWrapper />);
+    
     expect(screen.queryByText('Laske suositus')).toBeNull();
 })
 
-test('Should render submit button after a diagnosis is selected', async () => {
+
+test('Should render submit button after weight field has inputs', async () => {
     render(<TestWrapper />);
 
-    fireEvent.click(screen.getByText('Valitse diagnoosi'))
-    await waitFor(() => screen.getAllByTestId('diagnosis-menu'))
+    fireEvent.click(screen.getByText('Valitse diagnoosi'));
+    await waitFor(() => screen.getAllByTestId('diagnosis-menu'));
 
-    const diagnosisMenu = screen.getByTestId('diagnosis-menu');
-    fireEvent.click(screen.getByText('Streptokokkitonsilliitti'))
+    fireEvent.click(screen.getByText('Streptokokkitonsilliitti'));
+
+    const inputField = screen.getByTestId('weight-input');
+    fireEvent.change(inputField, {target: {value: '10' } });
+
     expect(screen.queryByText('Laske suositus')).toBeInTheDocument();
 })
 
-test('Should render submit button after a diagnosis is selected even if it needs no antibiotic treatment', async () => {
+test('Should not render submit button after a diagnosis is selected when it doesn\'t need antibiotic treatment', async () => {
     render(<TestWrapper />);
 
-    fireEvent.click(screen.getByText('Valitse diagnoosi'))
-    await waitFor(() => screen.getAllByTestId('diagnosis-menu'))
+    fireEvent.click(screen.getByText('Valitse diagnoosi'));
+    await waitFor(() => screen.getAllByTestId('diagnosis-menu'));
 
     const diagnosisMenu = screen.getByTestId('diagnosis-menu');
     fireEvent.click(screen.getByText('Bronkiitti'))
-    expect(screen.queryByText('Laske suositus')).toBeInTheDocument();
+    expect(screen.queryByText('Laske suositus')).toBeNull();
 })
 
 test('Should allow diagnosis changes in the form', async () => {
     render(<TestWrapper />);
 
-    fireEvent.click(screen.getByText('Valitse diagnoosi'))
-    await waitFor(() => screen.getAllByTestId('diagnosis-menu'))
+    fireEvent.click(screen.getByText('Valitse diagnoosi'));
+    await waitFor(() => screen.getAllByTestId('diagnosis-menu'));
 
-    const diagnosisMenu = screen.getByTestId('diagnosis-menu');
-    fireEvent.click(screen.getByText('Bronkiitti'))
+    fireEvent.click(screen.getByText('Bronkiitti'));
+    const inputField = screen.getByTestId('weight-input');
+    fireEvent.change(inputField, {target: {value: '10' } });
     expect(screen.queryByText('Laske suositus')).toBeInTheDocument();
 
-    fireEvent.click(screen.getByText('Bronkiitti'))
-    await waitFor(() => screen.getAllByTestId('diagnosis-menu'))
+    fireEvent.click(screen.getByText('Bronkiitti'));
+    await waitFor(() => screen.getAllByTestId('diagnosis-menu'));
 
     expect(screen.queryByText('Välikorvatulehdus')).toBeInTheDocument();
-    fireEvent.click(screen.getByText('Välikorvatulehdus'))
+    fireEvent.click(screen.getByText('Välikorvatulehdus'));
 
-    await waitFor(() => screen.getByTestId('weight-input'))
+    await waitFor(() => screen.getByTestId('weight-input'));
     expect(screen.getByTestId('weight-input')).toBeInTheDocument();
 })
 
@@ -189,11 +196,11 @@ test('Should allow diagnosis changes in the form', async () => {
 test('Should not allow weight input below 4 kg', async () => {
     render(<TestWrapper />);
 
-    fireEvent.click(screen.getByText('Valitse diagnoosi'))
-    await waitFor(() => screen.getAllByTestId('diagnosis-menu'))
+    fireEvent.click(screen.getByText('Valitse diagnoosi'));
+    await waitFor(() => screen.getAllByTestId('diagnosis-menu'));
 
     const diagnosisMenu = screen.getByTestId('diagnosis-menu');
-    fireEvent.click(screen.getByText('Välikorvatulehdus'))
+    fireEvent.click(screen.getByText('Välikorvatulehdus'));
 
     await waitFor(() => screen.getByTestId('weight-input'));
     const input = screen.getByTestId('weight-input');

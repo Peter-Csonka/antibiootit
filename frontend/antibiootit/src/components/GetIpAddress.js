@@ -9,8 +9,8 @@ try {
     .then(data => console.log(data.ip)));
 
     for (let i = 0; i < ipAddresses.length; i++) {
-        if (i == ipAddress) {
-            
+        if (ipAddresses.at(i) == ipAddress) {
+            return true;
         }
       }
 

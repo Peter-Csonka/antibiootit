@@ -111,7 +111,7 @@ export default function Form(props) {
         setDiagnosis(selectedInfo);
         props.setChosenDiagnosis(selected);
         if(!props.formSubmitted || props.formData === null) {
-            props.changeInstruction(STEP2);
+            props.changeInstruction(STEP2, selectedInfo.checkBoxes);
         }
         else if (props.hasFormData && selectedInfo.id !== "J20.9" && selectedInfo.id !== "J21.9") {
             const checkBoxes = [
@@ -183,7 +183,7 @@ export default function Form(props) {
         else {
             setWeight(input);
             if(!props.formSubmitted) {
-                props.changeInstruction(STEP3);
+                props.changeInstruction(STEP3, null);
             }
 
             const roundedWeight = Math.round(parseFloat(input.replace(",", ".")) * 100) / 100;
@@ -395,6 +395,6 @@ export default function Form(props) {
                         /> Varmistettu mykoplasmainfektio
                     </label>}
             </div>
-            {diagnosis && <SubmitButton />}
+            {weight && <SubmitButton />} 
         </form>
     );}
