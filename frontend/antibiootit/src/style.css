@@ -1218,8 +1218,7 @@ aside {
         min-height: calc(100vh - 87px);
         position: relative;
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        max-width: 800px;
+        /*grid-template-columns: 2fr 1fr;*/
         margin: 0 auto;
     } aside {
         grid-column-start: 1;
