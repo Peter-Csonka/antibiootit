@@ -989,8 +989,6 @@ aside {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 10px;
-        min-height: auto;
     } .header--links {
         display: none;
     } .antibiotic-instructions{
@@ -1222,8 +1220,6 @@ aside {
     } .not-active-class {
         margin-left: 25px;
     } main {
-        font-family: Inter, sans-serif;
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
