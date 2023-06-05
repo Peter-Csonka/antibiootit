@@ -126,7 +126,7 @@ main {
     flex-direction: column;
     margin-left: 10%;
     margin-right: 10%;
-    max-width: 750px;
+    max-width: 600px;
     width: 100%;
 }
 
@@ -984,12 +984,13 @@ aside {
   
 
 /*Scalability to mobile screen*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 630px) {
     main {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
+        min-height: auto;
     } .header--links {
         display: none;
     } .antibiotic-instructions{
@@ -1009,12 +1010,11 @@ aside {
     } section {
         margin-bottom: 1px;
         max-height: 250px;
-    }.aside {
+    }  aside {
         grid-column-start: 1;
         grid-row-start: 14;
-        margin-bottom: 0px;
         width: 100%;
-        background-color: white;
+        background-color: #FBFBFB;
         overflow-x: hidden;
     } .treatment-header {
         font-size: 14px;
@@ -1051,6 +1051,7 @@ aside {
         font-family: Arial, Helvetica, sans-serif;  
         color: black; 
     } .diagnosis-menu {
+        height: 55px;
         margin-top: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
@@ -1066,11 +1067,11 @@ aside {
     } .diagnosis-menu-choose section {
         max-height:fit-content;
     } .checkbox-container {
-        width: 250px;
+        width: 290px;
         grid-row-start: 1;
         grid-column-start: 1;
         height: 70px;
-        margin-right: 40px;
+        margin-right: -10px;
         margin-top: 20px;
         margin-bottom: 30px;
     } .treatment-container {
@@ -1190,9 +1191,7 @@ aside {
         height: auto;
         flex-direction: column;
         align-self: flex-start;
-    } .treatment-extra :first-child {
-        align-self: flex-end;
-    }.pen-icon  {
+    } .pen-icon  {
         margin-left: -15px;
     } .description-container {
         align-self: flex-start;
@@ -1201,16 +1200,23 @@ aside {
         margin-left: -10px;
     } .btn-calculate {
         border: 1.5px solid #395174;
+        align-self: flex-end;
         margin-bottom: 15px;
         margin-right: 15px;
-    } 
+    } .aside-update {
+        margin-top: 70px;
+    } .aside-version-update {
+        margin-bottom: 30px;
+    } .aside-text {
+        margin-top: 40px;
+    }
 }
 
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 631px) {
     .mobile-container {
         display: none;
     } .antibiotics {
-       margin-left: 4%;
+       margin-left: 10%;
     }  .active-class {
         margin-left: 25px;
     } .not-active-class {
@@ -1218,21 +1224,18 @@ aside {
     } main {
         font-family: Inter, sans-serif;
         width: 100%;
-        min-height: calc(100vh - 87px);
-        position: relative;
-        display: grid;
-        /*grid-template-columns: 2fr 1fr;*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 0 auto;
-    } aside {
-        grid-column-start: 1;
-        grid-row-start: 14;
-        margin-bottom: 30px;     
-        background-color: white;
+    } aside {   
+        background-color: rgb(255, 255, 255);
     } .logo {
         padding-left: 10px;
     } .diagnosis-form {
         max-width: 100%;
         margin-top: 30px;
+        justify-content: start;
     } .weight-input {
         padding-right: 0px;
     } .treatment-container {
@@ -1243,8 +1246,12 @@ aside {
         margin-left: 0px;
         margin-right: 20px;
     } .dropdown-content {
-        margin-left: -1.5px;
-    } 
+        margin-left: -1.0px;
+    } .aside-text {
+        margin-top: 150px;
+    } .aside-version-update {
+        margin-bottom: 40px;
+    }
 }
 
 @media only screen and (min-width: 720px){
@@ -1300,6 +1307,9 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
+        position: relative;
+        display: grid;
+        align-items: start;
         max-width: 1550px; 
         margin-right: 0px;
     } .diagnosis-menu {
@@ -1337,6 +1347,12 @@ aside {
     } .aside-update, .aside-version-update {
         text-align: end;
         margin-right: 40px;
+    } .header--links {
+        margin-right: 90px;
+    } .diagnosis-form {
+        justify-content: center;
+    } .aside-text {
+        margin-top: 86px;
     }
     
 }
