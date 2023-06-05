@@ -138,15 +138,41 @@ export default function Form(props) {
                 diagnosisID: selectedInfo.id,
                 checkBoxes: matchingCheckBoxes
             }
-            console.log(newData);
+
+            let checkboxType;
+            if(newData.checkBoxes.length > 0) {
+                if(newData.checkBoxes[0].id === checkBoxes[0].id) {
+                    checkboxType = [
+                        {
+                            id: 'EbV-001',
+                            value: newData.checkBoxes[0].value
+                        },
+                        {
+                            id: 'MYK-001',
+                            value: false
+                        }
+                    ]
+                } else if(newData.checkBoxes[0].id === checkBoxes[1].id) {
+                    checkboxType = [
+                        {
+                            id: 'EbV-001',
+                            value: false
+                        },
+                        {
+                            id: 'MYK-001',
+                            value: newData.checkBoxes[0].value
+                        }
+                    ]
+                }
+            }
+
             if(props.formSubmitted) {
-                console.log(diagnosis.name);
                 logUserInputData(
-                    diagnosis.name, 
+                    selected, 
                     weight, 
                     newData.penicillinAllergic, 
-                    props.concurrentEBV, 
-                    props.concurrentMycoplasma
+                    checkboxType ? checkboxType[0].value : false, 
+                    checkboxType ? checkboxType[1].value : false
                 );
             }
             
@@ -316,7 +342,6 @@ export default function Form(props) {
         }
         if (props.hasFormData) {
             if(props.formSubmitted) {
-                console.log(newData.penicillinAllergic);
                 logUserInputData(
                     diagnosis.name, 
                     weight, 
@@ -343,7 +368,6 @@ export default function Form(props) {
                 checkBoxes: checkBoxes
             }
             if(props.formSubmitted) {
-                console.log(newData.checkBoxes[0].value);
                 logUserInputData(
                     diagnosis.name, 
                     weight, 
@@ -370,7 +394,6 @@ export default function Form(props) {
                 checkBoxes: checkBoxes
             }
             if(props.formSubmitted) {
-                console.log(newData.checkBoxes[0].value);
                 logUserInputData(
                     diagnosis.name, 
                     weight, 

@@ -62,8 +62,6 @@ export default function Recipe(props) {
 Reseptiteksti: ${dosageInstructions}
 ICD-10 koodi: ${diagnosisCode}`;
         
-        console.log(chosenRecipe);
-        
         logUserInputDataRecipe(
             diagnosisData.name, 
             props.weight, 
