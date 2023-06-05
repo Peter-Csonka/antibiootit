@@ -1066,11 +1066,11 @@ aside {
     } .diagnosis-menu-choose section {
         max-height:fit-content;
     } .checkbox-container {
-        width: 250px;
+        width: 290px;
         grid-row-start: 1;
         grid-column-start: 1;
         height: 70px;
-        margin-right: 40px;
+        margin-right: -10px;
         margin-top: 20px;
         margin-bottom: 30px;
     } .treatment-container {
@@ -1337,6 +1337,8 @@ aside {
     } .aside-update, .aside-version-update {
         text-align: end;
         margin-right: 40px;
+    } .header--links {
+        margin-right: 90px;
     }
     
 }
