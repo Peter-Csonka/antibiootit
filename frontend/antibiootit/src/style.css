@@ -99,6 +99,28 @@ footer {
     padding-left: 40px;
 }
 
+.cookie-popup {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .cookie-popup button {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
 main {
     font-family: Inter, sans-serif;
     width: 100%;
