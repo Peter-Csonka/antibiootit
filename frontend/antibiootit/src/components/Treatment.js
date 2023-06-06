@@ -238,7 +238,7 @@ export default function Treatment(props) {
                 {!openCalculations && <div className="description-container">
                     {(props.description !== "" || targetedInfo !== "") && !props.loading &&
                     <div className="strepto-info">
-                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
+                        <p className="help-circle"><ion-icon name="information-circle-outline"></ion-icon></p>
                         {props.description !== "" ? <p className="info-description">{props.description}</p> :
                         <p className="info-description">{targetedInfo}</p>}
                     </div>}

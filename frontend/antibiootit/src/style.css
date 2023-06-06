@@ -690,7 +690,7 @@ aside {
     background-color: #F2F2F2;
     color: #395174;
     gap: 10px;
-    border-radius: 0px 20px 0px 0px;
+    border-radius: 0px 20px 0px 20px;
 }
 
 .strepto-info > p {
@@ -785,22 +785,26 @@ aside {
     position: absolute;
     bottom: 9%;
     right: 3%;
-    background-color: white;
+    background-color: #F3F3F3;
     min-width: 23%;
+    width: 158px;
     border: 1.5px solid #395174;
     border-radius: 20px;
     font-family: Inter, sans-serif;
     font-size: 15px;
     color: #395174;
     box-shadow: 0 1.5px #7b7979;
-    padding: 10px;
+    padding-left: 10px;
     text-indent: 5px;
     margin-right: 5px;
+    height: 36px;
 }
 
 .copy--image {
-    width: 20px;
+    width: 18px;
     float: left;
+    padding-top: 1.5px;
+    margin-left: 2px;
 }
 
 .copy-button:hover {
@@ -812,6 +816,14 @@ aside {
     box-shadow: 0 0px #7b7979;
     transform: translateY(1.5px);
 }
+
+.copy-text {
+    font-size: 15px;
+    color: #395174;
+    display: flex;
+    justify-content: center;
+    text-indent: -2px;
+  }
 
 .notification-container {
     background-color: lavender;
@@ -890,7 +902,10 @@ aside {
     font-family: Inter, sans-serif;
     padding-top: 80px;
     margin: auto;
-    width: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .loading-text {
@@ -1088,10 +1103,9 @@ aside {
         margin-right: 10px;
     }  .copy-button {
         width: 150px;
-        height: 35px;
         font-size: 14px;
-        margin-right: 3px;
-        text-indent: 0px;
+        margin-right: 4px;
+        margin-bottom: -3px;
     } .copy--image {
         width: 17px;
     } .info-container {

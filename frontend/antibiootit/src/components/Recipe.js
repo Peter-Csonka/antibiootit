@@ -87,7 +87,8 @@ export default function Recipe(props) {
                 className="copy-button"
                 onClick={copy} 
                 disabled={dosageInstructions === ""}>
-                <img className="copy--image" src="./copy.png" alt=""/> {copyText}
+                <img className="copy--image" src="./copy.png" alt=""/>
+                <span className="copy-text">{copyText}</span>
             </button>
         )
     }
