@@ -6,6 +6,7 @@ import Recipe from "./Recipe";
 import GetDiagnoses from "./GetDiagnoses";
 import GetInfoTexts from "./GetInfoTexts";
 import GetRecommendedTreatment from "./GetRecommendedTreatment";
+import LoadingIndicator from "./LoadingIndicator";
 
 const STEP1 = 7;
 const STEP2 = 8;
@@ -37,7 +38,7 @@ export default function Antibiotics() {
  
     const [instruction, setInstruction] = useState([]);
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     async function fetchData() {
         const diagnosesList = await GetDiagnoses();
@@ -157,65 +158,80 @@ export default function Antibiotics() {
         }
     }, [chosenDiagnosis, diagnoses, infoTexts])
 
+    const antibioticsStyle = {
+        opacity: loading ? "0.3" : "1"
+    }
+/**
+ * {loading ?
+            <LoadingIndicator 
+                loading={"all"}
+            /> : ''}
+ */
     return (
-        <div className="antibiotics">
-            <section>
-                <h1>Lapsen antibioottilaskuri</h1>
-                <div className="antibiotic-instructions"
-                    data-testid="instructions">
-                    <h2 data-testid="instructions-header">{instruction.header}</h2>
-                    <hr className="line"></hr>
-                    <div>{instruction.text}</div>
-                </div>
-            </section>
-            <Form 
-                diagnoses={diagnoses}
-                handleSubmit={receiveInput} 
-                changeInstruction={changeInstruction} 
-                setChosenDiagnosis={setChosenDiagnosis}
-                setChosenWeight={setChosenWeight}
-                formSubmitted={formSubmitted} 
-                formData={formData}
-                hasFormData={hasFormData}
-                isWeightOk={isWeightOk}
-                setIsWeightOk={setIsWeightOk}
-                penicillinAllergy={penicillinAllergy}
-                setPenicillinAllergy={setPenicillinAllergy}
-                concurrentEBV={concurrentEBV}
-                setConcurrentEBV={setConcurrentEBV}
-                concurrentMycoplasma={concurrentMycoplasma}
-                setConcurrentMycoplasma={setConcurrentMycoplasma}
-            />
-            {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
-            {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
-                loading={loading}
-                needsAntibiotics={diagnosisData.needsAntibiotics}
-                description={description}
-                targetedInfo={targetedInfo}
-                weight={chosenWeight}
-                treatments={treatments}
-                setActiveRecipe={setActiveRecipe}
-                format={treatments[0].format}
-                penicillinAllergy={penicillinAllergy}
-                concurrentMycoplasma={concurrentMycoplasma}
-            />}
-            {formSubmitted && !!noAntibioticTreatment && <Recipe
-                loading={loading}
-                treatments={treatments} 
-                activeRecipe={activeRecipe} 
-                diagnosisData={diagnosisData}
-                noTreatment={noAntibioticTreatment}
-            />}
-            {formSubmitted && (treatments && diagnosisData.needsAntibiotics) && isWeightOk && <Recipe 
-                loading={loading}
-                treatments={treatments}
-                weight={chosenWeight} 
-                activeRecipe={activeRecipe} 
-                diagnosisData={diagnosisData}
-                penicillinAllergy={penicillinAllergy}
-                concurrentEBV={concurrentEBV}
-                concurrentMycoplasma={concurrentMycoplasma}
-                noTreatment={noAntibioticTreatment} />}
-        </div>
+        <>
+            {loading ?
+            <LoadingIndicator 
+                loading={"all"}
+            /> : ''}
+            <div className="antibiotics" style={antibioticsStyle}>
+                <section>
+                    <h1>Lapsen antibioottilaskuri</h1>
+                    <div className="antibiotic-instructions"
+                        data-testid="instructions">
+                        <h2 data-testid="instructions-header">{instruction.header}</h2>
+                        <hr className="line"></hr>
+                        <div>{instruction.text}</div>
+                    </div>
+                </section>
+                <Form 
+                    diagnoses={diagnoses}
+                    handleSubmit={receiveInput} 
+                    changeInstruction={changeInstruction} 
+                    setChosenDiagnosis={setChosenDiagnosis}
+                    setChosenWeight={setChosenWeight}
+                    formSubmitted={formSubmitted} 
+                    formData={formData}
+                    hasFormData={hasFormData}
+                    isWeightOk={isWeightOk}
+                    setIsWeightOk={setIsWeightOk}
+                    penicillinAllergy={penicillinAllergy}
+                    setPenicillinAllergy={setPenicillinAllergy}
+                    concurrentEBV={concurrentEBV}
+                    setConcurrentEBV={setConcurrentEBV}
+                    concurrentMycoplasma={concurrentMycoplasma}
+                    setConcurrentMycoplasma={setConcurrentMycoplasma}
+                />
+                {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
+                {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
+                    loading={loading}
+                    needsAntibiotics={diagnosisData.needsAntibiotics}
+                    description={description}
+                    targetedInfo={targetedInfo}
+                    weight={chosenWeight}
+                    treatments={treatments}
+                    setActiveRecipe={setActiveRecipe}
+                    format={treatments[0].format}
+                    penicillinAllergy={penicillinAllergy}
+                    concurrentMycoplasma={concurrentMycoplasma}
+                />}
+                {formSubmitted && !!noAntibioticTreatment && <Recipe
+                    loading={loading}
+                    treatments={treatments} 
+                    activeRecipe={activeRecipe} 
+                    diagnosisData={diagnosisData}
+                    noTreatment={noAntibioticTreatment}
+                />}
+                {formSubmitted && (treatments && diagnosisData.needsAntibiotics) && isWeightOk && <Recipe 
+                    loading={loading}
+                    treatments={treatments}
+                    weight={chosenWeight} 
+                    activeRecipe={activeRecipe} 
+                    diagnosisData={diagnosisData}
+                    penicillinAllergy={penicillinAllergy}
+                    concurrentEBV={concurrentEBV}
+                    concurrentMycoplasma={concurrentMycoplasma}
+                    noTreatment={noAntibioticTreatment} />}
+            </div>
+        </>
     );
 }
