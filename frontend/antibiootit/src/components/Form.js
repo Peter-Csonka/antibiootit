@@ -226,8 +226,17 @@ export default function Form(props) {
         )
     }
 
+    function scrollView() {
+        if (window.matchMedia("(max-width: 650px)").matches) {
+            // Executed when the screen size is less than 650px 
+            const element = document.getElementsByClassName("diagnosis-form")[0];
+            element.scrollIntoView();
+          }
+      }
+
     const handleClick = (e) => {
         e.preventDefault();
+        scrollView();
         if (props.isWeightOk) {
             const checkBoxes = [
                 {
@@ -247,13 +256,8 @@ export default function Form(props) {
             const formattedWeight = roundedWeight.toFixed(2).replace(".", ",");
             
             const weightForCalculations = roundedWeight.toFixed(2).replace(",", ".");
-            if (weightForCalculations >= MIN_WEIGHT && weightForCalculations <= MAX_WEIGHT) {
 
-                if (window.matchMedia("(max-width: 650px)").matches) {
-                    // Executed when the screen size is less than 650px 
-                    const element = document.getElementsByClassName("diagnosis-form")[0];
-                    element.scrollIntoView();
-                  }
+            if (weightForCalculations >= MIN_WEIGHT && weightForCalculations <= MAX_WEIGHT) {
                 
                 props.setIsWeightOk(true);
                 setWeight(formattedWeight);
