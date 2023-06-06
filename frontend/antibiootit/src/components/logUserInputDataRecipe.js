@@ -1,5 +1,5 @@
-export function logUserInputData(diagnosis, weight, penicillin, ebv, mycoplasma) {
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbwNwrKT_uXxt0HOg9mWrap3oG26X50FTOQJ30_gJe-_pwro1fu8XfHalrvzVqINjkVXjQ/exec";
+export function logUserInputDataRecipe(diagnosis, weight, penicillin, ebv, mycoplasma, recipe) {
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbxbjtmnguQYFP4-7D-XkRKc8lUz7VKMekLErjlfrD7v0j8Gj8QIo0mINUULQl7bRf1Itg/exec";
 
     var data = new FormData();
     data.append('diagnosis', diagnosis);
@@ -7,6 +7,7 @@ export function logUserInputData(diagnosis, weight, penicillin, ebv, mycoplasma)
     data.append('penicillin', penicillin);
     data.append('ebv', ebv);
     data.append('mycoplasma', mycoplasma);
+    data.append('recipe', recipe);
 
     fetch(scriptUrl, {
         method: "POST",

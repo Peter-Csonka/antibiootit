@@ -208,9 +208,13 @@ export default function Antibiotics() {
             />}
             {formSubmitted && (treatments && diagnosisData.needsAntibiotics) && isWeightOk && <Recipe 
                 loading={loading}
-                treatments={treatments} 
+                treatments={treatments}
+                weight={chosenWeight} 
                 activeRecipe={activeRecipe} 
                 diagnosisData={diagnosisData}
+                penicillinAllergy={penicillinAllergy}
+                concurrentEBV={concurrentEBV}
+                concurrentMycoplasma={concurrentMycoplasma}
                 noTreatment={noAntibioticTreatment} />}
         </div>
     );
