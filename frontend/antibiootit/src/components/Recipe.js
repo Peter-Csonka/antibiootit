@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import LoadingIndicator from "./LoadingIndicator";
 import { logUserInputDataRecipe } from "./logUserInputDataRecipe";
 
 export default function Recipe(props) {
@@ -121,17 +120,14 @@ ICD-10 koodi: ${diagnosisCode}`;
                     {props.loading ? <></> : <h4>{chosenAb}</h4>}
                 </div>
             </div>
-            {props.loading ? 
-            <LoadingIndicator 
-                loading={"recipe"}
-            /> : <div className="recipe-text-container">
+            <div className="recipe-text-container">
                 <p className="recipe-text">{dosageInstructions}
                 </p>
                 <div className="recipe-container-bottom">
                     <span>ICD-10 koodi: <span className="bold">{diagnosisCode}</span></span>
                     <CopyButton />
                 </div>
-            </div>}
+            </div>
         </div>
     );
 
