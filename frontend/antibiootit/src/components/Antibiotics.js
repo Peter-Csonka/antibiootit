@@ -161,12 +161,7 @@ export default function Antibiotics() {
     const antibioticsStyle = {
         opacity: loading ? "0.3" : "1"
     }
-/**
- * {loading ?
-            <LoadingIndicator 
-                loading={"all"}
-            /> : ''}
- */
+
     return (
         <>
             {loading ?
