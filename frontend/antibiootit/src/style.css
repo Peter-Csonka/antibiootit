@@ -146,7 +146,7 @@ section > h1 {
 
 .antibiotic-instructions {
     position: relative;
-    height: 100%;
+    height: 100px;
 }
 
 .antibiotic-instructions > h2 {
@@ -1019,7 +1019,7 @@ aside {
     } .antibiotic-instructions{
         margin-left: 15px;
         margin-right: 15px;
-
+        height: 100%;
     }  .antibiotics {
         width: 93%;
         margin-left: 3%;
