@@ -12,7 +12,8 @@ function App() {
 
   const handleAcceptCookies = () => {
     setShowCookiePopup(false);
-    // Tässä vaiheessa voit tallentaa käyttäjän hyväksynnän esimerkiksi paikalliseen tilaan tai evästeisiin.
+    // Tässä vaiheessa voit tallentaa käyttäjän hyväksynnän esimerkiksi
+    // paikalliseen tilaan tai evästeisiin.
   };
 
   return (
