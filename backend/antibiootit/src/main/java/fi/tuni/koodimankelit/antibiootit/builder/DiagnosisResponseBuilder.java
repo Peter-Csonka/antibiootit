@@ -24,10 +24,13 @@ public class DiagnosisResponseBuilder {
     private final Diagnosis diagnosis;
     private final double weight;
     private final boolean usePenicillinAllergic;
+    private final boolean useAnyInfection;
 
     private static int PRIMARY_CHOICE = 1;
     private static int SECONDARY_CHOICE = 2;
     private static int PENICILLIN_ALLERGIC_CHOICE = 3;
+    private static int INFECTION_PRIMARY_CHOICE = 4;
+    private static int INFECTION_SECONDARY_CHOICE = 5;
 
     private Comparator<Strength> highestStrengthComparator = new Comparator<Strength>() {
 
@@ -69,10 +72,11 @@ public class DiagnosisResponseBuilder {
      * @param weight weight in kilograms
      * @param usePenicillinAllergic True, if penicillin allergic option should be used
      */
-    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic) {
+    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic, boolean useAnyInfection) {
         this.diagnosis = diagnosis;
         this.weight = weight;
         this.usePenicillinAllergic = usePenicillinAllergic;
+        this.useAnyInfection = useAnyInfection;
     }
 
     
@@ -160,7 +164,11 @@ public class DiagnosisResponseBuilder {
      * @return boolean True, if treatment is suitable
      */
     private boolean isSuitableTreatment(Treatment treatment) {
-        if(this.usePenicillinAllergic) {
+        if(this.usePenicillinAllergic && !this.useAnyInfection) {
+            return PENICILLIN_ALLERGIC_CHOICE == treatment.getChoice();
+        } else if(this.useAnyInfection && !this.usePenicillinAllergic) {
+            return INFECTION_PRIMARY_CHOICE == treatment.getChoice() || INFECTION_SECONDARY_CHOICE == treatment.getChoice();
+        } else if(this.useAnyInfection && this.usePenicillinAllergic) {
             return PENICILLIN_ALLERGIC_CHOICE == treatment.getChoice();
         } else {
             return PRIMARY_CHOICE == treatment.getChoice() || SECONDARY_CHOICE == treatment.getChoice();
