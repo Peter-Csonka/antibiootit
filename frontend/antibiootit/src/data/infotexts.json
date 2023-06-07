@@ -98,7 +98,7 @@
     {
       "id": "step4",
       "header": "Hoitosuositukset",
-      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan."
+      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Laskuri olettaa, että alle 40kg painava lapsi käyttää mikstuuraa ja sitä painavampi tablettia"
     },
     {
       "id": "infoBronchitis",

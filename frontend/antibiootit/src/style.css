@@ -150,11 +150,11 @@ main {
     margin-right: 10%;
     max-width: 600px;
     width: 100%;
+    height: 100%;
 }
 
 section {
     background-color: transparent;
-    max-height: 180px;
     margin-top: 10px;
 }
 
@@ -405,7 +405,7 @@ aside {
     width: 250px;
     border-radius: 20px;
     margin: 10px;
-    margin-top: -20px;
+    margin-top: -35px;
     background-color: #CBDAEF;
     font-weight: bold;
     font-size: 16px;
@@ -436,7 +436,7 @@ aside {
 .diagnosis-form {
     display: grid;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     justify-content: center;
 }
 
@@ -931,7 +931,17 @@ aside {
 }
 
 .loading-text {
-    margin-top: 50px;
+    color: #5D769A;
+    
+}
+
+.loading {
+    position: absolute;
+    z-index: 2;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .error {
@@ -1031,6 +1041,7 @@ aside {
     } .antibiotic-instructions{
         margin-left: 15px;
         margin-right: 15px;
+        height: 100%;
     }  .antibiotics {
         width: 93%;
         margin-left: 3%;
@@ -1044,7 +1055,6 @@ aside {
         max-width: 100%;
     } section {
         margin-bottom: 1px;
-        max-height: 250px;
     }  aside {
         grid-column-start: 1;
         grid-row-start: 14;
@@ -1087,7 +1097,6 @@ aside {
         color: black; 
     } .diagnosis-menu {
         height: 55px;
-        margin-top: 20px;
         padding-top: 15px;
         padding-bottom: 15px;
         width: 100%;
@@ -1207,6 +1216,7 @@ aside {
         box-shadow:none;
         font-family: Arial, Helvetica, sans-serif;
         color: black;
+        margin-top: -25px;
     } ::placeholder {
         font-size: 18px;
         margin-left: 100px;
@@ -1243,6 +1253,9 @@ aside {
         margin-bottom: 30px;
     } .aside-text {
         margin-top: 40px;
+    } .loading {
+        align-self: center;
+        top: 400px;
     }
 }
 
@@ -1266,7 +1279,6 @@ aside {
         padding-left: 10px;
     } .diagnosis-form {
         max-width: 100%;
-        margin-top: 30px;
         justify-content: start;
     } .weight-input {
         padding-right: 0px;
@@ -1283,6 +1295,9 @@ aside {
         margin-top: 150px;
     } .aside-version-update {
         margin-bottom: 40px;
+    } .loading {
+        top: 400px;
+        align-self: center;
     }
 }
 
@@ -1297,6 +1312,9 @@ aside {
         width: 600px;
     } .recipe-container {
         width: 600px;
+    } .loading {
+        top: 400px;
+        align-self: center;
     }
 }
 
@@ -1326,7 +1344,9 @@ aside {
         font-family: Arial, Helvetica, sans-serif;
     } .info-container > h2 {
         align-self: center;
-    } 
+    } .loading {
+        top: 400px;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1334,7 +1354,7 @@ aside {
         background-color: white;
     } .info-container {
         width: 100%;
-    } 
+    }
 }
 
 @media only screen and (min-width: 1500px) {
@@ -1383,8 +1403,12 @@ aside {
         margin-right: 90px;
     } .diagnosis-form {
         justify-content: center;
+        margin-top: 18px;
     } .aside-text {
         margin-top: 86px;
+    } .loading {
+        top: 400px;
+        left: 340px;
     }
     
 }
