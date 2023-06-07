@@ -147,7 +147,7 @@ section > h1 {
 
 .antibiotic-instructions {
     position: relative;
-    height: 100px;
+    height: 100%;
 }
 
 .antibiotic-instructions > h2 {
@@ -1259,7 +1259,6 @@ aside {
         padding-left: 10px;
     } .diagnosis-form {
         max-width: 100%;
-        margin-top: 35px;
         justify-content: start;
     } .weight-input {
         padding-right: 0px;
