@@ -128,12 +128,11 @@ main {
     margin-right: 10%;
     max-width: 600px;
     width: 100%;
+    height: 100%;
 }
 
 section {
     background-color: transparent;
-    max-height: 350px;
-    height: 100%;
     margin-top: 10px;
 }
 
@@ -1020,6 +1019,7 @@ aside {
     } .antibiotic-instructions{
         margin-left: 15px;
         margin-right: 15px;
+        height: 100%;
     }  .antibiotics {
         width: 93%;
         margin-left: 3%;
@@ -1033,7 +1033,6 @@ aside {
         max-width: 100%;
     } section {
         margin-bottom: 1px;
-        max-height: 450px;
     }  aside {
         grid-column-start: 1;
         grid-row-start: 14;
@@ -1076,7 +1075,6 @@ aside {
         color: black; 
     } .diagnosis-menu {
         height: 55px;
-        margin-top: 70px;
         padding-top: 15px;
         padding-bottom: 15px;
         width: 100%;
@@ -1259,7 +1257,6 @@ aside {
         padding-left: 10px;
     } .diagnosis-form {
         max-width: 100%;
-        margin-top: 35px;
         justify-content: start;
     } .weight-input {
         padding-right: 0px;
