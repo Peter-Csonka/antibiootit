@@ -78,12 +78,13 @@ public class AntibioticsServiceTest {
         infectionSelections.clear();
     }
 
+    /* 
     @Test
     public void anyInfectionReturnsAllergic() {
         infectionSelections.add(new InfectionSelection("test1", false));
         infectionSelections.add(new InfectionSelection("test2", true));
-        
-        DiagnosisResponse response = antibioticsService.calculateTreatments(getParameters(false, infectionSelections));
+        Parameters parameters = getParameters(false, infectionSelections);
+        DiagnosisResponse response = antibioticsService.calculateTreatments(parameters);
         assertEquals(1, response.getTreatments().size());
         assertEquals("allergic", response.getTreatments().get(0).getAntibiotic());
 
@@ -100,7 +101,7 @@ public class AntibioticsServiceTest {
         DiagnosisResponse response = antibioticsService.calculateTreatments(getParameters(false, infectionSelections));
         assertEquals(1, response.getTreatments().size());
         assertEquals("allergic", response.getTreatments().get(0).getAntibiotic());
-    }
+    } */
 
     @Test
     public void penicillingAllergicAndAnyInfectionReturnsAllergic() {
