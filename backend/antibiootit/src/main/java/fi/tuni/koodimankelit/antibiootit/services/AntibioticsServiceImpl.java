@@ -22,9 +22,8 @@ public class AntibioticsServiceImpl implements AntibioticsService {
 
         Diagnosis diagnosis = dataHandler.getDiagnosisById(parameters.getDiagnosisID());
 
-        // If penicillinAllergic or any infection (checkBox is True)
+        // If penicillinAllergy (checkBox is True)
         boolean usePenicillinAllergic = parameters.getPenicillinAllergic();
-        //usePenicillinAllergic = usePenicillinAllergic || parameters.getCheckBoxes().stream().anyMatch(c -> c.getValue());
 
         // If any infection (checkBox is True)
         boolean useAnyInfection = parameters.getCheckBoxes().stream().anyMatch(c -> c.getValue());
