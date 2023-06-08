@@ -335,6 +335,11 @@ aside {
     color: black;
 }
 
+.copy-button ion-icon {
+    font-size: 20px;
+    display: flex;
+}
+
 /*.form--button ion-icon {
     padding-top: 3px;
     color: white;
@@ -787,17 +792,19 @@ aside {
     right: 3%;
     background-color: #F3F3F3;
     min-width: 23%;
-    width: 158px;
+    width: 150px;
     border: 1.5px solid #395174;
     border-radius: 20px;
     font-family: Inter, sans-serif;
     font-size: 15px;
     color: #395174;
     box-shadow: 0 1.5px #7b7979;
-    padding-left: 10px;
     text-indent: 5px;
     margin-right: 5px;
     height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .copy--image {
@@ -823,6 +830,7 @@ aside {
     display: flex;
     justify-content: center;
     text-indent: -2px;
+    padding-left: 7%;
   }
 
 .notification-container {
