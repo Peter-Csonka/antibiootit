@@ -116,7 +116,7 @@ ICD-10 koodi: ${diagnosisCode}`;
                     <img className="pen-icon" src="./icons/pen-icon.svg" alt="pen icon"/>
                 </div>
                 <div className="recipe-header-container">
-                    <h3>Reseptin kirjoittaminen:</h3>
+                    <h3>Resepti:</h3>
                     {props.loading ? <></> : <h4>{chosenAb}</h4>}
                 </div>
             </div>
