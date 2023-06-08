@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 .body {
     margin: 0;
     padding-top: env(safe-area-inset-top);
@@ -99,28 +100,6 @@ footer {
     padding-left: 40px;
 }
 
-.cookie-popup {
-    font-family: Arial, Helvetica, sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f0f0f0;
-    padding: 40px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .cookie-popup button {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
 main {
     font-family: Inter, sans-serif;
     width: 100%;
@@ -150,7 +129,6 @@ main {
     margin-right: 10%;
     max-width: 600px;
     width: 100%;
-    height: 100%;
 }
 
 section {
@@ -585,7 +563,6 @@ aside {
     align-items: center;
     width: 100%;
     max-height: 400px;
-    min-height: 120px;
 }
 
 .choise-container {
@@ -800,7 +777,6 @@ aside {
     background-color: white;
     padding-bottom: 8px;
     margin-left: 0px;
-    padding: 8px;
 }
 
 .copy-button {
@@ -879,16 +855,20 @@ aside {
     font-size: 18px;
     border: none;
     background-color: white;
+    color: black;
 }
 
 .info-links button:active {
     color: #5D769A;
+    -webkit-text-fill-color: #5D769A;
 }
 
 .info-active {
     color: #556b8b;
+    -webkit-text-fill-color: #556b8b;
     text-decoration: underline;
     text-decoration-color: #5D769A;
+    -webkit-text-decoration-color: #5D769A;
     text-decoration-thickness: 3px;
     text-underline-offset: 6px;
 }
@@ -1047,6 +1027,7 @@ aside {
         margin-left: 3%;
         margin-right: 3%;
     } .feedback-container {
+       -webkit-overflow-scrolling: auto !important;
        width: 100%;
        max-width: 100%; 
        padding: 0 20px;
@@ -1136,7 +1117,6 @@ aside {
         width: 150px;
         font-size: 14px;
         margin-right: 4px;
-        margin-bottom: -3px;
     } .copy--image {
         width: 17px;
     } .info-container {
@@ -1173,8 +1153,6 @@ aside {
     } .info-container h3 {
         margin-top: 0px;
         margin-bottom: 30px;
-        font-family: Arial, Helvetica, sans-serif;
-    } .info-links button {
         font-family: Arial, Helvetica, sans-serif;
     } .info-links :last-child {
         margin-bottom: 70px;
@@ -1225,8 +1203,7 @@ aside {
     } .recipe-container h3,h4 {
         font-family: Arial, Helvetica, sans-serif;
     } .recipe-container-bottom {
-        flex-direction: row;
-        align-items: flex-end;
+        padding-left: 7px;
     } .recipe-header-container {
         margin-left: -35px;
     } .treatment-icon {
@@ -1256,7 +1233,7 @@ aside {
     } .loading {
         align-self: center;
         top: 400px;
-    }
+    } 
 }
 
 @media only screen and (min-width: 631px) {
@@ -1290,7 +1267,7 @@ aside {
         margin-left: 0px;
         margin-right: 20px;
     } .dropdown-content {
-        margin-left: -1.5px;
+        margin-left: -1px;
     } .aside-text {
         margin-top: 150px;
     } .aside-version-update {

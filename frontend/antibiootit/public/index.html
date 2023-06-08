@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J74FYDDWJ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-
-      // Default ad_storage to 'denied' as a placeholder
-      // Determine actual values based on your own requirements
-      gtag('consent', 'default', {
-      'ad_storage': 'denied'
-    });
-    </script>
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J74FYDDWJ"></script>
-      <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}  
       gtag('js', new Date());
 
       gtag('config', 'G-8J74FYDDWJ');
     </script>
-    <!-- Update this section based on your business requirements. -->
-    <script>
-      function consentGranted() {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted'
-      });
-      }
-</script>
     <link rel="stylesheet" type="text/html" href="/frontend/antibiootit/src/reset.css">
     <link rel="stylesheet" type="text/html" href="/frontend/antibiootit/src/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -61,9 +43,5 @@
     <div id="root"></div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <div id="cookiePopup" class="cookie-popup">
-      <p>Tämä sivusto käyttää evästeitä parantaakseen käyttökokemustasi.</p>
-      <button onclick="consentGranted" id="cookieAcceptButton">Hyväksy</button>
-    </div>
   </body>
 </html>
