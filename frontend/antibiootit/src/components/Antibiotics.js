@@ -208,6 +208,7 @@ export default function Antibiotics() {
                     format={treatments[0].format}
                     penicillinAllergy={penicillinAllergy}
                     concurrentMycoplasma={concurrentMycoplasma}
+                    choice={chosenDiagnosis}
                 />}
                 {formSubmitted && !!noAntibioticTreatment && <Recipe
                     loading={loading}

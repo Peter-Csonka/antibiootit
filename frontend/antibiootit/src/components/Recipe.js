@@ -108,6 +108,11 @@ ICD-10 koodi: ${diagnosisCode}`;
     const styles = {
         fontStyle: copyText==="Resepti kopioitu" ? "italic" : "normal"
     }
+    if(diagnosisData.id === 'J03.0') {
+        return (
+            <></>
+        )
+    }
 
     return (
         <div className="recipe-container">
