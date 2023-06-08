@@ -195,17 +195,6 @@ export default function Treatment(props) {
             targetedInfo = "";
         }
     }
-    const strpStyle = {
-        color: "red",
-        marginLeft: "20px"
-    }
-    if(props.choice === 'Streptokokkitonsilliitti') {
-        return (
-            <>
-                <h2 style={strpStyle}>Streptokokkitonsilliitin hoitosuosituksia päivitetään</h2>
-            </>
-        )
-    }
     
     return (
         <div className="treatment-container">

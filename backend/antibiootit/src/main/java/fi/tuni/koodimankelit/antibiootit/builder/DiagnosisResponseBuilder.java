@@ -24,10 +24,13 @@ public class DiagnosisResponseBuilder {
     private final Diagnosis diagnosis;
     private final double weight;
     private final boolean usePenicillinAllergic;
+    private final boolean useAnyInfection;
 
     private static int PRIMARY_CHOICE = 1;
     private static int SECONDARY_CHOICE = 2;
     private static int PENICILLIN_ALLERGIC_CHOICE = 3;
+    private static int INFECTION_PRIMARY_CHOICE = 4;
+    private static int INFECTION_SECONDARY_CHOICE = 5;
 
     private Comparator<Strength> highestStrengthComparator = new Comparator<Strength>() {
 
@@ -68,11 +71,13 @@ public class DiagnosisResponseBuilder {
      * @param diagnosis Database entity instance
      * @param weight weight in kilograms
      * @param usePenicillinAllergic True, if penicillin allergic option should be used
+     * @param useAnyInfection True, if any infection option should be used
      */
-    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic) {
+    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic, boolean useAnyInfection) {
         this.diagnosis = diagnosis;
         this.weight = weight;
         this.usePenicillinAllergic = usePenicillinAllergic;
+        this.useAnyInfection = useAnyInfection;
     }
 
     
@@ -105,6 +110,7 @@ public class DiagnosisResponseBuilder {
 
             AntibioticTreatment antibioticTreatment = builder.build();
             diagnosisResponse.addTreatment(antibioticTreatment);
+
         }
 
         List<TargetedInfo> targetedInfos = getTargetedInfos();
@@ -160,7 +166,15 @@ public class DiagnosisResponseBuilder {
      * @return boolean True, if treatment is suitable
      */
     private boolean isSuitableTreatment(Treatment treatment) {
-        if(this.usePenicillinAllergic) {
+        if(this.usePenicillinAllergic && !this.useAnyInfection) {
+            return PENICILLIN_ALLERGIC_CHOICE == treatment.getChoice();
+        } else if(this.useAnyInfection && !this.usePenicillinAllergic) {
+            if(diagnosis.getName().equals("Streptokokkitonsilliitti") && weight < 40) {
+                return INFECTION_PRIMARY_CHOICE == treatment.getChoice();
+            } else {
+                return INFECTION_PRIMARY_CHOICE == treatment.getChoice() || INFECTION_SECONDARY_CHOICE == treatment.getChoice();
+            }
+        } else if(this.useAnyInfection && this.usePenicillinAllergic) {
             return PENICILLIN_ALLERGIC_CHOICE == treatment.getChoice();
         } else {
             return PRIMARY_CHOICE == treatment.getChoice() || SECONDARY_CHOICE == treatment.getChoice();
@@ -174,7 +188,6 @@ public class DiagnosisResponseBuilder {
      * @return Antibiotic preferred antibiotic
      */
     private Antibiotic getSuitableAntibiotic(Treatment treatment) {
-
         // Sort all antibiotics, the option with highest strength first
         List<Antibiotic> antibiotics = treatment.getAntibiotics();
         antibiotics.sort(antibioticComparator);
