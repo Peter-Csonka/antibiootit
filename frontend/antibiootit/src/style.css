@@ -1013,12 +1013,18 @@ aside {
 }
 
 .cookie {
-    margin-left: 300px;
     position: fixed;
     display: flex;
-    bottom: 15px;
-    background-color: pink;
-    width: 800px;
+    left: 50%;
+    bottom: 29px;
+    background-color: rgb(186, 194, 238);
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    justify-content: center;
+    align-items: center;
 }
 
 .cookie > p > a {
@@ -1027,12 +1033,20 @@ aside {
 
 .cookie-accept-btn {
     margin-right: 10px;
-    height: 20px;
-    width: 50px;
+    height: 30px;
+    width: 120px;
     align-self: center;
-    background-color: #CBDAEF;
+    background-color: #dee8f5;
     font-weight: bold;
-    border: 1px solid #395174;
+    border: 1.5px solid #395174;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+}
+
+.cookie > p {
+    padding-left: 20px;
+    padding-right: 30px;
 }
   
 
