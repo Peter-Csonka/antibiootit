@@ -1011,6 +1011,29 @@ aside {
     display: block;
     margin-top: 195px;  
 }
+
+.cookie {
+    margin-left: 300px;
+    position: fixed;
+    display: flex;
+    bottom: 15px;
+    background-color: pink;
+    width: 800px;
+}
+
+.cookie > p > a {
+    color: blue;
+}
+
+.cookie-accept-btn {
+    margin-right: 10px;
+    height: 20px;
+    width: 50px;
+    align-self: center;
+    background-color: #CBDAEF;
+    font-weight: bold;
+    border: 1px solid #395174;
+}
   
 
 /*Scalability to mobile screen*/
