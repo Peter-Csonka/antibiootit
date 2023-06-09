@@ -29,11 +29,8 @@ export default function Info() {
     // Check if the param1Value exists before using it
     useEffect(() => {
         if (paramValue) {
-            console.log('param:', paramValue);
             setContent("privacy")
             setActiveButton("privacy")
-        } else {
-            console.log('param1 not found');
         }
     }, [paramValue]);
 
