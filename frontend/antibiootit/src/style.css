@@ -142,6 +142,7 @@ section > h1 {
     line-height: 39px;
     margin-top: 40px;
     margin-bottom: 34px;
+    color: #2c2c2c;
 }
 
 .antibiotic-instructions {
@@ -320,13 +321,13 @@ aside {
 .diagnosis-menu-choose {
     font-weight: bold;
     z-index: 2;
-    margin-left: 15px;
+    margin-left: 40px;
 }
 
 .diagnosis-menu-name {
     z-index: 2;
     letter-spacing: 0.3px;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 .dropdown-btn ion-icon {
@@ -355,6 +356,13 @@ aside {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+.heart-icon {
+    position: absolute;
+    width: 41px;
+    pointer-events: none;
+    right: 195px;
 }
 
 .checkbox-container {
@@ -426,6 +434,8 @@ aside {
 .diagnosis-menu {
     position: relative;
     display: inline-block;
+    align-items: center;
+    z-index: 100;
     grid-column-start: 1;
     width: 250px;
     height: 50px;
@@ -447,12 +457,12 @@ aside {
 .dropdown-content {
     position: absolute;
     display:none;
-    z-index: 1;
+    z-index: 4;
     width: 250px;
     padding: 0;
-    margin-left: -1.5px;
+    margin-left: -1px;
     padding-bottom: 0px;
-    padding-top: 10px;
+    margin-top: 10px;
     -webkit-background-color:#D7E2F2;
     background-color: #D7E2F2;
     border-bottom: 1.5px solid #395174;
@@ -1058,7 +1068,6 @@ aside {
     padding-right: 30px;
     color: black
 }
-  
 
 /*Scalability to mobile screen*/
 @media only screen and (max-width: 630px) {
@@ -1205,6 +1214,7 @@ aside {
         padding-left: 0px;
     } .menu--items > li {
         height: 48px;
+        padding-left: -50px;
     }  .menu--items {
         line-height: 48px;
     } .form--input {
@@ -1224,9 +1234,9 @@ aside {
         margin-top: 17px;
         font-size: 18px;
     } .dropdown-content {
+        position: absolute;
+        margin-left: -1px;
         width: 280px;
-        margin-left: -1.5px;
-        margin-top: -5px;
     } .dropdown-btn {
         margin-top: 0px;
     } .form--button {
@@ -1286,7 +1296,9 @@ aside {
     } .cookie-accept-btn {
         height: 40px;
         width: 140px;
-    } 
+    } .heart-icon {
+        right: 225px;
+    }
 }
 
 @media only screen and (min-width: 631px) {
@@ -1319,9 +1331,7 @@ aside {
     } .btn-calculate {
         margin-left: 0px;
         margin-right: 20px;
-    } .dropdown-content {
-        margin-left: -1px;
-    } .aside-text {
+    }  .aside-text {
         margin-top: 150px;
     } .aside-version-update {
         margin-bottom: 40px;

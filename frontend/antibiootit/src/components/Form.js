@@ -56,6 +56,7 @@ export default function Form(props) {
                         data-testid="diagnosis-menu-btn"
                         onClick={handleMenuClick}>{diagnosis ? <ShowDiagnosisName  /> : <Choose />}
                         <ion-icon name="chevron-down-outline" size="large"></ion-icon>
+                        <img className="heart-icon" src="./icons/heart-icon.svg" alt="heart icon"/>
                     </button>
                     <div className="dropdown-content">
                         <ul className="menu--items" data-testid="diagnosis-menu">
@@ -77,6 +78,7 @@ export default function Form(props) {
                         className="dropdown-btn"
                         data-testid="diagnosis-menu-btn"
                         onClick={handleMenuClick}>{diagnosis ? <ShowDiagnosisName  /> : <Choose />}
+                         {!diagnosis && <img className="heart-icon" src="./icons/heart-icon.svg" alt="heart icon" />}
                         <ion-icon name="chevron-down-outline" size="large"></ion-icon>
                     </button>
                     <div className="dropdown-content">
