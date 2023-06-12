@@ -99,7 +99,7 @@ ICD-10 koodi: ${diagnosisCode}`;
                 className="copy-button"
                 onClick={copy} 
                 disabled={dosageInstructions === ""}>
-                <img className="copy--image" src="./copy.png" alt=""/>
+                <ion-icon name="copy-outline"></ion-icon>
                 <span className="copy-text">{copyText}</span>
             </button>
         )

@@ -168,8 +168,13 @@ export default function Info() {
     const Privacy = () => {
         if (!!infoTexts) {
             const privacyPolicy = infoTexts[18].text;
+            const paragraphs = privacyPolicy.split("\n\n");
             return (
-                <p>{privacyPolicy}</p>
+                <>
+                    <div>{paragraphs.map((paragraph, index) => (
+                        <span dangerouslySetInnerHTML={{ __html: paragraph }} />
+                    ))}</div>
+            </>
             )
         }
         else {
