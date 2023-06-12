@@ -13,11 +13,6 @@ function App() {
         setIsVisible(false);
         console.log("Keksit hyväksytty");
     };
-    // this is so that the banner stays visible and is easier to style
-    // HAS to be removed when the styling is done to actually save to localStorage
-    // so the banner doesnt pop up anymore after either clicking 'sulje' button
-    // or the 'Lisätietoa' reference.
-    localStorage.removeItem('cookieAccepted');
 
   return (
     <>
