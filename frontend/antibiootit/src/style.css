@@ -592,8 +592,6 @@ aside {
     padding: 15px;
 }
 
-
-
 .choise-header {
     color: black;
     display: flex;
@@ -979,9 +977,10 @@ aside {
 }
 
 .mobile-container {
-    display: block;
+    display: fixed;
     margin: 0px;
     max-width: 200px;
+    z-index: 10;
 }
 
 .mobile-nav-links {
@@ -1081,6 +1080,7 @@ aside {
        width: 100%;
        max-width: 100%; 
        padding: 0 20px;
+       z-index: 1;
     } .feedback-form {
         width: 100%;
         max-width: 100%;
