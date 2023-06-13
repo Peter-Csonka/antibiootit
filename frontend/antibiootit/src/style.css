@@ -320,13 +320,13 @@ aside {
 .diagnosis-menu-choose {
     font-weight: bold;
     z-index: 2;
-    margin-left: 15px;
+    margin-left: 40px;
 }
 
 .diagnosis-menu-name {
     z-index: 2;
     letter-spacing: 0.3px;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 .dropdown-btn ion-icon {
@@ -355,6 +355,13 @@ aside {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+
+.heart-icon {
+    position: absolute;
+    width: 39px;
+    pointer-events: none;
+    right: 196px;
 }
 
 .checkbox-container {
@@ -433,7 +440,7 @@ aside {
     padding-top: 10px;
     padding-bottom: 15px;
     margin: 9px;
-    text-indent: 30px;
+    text-indent: 23px;
     border: 1.5px solid #395174;
     border-radius: 20px;
     background-color:#D7E2F2;
@@ -450,9 +457,9 @@ aside {
     z-index: 1;
     width: 250px;
     padding: 0;
-    margin-left: -1.5px;
+    margin-left: -1px;
     padding-bottom: 0px;
-    padding-top: 10px;
+    margin-top: 10px;
     -webkit-background-color:#D7E2F2;
     background-color: #D7E2F2;
     border-bottom: 1.5px solid #395174;
@@ -1057,7 +1064,6 @@ aside {
     padding-right: 30px;
     color: black
 }
-  
 
 /*Scalability to mobile screen*/
 @media only screen and (max-width: 630px) {
@@ -1134,6 +1140,7 @@ aside {
         width: 100%;
         max-width: 280px;
         font-weight: 500;
+        text-indent: 30px;
         font-size: 18px;
     } .diagnosis-menu-name{
         font-size: 18px;
@@ -1205,6 +1212,7 @@ aside {
         padding-left: 0px;
     } .menu--items > li {
         height: 48px;
+        padding-left: -50px;
     }  .menu--items {
         line-height: 48px;
     } .form--input {
@@ -1224,9 +1232,9 @@ aside {
         margin-top: 17px;
         font-size: 18px;
     } .dropdown-content {
+        position: absolute;
+        margin-left: -1px;
         width: 280px;
-        margin-left: -1.5px;
-        margin-top: -5px;
     } .dropdown-btn {
         margin-top: 0px;
     } .form--button {
@@ -1286,7 +1294,9 @@ aside {
     } .cookie-accept-btn {
         height: 40px;
         width: 140px;
-    } 
+    } .heart-icon {
+        right: 225px;
+    }
 }
 
 @media only screen and (min-width: 631px) {
@@ -1319,9 +1329,7 @@ aside {
     } .btn-calculate {
         margin-left: 0px;
         margin-right: 20px;
-    } .dropdown-content {
-        margin-left: -1px;
-    } .aside-text {
+    }  .aside-text {
         margin-top: 150px;
     } .aside-version-update {
         margin-bottom: 40px;
