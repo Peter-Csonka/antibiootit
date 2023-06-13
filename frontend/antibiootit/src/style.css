@@ -142,7 +142,6 @@ section > h1 {
     line-height: 39px;
     margin-top: 40px;
     margin-bottom: 34px;
-    color: #2c2c2c;
 }
 
 .antibiotic-instructions {
@@ -434,8 +433,6 @@ aside {
 .diagnosis-menu {
     position: relative;
     display: inline-block;
-    align-items: center;
-    z-index: 100;
     grid-column-start: 1;
     width: 250px;
     height: 50px;
@@ -457,7 +454,7 @@ aside {
 .dropdown-content {
     position: absolute;
     display:none;
-    z-index: 4;
+    z-index: 1;
     width: 250px;
     padding: 0;
     margin-left: -1px;
