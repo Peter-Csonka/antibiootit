@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LoadingIndicator from "./LoadingIndicator";
+import { logUserInputDataRecipe } from "./logUserInputDataRecipe";
 
 export default function Recipe(props) {
 
@@ -57,6 +57,18 @@ export default function Recipe(props) {
     const copy = async () => {
         await navigator.clipboard.writeText(dosageInstructions);
         setShowNotification(true);
+        let chosenRecipe = `Valinta: ${chosenAb}
+Reseptiteksti: ${dosageInstructions}
+ICD-10 koodi: ${diagnosisCode}`;
+        
+        logUserInputDataRecipe(
+            diagnosisData.name, 
+            props.weight, 
+            props.penicillinAllergy, 
+            props.concurrentEBV, 
+            props.concurrentMycoplasma,
+            chosenRecipe
+        );
     }
 
     const [copyText, setCopyText] = useState("Kopioi resepti")
@@ -87,7 +99,8 @@ export default function Recipe(props) {
                 className="copy-button"
                 onClick={copy} 
                 disabled={dosageInstructions === ""}>
-                <img className="copy--image" src="./copy.png" alt=""/> {copyText}
+                <ion-icon name="copy-outline"></ion-icon>
+                <span className="copy-text">{copyText}</span>
             </button>
         )
     }
@@ -103,21 +116,18 @@ export default function Recipe(props) {
                     <img className="pen-icon" src="./icons/pen-icon.svg" alt="pen icon"/>
                 </div>
                 <div className="recipe-header-container">
-                    <h3>Reseptin kirjoittaminen:</h3>
+                    <h3>Resepti:</h3>
                     {props.loading ? <></> : <h4>{chosenAb}</h4>}
                 </div>
             </div>
-            {props.loading ? 
-            <LoadingIndicator 
-                loading={"recipe"}
-            /> : <div className="recipe-text-container">
+            <div className="recipe-text-container">
                 <p className="recipe-text">{dosageInstructions}
                 </p>
                 <div className="recipe-container-bottom">
                     <span>ICD-10 koodi: <span className="bold">{diagnosisCode}</span></span>
                     <CopyButton />
                 </div>
-            </div>}
+            </div>
         </div>
     );
 

@@ -98,7 +98,7 @@
     {
       "id": "step4",
       "header": "Hoitosuositukset",
-      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan."
+      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Laskuri olettaa, että alle 40kg painava lapsi käyttää mikstuuraa ja sitä painavampi tablettia"
     },
     {
       "id": "infoBronchitis",
@@ -122,9 +122,10 @@
     },
     {
       "id": "privacyPolicy",
-      "header": "",
-      "text": "Sivuston toimintaa seurataan Google Analytics -työkalun avulla ja kerättyjä tietoja hyödynnetään Antibiootit.fi-sivuston kehittämisessä. Sivusto tallentaa myös Antibioottilaskuriin syötetyt arvot, joiden avulla tutkitaan, millaisen tiedon hakemiseen sivustoa käytetään. Antibiootit.fi-sivusto ei kerää käyttäjän henkilötietoja."
-    },
+      "header": "Tietosuojaseloste",
+      "text": "Sivuston toimintaa seurataan Google Analytics -työkalun avulla ja kerättyjä tietoja hyödynnetään Antibiootit.fi-sivuston kehittämisessä. Sivusto käyttää analytiikkaevästeitä, joiden avulla kerätään tietoa sivuston käytöstä ja käyttäjien käyttäytymisestä analyysitarkoituksiin. Google Analyticsin käyttämät evästeet tallentavat esimerkiksi sivustolla vietetyn ajan, sivuston kanssa tapahtuvan vuorovaikutuksen sekä auttavat tunnistamaan käyttäjän selaimen. Google Analyticsin keräämät tiedot ovat anonyymejä, eikä niitä voida yhdistää yksittäiseen henkilöön. Voit halutessasi estää Google Analyticsin evästeiden käytön selaimessasi tai poistaa jo tallennetut evästeet. Lisätietoja Google Analyticsin tietosuojakäytännöistä ja evästeiden hallinnasta löydät <a href=\"https://policies.google.com/technologies/cookies#managing-cookies\" target=\"_blank\" rel=\"noopener noreferrer\">täältä</a>.\n\n Sivusto tallentaa myös Antibioottilaskuriin syötetyt arvot, joiden avulla tutkitaan, millaisen tiedon hakemiseen sivustoa käytetään. Antibiootit.fi-sivusto ei kerää käyttäjän henkilötietoja.",
+      "citation": "https://policies.google.com/technologies/cookies#managing-cookies"
+    },  
     {
       "id": "funding",
       "header": "",

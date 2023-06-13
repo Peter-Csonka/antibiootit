@@ -20,6 +20,20 @@ export default function Info() {
     const location = useLocation();
     let from = location.state ? location.state : "";
 
+    //if the page needs to go to a certain sub page
+    // now there is only need to go to privacy page but in the future 
+    // checks can be made to the param value and act accordingly
+    const searchParams = new URLSearchParams(location.search); 
+    const paramValue = searchParams.get('param');
+
+    // Check if the param1Value exists before using it
+    useEffect(() => {
+        if (paramValue) {
+            setContent("privacy")
+            setActiveButton("privacy")
+        }
+    }, [paramValue]);
+
     useEffect(() => {
         if (from === "footer-disclaimer") {
             setContent("disclaimer");
@@ -168,8 +182,13 @@ export default function Info() {
     const Privacy = () => {
         if (!!infoTexts) {
             const privacyPolicy = infoTexts[18].text;
+            const paragraphs = privacyPolicy.split("\n\n");
             return (
-                <p>{privacyPolicy}</p>
+                <>
+                    <div>{paragraphs.map((paragraph, index) => (
+                        <span dangerouslySetInnerHTML={{ __html: paragraph }} />
+                    ))}</div>
+            </>
             )
         }
         else {

@@ -3,7 +3,6 @@ import Choise from "./Choise"
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import OpacityIcon from '@mui/icons-material/Opacity';
-import LoadingIndicator from "./LoadingIndicator";
 
 export default function Treatment(props) {
 
@@ -196,7 +195,7 @@ export default function Treatment(props) {
             targetedInfo = "";
         }
     }
-
+    
     return (
         <div className="treatment-container">
             <div className="treatment-header">
@@ -211,15 +210,11 @@ export default function Treatment(props) {
                 `Ei antibioottisuositusta` :
                 `Hoitosuositus ${props.format.toLowerCase()}na`}</h2>
             </div>
-            {props.loading ? 
-            <LoadingIndicator 
-                loading={"treatments"}
-            /> :
             <div className="treatment-choises">
                 <div className="choise-container">
                     {AntibioticElements}
                 </div>
-            </div>}
+            </div>
             <div className="treatment-extra">
                 <button className="btn-calculate" onClick={calculate} 
                     disabled={!props.needsAntibiotics || props.format === 'tabletti'}>
@@ -238,7 +233,7 @@ export default function Treatment(props) {
                 {!openCalculations && <div className="description-container">
                     {(props.description !== "" || targetedInfo !== "") && !props.loading &&
                     <div className="strepto-info">
-                        <p className="help-circle"><ion-icon name="help-circle-outline"></ion-icon></p>
+                        <p className="help-circle"><ion-icon name="information-circle-outline"></ion-icon></p>
                         {props.description !== "" ? <p className="info-description">{props.description}</p> :
                         <p className="info-description">{targetedInfo}</p>}
                     </div>}
@@ -247,11 +242,7 @@ export default function Treatment(props) {
                     <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
             </div>
-            {props.loading && openCalculations ? 
-            <LoadingIndicator 
-                loading={"calculations"}
-            /> : 
-            openCalculations && props.needsAntibiotics && props.format === 'mikstuura' && <div className="treatment-calculations" data-testid="calculations">
+            {openCalculations && props.needsAntibiotics && props.format === 'mikstuura' && <div className="treatment-calculations" data-testid="calculations">
                 <MathFormula
                     weight={activeVariables.weight}
                     doseInDay={activeVariables.doseInDay}

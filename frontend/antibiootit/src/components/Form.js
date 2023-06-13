@@ -138,6 +138,43 @@ export default function Form(props) {
                 diagnosisID: selectedInfo.id,
                 checkBoxes: matchingCheckBoxes
             }
+
+            let checkboxType;
+            if(newData.checkBoxes.length > 0) {
+                if(newData.checkBoxes[0].id === checkBoxes[0].id) {
+                    checkboxType = [
+                        {
+                            id: 'EbV-001',
+                            value: newData.checkBoxes[0].value
+                        },
+                        {
+                            id: 'MYK-001',
+                            value: false
+                        }
+                    ]
+                } else if(newData.checkBoxes[0].id === checkBoxes[1].id) {
+                    checkboxType = [
+                        {
+                            id: 'EbV-001',
+                            value: false
+                        },
+                        {
+                            id: 'MYK-001',
+                            value: newData.checkBoxes[0].value
+                        }
+                    ]
+                }
+            }
+
+            if(props.formSubmitted) {
+                logUserInputData(
+                    selected, 
+                    weight, 
+                    newData.penicillinAllergic, 
+                    checkboxType ? checkboxType[0].value : false, 
+                    checkboxType ? checkboxType[1].value : false
+                );
+            }
             
             props.handleSubmit(newData);
         }
@@ -315,6 +352,15 @@ export default function Form(props) {
             penicillinAllergic: !props.penicillinAllergy
         }
         if (props.hasFormData) {
+            if(props.formSubmitted) {
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    newData.penicillinAllergic, 
+                    props.concurrentEBV, 
+                    props.concurrentMycoplasma
+                );
+            }
             props.handleSubmit(newData);
         }
         props.setPenicillinAllergy(!props.penicillinAllergy)
@@ -332,6 +378,15 @@ export default function Form(props) {
                 ...props.formData,
                 checkBoxes: checkBoxes
             }
+            if(props.formSubmitted) {
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    props.penicillinAllergy, 
+                    newData.checkBoxes[0].value, 
+                    props.concurrentMycoplasma
+                );
+            }
             props.handleSubmit(newData);
         }
         props.setConcurrentEBV(!props.concurrentEBV)
@@ -348,6 +403,15 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes
+            }
+            if(props.formSubmitted) {
+                logUserInputData(
+                    diagnosis.name, 
+                    weight, 
+                    props.penicillinAllergy, 
+                    props.concurrentEBV, 
+                    newData.checkBoxes[0].value
+                );
             }
             props.handleSubmit(newData);
         }
