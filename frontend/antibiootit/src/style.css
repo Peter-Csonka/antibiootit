@@ -22,15 +22,13 @@ button, a, li, input {
     display: flex;
     height: 58px;
     padding: 10px;
-    top: 0;
-    left: 0;
     position: static;
     background-color: #5D769A;
     width: 100%;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.2);
-    z-index: 3;
+
 }
 
 .header--links {
@@ -72,8 +70,6 @@ button, a, li, input {
 footer {
     display: flex;
     position: static;
-    left: 0;
-    bottom: 0;
     width: 100%;
     height: 34px;
     background-color: #5D769A;
@@ -220,12 +216,9 @@ aside {
     margin-left: 25px;
     display: flex;
     align-items: center;
-    justify-content: baseline;
-    justify-self: center;
 }
 
 .recipe-header-container {
-    position: flex; 
     margin-left: -25px;
     align-self: flex-start;
 }
@@ -427,7 +420,6 @@ aside {
     display: grid;
     margin-top: 20px;
     margin-bottom: 10px;
-    justify-content: center;
 }
 
 .diagnosis-menu {
@@ -608,7 +600,7 @@ aside {
 }
 
 .choise-inner {
-    margin-top: 3px;
+    margin-top: 10px;
     height: 70px;
     display: flex;
     flex-direction: column;
@@ -1165,7 +1157,6 @@ aside {
         font-family: Arial, Helvetica, sans-serif;
         margin-left: -6px;
     } .choise-inner {
-        margin-top: 8px;
         height: fit-content;
         gap: 0px;
     }  .btn-elements > p {
@@ -1302,8 +1293,6 @@ aside {
 @media only screen and (min-width: 631px) {
     .mobile-container {
         display: none;
-    } .antibiotics {
-       margin-left: 10%;
     }  .active-class {
         margin-left: 25px;
     } .not-active-class {
@@ -1312,7 +1301,6 @@ aside {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0 auto;
     } aside {   
         background-color: rgb(255, 255, 255);
     } .logo {
@@ -1340,15 +1328,11 @@ aside {
 }
 
 @media only screen and (min-width: 720px){
-    .antibiotics {
-        margin-left: 10%;
-    } .active-class {
+    .active-class {
         margin-left: 60px;
     } .not-active-class {
         margin-left: 60px;
     } .treatment-container {
-        width: 600px;
-    } .recipe-container {
         width: 600px;
     } .loading {
         top: 400px;
@@ -1402,7 +1386,6 @@ aside {
 
 @media only screen and (min-width: 1500px) {
     main {
-        position: relative;
         display: grid;
         align-items: start;
         max-width: 1550px; 
@@ -1413,33 +1396,21 @@ aside {
         display: none;
     } aside {
         background-color: #FBFBFB;
-        z-index: -1;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-weight: 400;
-        font-size: 14px;
         grid-column-start: 2;
         grid-row-start: 1;
     } .antibiotics {
         max-width: 700px;
-    }  .weight-input {
-        padding-right: 0px;
-    } .treatment-container {
+    }  .treatment-container {
         width: 100%;
     } .info-container {
         width: 60%;
     } .recipe-container {
         width: 100%;
     } .strepto-info{
-        width: 100%;
         max-width: 500px;
     } .info-description {
         width: 100%;
-    } .btn-calculate {
-        margin-right: 20px;
-    } .aside-update, .aside-version-update {
+    }  .aside-update, .aside-version-update {
         text-align: end;
         margin-right: 40px;
     } .header--links {
