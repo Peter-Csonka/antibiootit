@@ -253,6 +253,7 @@ export default function Form(props) {
     const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);*/
 
     const SubmitButton = () => {
+        setTimeout(scrollView, 10);
         return (
             <button 
                 className="form--button" 
@@ -273,7 +274,6 @@ export default function Form(props) {
 
     const handleClick = (e) => {
         e.preventDefault();
-        scrollView();
         if (props.isWeightOk) {
             const checkBoxes = [
                 {
