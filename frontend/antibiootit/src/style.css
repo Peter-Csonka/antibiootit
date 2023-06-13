@@ -360,9 +360,9 @@ aside {
 
 .heart-icon {
     position: absolute;
-    width: 40px;
+    width: 39px;
     pointer-events: none;
-    right: 195px;
+    right: 196px;
 }
 
 .checkbox-container {
@@ -443,7 +443,7 @@ aside {
     padding-top: 10px;
     padding-bottom: 15px;
     margin: 9px;
-    text-indent: 30px;
+    text-indent: 23px;
     border: 1.5px solid #395174;
     border-radius: 20px;
     background-color:#D7E2F2;
@@ -1143,6 +1143,7 @@ aside {
         width: 100%;
         max-width: 280px;
         font-weight: 500;
+        text-indent: 30px;
         font-size: 18px;
     } .diagnosis-menu-name{
         font-size: 18px;
