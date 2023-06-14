@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import Form from "./Form";
 import Treatment from "./Treatment";
 import NoTreatment from "./NoTreatment";
@@ -24,6 +24,8 @@ export default function Antibiotics() {
     const [formData, setFormData] = useState(null);
     const [hasFormData, setHasFormData] = useState(false);
     const [isWeightOk, setIsWeightOk] = useState(false);
+    const [firstFetch, setFirstFetch] = useState(false);
+    const [data, setData] = useState(null);
     
     const [diagnoses, setDiagnoses] = useState(null);
     const [infoTexts, setInfoTexts] = useState(null);
@@ -56,7 +58,8 @@ export default function Antibiotics() {
 
     const [formSubmitted, setFormSubmitted] = useState(false);
 
-    const receiveInput = (data) => {
+    //const receiveInput = (data) => {
+    const receiveInput = useCallback((data) => {
         if (data.diagnosisID !== "") {
             setFormSubmitted(true);
             setInstruction(infoTexts[STEP4]);
@@ -74,6 +77,10 @@ export default function Antibiotics() {
             setHasFormData(true);
             GetRecommendedTreatment(data)
             .then(response => {
+                //console.log(response);
+                //console.log("antibiotics:")
+                //console.log(data.weight);*/
+                //console.log(chosenWeight);
                 setTreatments(response.treatments);
                 setDescription(response.description);
                 setTargetedInfo(response.targetedInfos);
@@ -108,7 +115,24 @@ export default function Antibiotics() {
         else {
             console.log("No need for antibiotic treatment")
         }
-    }
+    }, [diagnoses, infoTexts])
+
+    useEffect(() => {
+        let timeoutId;
+
+        if(firstFetch) {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                receiveInput(data);
+            }, 350);
+            console.log(chosenWeight);
+            receiveInput(data);
+        }
+
+        return () => {
+            clearTimeout(timeoutId);
+        }
+    }, [chosenWeight, firstFetch, receiveInput, data]);
 
     function changeInstruction(index, checkboxes) {
         if(index === STEP2) {
@@ -195,6 +219,8 @@ export default function Antibiotics() {
                     setConcurrentEBV={setConcurrentEBV}
                     concurrentMycoplasma={concurrentMycoplasma}
                     setConcurrentMycoplasma={setConcurrentMycoplasma}
+                    setFirstFetch={setFirstFetch}
+                    setData={setData}
                 />
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
                 {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 

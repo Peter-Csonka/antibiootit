@@ -226,6 +226,8 @@ export default function Form(props) {
             const roundedWeight = Math.round(parseFloat(input.replace(",", ".")) * 100) / 100;
             const weightForCalculations = roundedWeight.toFixed(2).replace(",", ".");
             if (weightForCalculations >= MIN_WEIGHT && weightForCalculations <= MAX_WEIGHT) {
+                console.log("form:");
+                console.log(weightForCalculations);
                 props.setIsWeightOk(true);
                 setFormatWeight(true);
                 if (props.hasFormData) {
@@ -234,7 +236,8 @@ export default function Form(props) {
                         weight: weightForCalculations
                     }
                     props.setChosenWeight(weightForCalculations)
-                    props.handleSubmit(newData);
+                    //props.handleSubmit(newData);
+                    props.setData(newData);
                 }
             }
             else {
@@ -305,8 +308,9 @@ export default function Form(props) {
                     props.concurrentMycoplasma
                     );
 
-                props.handleSubmit(data);
-
+                //props.handleSubmit(data);
+                props.setData(data);
+                props.setFirstFetch(true);
             }            
         }
         else if (diagnosis && !props.isWeightOk && needsAntibiotics) {
