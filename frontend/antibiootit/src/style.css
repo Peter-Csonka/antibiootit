@@ -320,6 +320,7 @@ aside {
     z-index: 2;
     letter-spacing: 0.3px;
     margin-left: 5px;
+    color:#1b1b1b
 }
 
 .dropdown-btn ion-icon {
@@ -333,11 +334,6 @@ aside {
     display: flex;
 }
 
-/*.form--button ion-icon {
-    padding-top: 3px;
-    color: white;
-    font-size: 40px;
-}*/
 
 .dropdown-btn {
     background: rgba(0, 0, 0, 0);
@@ -613,6 +609,7 @@ aside {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
+    padding-top: 5px;
 }
 
 .description-container {
@@ -874,9 +871,9 @@ aside {
     color: #556b8b;
     -webkit-text-fill-color: #556b8b;
     text-decoration-line: underline;
-    -webkit-text-decoration-line: underline;
+    -webkit-text-decoration-line: underline !important;
     text-decoration-color: #5D769A;
-    -webkit-text-decoration-color: #5D769A;
+    -webkit-text-decoration-color: #5D769A !important;
     text-decoration-thickness: 3px;
     text-underline-offset: 6px;
 }
@@ -1000,6 +997,7 @@ aside {
     max-width: 480px;
     background-color: #5D769A;
     z-index: 4;
+    right: -10px;
 }
 
 .nav-link {
@@ -1082,13 +1080,9 @@ aside {
     } .feedback-form {
         width: 100%;
         max-width: 100%;
-    } section {
-        margin-bottom: 1px;
     }  aside {
         grid-column-start: 1;
-        grid-row-start: 14;
         width: 100%;
-        background-color: #FBFBFB;
         overflow-x: hidden;
     } .treatment-header {
         font-size: 14px;
@@ -1099,9 +1093,7 @@ aside {
         margin-left: 15px;
         color: #262C30;
     }  .strepto-info {
-        width: 100%;
         max-width: 558px;
-        height: auto;
         padding-right: 10px;
         padding-left: 15px;
         justify-content: center;
@@ -1128,7 +1120,6 @@ aside {
     } .diagnosis-menu {
         height: 55px;
         padding-top: 15px;
-        padding-bottom: 15px;
         width: 100%;
         max-width: 280px;
         font-weight: 500;
@@ -1143,14 +1134,10 @@ aside {
         max-height:fit-content;
     } .checkbox-container {
         width: 290px;
-        grid-row-start: 1;
-        grid-column-start: 1;
         height: 70px;
         margin-right: -10px;
         margin-top: 20px;
         margin-bottom: 30px;
-    } .treatment-container {
-        margin-top: 25px;
     } .treatment-header > h2 {
         font-weight: bolder;
         font-size: 21px;
@@ -1163,17 +1150,12 @@ aside {
         font-size: 15px;
         margin-right: 10px;
     }  .copy-button {
-        width: 150px;
         font-size: 14px;
         margin-right: 4px;
     } .copy--image {
         width: 17px;
     } .info-container {
-        width: 100%;
         margin: 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         margin-top: 0px;
         margin-bottom: 15px;
         padding: 20px;
@@ -1191,20 +1173,19 @@ aside {
     } .info-line {
         display: none;
     } .info-container > h2 {
-        margin-bottom: 45px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     } .info-active {
-        font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
-    }  .info-links :last-child {
+    } .info-links :last-child {
         margin-bottom: 70px;
-    } .mobile-nav {
-        right: -10px;
     } .logo {
         padding-left: 0px;
     } .menu--items > li {
         height: 48px;
         padding-left: -50px;
-    }  .menu--items {
+    } .menu--items {
         line-height: 48px;
     } .form--input {
         height: 55px;
@@ -1251,9 +1232,9 @@ aside {
     } .treatment-icon {
         margin-left: -5px;
     } .treatment-extra{
-        height: auto;
         flex-direction: column;
         align-self: flex-start;
+        padding-top: 0px;
     } .pen-icon  {
         margin-left: -15px;
     } .description-container {
@@ -1262,7 +1243,6 @@ aside {
     }  .pill-icon {
         margin-left: -10px;
     } .btn-calculate {
-        border: 1.5px solid #395174;
         align-self: flex-end;
         margin-bottom: 15px;
         margin-right: 15px;
@@ -1346,14 +1326,13 @@ aside {
 
 @media only screen and (max-width: 850px) {
     .info-links {
-        display: flex;
         flex-direction: column;
         align-items: flex-start;
         font-family: Arial, Helvetica, sans-serif;
     } .info-links button {
         font-family: Arial, Helvetica, sans-serif;
     } .info-links :last-child {
-        margin-bottom: 40px;
+        margin-bottom: 25px;
     }  .info-links > * {
         margin-bottom: 12px;
     } .info-line {
@@ -1364,16 +1343,12 @@ aside {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bold;
     } .info-container h3 {
-        align-self: flex-start;
         margin-bottom: 30px;
-        margin-top: 10px;
-        margin-left: 10px;
+        margin-top: 25px;
         font-family: Arial, Helvetica, sans-serif;
-    } .info-container > h2 {
-        align-self: center;
     } .loading {
         top: 400px;
-    }
+    } 
 }
 
 @media only screen and (max-width: 1200px) {
