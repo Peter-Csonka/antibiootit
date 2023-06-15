@@ -973,9 +973,11 @@ aside {
 }
 
 .mobile-container {
-    display: fixed;
+    position: absolute;
+    top: 0;
+    right: 0;
     margin: 0px;
-    max-width: 200px;
+    max-width: 400px;
     z-index: 10;
 }
 
@@ -989,15 +991,15 @@ aside {
     border: none;
     position: absolute;
     top: 12px;
-    right: 15px;
+    right: 18px;
 }
 
 .mobile-nav {
     position: relative;
+    width: 200px;
     max-width: 480px;
     background-color: #5D769A;
     z-index: 4;
-    right: -10px;
 }
 
 .nav-link {
@@ -1013,7 +1015,7 @@ aside {
 
 .show-menu {
     display: block;
-    margin-top: 195px;  
+    margin-top: 57px;  
 }
 
 .cookie {
@@ -1204,7 +1206,8 @@ aside {
         font-size: 18px;
     } .dropdown-content {
         position: absolute;
-        margin-left: -1px;
+        margin-left: -1.0px;
+        -webkit-margin-left: -1.5px;
         width: 280px;
     } .dropdown-btn {
         margin-top: 0px;
