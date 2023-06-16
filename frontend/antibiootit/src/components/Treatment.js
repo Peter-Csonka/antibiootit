@@ -74,9 +74,12 @@ export default function Treatment(props) {
             formatTablet(multipliedDose * activeChoice.instructions.dosesPerDay, doseInDay);
         }
     } else {
-        dose = `${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.formula.strength.value} mg)`;
-        doseInDay = `${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay * activeChoice.formula.strength.value} mg)`;
-        if(props.format === 'tabletti') {
+        if(props.treatments[0].format === 'mikstuura') {
+            dose = `${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.formula.strength.value} mg)`;
+            doseInDay = `${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay * activeChoice.formula.strength.value} mg)`;
+        } else {
+            dose = `${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit}`;
+            doseInDay = `${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}`;
             formatTablet(activeChoice.dosageResult.dose.value, dose);
             formatTablet(activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay, doseInDay);
         }
