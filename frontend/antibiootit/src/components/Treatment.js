@@ -217,7 +217,7 @@ export default function Treatment(props) {
             </div>
             <div className="treatment-extra">
                 <button className="btn-calculate" onClick={calculate} 
-                    disabled={!props.needsAntibiotics || props.format === 'tabletti'}>
+                    hidden={!props.needsAntibiotics || props.format === 'tabletti'}>
                     {openCalculations ?
                     <div className="btn-elements">
                         <img className="func-icon-closed" src="./icons/function-icon-closed.svg" alt="icon-closed"/>

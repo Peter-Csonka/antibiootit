@@ -606,7 +606,7 @@ aside {
 .treatment-extra {
     height: auto;
     width: 100%;
-    display: flex;
+    display: grid;
     justify-content: space-between;
     flex-direction: row-reverse;
     padding-top: 5px;
@@ -643,6 +643,8 @@ aside {
     font-size: 15px;
     cursor: pointer;
     box-shadow: 0 1.5px #7b7979;
+    grid-row-start: 1;
+    grid-column-start: 2;
 }
 
 .btn-calculate:disabled {
@@ -682,6 +684,8 @@ aside {
 .strepto-info {
     padding: 7px;
     padding-left: 20px;
+    grid-row-start: 1;
+    grid-column-start: 1;
     display: flex;
     align-items: center;
     width: 100%;
@@ -713,7 +717,7 @@ aside {
 .treatment-calculations {
     align-self: center;
     width: 95%;
-    height: 80px;
+    height: 100%;
     border: 1.5px solid #395174;
     border-radius: 20px;
     margin-bottom: 15px;
@@ -723,7 +727,7 @@ aside {
 .calculations-container {
     margin-top: 15px;
     font-size: 20px;
-    
+    margin-bottom: 15px;
 }
 
 .recipe-container h3 {
@@ -1234,6 +1238,7 @@ aside {
     } .treatment-icon {
         margin-left: -5px;
     } .treatment-extra{
+        display: flex;
         flex-direction: column;
         align-self: flex-start;
         padding-top: 0px;
