@@ -11,7 +11,6 @@ function App() {
     const handleAccept = () => {
         localStorage.setItem('cookieAccepted', 'true');
         setIsVisible(false);
-        console.log("Keksit hyväksytty");
     };
 
   return (
