@@ -209,7 +209,8 @@ export default function Antibiotics() {
                     setConcurrentMycoplasma={setConcurrentMycoplasma}
                 />
                 {formSubmitted && penicillinAllergy === true && (
-                <PenicillinInfo setPenicillinText={setPenicillinText} />
+                <PenicillinInfo setPenicillinText={setPenicillinText}
+                />
                 )}
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
                 {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
