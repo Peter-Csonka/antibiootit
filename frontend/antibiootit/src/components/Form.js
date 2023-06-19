@@ -179,6 +179,7 @@ export default function Form(props) {
             }
             
             props.handleSubmit(newData);
+
         }
 
         if (selectedInfo.needsAntibiotics === true) {
@@ -366,7 +367,9 @@ export default function Form(props) {
             props.handleSubmit(newData);
         }
         props.setPenicillinAllergy(!props.penicillinAllergy)
+        props.setPenicillinInfo(!props.penicillinInfo)
     }
+
 
     const handleEBV = () => {
         if (props.hasFormData) {

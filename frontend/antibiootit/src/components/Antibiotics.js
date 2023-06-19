@@ -7,6 +7,7 @@ import GetDiagnoses from "./GetDiagnoses";
 import GetInfoTexts from "./GetInfoTexts";
 import GetRecommendedTreatment from "./GetRecommendedTreatment";
 import LoadingIndicator from "./LoadingIndicator";
+import PenicillinInfo from "./PenicillinInfo";
 
 const STEP1 = 7;
 const STEP2 = 8;
@@ -31,6 +32,8 @@ export default function Antibiotics() {
     const [penicillinAllergy, setPenicillinAllergy] = useState(false);
     const [concurrentEBV, setConcurrentEBV] = useState(false);
     const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
+    const [penicillinInfo, setPenicillinInfo] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     const [treatments, setTreatments] = useState(null);
     const [description, setDescription] = useState(null);
@@ -162,6 +165,13 @@ export default function Antibiotics() {
         opacity: loading ? "0.3" : "1"
     }
 
+    function setPenicillinText() {
+        if (penicillinAllergy === true) {
+            setIsVisible(true);
+        }
+    }
+
+
     return (
         <>
             {loading ?
@@ -191,11 +201,16 @@ export default function Antibiotics() {
                     setIsWeightOk={setIsWeightOk}
                     penicillinAllergy={penicillinAllergy}
                     setPenicillinAllergy={setPenicillinAllergy}
+                    penicillinInfo={penicillinInfo}
+                    setPenicillinInfo={setPenicillinInfo}
                     concurrentEBV={concurrentEBV}
                     setConcurrentEBV={setConcurrentEBV}
                     concurrentMycoplasma={concurrentMycoplasma}
                     setConcurrentMycoplasma={setConcurrentMycoplasma}
                 />
+                {formSubmitted && penicillinAllergy === true && (
+                <PenicillinInfo setPenicillinText={setPenicillinText} />
+                )}
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
                 {formSubmitted && (treatments && diagnosisData.needsAntibiotics && isWeightOk)  && <Treatment 
                     loading={loading}
