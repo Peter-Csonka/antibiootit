@@ -31,6 +31,11 @@ export default function Header() {
                         (isActive ? "active-class" : "not-active-class")} data-testid="calculator-link">
                     Laskuri
                 </NavLink>
+                <NavLink to="/penisilliiniallergia" 
+                    className={({ isActive }) => 
+                        (isActive ? "active-class" : "not-active-class")} data-testid="allergy-link">
+                    Antibiootti-info
+                </NavLink>
                 <NavLink to="/tietoa" 
                     className={({ isActive }) => 
                         (isActive ? "active-class" : "not-active-class")} data-testid="info-link">
