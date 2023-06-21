@@ -8,7 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Database representation of diagnosis
  */
-@Document(collection = "diagnoses")
+//@Document(collection = "diagnoses")
+@Document(collection = "test")
 public class Diagnosis {
 
     @Id
