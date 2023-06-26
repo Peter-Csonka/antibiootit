@@ -458,7 +458,12 @@ export default function Form(props) {
                             type="checkbox"
                             disabled={!needsAntibiotics}
                             onClick={handlePenicillinAllergy}
-                        /> <span className={!needsAntibiotics ? "disabled" : "enabled"}>Penisilliiniallergia</span>
+                        /> <span className={!needsAntibiotics ? "disabled" : "enabled"}>
+                            Penisilliiniallergia{' '}
+                             {props.formSubmitted && props.penicillinAllergy && (
+                                <ion-icon className="alert-icon" src="./icons/alert-circle-outline.svg" alt="alert-icon"></ion-icon>
+                             )}
+                        </span>
                     </label>} 
                 {additionalCheckboxes && additionalCheckboxes.filter(obj => obj.id === 'EBV-001').length > 0 &&
                     <label className="form--checkbox">
