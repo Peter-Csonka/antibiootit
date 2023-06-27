@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import getReferences from "./GetReferences";
 import { useLocation } from "react-router-dom";
 import antibioticinfotexts from "../data/antibioticinfotexts";
+import antibioticinforeferences from "../data/antibioticinforeferences";
 
 
 export default function Allergy() {
@@ -36,12 +36,19 @@ export default function Allergy() {
         return infotextsList;
     }
 
+    async function getReferences() {
+        const referencesList = antibioticinforeferences.map(item => {
+            return (item)
+        })
+        return referencesList;
+    }
+
     async function fetchData() {
         const infoTextsList = await GetInfoTexts();
         setAntibioticInfoTexts(infoTextsList);
         console.log("fetchdata")
-        /*const referencesList = await getReferences();
-        setReferences(referencesList);*/
+        const referencesList = await getReferences();
+        setReferences(referencesList);
     }
 
     useEffect(() => {
@@ -49,10 +56,13 @@ export default function Allergy() {
     }, []);
 
     const Penicillin = () => {
-        if (!!antibioticInfoTexts) {
+        if (!!antibioticInfoTexts && !!references) {
             return (
                 <>  
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
+                    <img className="penicillin-info-image" src="./penicillinallergyimage.PNG" alt="penicillin info image"/>
+                    <img className="penicillin-info-image2" src="./penicillinallergyimage2.PNG" alt="penicillin info image2"/>  
+                    <References references={references}/>
                 </>
             )
         }
@@ -61,6 +71,21 @@ export default function Allergy() {
         }
 
     }
+
+    const References = ({ references }) => (
+        <>
+        <h3 ref={myRef}>{references[1].header}</h3>
+          {references.map((reference) => (
+            <p key={reference.citation} className="info-references">
+              <span>{reference.text}</span>
+              <span>
+                <a href={reference.citation} target="_blank" rel="noopener noreferrer">{reference.citation}</a>
+                {reference.bonusText && <span>{reference.bonusText}</span>}
+              </span>
+            </p>
+          ))}
+        </>
+      );
 
     const AntibioticInfoTexts = ({antibioticInfoTexts}) => {
         const {header, text} = antibioticInfoTexts[0];
@@ -73,7 +98,8 @@ export default function Allergy() {
             </p>  
           </>
         );
-    }; 
+    };
+    
 
     return (
         <div className="text-container">

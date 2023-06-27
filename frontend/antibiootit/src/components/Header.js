@@ -68,6 +68,15 @@ export default function Header() {
                             }}>
                             Laskuri
                         </NavLink>
+                        <NavLink
+                            to="/penisilliiniallergia"
+                            className="nav-link"
+                            onClick={() =>  {
+                                setShowMobileMenu(false);
+                                setIsMenuOpen(false);
+                            }}>
+                            Antibiootti-info
+                        </NavLink>    
                         <NavLink 
                             to="/tietoa"
                             className="nav-link"

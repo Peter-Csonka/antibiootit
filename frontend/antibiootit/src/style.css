@@ -17,6 +17,11 @@ button, a, li, input {
     cursor: pointer;
 }
 
+#root > div > div > h3 {
+    margin-bottom: 20px;
+}
+
+
 .header {
     font-family: Inter, sans-serif;
     display: flex;
@@ -902,6 +907,7 @@ aside {
     line-height: 1.4;
 }
 
+
 .info-container h3 {
     margin-top: 30px; 
     margin-bottom: 10px;
@@ -1107,13 +1113,25 @@ aside {
     font-family: Inter, sans-serif;
     padding: 80px;
     margin: auto;
-    width: 70%;
+    width: 60%;
     background-color: white;
     min-height: calc(100vh - 87px);
 }
 
 .text-container h2 {
     padding-bottom: 40px;
+}
+
+.penicillin-info-image {
+    width: 100%;
+    display: flex;
+    padding-bottom: 70px;
+}
+
+.penicillin-info-image2 {
+    width: 90%;
+    display: flex;
+    padding-bottom: 70px;
 }
 
 /*Scalability to mobile screen*/
@@ -1337,6 +1355,10 @@ aside {
         font-size: 17px;
     } .penicillin-info-btn {
         padding-bottom: 30px;
+    } .text-container {
+        padding: 0;
+    } .text-container h2 {
+        padding-top: 40px;
     }
 }
 
