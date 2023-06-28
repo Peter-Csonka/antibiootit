@@ -1125,13 +1125,24 @@ aside {
 .penicillin-info-image {
     width: 100%;
     display: flex;
-    padding-bottom: 70px;
+    padding-bottom: 40px;
 }
 
 .penicillin-info-image2 {
     width: 90%;
+    height: 80%;
     display: flex;
+    justify-content: center;
     padding-bottom: 70px;
+    padding-left: 90px;
+}
+
+.penicillin-image-mobile {
+    width: 100%;
+}
+
+.penicillin-image-mobile2 {
+    width: 100%;
 }
 
 /*Scalability to mobile screen*/
@@ -1439,7 +1450,14 @@ aside {
         font-family: Arial, Helvetica, sans-serif;
     } .loading {
         top: 400px;
-    } 
+    } .text-container {
+        padding: 30px;
+    } .penicillin-info-image2 {
+        width: 100%;
+        padding-left: 0;
+    } .text-container h2 {
+        padding-top: 10px;
+    }
 }
 
 @media only screen and (min-width: 861px) {
@@ -1453,7 +1471,9 @@ aside {
         background-color: white;
     } .info-container {
         width: 100%;
-    } 
+    } .text-container {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-width: 1400px) {

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import antibioticinfotexts from "../data/antibioticinfotexts";
 import antibioticinforeferences from "../data/antibioticinforeferences";
+import Modal from 'react-modal';
 
 
 export default function Allergy() {
@@ -56,12 +57,34 @@ export default function Allergy() {
     }, []);
 
     const Penicillin = () => {
+        const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 650);
+
+        useEffect(() => {
+            const handleResize = () => {
+              setIsLargeScreen(window.innerWidth > 650);
+            };
+        
+            window.addEventListener('resize', handleResize);
+        
+            return () => {
+              window.removeEventListener('resize', handleResize);
+            };
+          }, []);
+
         if (!!antibioticInfoTexts && !!references) {
             return (
                 <>  
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
-                    <img className="penicillin-info-image" src="./penicillinallergyimage.PNG" alt="penicillin info image"/>
-                    <img className="penicillin-info-image2" src="./penicillinallergyimage2.PNG" alt="penicillin info image2"/>  
+                    {isLargeScreen ? (
+                        <img className="penicillin-info-image" src="./penicillinallergyimage.png" alt="penicillin info image"/>
+                    ) : (
+                        <img className="penicillin-image-mobile" src="./penicillinimagemobile.png" alt="penicillin image mobile"/>
+                    )}
+                    {isLargeScreen ? (
+                        <img className="penicillin-info-image2" src="./penicillinallergyimage2.PNG" alt="penicillin info image2"/>  
+                    ) : (
+                        <img className="penicillin-image-mobile2" src="./penicillinmobile2.png" alt="penicillin image mobile2"/>
+                    )}
                     <References references={references}/>
                 </>
             )
@@ -69,7 +92,6 @@ export default function Allergy() {
         else {
             return <p>Haetaan tietoja...</p>
         }
-
     }
 
     const References = ({ references }) => (
