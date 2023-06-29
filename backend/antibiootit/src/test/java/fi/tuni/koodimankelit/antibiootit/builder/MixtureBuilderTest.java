@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import fi.tuni.koodimankelit.antibiootit.database.data.Dosage;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.models.AccurateDosageResult;
@@ -31,8 +32,9 @@ public class MixtureBuilderTest extends AntibioticTreatmentBuilderTest {
     private final int dosagePerWeightPerDay = 40;
     private final String dosagePerWeightPerDayUnit = "dosagePerWeightPerDayUnit";
     private final Dosage dosage = new Dosage(maxDosePerDay, dosagePerWeightPerDay, dosagePerWeightPerDayUnit);
+    MinMaxMixture minMaxMixture = new MinMaxMixture(0, 0);
 
-    private final Mixture mixture = new Mixture(antibiotic, format, strengths, instructions, resultUnit, dosage);
+    private final Mixture mixture = new Mixture(antibiotic, format, strengths, instructions, resultUnit, dosage, minMaxMixture);
 
     @Override
     @BeforeEach
@@ -116,7 +118,7 @@ public class MixtureBuilderTest extends AntibioticTreatmentBuilderTest {
         // ( x kg * 100 mg/kg/d ) / ( 100 mg/ml ) / ( 1 time each day ) = x ml
         List<Strength> s = new ArrayList<>();
         s.add(new Strength(100, 0, null, null));
-        Mixture m = new Mixture(null, null, s, new Instructions(1, 1, null, null), null, new Dosage(3000, 100, null));
+        Mixture m = new Mixture(null, null, s, new Instructions(1, 1, null, null), null, new Dosage(3000, 100, null), minMaxMixture);
 
         AccurateDosageResult result;
         // 1.000 is rounded to 1.0
@@ -185,7 +187,7 @@ public class MixtureBuilderTest extends AntibioticTreatmentBuilderTest {
     @Override
     protected AntibioticTreatmentBuilder getBuilderWithStrengths(List<Strength> strengths, double weight) {
         return new MixtureBuilder(
-            new Mixture(antibiotic, format, strengths, new Instructions(days, dosesPerDay, recipeText, doseMultipliers), resultUnit, new Dosage(maxDosePerDay, dosagePerWeightPerDay, dosagePerWeightPerDayUnit)),
+            new Mixture(antibiotic, format, strengths, new Instructions(days, dosesPerDay, recipeText, doseMultipliers), resultUnit, new Dosage(maxDosePerDay, dosagePerWeightPerDay, dosagePerWeightPerDayUnit), minMaxMixture),
             weight);
     }
 

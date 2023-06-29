@@ -119,7 +119,6 @@ public class DiagnosisResponseBuilder {
             APITargetedInfo apiTargetedInfo = new APITargetedInfo(targetedInfo.getCheckbox(), targetedInfo.getText());
             diagnosisResponse.addTargetedInfo(apiTargetedInfo);
         }
-
         return diagnosisResponse;
         
     }

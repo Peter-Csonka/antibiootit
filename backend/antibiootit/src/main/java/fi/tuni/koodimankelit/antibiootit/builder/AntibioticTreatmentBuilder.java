@@ -2,6 +2,7 @@ package fi.tuni.koodimankelit.antibiootit.builder;
 
 import fi.tuni.koodimankelit.antibiootit.database.data.Antibiotic;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.exceptions.TreatmentNotFoundException;
 import fi.tuni.koodimankelit.antibiootit.models.AntibioticTreatment;
@@ -46,10 +47,14 @@ public abstract class AntibioticTreatmentBuilder {
             new Instructions(antibiotic.getInstructions().getDays(), antibiotic.getInstructions().getDosesPerDay(), 
                 antibiotic.getInstructions().getRecipeText(), antibiotic.getInstructions().getDoseMultipliers());
 
+        MinMaxMixture minMaxMixture = 
+            new MinMaxMixture(antibiotic.getMinMaxMixture().getMinMixtureWeight(), antibiotic.getMinMaxMixture().getMaxMixtureWeight());
+
         return new AntibioticTreatment(
             antibiotic.getFormat(),
             antibiotic.getAntibiotic(),
             instructions,
+            minMaxMixture,
             buildFormula(),
             buildResult()
         );

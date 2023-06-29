@@ -16,6 +16,7 @@ import fi.tuni.koodimankelit.antibiootit.database.data.CheckBoxInfo;
 import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
 import fi.tuni.koodimankelit.antibiootit.database.data.Dosage;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
@@ -329,11 +330,13 @@ public class DiagnosisResponseBuilderTest {
     private Antibiotic generateMixture(String id, List<Strength> strengths) {
         Instructions instructions = new Instructions(10, 2, null, null);
         Dosage dosage = new Dosage(3000, 40, null);
-        return new Mixture(id, null, strengths, instructions, null, dosage);
+        MinMaxMixture minMaxMixture = null;
+        return new Mixture(id, null, strengths, instructions, null, dosage, minMaxMixture);
     }
 
     private Antibiotic generateTablet(String id, List<Strength> strengths) {
         Instructions instructions = new Instructions(5, 1, null, null);
-        return new Tablet(id, null, strengths, instructions, 1);
+        MinMaxMixture minMaxMixture = new MinMaxMixture(22, 30);
+        return new Tablet(id, null, strengths, instructions, 1, minMaxMixture);
     }
 }

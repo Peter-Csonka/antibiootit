@@ -17,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import fi.tuni.koodimankelit.antibiootit.database.data.Antibiotic;
 import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
 import fi.tuni.koodimankelit.antibiootit.database.data.TargetedInfo;
@@ -46,6 +47,7 @@ public class AntibioticsServiceTest {
 
 
         Instructions instructions = new Instructions(10, 1, null, null);
+        MinMaxMixture minMaxMixture = new MinMaxMixture(22, 30);
         List<Treatment> treatments = new ArrayList<Treatment>(
             Arrays.asList(
                 new Treatment(1, new ArrayList<Antibiotic>(
@@ -53,7 +55,7 @@ public class AntibioticsServiceTest {
                         new Tablet("not-allergic", null, new ArrayList<Strength>(
                             Arrays.asList(
                                 new Strength(100, 0, null, null)
-                            )), instructions, 1)
+                            )), instructions, 1, minMaxMixture)
                     )
                 )),
                 new Treatment(3, new ArrayList<Antibiotic>(
@@ -61,7 +63,7 @@ public class AntibioticsServiceTest {
                         new Tablet("allergic", null, new ArrayList<Strength>(
                             Arrays.asList(
                                 new Strength(100, 0, null, null)
-                            )), instructions, 1
+                            )), instructions, 1, minMaxMixture
                         )
                     )
                 ))

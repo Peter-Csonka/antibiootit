@@ -153,7 +153,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
         
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 new DosageFormula(
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml"),
                     new Measurement("mg/kg/vrk", 80.0)
@@ -180,7 +180,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void accurateDosageHasAllFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 null,
                 new AccurateDosageResult(
                     new Measurement("ml", 3.5),
@@ -208,7 +208,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void formulaDoesNotHaveExtraFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 new Formula(
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml")
                 ),
@@ -231,7 +231,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void dosageResultDoesNotHaveExtraFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 null,
                 new DosageResult(new Measurement("kpl", 1))
             )
