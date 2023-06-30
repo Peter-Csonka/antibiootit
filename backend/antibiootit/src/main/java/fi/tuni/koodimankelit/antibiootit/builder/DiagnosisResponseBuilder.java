@@ -25,6 +25,7 @@ public class DiagnosisResponseBuilder {
     private final double weight;
     private final boolean usePenicillinAllergic;
     private final boolean useAnyInfection;
+    private final boolean isMixture;
 
     private static int PRIMARY_CHOICE = 1;
     private static int SECONDARY_CHOICE = 2;
@@ -73,11 +74,12 @@ public class DiagnosisResponseBuilder {
      * @param usePenicillinAllergic True, if penicillin allergic option should be used
      * @param useAnyInfection True, if any infection option should be used
      */
-    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic, boolean useAnyInfection) {
+    public DiagnosisResponseBuilder(Diagnosis diagnosis, double weight, boolean usePenicillinAllergic, boolean useAnyInfection, boolean isMixture) {
         this.diagnosis = diagnosis;
         this.weight = weight;
         this.usePenicillinAllergic = usePenicillinAllergic;
         this.useAnyInfection = useAnyInfection;
+        this.isMixture = isMixture;
     }
 
     
@@ -98,7 +100,7 @@ public class DiagnosisResponseBuilder {
         List<Treatment> treatments = getTreatments();
 
         for(Treatment treatment : treatments) {
-            Antibiotic antibiotic = getSuitableAntibiotic(treatment);
+            Antibiotic antibiotic = getSuitableAntibiotic(treatment, isMixture);
 
             AntibioticTreatmentBuilder builder;
             if(antibiotic instanceof Mixture) {
@@ -186,7 +188,7 @@ public class DiagnosisResponseBuilder {
      * @param treatment specific treatment
      * @return Antibiotic preferred antibiotic
      */
-    private Antibiotic getSuitableAntibiotic(Treatment treatment) {
+    private Antibiotic getSuitableAntibiotic(Treatment treatment, boolean isMixture) {
         // Sort all antibiotics, the option with highest strength first
         List<Antibiotic> antibiotics = treatment.getAntibiotics();
         antibiotics.sort(antibioticComparator);
@@ -195,8 +197,14 @@ public class DiagnosisResponseBuilder {
         // Choose antibiotic based on the minimum weight requirement
         for(Antibiotic antibiotic : antibiotics) {
             for(Strength strength : antibiotic.getStrength()) {
-                if(strength.getMinWeight() <= this.weight) {
-                    return antibiotic;
+                if(isMixture == true) {
+                    if(strength.getMinWeight() == 0 || strength.getMinWeight() == 4) {
+                        return antibiotic;
+                    }
+                } else {
+                    if(strength.getMinWeight() <= this.weight) {
+                        return antibiotic;
+                    }
                 }
             }
         }

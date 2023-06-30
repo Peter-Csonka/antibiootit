@@ -158,7 +158,7 @@ public class AntibioticsServiceTest {
 
 
     private Parameters getParameters(boolean penicillinAllergic, List<InfectionSelection> infectionSelections) {
-        return new Parameters(null, 10.0, penicillinAllergic, infectionSelections);
+        return new Parameters(null, 10.0, penicillinAllergic, infectionSelections, false);
     }
 
 
