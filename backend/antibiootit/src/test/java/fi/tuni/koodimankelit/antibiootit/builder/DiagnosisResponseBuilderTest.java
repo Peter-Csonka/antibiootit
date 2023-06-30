@@ -330,7 +330,7 @@ public class DiagnosisResponseBuilderTest {
     private Antibiotic generateMixture(String id, List<Strength> strengths) {
         Instructions instructions = new Instructions(10, 2, null, null);
         Dosage dosage = new Dosage(3000, 40, null);
-        MinMaxMixture minMaxMixture = null;
+        MinMaxMixture minMaxMixture = new MinMaxMixture(0, 0);
         return new Mixture(id, null, strengths, instructions, null, dosage, minMaxMixture);
     }
 
