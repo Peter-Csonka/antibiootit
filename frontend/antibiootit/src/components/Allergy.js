@@ -12,7 +12,7 @@ export default function Allergy() {
     const [content, setContent] = useState("penicillin");
     const [activeButton, setActiveButton] = useState("penicillin");
     const myRef = useRef(null);
-
+    
     const location = useLocation();
     let from = location.state ? location.state : "";
 
@@ -30,10 +30,8 @@ export default function Allergy() {
 
     function GetInfoTexts() {
         const infotextsList = antibioticinfotexts.map(item => {
-            console.log("infotekstit1")
             return (item)
         })
-        console.log("infotekstit2")
         return infotextsList;
     }
 
@@ -47,7 +45,6 @@ export default function Allergy() {
     async function fetchData() {
         const infoTextsList = await GetInfoTexts();
         setAntibioticInfoTexts(infoTextsList);
-        console.log("fetchdata")
         const referencesList = await getReferences();
         setReferences(referencesList);
     }
@@ -56,8 +53,21 @@ export default function Allergy() {
         fetchData();
     }, []);
 
+
     const Penicillin = () => {
+
+        const [isModalOpen, setIsModalOpen] = useState(false);
+        const [selectedImage, setSelectedImage] = useState('');
         const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 650);
+
+        const openModal = (image) => {
+            setSelectedImage(image);
+            setIsModalOpen(true);
+          };
+
+        const closeModal = () => {
+            setIsModalOpen(false);
+          }; 
 
         useEffect(() => {
             const handleResize = () => {
@@ -75,16 +85,22 @@ export default function Allergy() {
             return (
                 <>  
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
+                    <h3 className="risk-evaluation-header">1. Riskin arvioiminen</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image" src="./penicillinallergyimage.png" alt="penicillin info image"/>
+                        <img className="penicillin-info-image" src="./penicillinallergyimage.png" alt="penicillin info image" onClick={() => openModal('./penicillinallergyimage.png')}/>
                     ) : (
-                        <img className="penicillin-image-mobile" src="./penicillinimagemobile.png" alt="penicillin image mobile"/>
+                        <img className="penicillin-image-mobile" src="./penicillinimagemobile.png" alt="penicillin image mobile" onClick={() => openModal('./penicillinimagemobile.png')}/>
                     )}
+                    <h3 className="risk-evaluation-header">2. Toimintaohjeet</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image2" src="./penicillinallergyimage2.PNG" alt="penicillin info image2"/>  
+                        <img className="penicillin-info-image2" src="./penicillinallergyimage2.png" alt="penicillin info image2" onClick={() => openModal('./penicillinallergyimage2.png')}/>  
                     ) : (
-                        <img className="penicillin-image-mobile2" src="./penicillinmobile2.png" alt="penicillin image mobile2"/>
+                        <img className="penicillin-image-mobile2" src="./penicillinimagemobile2.png" alt="penicillin image mobile2" onClick={() => openModal('./penicillinimagemobile2.png')}/>
                     )}
+
+                    <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
+                    <img src={selectedImage} alt="Avattu kuva" />
+                    <button onClick={closeModal} className="modal-close-btn">Sulje</button></Modal>
                     <References references={references}/>
                 </>
             )
@@ -96,7 +112,7 @@ export default function Allergy() {
 
     const References = ({ references }) => (
         <>
-        <h3 ref={myRef}>{references[1].header}</h3>
+        <h3 ref={myRef}>{references[0].header}</h3>
           {references.map((reference) => (
             <p key={reference.citation} className="info-references">
               <span>{reference.text}</span>
@@ -114,18 +130,22 @@ export default function Allergy() {
 
         return (
           <>
-            <h3>{header}</h3>
+            <h3 className="penicillin-txt-header">{header}</h3>
             <p className="info-paragraph">
                 {text}
             </p>  
           </>
         );
     };
+
+    const NavigationLinks = () => {
+        
+
+    }
     
 
     return (
         <div className="text-container">
-            <h2>Antibiootti-info</h2>
             <div className="penicillin-allergy">   
                {/*} <button
                     className={activeButton === "penicillin" ? 'info-active' : ''}
@@ -136,5 +156,6 @@ export default function Allergy() {
             </div>
             {content === "penicillin" && <Penicillin />}
         </div> 
+
     )
 }
