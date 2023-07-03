@@ -102,9 +102,9 @@ main {
     min-height: calc(100vh - 87px);
     position: relative;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.7fr 1fr;
     margin: 0 auto;
-    max-width: 800px;
+    /*max-width: 800px;*/
 }
 
 .main-centered {
@@ -121,8 +121,8 @@ main {
 .antibiotics {
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 600px;
     width: 100%;
 }
@@ -176,6 +176,7 @@ aside {
     align-items: center;
     font-weight: 400;
     font-size: 14px;
+    max-width: 500px;
 }
 
 .aside-text {
@@ -334,7 +335,6 @@ aside {
     display: flex;
 }
 
-
 .dropdown-btn {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -359,7 +359,7 @@ aside {
     height: 80px;
     display: flex;
     flex-direction: column;
-    margin-left: 17px;
+    margin-left: 7px;
     margin-top: 15px;
     margin-bottom: 0px;
 }
@@ -632,7 +632,7 @@ aside {
 
 .btn-calculate {
     margin-top: 2px;
-    margin-left: 2.5%;
+    margin-left: 5.5%;
     margin-bottom: 10px;
     width: 147px;
     height: 36px;
@@ -890,6 +890,8 @@ aside {
 
 .info-paragraph {
     margin-bottom: 10px;
+    word-spacing: 1px;
+    line-height: 1.3;
 }
 
 .info-bolded-text {
@@ -902,6 +904,7 @@ aside {
     font-size: small;
     line-height: 1.4;
 }
+
 
 .info-container h3 {
     margin-top: 30px; 
@@ -982,7 +985,7 @@ aside {
     right: 0;
     margin: 0px;
     max-width: 400px;
-    z-index: 10;
+    z-index: 8;
 }
 
 .mobile-nav-links {
@@ -1060,19 +1063,143 @@ aside {
     color: black
 }
 
+.penicillin-info {
+    position: fixed;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(255, 253, 164);
+    width: 100%;
+    max-height: 600px;
+    min-height: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding-left: 20vw;
+}
+
+.penicillin-info > p {
+    padding-left: 20px;
+    padding-right: 3%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: black;
+    font-size: 18px;
+}
+
+.penicillin-info-btn a {
+    display: block;
+    text-decoration: none;
+    line-height: 30px;
+    margin-right: 10vw;
+    height: 30px;
+    width: 120px;
+    min-width: 120px;
+    color: #1b1b1b;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #ffffff;
+    border: 1.5px solid #395174;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-container {
+    font-family: Inter, sans-serif;
+    padding: 80px;
+    margin: auto;
+    width: 70%;
+    background-color: white;
+    min-height: calc(100vh - 87px);
+}
+
+.text-container h2 {
+    padding-bottom: 40px;
+}
+
+.penicillin-info-image {
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+
+.penicillin-info-image2 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 70px;
+    cursor: pointer;
+    width: 90%;
+}
+
+.penicillin-image-mobile {
+    width: 100%;
+    cursor: pointer;
+}
+
+.penicillin-image-mobile2 {
+    cursor: pointer;
+    width: 100%;
+}
+
+.penicillin-txt-header {
+    font-size: 24px;
+    padding-bottom: 45px;
+}
+
+.modal-close-btn {
+    width: 100px;
+    position: fixed;
+    right: 0;
+    height: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    justify-self: flex-end;
+}
+
+.modal {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    max-width: 70%;
+    max-height: 100%;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    box-shadow: none;  
+}
+
+.modal img {
+    max-width: 65vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+.risk-evaluation-header {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
 /*Scalability to mobile screen*/
 @media only screen and (max-width: 630px) {
     main {
         display: flex;
         flex-direction: column;
         align-items: center;
-    } .header--links {
-        display: none;
     } .antibiotic-instructions{
         margin-left: 15px;
         margin-right: 15px;
         height: 100%;
-    }  .antibiotics {
+    } .antibiotics {
         width: 93%;
         margin-left: 3%;
         margin-right: 3%;
@@ -1089,6 +1216,7 @@ aside {
         grid-column-start: 1;
         width: 100%;
         overflow-x: hidden;
+        max-width: 100vw;
     } .treatment-header {
         font-size: 14px;
     }  section > h1 {
@@ -1274,13 +1402,34 @@ aside {
         width: 140px;
     } .heart-icon {
         right: 225px;
-    }
+    } .penicillin-info {
+        flex-direction: column;
+        font-size: 40px;
+        padding-left: 10px;
+        padding-top: 20px;
+    } .penicillin-info > p {
+        font-size: 17px;
+    } .penicillin-info-btn {
+        padding-bottom: 30px;
+    } .penicillin-info-btn a {
+        margin-right: 0px;
+    } .text-container {
+        padding: 0;
+    } .text-container h2 {
+        padding-top: 40px;
+    }  .modal img {
+        -webkit-overflow-scrolling: touch;
+        z-index: 10;
+        padding-top: 58px;
+    } .modal {
+        position: relative;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; 
+    } 
 }
 
 @media only screen and (min-width: 631px) {
-    .mobile-container {
-        display: none;
-    }  .active-class {
+      .active-class {
         margin-left: 25px;
     } .not-active-class {
         margin-left: 25px;
@@ -1290,6 +1439,7 @@ aside {
         align-items: center;
     } aside {   
         background-color: rgb(255, 255, 255);
+        max-width: 700px;
     } .logo {
         padding-left: 10px;
     } .diagnosis-form {
@@ -1302,8 +1452,8 @@ aside {
     } .recipe-container {
         width: 600px;
     } .btn-calculate {
-        margin-left: 0px;
         margin-right: 20px;
+        margin-left: 0;
     }  .aside-text {
         margin-top: 150px;
     } .aside-version-update {
@@ -1328,11 +1478,13 @@ aside {
         margin-left: 60px;
     }  .cookie-accept-btn {
         margin-right: 60px;
-    }  
+    } 
 }
 
-@media only screen and (max-width: 850px) {
-    .info-links {
+@media only screen and (max-width: 860px) {
+    .header--links {
+        display: none;
+    } .info-links {
         flex-direction: column;
         align-items: flex-start;
         font-family: Arial, Helvetica, sans-serif;
@@ -1355,7 +1507,20 @@ aside {
         font-family: Arial, Helvetica, sans-serif;
     } .loading {
         top: 400px;
+    } .text-container {
+        padding: 30px;
+    } .penicillin-info-image2 {
+        width: 100%;
+        padding-left: 0;
+    } .text-container h2 {
+        padding-top: 10px;
     } 
+}
+
+@media only screen and (min-width: 861px) {
+    .mobile-container {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1363,15 +1528,25 @@ aside {
         background-color: white;
     } .info-container {
         width: 100%;
-    }
+    } .text-container {
+        width: 100%;
+    } .modal img {
+        max-width: 95vw;
+        z-index: 10;
+    } .modal {
+        max-width: 100%;
+        max-height: 100vh; 
+        z-index: 10; 
+    } 
 }
 
 @media only screen and (min-width: 1500px) {
     main {
         display: grid;
         align-items: start;
-        max-width: 1550px; 
+        /*max-width: 1550px; */
         margin-right: 0px;
+        padding-left: 150px;
     } .diagnosis-menu {
         margin-left: 0px;
     } .mobile-container {
@@ -1380,8 +1555,11 @@ aside {
         background-color: #FBFBFB;
         grid-column-start: 2;
         grid-row-start: 1;
+        justify-self: flex-end;
+        max-width: 27vw;
+        min-width: 520px;
     } .antibiotics {
-        max-width: 700px;
+        max-width: 680px;
     }  .treatment-container {
         width: 100%;
     } .info-container {
@@ -1405,6 +1583,14 @@ aside {
     } .loading {
         top: 400px;
         left: 340px;
+    } .penicillin-info > p {
+        padding-left: 20px;
+    } .penicillin-info-btn a {
+        margin-right: 330px;
+    } .penicillin-info {
+        height: 150px;
+    } .text-container {
+        width: 60%;
     }
     
 }

@@ -30,6 +30,7 @@ test('Header includes all the correct links', () => {
   </BrowserRouter>);
 
   expect(screen.getByTestId('calculator-link')).toBeInTheDocument();
+  expect(screen.getByTestId('allergy-link')).toBeInTheDocument();
   expect(screen.getByTestId('info-link')).toBeInTheDocument();
   expect(screen.getByTestId('feedback-link')).toBeInTheDocument();
   
