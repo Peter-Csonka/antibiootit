@@ -10,7 +10,6 @@ export default function Allergy() {
     const [references, setReferences] = useState(null);
     const [antibioticInfoTexts, setAntibioticInfoTexts] = useState(null);
     const [content, setContent] = useState("penicillin");
-    const [activeButton, setActiveButton] = useState("penicillin");
     const myRef = useRef(null);
     
     const location = useLocation();
@@ -19,14 +18,8 @@ export default function Allergy() {
     useEffect(() => {
         if (from === "penicillin-navlink") {
             setContent("penicillin");
-            setActiveButton("penicillin")
         }
     }, [from])
-
-    const handleRefClick = (event) => {
-        event.preventDefault();
-        myRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
 
     function GetInfoTexts() {
         const infotextsList = antibioticinfotexts.map(item => {
@@ -42,14 +35,14 @@ export default function Allergy() {
         return referencesList;
     }
 
-    async function fetchData() {
-        const infoTextsList = await GetInfoTexts();
-        setAntibioticInfoTexts(infoTextsList);
-        const referencesList = await getReferences();
-        setReferences(referencesList);
-    }
-
     useEffect(() => {
+        async function fetchData() {
+            const infoTextsList = await GetInfoTexts();
+            setAntibioticInfoTexts(infoTextsList);
+            const referencesList = await getReferences();
+            setReferences(referencesList);
+        }
+    
         fetchData();
     }, []);
 
@@ -87,15 +80,15 @@ export default function Allergy() {
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
                     <h3 className="risk-evaluation-header">1. Riskin arvioiminen</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image" src="./penicillinallergyimage.png" alt="penicillin info image" onClick={() => openModal('./penicillinallergyimage.png')}/>
+                        <img className="penicillin-info-image" src="./penicillinallergyimage.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.png')}/>
                     ) : (
-                        <img className="penicillin-image-mobile" src="./penicillinimagemobile.png" alt="penicillin image mobile" onClick={() => openModal('./penicillinimagemobile.png')}/>
+                        <img className="penicillin-image-mobile" src="./penicillinimagemobile.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinimagemobile.png')}/>
                     )}
                     <h3 className="risk-evaluation-header">2. Toimintaohjeet</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image2" src="./penicillinallergyimage2.png" alt="penicillin info image2" onClick={() => openModal('./penicillinallergyimage2.png')}/>  
+                        <img className="penicillin-info-image2" src="./penicillinallergyimage2.png" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinallergyimage2.png')}/>  
                     ) : (
-                        <img className="penicillin-image-mobile2" src="./penicillinimagemobile2.png" alt="penicillin image mobile2" onClick={() => openModal('./penicillinimagemobile2.png')}/>
+                        <img className="penicillin-image-mobile2" src="./penicillinimagemobile2.png" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinimagemobile2.png')}/>
                     )}
 
                     <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
