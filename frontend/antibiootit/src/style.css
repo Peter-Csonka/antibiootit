@@ -1151,12 +1151,12 @@ aside {
 
 .modal-close-btn {
     width: 100px;
-    position: absolute;
-    bottom: -40px;
+    position: fixed;
     right: 0;
     height: 30px;
     font-size: 17px;
     font-weight: bold;
+    justify-self: flex-end;
 }
 
 .modal {
@@ -1167,7 +1167,8 @@ aside {
     max-width: 70%;
     max-height: 100%;
     scrollbar-width: none; 
-    -ms-overflow-style: none;  
+    -ms-overflow-style: none;
+    box-shadow: none;  
 }
 
 .modal img {
@@ -1187,7 +1188,6 @@ aside {
     margin-bottom: 10px;
     font-size: 20px;
 }
-
 
 /*Scalability to mobile screen*/
 @media only screen and (max-width: 630px) {
@@ -1420,15 +1420,12 @@ aside {
     }  .modal img {
         -webkit-overflow-scrolling: touch;
         z-index: 10;
+        padding-top: 58px;
     } .modal {
         position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch; 
-    } .modal-close-btn {
-        bottom: -125px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+    } 
 }
 
 @media only screen and (min-width: 631px) {

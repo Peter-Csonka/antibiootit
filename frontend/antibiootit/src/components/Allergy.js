@@ -138,16 +138,11 @@ export default function Allergy() {
         );
     };
 
-    const NavigationLinks = () => {
-        
-
-    }
-    
-
     return (
         <div className="text-container">
             <div className="penicillin-allergy">   
-               {/*} <button
+               {/*This is for the future development if there is a need to create more subpages
+               } <button
                     className={activeButton === "penicillin" ? 'info-active' : ''}
                     onClick={() => {
                         setContent("penicillin")
