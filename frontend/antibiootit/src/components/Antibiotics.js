@@ -211,6 +211,7 @@ export default function Antibiotics() {
                 {formSubmitted && penicillinAllergy === true && (
                 <PenicillinInfo
                     setPenicillinText={setPenicillinText}
+                    isVisible={isVisible}
                 />
                 )}
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
