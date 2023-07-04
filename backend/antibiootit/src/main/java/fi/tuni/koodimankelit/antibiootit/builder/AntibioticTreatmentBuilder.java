@@ -50,11 +50,13 @@ public abstract class AntibioticTreatmentBuilder {
         MinMaxMixture minMaxMixture = 
             new MinMaxMixture(antibiotic.getMinMaxMixture().getMinMixtureWeight(), antibiotic.getMinMaxMixture().getMaxMixtureWeight());
 
+        boolean canMixture = isMixture(weight, minMaxMixture.getMinMixtureWeight(), minMaxMixture.getMaxMixtureWeight());
+
         return new AntibioticTreatment(
             antibiotic.getFormat(),
             antibiotic.getAntibiotic(),
             instructions,
-            minMaxMixture,
+            canMixture,
             buildFormula(),
             buildResult()
         );
@@ -80,6 +82,21 @@ public abstract class AntibioticTreatmentBuilder {
             }
         }
         return null;
+    }
+
+    /**
+     * Return if mixture can also be given
+     * @param weight weight in kilograms
+     * @param minMixtureWeight weight in kg
+     * @param maxMixtureWeight weight in kg
+     * @return boolean true if mixture can be given else false
+     */
+    private static boolean isMixture(double weight, int minMixtureWeight, int maxMixtureWeight) {
+        if(weight >= minMixtureWeight && weight <= maxMixtureWeight) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
