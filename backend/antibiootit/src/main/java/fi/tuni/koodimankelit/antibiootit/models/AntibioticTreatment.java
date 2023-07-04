@@ -1,7 +1,6 @@
 package fi.tuni.koodimankelit.antibiootit.models;
 
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
-//import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 /**
@@ -14,7 +13,6 @@ public class AntibioticTreatment {
     private final Instructions instructions;
     private final Formula formula;
     private final DosageResult dosageResult;
-    //private final MinMaxMixture minMaxMixtureWeights;
     private final Boolean canMixture;
 
 
@@ -23,16 +21,16 @@ public class AntibioticTreatment {
      * @param format antibiotic physical format
      * @param antibiotic name of the antibiotic
      * @param instructions instruction when to take the antibiotic
+     * @param canMixture if mixture can be given as a treatment
      * @param formula how the result was calculated
      * @param result calculated dosage result
      */
-    public AntibioticTreatment(String format, String antibiotic, Instructions instructions, /*MinMaxMixture minMaxMixture*/boolean canMixture, Formula formula, DosageResult result) {
+    public AntibioticTreatment(String format, String antibiotic, Instructions instructions, boolean canMixture, Formula formula, DosageResult result) {
         this.format = format;
         this.antibiotic = antibiotic;
         this.instructions = instructions;
         this.formula = formula;
         this.dosageResult = result;
-        //this.minMaxMixtureWeights = minMaxMixture;
         this.canMixture = canMixture;
     }
     
@@ -55,13 +53,9 @@ public class AntibioticTreatment {
 
 
     /** 
-     * Return minmaxweigth
-     * @return Min and max weights
-     *
-    public MinMaxMixture getMinMaxMixtureWeights() {
-        return this.minMaxMixtureWeights;
-    }*/
-
+     * Return canMixture
+     * @return boolean canMixture
+     */
     public Boolean getCanMixture() {
         return this.canMixture;
     }
