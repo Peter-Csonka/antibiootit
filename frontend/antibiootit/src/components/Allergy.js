@@ -80,20 +80,23 @@ export default function Allergy() {
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
                     <h3 className="risk-evaluation-header">1. Riskin arvioiminen</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image" src="penicillinallergyimage.PNG" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.PNG')}/>
+                        <img className="penicillin-info-image" src="penicillinallergyimage.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.png')}/>
                     ) : (
                         <img className="penicillin-image-mobile" src="penicillinimagemobile.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinimagemobile.png')}/>
                     )}
                     <h3 className="risk-evaluation-header">2. Toimintaohjeet</h3>
                     {isLargeScreen ? (
-                        <img className="penicillin-info-image2" src="penicillinallergyimage2.PNG" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinallergyimage2.PNG')}/>  
+                        <img className="penicillin-info-image2" src="penicillinallergyimage2.png" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinallergyimage2.png')}/>  
                     ) : (
                         <img className="penicillin-image-mobile2" src="penicillinimagemobile2.png" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinimagemobile2.png')}/>
                     )}
 
                     <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
-                    <img src={selectedImage} alt="Avattu kuva" />
-                    <button onClick={closeModal} className="modal-close-btn">Sulje</button></Modal>
+                    <div className="modal-content">
+                        <img src={selectedImage} alt="Avattu kuva" />
+                        <button onClick={closeModal} className="modal-close-btn">Sulje</button>
+                    </div>
+                    </Modal>
                     <References references={references}/>
                 </>
             )
