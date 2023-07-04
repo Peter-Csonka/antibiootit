@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
 import fi.tuni.koodimankelit.antibiootit.models.AntibioticTreatment;
@@ -21,8 +22,9 @@ import fi.tuni.koodimankelit.antibiootit.models.StrengthMeasurement;
 public class TabletBuilderTest extends AntibioticTreatmentBuilderTest {
 
     private final int tabletsPerDose = 1;
+    MinMaxMixture minMaxMixture = new MinMaxMixture(20, 30);
 
-    private final Tablet tablet = new Tablet(antibiotic, format, strengths, instructions, tabletsPerDose);
+    private final Tablet tablet = new Tablet(antibiotic, format, strengths, instructions, tabletsPerDose, minMaxMixture);
 
     @Override
     @BeforeEach
@@ -92,7 +94,7 @@ public class TabletBuilderTest extends AntibioticTreatmentBuilderTest {
     @Override
     protected AntibioticTreatmentBuilder getBuilderWithStrengths(List<Strength> strengths, double weight) {
         return new TabletBuilder(
-            new Tablet(antibiotic, format, strengths, instructions, tabletsPerDose),
+            new Tablet(antibiotic, format, strengths, instructions, tabletsPerDose, minMaxMixture),
             weight);
     }
 

@@ -28,8 +28,10 @@ public class AntibioticsServiceImpl implements AntibioticsService {
         // If any infection (checkBox is True)
         boolean useAnyInfection = parameters.getCheckBoxes().stream().anyMatch(c -> c.getValue());
 
+        boolean isMixture = parameters.getMixture();
+
         // Build response
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, parameters.getWeight(), usePenicillinAllergic, useAnyInfection);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, parameters.getWeight(), usePenicillinAllergic, useAnyInfection, isMixture);
         return builder.build();
         
     }

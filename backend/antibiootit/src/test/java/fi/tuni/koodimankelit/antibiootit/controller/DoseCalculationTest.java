@@ -34,7 +34,7 @@ import fi.tuni.koodimankelit.antibiootit.models.request.Parameters;
  */
 public class DoseCalculationTest extends AntibioticsControllerTest {
 
-    private static final Parameters mockParameters = new Parameters("J03.0", 35.5, false, new ArrayList<InfectionSelection>());
+    private static final Parameters mockParameters = new Parameters("J03.0", 35.5, false, new ArrayList<InfectionSelection>(), false);
     private static final String ADDRESS = "/api/antibiotics/dose-calculation";
 
     @Test
@@ -60,7 +60,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     @Test
     public void emptyIDShouldReturn400() throws Exception {
 
-        Parameters parameters = new Parameters("", 0.0, false, new ArrayList<>());
+        Parameters parameters = new Parameters("", 0.0, false, new ArrayList<>(), false);
         
         request(parameters)
         .andExpect(status().isBadRequest());
@@ -69,7 +69,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     @Test
     public void nullCheckBoxesShouldReturn400() throws Exception {
 
-        Parameters parameters = new Parameters("test", 0.0, false, null);
+        Parameters parameters = new Parameters("test", 0.0, false, null, false);
         
         request(parameters)
         .andExpect(status().isBadRequest());
@@ -96,8 +96,8 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     @Test
     public void stringWeightIsHandledCorrectly() throws Exception {
         when(service.getDiagnosisInfoByID(any())).thenReturn(new DiagnosisInfo(null, null, null, new ArrayList<>(), true));
-        when(service.calculateTreatments(new Parameters("J03.0", 10.0, false, new ArrayList<>()))).thenReturn(new DiagnosisResponse(null, null, null));
-        String payload = "{\"diagnosisID\":\"J03.0\",\"penicillinAllergic\":false,\"weight\":\"10.0\",\"checkBoxes\":[]}";
+        when(service.calculateTreatments(new Parameters("J03.0", 10.0, false, new ArrayList<>(), false))).thenReturn(new DiagnosisResponse(null, null, null));
+        String payload = "{\"diagnosisID\":\"J03.0\",\"penicillinAllergic\":false,\"weight\":\"10.0\",\"checkBoxes\":[],\"mixture\":false}";
 
         request(payload)
         .andExpect(status().isOk());
@@ -153,7 +153,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
         
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 new DosageFormula(
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml"),
                     new Measurement("mg/kg/vrk", 80.0)
@@ -180,7 +180,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void accurateDosageHasAllFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 null,
                 new AccurateDosageResult(
                     new Measurement("ml", 3.5),
@@ -208,7 +208,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void formulaDoesNotHaveExtraFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 new Formula(
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml")
                 ),
@@ -231,7 +231,7 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
     public void dosageResultDoesNotHaveExtraFields() throws Exception {
         DiagnosisResponse response = new DiagnosisResponse(null, null, null);
         response.addTreatment(
-            new AntibioticTreatment(null, null, null,
+            new AntibioticTreatment(null, null, null, null,
                 null,
                 new DosageResult(new Measurement("kpl", 1))
             )

@@ -308,7 +308,8 @@ export default function Form(props) {
                                 diagnosisID: diagnosis.id,
                                 weight: weightForCalculations,
                                 penicillinAllergic: props.penicillinAllergy,
-                                checkBoxes: matchingCheckBoxes
+                                checkBoxes: matchingCheckBoxes,
+                                mixture: false
                             }
 
                 logUserInputData(
@@ -352,7 +353,8 @@ export default function Form(props) {
     const handlePenicillinAllergy = () => {
         const newData = {
             ...props.formData,
-            penicillinAllergic: !props.penicillinAllergy
+            penicillinAllergic: !props.penicillinAllergy,
+            mixture: false
         }
         if (props.hasFormData) {
             if(props.formSubmitted) {
@@ -381,7 +383,8 @@ export default function Form(props) {
             ];
             const newData = {
                 ...props.formData,
-                checkBoxes: checkBoxes
+                checkBoxes: checkBoxes,
+                mixture: false
             }
             if(props.formSubmitted) {
                 logUserInputData(
@@ -407,7 +410,8 @@ export default function Form(props) {
             ];
             const newData = {
                 ...props.formData,
-                checkBoxes: checkBoxes
+                checkBoxes: checkBoxes,
+                mixture: false
             }
             if(props.formSubmitted) {
                 logUserInputData(

@@ -19,8 +19,8 @@ public class Mixture extends Antibiotic {
      * @param dosage mixture's dosage information
      */
     public Mixture(String antibiotic, String format, List<Strength> strength, Instructions instructions, 
-                String resultUnit, Dosage dosage) {
-        super(antibiotic, format, strength, instructions);
+                String resultUnit, Dosage dosage, MinMaxMixture minMaxMixture) {
+        super(antibiotic, format, strength, instructions, minMaxMixture);
         this.resultUnit = resultUnit;
         this.dosage = dosage;
     }

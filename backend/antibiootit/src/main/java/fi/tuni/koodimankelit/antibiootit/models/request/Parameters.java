@@ -27,12 +27,16 @@ public class Parameters {
     @ElementCollection
     private final List<InfectionSelection> checkBoxes;
 
+    @NotNull(message = "Mixture is mandatory")
+    private final Boolean mixture;
 
-    public Parameters(String diagnosisID, Double weight, Boolean penicillinAllergic, List<InfectionSelection> checkBoxes) {
+
+    public Parameters(String diagnosisID, Double weight, Boolean penicillinAllergic, List<InfectionSelection> checkBoxes, Boolean mixture) {
         this.diagnosisID = diagnosisID;
         this.weight = weight;
         this.penicillinAllergic = penicillinAllergic;
         this.checkBoxes = checkBoxes;
+        this.mixture = mixture;
     }
 
 
@@ -53,5 +57,9 @@ public class Parameters {
     
     public List<InfectionSelection> getCheckBoxes() {
         return this.checkBoxes;
+    }
+
+    public boolean getMixture() {
+        return this.mixture;
     }
 }

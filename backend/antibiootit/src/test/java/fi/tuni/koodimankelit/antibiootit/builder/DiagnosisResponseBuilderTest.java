@@ -16,6 +16,7 @@ import fi.tuni.koodimankelit.antibiootit.database.data.CheckBoxInfo;
 import fi.tuni.koodimankelit.antibiootit.database.data.Diagnosis;
 import fi.tuni.koodimankelit.antibiootit.database.data.Dosage;
 import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
+import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
@@ -128,7 +129,7 @@ public class DiagnosisResponseBuilderTest {
 
     @Test
     public void allergyIsTreatment3() {
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, true, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, true, false, false);
         DiagnosisResponse response = builder.build();
 
         // Choice 3 because penicillin allergy
@@ -141,14 +142,14 @@ public class DiagnosisResponseBuilderTest {
     public void testNoTreatment() {
         Diagnosis noAntibioticDiagnosis = diagnosis;
         noAntibioticDiagnosis.getTreatments().clear();
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(noAntibioticDiagnosis, 10, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(noAntibioticDiagnosis, 10, false, false, false);
 
         assertThrows(NoAntibioticTreatmentException.class, () -> builder.build());
     }
 
     @Test
     public void testLabels() {
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false, false);
         DiagnosisResponse response = builder.build();
 
         assertEquals(id, response.getId());
@@ -163,12 +164,12 @@ public class DiagnosisResponseBuilderTest {
         DiagnosisResponse response;
         
         // normal: should be 2 treatments
-        builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false, false);
         response = builder.build();
         assertEquals(2, response.getTreatments().size());
 
         // allergic: should be 1 treatment
-        builder = new DiagnosisResponseBuilder(diagnosis, 10, true, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 10, true, false, false);
         response = builder.build();
         assertEquals(1, response.getTreatments().size());
 
@@ -176,7 +177,7 @@ public class DiagnosisResponseBuilderTest {
 
     @Test
     public void testMixtures() {
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false, false);
         DiagnosisResponse response = builder.build();
 
         // 10 kg -> Mixtures for both treatments
@@ -195,7 +196,7 @@ public class DiagnosisResponseBuilderTest {
 
     @Test
     public void testTablets() {
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 50, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 50, false, false, false);
         DiagnosisResponse response = builder.build();
 
         // 50 kg -> Tablets for both treatments
@@ -220,7 +221,7 @@ public class DiagnosisResponseBuilderTest {
         // Mixture
 
         // 5kg -> 1: strength 100, 2: strength 50
-        builder = new DiagnosisResponseBuilder(diagnosis, 5, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 5, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-1", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-1", response.getTreatments().get(1).getAntibiotic());
@@ -228,7 +229,7 @@ public class DiagnosisResponseBuilderTest {
         assertEquals(50, response.getTreatments().get(1).getFormula().getStrength().getValue());
 
         // 10kg -> 1: strenght 100, 2: strength 100
-        builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 10, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-1", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-1", response.getTreatments().get(1).getAntibiotic());
@@ -236,7 +237,7 @@ public class DiagnosisResponseBuilderTest {
         assertEquals(100, response.getTreatments().get(1).getFormula().getStrength().getValue());
 
         // 20kg -> 1: strenght 200, 2: strength 100
-        builder = new DiagnosisResponseBuilder(diagnosis, 20, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 20, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-1", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-1", response.getTreatments().get(1).getAntibiotic());
@@ -244,7 +245,7 @@ public class DiagnosisResponseBuilderTest {
         assertEquals(100, response.getTreatments().get(1).getFormula().getStrength().getValue());
 
         // 39.99kg -> same as previous
-        builder = new DiagnosisResponseBuilder(diagnosis, 39.99, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 39.99, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-1", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-1", response.getTreatments().get(1).getAntibiotic());
@@ -254,7 +255,7 @@ public class DiagnosisResponseBuilderTest {
         // Tablet
 
         // 40kg -> 1: strenght 1000000, 2: strength 500
-        builder = new DiagnosisResponseBuilder(diagnosis, 40, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 40, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-2", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-2", response.getTreatments().get(1).getAntibiotic());
@@ -262,7 +263,7 @@ public class DiagnosisResponseBuilderTest {
         assertEquals(500, response.getTreatments().get(1).getFormula().getStrength().getValue());
 
         // 50kg -> 1: strenght 1500000, 2: strength 500
-        builder = new DiagnosisResponseBuilder(diagnosis, 50, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 50, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-2", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-2", response.getTreatments().get(1).getAntibiotic());
@@ -270,7 +271,7 @@ public class DiagnosisResponseBuilderTest {
         assertEquals(500, response.getTreatments().get(1).getFormula().getStrength().getValue());
 
         // 60kg -> 1: strenght 2000000, 2: strength 750
-        builder = new DiagnosisResponseBuilder(diagnosis, 60, false, false);
+        builder = new DiagnosisResponseBuilder(diagnosis, 60, false, false, false);
         response = builder.build();
         assertEquals("antibiotic1-2", response.getTreatments().get(0).getAntibiotic());
         assertEquals("antibiotic2-2", response.getTreatments().get(1).getAntibiotic());
@@ -281,14 +282,14 @@ public class DiagnosisResponseBuilderTest {
     @Test
     public void testNegativeWeight() {
 
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, -1, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, -1, false, false, false);
         assertThrows(TreatmentNotFoundException.class, () -> builder.build());
     }
 
     @Test
     public void testZeroWeight() {
 
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 0, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 0, false, false, false);
         assertDoesNotThrow(() -> builder.build());
     }
 
@@ -321,7 +322,7 @@ public class DiagnosisResponseBuilderTest {
         );
         treatments.add(new Treatment(1, antibiotics));
 
-        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 5, false, false);
+        DiagnosisResponseBuilder builder = new DiagnosisResponseBuilder(diagnosis, 5, false, false, false);
         assertThrows(TreatmentNotFoundException.class, () -> builder.build());
 
     }
@@ -329,11 +330,13 @@ public class DiagnosisResponseBuilderTest {
     private Antibiotic generateMixture(String id, List<Strength> strengths) {
         Instructions instructions = new Instructions(10, 2, null, null);
         Dosage dosage = new Dosage(3000, 40, null);
-        return new Mixture(id, null, strengths, instructions, null, dosage);
+        MinMaxMixture minMaxMixture = new MinMaxMixture(0, 0);
+        return new Mixture(id, null, strengths, instructions, null, dosage, minMaxMixture);
     }
 
     private Antibiotic generateTablet(String id, List<Strength> strengths) {
         Instructions instructions = new Instructions(5, 1, null, null);
-        return new Tablet(id, null, strengths, instructions, 1);
+        MinMaxMixture minMaxMixture = new MinMaxMixture(22, 30);
+        return new Tablet(id, null, strengths, instructions, 1, minMaxMixture);
     }
 }
