@@ -10,8 +10,7 @@ import nonapi.io.github.classgraph.json.Id;
  * Representation of diagnosis basic info
  */
 @Schema(description = "Basic information of a diagnosis")
-@Document(collection = "test")
-//@Document(collection = "diagnoses")
+@Document(collection = "diagnoses")
 public class DiagnosisInfo {
 
     @Id
