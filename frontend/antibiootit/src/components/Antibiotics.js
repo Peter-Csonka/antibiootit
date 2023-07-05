@@ -223,7 +223,6 @@ export default function Antibiotics() {
                     weight={chosenWeight}
                     treatments={treatments}
                     setActiveRecipe={setActiveRecipe}
-                    format={treatments[0].format}
                     penicillinAllergy={penicillinAllergy}
                     concurrentMycoplasma={concurrentMycoplasma}
                     choice={chosenDiagnosis}
