@@ -1150,14 +1150,18 @@ aside {
 }
 
 .modal-close-btn {
-    width: 100px;
+    width: 110px;
     position: fixed;
     right: 0;
-    height: 30px;
-    font-size: 17px;
+    height: 35px;
+    font-size: 18px;
     font-weight: bold;
     justify-self: flex-end;
-}
+    background-color: #f3f3f3;
+    border: 1.5px solid #000000;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}    
 
 .modal {
     position: absolute;
@@ -1178,6 +1182,7 @@ aside {
     display: block;
     margin: 0 auto;
     -webkit-overflow-scrolling: touch;
+    border: none;
 }
 
 .modal::-webkit-scrollbar {
@@ -1424,7 +1429,9 @@ aside {
         position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch; 
-        padding-bottom: 150px;
+        padding-bottom: 200px;
+        margin-top: 58px;
+        background-color: rgb(255, 255, 255);
     } .modal-close-btn {
         right: 35px;
     }
