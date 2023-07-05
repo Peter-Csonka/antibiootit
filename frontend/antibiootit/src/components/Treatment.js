@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import Choise from "./Choise"
+import Choice from "./Choice"
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import OpacityIcon from '@mui/icons-material/Opacity';
@@ -8,10 +8,9 @@ export default function Treatment(props) {
     //console.log(props.treatments);
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
     const [activeVariables, setActiveVariables] = useState(giveValues());
+    const [activeChoiceIndex, setActiveChoiceIndex] = useState(0);
+    
     props.setCanMixture(activeChoice.canMixture);
-
-    console.log(activeChoice);
-    console.log(activeChoice.canMixture);
 
     // This updates the variables when the diagnosis is changed
     useEffect(() => {
@@ -109,7 +108,7 @@ export default function Treatment(props) {
         for(let i = 0; i < props.treatments.length; i++ ) {
             if(props.treatments[i].antibiotic === name) {
                 setActiveChoice(props.treatments[i]);
-                //props.setCanMixture(activeChoice.canMixture);
+                setActiveChoiceIndex(i);
 
                 // Updates the variables when the second choice is clicked
                 if (props.treatments[i].format === 'mikstuura') {
@@ -155,7 +154,7 @@ export default function Treatment(props) {
     }
 
     let AntibioticElements = props.treatments.map((antibiote, index) => 
-        <Choise
+        <Choice
             key={index}
             index={index}
             name={antibiote.antibiotic}
