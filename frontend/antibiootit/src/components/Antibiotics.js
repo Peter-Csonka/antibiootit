@@ -40,8 +40,9 @@ export default function Antibiotics() {
     const [targetedInfo, setTargetedInfo] = useState(null);
  
     const [instruction, setInstruction] = useState([]);
-
     const [loading, setLoading] = useState(false);
+    const [wantsMixture, setWantsMixture] = useState(false);
+    const [canMixture, setCanMixture] = useState(false);
 
     async function fetchData() {
         const diagnosesList = await GetDiagnoses();
@@ -207,6 +208,9 @@ export default function Antibiotics() {
                     setConcurrentEBV={setConcurrentEBV}
                     concurrentMycoplasma={concurrentMycoplasma}
                     setConcurrentMycoplasma={setConcurrentMycoplasma}
+                    canMixture={canMixture}
+                    wantsMixture={wantsMixture}
+                    setWantsMixture={setWantsMixture}
                 />
                 {formSubmitted && penicillinAllergy === true && (
                 <PenicillinInfo
@@ -226,6 +230,7 @@ export default function Antibiotics() {
                     penicillinAllergy={penicillinAllergy}
                     concurrentMycoplasma={concurrentMycoplasma}
                     choice={chosenDiagnosis}
+                    setCanMixture={setCanMixture}
                 />}
                 {formSubmitted && !!noAntibioticTreatment && <Recipe
                     loading={loading}

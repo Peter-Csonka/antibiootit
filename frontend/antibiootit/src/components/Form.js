@@ -124,7 +124,7 @@ export default function Form(props) {
                 {
                     id: 'MYK-001',
                     value: props.concurrentMycoplasma
-                  }
+                }
             ];
             const matchingCheckBoxes = checkBoxes.filter(cb => {
                 return selectedInfo.checkBoxes.some(c => c.id === cb.id);
@@ -354,7 +354,7 @@ export default function Form(props) {
         const newData = {
             ...props.formData,
             penicillinAllergic: !props.penicillinAllergy,
-            mixture: false
+            mixture: props.wantsMixture
         }
         if (props.hasFormData) {
             if(props.formSubmitted) {
@@ -384,7 +384,7 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes,
-                mixture: false
+                mixture: props.wantsMixture
             }
             if(props.formSubmitted) {
                 logUserInputData(
@@ -411,7 +411,7 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes,
-                mixture: false
+                mixture: props.wantsMixture
             }
             if(props.formSubmitted) {
                 logUserInputData(
@@ -427,6 +427,21 @@ export default function Form(props) {
         props.setConcurrentMycoplasma(!props.concurrentMycoplasma)
     }
 
+    const [getMixture, setGetMixture] = useState(false);
+    const handleMixture = () => {
+        if(props.hasFormData) {
+            const newData = {
+                ...props.formData,
+                mixture: !props.wantsMixture
+            }
+            props.handleSubmit(newData);
+        }
+
+        props.setWantsMixture(!props.wantsMixture);
+        setGetMixture(!getMixture);
+    }
+    console.log(props.wantsMixture);
+
     return (
         <form 
             className="diagnosis-form" 
@@ -439,7 +454,6 @@ export default function Form(props) {
                         data-testid="weight-input"
                         className={formatWeight ? "form--input" : "form--input-notok" }
                         placeholder={placeholder}
-                        //onFocus={emptyPlaceholder}
                         onClick={handleSelect}
                         name="weight"   
                         value={weight}
@@ -482,6 +496,13 @@ export default function Form(props) {
                             type="checkbox"
                             onClick={handleMycoplasma}
                         /> Varmistettu mykoplasmainfektio
+                    </label>}
+                {(props.canMixture || getMixture) &&
+                    <label className="form--checkbox">
+                        <input 
+                            type="checkbox"
+                            onClick={handleMixture}
+                        /> Hoitosuositus mikstuurana
                     </label>}
             </div>
             {weight && <SubmitButton />} 
