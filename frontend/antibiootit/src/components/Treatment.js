@@ -8,6 +8,7 @@ export default function Treatment(props) {
     //console.log(props.treatments);
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
     const [activeVariables, setActiveVariables] = useState(giveValues());
+    props.setCanMixture(activeChoice.canMixture);
 
     console.log(activeChoice);
     console.log(activeChoice.canMixture);
@@ -37,14 +38,15 @@ export default function Treatment(props) {
         
     }, [props.weight, props.treatments]);
 
-    useEffect(() => {
-        setActiveChoice(props.treatments[0]);
-        props.setCanMixture(activeChoice.canMixture);
-    }, [props.treatments])
+    const {treatments, setCanMixture} = props;
 
     useEffect(() => {
-        props.setCanMixture(activeChoice.canMixture);
-    }, [activeChoice])
+        setActiveChoice(treatments[0]);
+    }, [treatments])
+
+    useEffect(() => {
+        setCanMixture(activeChoice.canMixture);
+    }, [activeChoice, setCanMixture, activeChoice.canMixture])
 
 
     function giveValues() {

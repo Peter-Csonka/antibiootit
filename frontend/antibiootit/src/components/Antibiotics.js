@@ -231,6 +231,7 @@ export default function Antibiotics() {
                     concurrentMycoplasma={concurrentMycoplasma}
                     choice={chosenDiagnosis}
                     setCanMixture={setCanMixture}
+                    wantsMixture={wantsMixture}
                 />}
                 {formSubmitted && !!noAntibioticTreatment && <Recipe
                     loading={loading}
