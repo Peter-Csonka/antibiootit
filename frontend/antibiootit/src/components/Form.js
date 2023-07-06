@@ -124,7 +124,7 @@ export default function Form(props) {
                 {
                     id: 'MYK-001',
                     value: props.concurrentMycoplasma
-                  }
+                }
             ];
             const matchingCheckBoxes = checkBoxes.filter(cb => {
                 return selectedInfo.checkBoxes.some(c => c.id === cb.id);
@@ -138,7 +138,8 @@ export default function Form(props) {
             newData = {
                     ...props.formData,
                 diagnosisID: selectedInfo.id,
-                checkBoxes: matchingCheckBoxes
+                checkBoxes: matchingCheckBoxes,
+                mixture: false
             }
 
             let checkboxType;
@@ -177,7 +178,8 @@ export default function Form(props) {
                     checkboxType ? checkboxType[1].value : false
                 );
             }
-            
+            setGetMixture(false);
+            props.setWantsMixture(false);
             props.handleSubmit(newData);
 
         }
@@ -234,8 +236,11 @@ export default function Form(props) {
                 if (props.hasFormData) {
                     const newData = {
                         ...props.formData,
-                        weight: weightForCalculations
+                        weight: weightForCalculations,
+                        mixture: false
                     }
+                    setGetMixture(false);
+                    props.setWantsMixture(false);
                     props.setChosenWeight(weightForCalculations)
                     props.handleSubmit(newData);
                 }
@@ -354,7 +359,7 @@ export default function Form(props) {
         const newData = {
             ...props.formData,
             penicillinAllergic: !props.penicillinAllergy,
-            mixture: false
+            mixture: props.wantsMixture
         }
         if (props.hasFormData) {
             if(props.formSubmitted) {
@@ -384,7 +389,7 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes,
-                mixture: false
+                mixture: props.wantsMixture
             }
             if(props.formSubmitted) {
                 logUserInputData(
@@ -411,7 +416,7 @@ export default function Form(props) {
             const newData = {
                 ...props.formData,
                 checkBoxes: checkBoxes,
-                mixture: false
+                mixture: props.wantsMixture
             }
             if(props.formSubmitted) {
                 logUserInputData(
@@ -427,6 +432,21 @@ export default function Form(props) {
         props.setConcurrentMycoplasma(!props.concurrentMycoplasma)
     }
 
+    const [getMixture, setGetMixture] = useState(false);
+    const handleMixture = () => {
+        if(props.hasFormData) {
+            const newData = {
+                ...props.formData,
+                mixture: !props.wantsMixture
+            }
+            props.handleSubmit(newData);
+        }
+
+        props.setWantsMixture(!props.wantsMixture);
+        setGetMixture(!getMixture);
+    }
+
+
     return (
         <form 
             className="diagnosis-form" 
@@ -439,7 +459,6 @@ export default function Form(props) {
                         data-testid="weight-input"
                         className={formatWeight ? "form--input" : "form--input-notok" }
                         placeholder={placeholder}
-                        //onFocus={emptyPlaceholder}
                         onClick={handleSelect}
                         name="weight"   
                         value={weight}
@@ -482,6 +501,13 @@ export default function Form(props) {
                             type="checkbox"
                             onClick={handleMycoplasma}
                         /> Varmistettu mykoplasmainfektio
+                    </label>}
+                {(props.canMixture || getMixture) &&
+                    <label className="form--checkbox">
+                        <input 
+                            type="checkbox"
+                            onClick={handleMixture}
+                        /> Hoitosuositus mikstuurana
                     </label>}
             </div>
             {weight && <SubmitButton />} 
