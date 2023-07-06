@@ -575,7 +575,7 @@ aside {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -583,9 +583,8 @@ aside {
 .choise {
     width: 100%;
     border-radius: 20px 20px 20px 20px;
-    border: 1.5px solid #858585;
-    padding: 17px;
-    box-shadow: 1.5px 1.5px 1.5px 1.5px #c2c2c2;
+    border: 1.5px solid #395174;
+    padding: 15px;
 }
 
 .choise-header {
@@ -1079,12 +1078,12 @@ aside {
     justify-content: center;
     align-items: center;
     z-index: 1;
-    padding-left: 15vw;
+    padding-left: 17vw;
 }
 
 .penicillin-info > p {
     padding-left: 20px;
-    padding-right: 3%;
+    padding-right: 5%;
     padding-top: 15px;
     padding-bottom: 15px;
     color: black;
@@ -1094,10 +1093,10 @@ aside {
 .penicillin-info-btn a {
     display: block;
     text-decoration: none;
-    line-height: 40px;
+    line-height: 38px;
     margin-right: 10vw;
-    height: 40px;
-    width: 150px;
+    height: 38px;
+    width: 140px;
     min-width: 120px;
     color: #1f1f1f;
     text-align: center;
@@ -1276,10 +1275,10 @@ aside {
         max-height:fit-content;
     } .checkbox-container {
         width: 290px;
-        height: 70px;
+        height: auto;
         margin-right: -10px;
         margin-top: 20px;
-        margin-bottom: 30px;
+        padding-bottom: 40px;
     } .treatment-header > h2 {
         font-weight: bolder;
         font-size: 21px;
@@ -1456,9 +1455,7 @@ aside {
         justify-content: start;
     } .weight-input {
         padding-right: 0px;
-    } .treatment-container {
-        width: 600px;
-    } .recipe-container {
+    }  .recipe-container {
         width: 600px;
     } .btn-calculate {
         margin-right: 20px;
@@ -1525,10 +1522,13 @@ aside {
         padding-top: 10px;
     } .penicillin-info {
         flex-direction: column;
-        padding: 20px;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 10px;
         font-size: 44px;
     } .penicillin-info-btn a {
         margin-right: 0;
+        margin-bottom: 10px;
     }
 }
 
