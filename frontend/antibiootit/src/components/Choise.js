@@ -13,7 +13,7 @@ export default function Choise(props) {
         const txt =
         <>
             {props.length > 1 && <div className="choise-header">
-                <h4>{`${choiseNbr} valinta: ${props.name} ${props.dosage}`}</h4>
+            <h4>{`${choiseNbr} valinta: ${props.name} ${props.dosage}`}</h4>
                 {!props.choise && <ion-icon name="chevron-down-outline" size="large"></ion-icon>}
             </div>}
             {props.length === 1 && <div className="choise-header">
