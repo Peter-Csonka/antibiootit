@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from "react"
-import Choise from "./Choise"
+import Choice from "./Choice"
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import OpacityIcon from '@mui/icons-material/Opacity';
 
 export default function Treatment(props) {
-
     const [activeChoice, setActiveChoice] = useState(props.treatments[0]);
     const [activeVariables, setActiveVariables] = useState(giveValues());
 
@@ -34,9 +33,15 @@ export default function Treatment(props) {
         
     }, [props.weight, props.treatments]);
 
+    const {treatments, setCanMixture} = props;
+
     useEffect(() => {
-        setActiveChoice(props.treatments[0]);
-    }, [props.treatments])
+        setActiveChoice(treatments[0]);
+    }, [treatments])
+
+    useEffect(() => {
+        setCanMixture(activeChoice.canMixture);
+    }, [activeChoice, setCanMixture, activeChoice.canMixture])
 
 
     function giveValues() {
@@ -69,12 +74,12 @@ export default function Treatment(props) {
         const multipliedDose = activeChoice.dosageResult.dose.value * multiplier;
         dose = `1. päivä ${multipliedDose} ${activeChoice.dosageResult.dose.unit}, sitten ${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit}`;
         doseInDay = `1. päivä ${multipliedDose * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}, sitten ${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit}`;
-        if(props.format === 'tabletti') {
+        if(activeChoice.format === 'tabletti') {
             formatTablet(multipliedDose, dose);
             formatTablet(multipliedDose * activeChoice.instructions.dosesPerDay, doseInDay);
         }
     } else {
-        if(props.treatments[0].format === 'mikstuura') {
+        if(activeChoice.format === 'mikstuura') {
             dose = `${activeChoice.dosageResult.dose.value} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.formula.strength.value} mg)`;
             doseInDay = `${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay} ${activeChoice.dosageResult.dose.unit} (${activeChoice.dosageResult.dose.value * activeChoice.instructions.dosesPerDay * activeChoice.formula.strength.value} mg)`;
         } else {
@@ -144,7 +149,7 @@ export default function Treatment(props) {
     }
 
     let AntibioticElements = props.treatments.map((antibiote, index) => 
-        <Choise
+        <Choice
             key={index}
             index={index}
             name={antibiote.antibiotic}
@@ -166,7 +171,7 @@ export default function Treatment(props) {
     }
     
     let greater = false;
-    if(props.format === "mikstuura") {
+    if(activeChoice.format === "mikstuura") {
         let maxRes = activeVariables.maxRes;
         let realRes = activeVariables.realRes;
         if(realRes > maxRes) {
@@ -203,7 +208,7 @@ export default function Treatment(props) {
         <div className="treatment-container">
             <div className="treatment-header">
                 <div className="treatment-icon-container">
-                    {props.format === 'mikstuura' ? 
+                    {activeChoice.format === 'mikstuura' ? 
                     <div className="treatment-icon">
                         <OpacityIcon/>
                     </div> : 
@@ -211,7 +216,7 @@ export default function Treatment(props) {
                 </div>
                 <h2>{!props.needsAntibiotics ?
                 `Ei antibioottisuositusta` :
-                `Hoitosuositus ${props.format.toLowerCase()}na`}</h2>
+                `Hoitosuositus ${activeChoice.format}na`}</h2>
             </div>
             <div className="treatment-choises">
                 <div className="choise-container">
@@ -220,14 +225,14 @@ export default function Treatment(props) {
             </div>
             <div className="treatment-extra">
                 <button className="btn-calculate" onClick={calculate} 
-                    hidden={!props.needsAntibiotics || props.format === 'tabletti'}>
+                    hidden={!props.needsAntibiotics || activeChoice.format === 'tabletti'}>
                     {openCalculations ?
                     <div className="btn-elements">
                         <img className="func-icon-closed" src="./icons/function-icon-closed.svg" alt="icon-closed"/>
                         <p> Piilota kaava</p> 
                     </div> :
                     <div className="btn-elements">
-                        {(!props.needsAntibiotics || props.format === 'tabletti') ?
+                        {(!props.needsAntibiotics || activeChoice.format === 'tabletti') ?
                             <img className="func-icon-open" src="./icons/function-icon-open-disabled.svg" alt="icon-open-disabled"/> :
                             <img className="func-icon-open" src="./icons/function-icon-open.svg" alt="icon-open"/>}
                         <p> Laskukaava</p>
@@ -245,7 +250,7 @@ export default function Treatment(props) {
                     <p className="max-dosage-text">Vuorokauden maksimiannos ylittyy {"("}{activeVariables.realRes}ml {">"} {activeVariables.maxRes}ml{")"}, joten tarjotaan maksimiannosta</p>
                 </div>}
             </div>
-            {openCalculations && props.needsAntibiotics && props.format === 'mikstuura' && <div className="treatment-calculations" data-testid="calculations">
+            {openCalculations && props.needsAntibiotics && activeChoice.format === 'mikstuura' && <div className="treatment-calculations" data-testid="calculations">
                 <MathFormula
                     weight={activeVariables.weight}
                     doseInDay={activeVariables.doseInDay}

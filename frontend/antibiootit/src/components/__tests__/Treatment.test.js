@@ -42,6 +42,7 @@ const TestWrapper = () => {
     antibioteName: "Amoksisilliini jauhe",
     antibioteStrength: "100 mg/ml"
   });
+  const [canMixture, setCanMixture] = useState(false);
 
   return (
     <Treatment
@@ -51,8 +52,11 @@ const TestWrapper = () => {
       weight={chosenWeight}
       treatments={treatments}
       setActiveRecipe={setActiveRecipe}
-      format={treatments[0].format}
       targetedInfo={targetedInfo}
+      penicillinAllergy={false}
+      concurrentMycoplasma={false}
+      setCanMixture={setCanMixture}
+      wantsMixture={false}
     />
   );
 };
