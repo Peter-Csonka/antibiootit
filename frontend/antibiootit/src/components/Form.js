@@ -138,7 +138,8 @@ export default function Form(props) {
             newData = {
                     ...props.formData,
                 diagnosisID: selectedInfo.id,
-                checkBoxes: matchingCheckBoxes
+                checkBoxes: matchingCheckBoxes,
+                mixture: false
             }
 
             let checkboxType;
@@ -177,7 +178,8 @@ export default function Form(props) {
                     checkboxType ? checkboxType[1].value : false
                 );
             }
-            
+            setGetMixture(false);
+            props.setWantsMixture(false);
             props.handleSubmit(newData);
 
         }
@@ -234,8 +236,11 @@ export default function Form(props) {
                 if (props.hasFormData) {
                     const newData = {
                         ...props.formData,
-                        weight: weightForCalculations
+                        weight: weightForCalculations,
+                        mixture: false
                     }
+                    setGetMixture(false);
+                    props.setWantsMixture(false);
                     props.setChosenWeight(weightForCalculations)
                     props.handleSubmit(newData);
                 }
@@ -440,7 +445,7 @@ export default function Form(props) {
         props.setWantsMixture(!props.wantsMixture);
         setGetMixture(!getMixture);
     }
-    console.log(props.wantsMixture);
+
 
     return (
         <form 
