@@ -170,7 +170,7 @@ public class DiagnosisResponseBuilder {
         if(this.usePenicillinAllergic && !this.useAnyInfection) {
             return PENICILLIN_ALLERGIC_CHOICE == treatment.getChoice();
         } else if(this.useAnyInfection && !this.usePenicillinAllergic) {
-            if(diagnosis.getName().equals("Streptokokkitonsilliitti") && weight < 40) {
+            if((diagnosis.getName().equals("Streptokokkitonsilliitti") || diagnosis.getName().equals("Perianaalidermatiitti"))&& weight < 35) {
                 return INFECTION_PRIMARY_CHOICE == treatment.getChoice();
             } else {
                 return INFECTION_PRIMARY_CHOICE == treatment.getChoice() || INFECTION_SECONDARY_CHOICE == treatment.getChoice();
