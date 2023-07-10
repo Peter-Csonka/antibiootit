@@ -27,7 +27,9 @@ export default function Recipe(props) {
             ["J03.0", "Streptokokkinielutulehduksen hoitoon."],
             ["H66.0", "Äkillisen välikorvatulehduksen hoitoon."],
             ["J01.9", "Äkillisen sivuontelotulehduksen hoitoon."],
-            ["J18.9", "Bakteeriperäisen keuhkokuumeen hoitoon."]
+            ["J18.9", "Bakteeriperäisen keuhkokuumeen hoitoon."],
+            ["L01", ""],
+            ["Ei koodia", ""]
         ]);
         
         const recipeTextEnding = diagnosisForRecipe.get(diagnosisData.id);
