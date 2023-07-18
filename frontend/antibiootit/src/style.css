@@ -446,7 +446,7 @@ aside {
     z-index: 1;
     width: 250px;
     padding: 0;
-    margin-left: -1px;
+    margin-left: -1.5px;
     padding-bottom: 0px;
     margin-top: 10px;
     -webkit-background-color:#D7E2F2;
@@ -1347,7 +1347,7 @@ aside {
         font-size: 18px;
     } .dropdown-content {
         position: absolute;
-        margin-left: -1.0px;
+        margin-left: -1.5px;
         -webkit-margin-left: -1.5px;
         width: 280px;
     } .dropdown-btn {

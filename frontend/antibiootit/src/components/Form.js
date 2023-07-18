@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { logUserInputData } from "./logUserInputData";
 
 const STEP2 = 8;
@@ -16,6 +16,7 @@ export default function Form(props) {
     const [diagnosis, setDiagnosis] = useState("");
     const [needsAntibiotics, setNeedsAntibiotics] = useState(false);
     const [additionalCheckboxes, setAdditionalCheckboxes] = useState();
+
 
     useEffect(() =>{
         if (diagnosis) {
@@ -208,8 +209,10 @@ export default function Form(props) {
     const MAX_WEIGHT = 100;
     const VALID_WEIGHT_INPUT =  /^\d*([.,])?\d*$/;
     const VALID_DECIMALS = /^\d*([.,]?\d{0,2})?$/;
+    const timerRef = useRef(null);
 
     const handleInput = (e) => {
+        clearTimeout(timerRef.current);
         e.preventDefault();
         const input = e.target.value;
         if (!VALID_WEIGHT_INPUT.test(input)) {
@@ -242,7 +245,11 @@ export default function Form(props) {
                     setGetMixture(false);
                     props.setWantsMixture(false);
                     props.setChosenWeight(weightForCalculations)
-                    props.handleSubmit(newData);
+                    
+                    // This prevents race condition from happening when fetching the data
+                    timerRef.current = setTimeout(() => {
+                        props.handleSubmit(newData);
+                    }, 350);
                 }
             }
             else {
