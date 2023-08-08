@@ -24,7 +24,7 @@ export default function Main(props) {
                     <p className="aside-text">Antibiootit.fi on terveydenhuollon ammattilaisten käyttöön suunniteltu antibioottilaskuri, joka laskee suositellun antibioottiannostuksen diagnoosin ja lapsen painon perusteella. Suositukset perustuvat Käypä hoito -suosituksiin. </p>
                     <p className="aside-update">Versio 1.0 julkaistu 1.6.2023</p>
                     <p className="aside-update">Versio 1.1 julkaistu 6.7.2023</p>
-                    <p className="aside-version-update">Viimeisin päivitys 10.7.2023</p>
+                    <p className="aside-version-update">Viimeisin päivitys 1.8.2023</p>
                 </aside>
             </main>}
 
