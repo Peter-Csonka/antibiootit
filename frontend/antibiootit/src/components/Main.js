@@ -25,7 +25,7 @@ export default function Main(props) {
                     <p className="aside-update">Versio 1.0 julkaistu 1.6.2023</p>
                     <p className="aside-update">Versio 1.1 julkaistu 6.7.2023</p>
                     <p className="aside-update">Versio 1.2 julkaistu 25.7.2023</p>
-                    <p className="aside-version-update">Viimeisin päivitys 2.8.2023</p>
+                    <p className="aside-version-update">Viimeisin päivitys 3.8.2023</p>
                 </aside>
             </main>}
 
