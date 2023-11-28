@@ -62,7 +62,7 @@ export default function Info() {
       );
 
     const InfoTexts = ({ infoTexts, handleRefClick }) => {
-        const { header, text, citation, text2, citation2, text3, citation3, text4, citation4, text5, citation5, text6, citation6, text7, citation7, text8, citation8, text9, citation9, text10, citation10, infoHeader, info1, info2 } = infoTexts[1];
+        const { header, text, citation, text2, citation2, text3, citation3, text4, citation4, text5, citation5, text6, citation6, text7, citation7, text8, citation8, text9, citation9, text10, citation10, infoHeader, info1, info2, howToReferHeader, howToReferText } = infoTexts[1];
       
         return (
           <>
@@ -87,6 +87,10 @@ export default function Info() {
             <p className="info-paragraph">
               <span className="info-bolded-text">{info1}</span>
               <span>{info2}</span>
+            </p>
+            <h3>{howToReferHeader}</h3>
+            <p className="info-paragraph">
+              <span>{howToReferText}</span>
             </p>
           </>
         );
