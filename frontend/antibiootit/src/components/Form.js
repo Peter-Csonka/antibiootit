@@ -313,7 +313,7 @@ export default function Form(props) {
                 
                 props.setIsWeightOk(true);
                 setWeight(formattedWeight);
-                props.setChosenWeight(formattedWeight);
+                props.setChosenWeight(weightForCalculations);
                 setFormatWeight(true);
 
                 const data = { 
