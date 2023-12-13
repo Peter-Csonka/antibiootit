@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import antibioticinfotexts from "../data/antibioticinfotexts";
-import antibioticinforeferences from "../data/antibioticinforeferences";
 import Modal from 'react-modal';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
 
 
 export default function Allergy() {
@@ -21,18 +21,14 @@ export default function Allergy() {
         }
     }, [from])
 
-    function GetInfoTexts() {
-        const infotextsList = antibioticinfotexts.map(item => {
-            return (item)
-        })
-        return infotextsList;
+    async function GetInfoTexts() {
+        const response = await fetch('/markdowns/antibiootti-info/penicillin-allergy.md');
+        return await response.text();
     }
 
     async function getReferences() {
-        const referencesList = antibioticinforeferences.map(item => {
-            return (item)
-        })
-        return referencesList;
+        const response = await fetch('/markdowns/antibiootti-info/references.md');
+        return await response.text();
     }
 
     useEffect(() => {
@@ -108,30 +104,26 @@ export default function Allergy() {
         }
     }
 
-    const References = ({ references }) => (
+    const References = ({ references }) => {
+        const referencesRenderers = {
+            p: (props) => <p className="info-references">{props.children}</p>
+        }
+        return (
         <>
-        <h3 ref={myRef}>{references[0].header}</h3>
-          {references.map((reference) => (
-            <p key={reference.citation} className="info-references">
-              <span>{reference.text}</span>
-              <span>
-                <a href={reference.citation} target="_blank" rel="noopener noreferrer">{reference.citation}</a>
-                {reference.bonusText && <span>{reference.bonusText}</span>}
-              </span>
-            </p>
-          ))}
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={referencesRenderers}>{references}</ReactMarkdown>
         </>
       );
+    };
 
     const AntibioticInfoTexts = ({antibioticInfoTexts}) => {
-        const {header, text} = antibioticInfoTexts[0];
+        const referencesRenderers = {
+            p: (props) => <p className="info-paragraph">{props.children}</p>,
+            h2: (props) => <h2 className="penicillin-txt-header">{props.children}</h2>
+        }
 
         return (
           <>
-            <h3 className="penicillin-txt-header">{header}</h3>
-            <p className="info-paragraph">
-                {text}
-            </p>  
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={referencesRenderers}>{antibioticInfoTexts}</ReactMarkdown> 
           </>
         );
     };
