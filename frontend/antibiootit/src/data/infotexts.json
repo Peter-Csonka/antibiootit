@@ -15,6 +15,11 @@
       "text": "Laske antibioottisuositus painamalla Laske suositus -painiketta."
     },
     {
+      "id": "step4",
+      "header": "Hoitosuositukset",
+      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Lääkkeestä riippuen voit tietyissä tilanteissa valita mikstuuran tabletin sijaan"
+    },
+    {
       "id": "checkPenisillin",
       "header": "",
       "text": "Tarkista, onko lapsella penisilliiniallergia."
@@ -28,11 +33,6 @@
       "id": "checkMyko",
       "header": "",
       "text": "Tarkista, onko lapsella penisilliiniallergia tai mykoplasmainfektio."
-    },
-    {
-      "id": "step4",
-      "header": "Hoitosuositukset",
-      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Lääkkeestä riippuen voit tietyissä tilanteissa valita mikstuuran tabletin sijaan"
     },
     {
       "id": "infoBronchitis",
