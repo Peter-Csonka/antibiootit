@@ -22,21 +22,19 @@ export default function Allergy() {
     }, [from])
 
     async function GetInfoTexts() {
-        const response = await fetch('/markdowns/antibiootti-info/penicillin-allergy.md');
+        const response = await fetch('/markdowns/antibiootti-info/antibiootti-info.md');
         return await response.text();
     }
 
     async function getReferences() {
-        const response = await fetch('/markdowns/antibiootti-info/references.md');
+        const response = await fetch('/markdowns/antibiootti-info/viitteet.md');
         return await response.text();
     }
 
     useEffect(() => {
         async function fetchData() {
-            const infoTextsList = await GetInfoTexts();
-            setAntibioticInfoTexts(infoTextsList);
-            const referencesList = await getReferences();
-            setReferences(referencesList);
+            setAntibioticInfoTexts(await GetInfoTexts());
+            setReferences(await getReferences());
         }
     
         fetchData();
