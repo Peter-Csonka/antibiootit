@@ -4,17 +4,19 @@ import Treatment from "./Treatment";
 import NoTreatment from "./NoTreatment";
 import Recipe from "./Recipe";
 import GetDiagnoses from "./GetDiagnoses";
-import GetInfoTexts from "./GetInfoTexts";
+import {GetInfoTexts, GetInfoText} from "./GetInfoTexts";
 import GetRecommendedTreatment from "./GetRecommendedTreatment";
 import LoadingIndicator from "./LoadingIndicator";
 import PenicillinInfo from "./PenicillinInfo";
 
-const STEP1 = 7;
-const STEP2 = 8;
-const STEP4 = 13;
-const CHECKPENISILLIN = 10;
-const CHECKEBV = 11;
-const CHECKMYKO = 12;
+const STEP1 = "step1";
+const STEP2 = "step2";
+const STEP4 = "step4";
+const CHECKPENISILLIN = "checkPenisillin";
+const CHECKEBV = "checkEBV";
+const CHECKMYKO = "checkMyko";
+const BRONCHITIS = "infoBronchitis";
+const OBSBRONCHITIS = "infoObsBronchitis";
 
 export default function Antibiotics() {
 
@@ -52,7 +54,7 @@ export default function Antibiotics() {
     useEffect(() => {
         const infoTextsList = GetInfoTexts();
         setInfoTexts(infoTextsList);
-        setInstruction(infoTextsList[STEP1]);
+        setInstruction(GetInfoText(infoTextsList, STEP1));
         fetchData();
     }, []);
 
@@ -63,7 +65,7 @@ export default function Antibiotics() {
     const receiveInput = (data) => {
         if (data.diagnosisID !== "") {
             setFormSubmitted(true);
-            setInstruction(infoTexts[STEP4]);
+            setInstruction(GetInfoText(infoTexts, STEP4));
             setFormData(data);
         }
         else {
@@ -114,23 +116,23 @@ export default function Antibiotics() {
         }
     }
 
-    function changeInstruction(index, checkboxes) {
-        if(index === STEP2) {
+    function changeInstruction(step, checkboxes) {
+        if(step === STEP2) {
             let checkText;
-            const instruction = infoTexts[index].text;
+            const instruction = GetInfoText(infoTexts, step).text;
             if (checkboxes.length > 0) {
                 if (checkboxes[0].id === "EBV-001") {
-                    checkText = infoTexts[CHECKEBV].text;
+                    checkText = GetInfoText(infoTexts, CHECKEBV).text;
                 }
                 if (checkboxes[0].id === "MYK-001") {
-                    checkText = infoTexts[CHECKMYKO].text;
+                    checkText = GetInfoText(infoTexts, CHECKMYKO).text;
                 }
             } else {
-                checkText = infoTexts[CHECKPENISILLIN].text;
+                checkText = GetInfoText(infoTexts, CHECKPENISILLIN).text;
             }
             const resultText = `${instruction}\n${checkText}`;
             const result = {
-                header: infoTexts[index].header,
+                header: GetInfoText(infoTexts, step).header,
                 text: (
                     <p style={{whiteSpace: 'pre-line'}}>
                         {resultText}
@@ -139,7 +141,7 @@ export default function Antibiotics() {
             }
             setInstruction(result);
         } else {
-            setInstruction(infoTexts[index]);
+            setInstruction(GetInfoText(infoTexts, step));
         }
     }
     
@@ -147,12 +149,12 @@ export default function Antibiotics() {
         if (chosenDiagnosis !== null && diagnoses !== null) {
             setDiagnosisData(diagnoses.filter(infection => infection.name === chosenDiagnosis)[0]);
             if (chosenDiagnosis === 'Bronkiitti') {
-                setNoAntibioticTreatment({id: 'J21.9', text: infoTexts[14].text})
+                setNoAntibioticTreatment({id: 'J21.9', text: GetInfoText(infoTexts, BRONCHITIS).text})
                 setFormSubmitted(true);
                 setLoading(false)
             }
             else if (chosenDiagnosis === 'Obstruktiivinen bronkiitti') {
-                setNoAntibioticTreatment({id: 'J20.9', text: infoTexts[15].text})
+                setNoAntibioticTreatment({id: 'J20.9', text: GetInfoText(infoTexts, OBSBRONCHITIS).text})
                 setFormSubmitted(true);
                 setLoading(false)
             }
