@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Modal from 'react-modal';
 import ReactMarkdown from 'react-markdown';
@@ -10,7 +10,6 @@ export default function Allergy() {
     const [references, setReferences] = useState(null);
     const [antibioticInfoTexts, setAntibioticInfoTexts] = useState(null);
     const [content, setContent] = useState("penicillin");
-    const myRef = useRef(null);
     
     const location = useLocation();
     let from = location.state ? location.state : "";
