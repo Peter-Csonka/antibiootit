@@ -4,6 +4,7 @@ import Info from "./Info";
 import Feedback from "./Feedback";
 import PageNotFound from "./PageNotFound";
 import Allergy from "./Allergy";
+import Aside from "./Aside";
 
 export default function Main(props) {
     let path = props.path;
@@ -20,10 +21,7 @@ export default function Main(props) {
             {path === "/" &&
             <main>
                 <Antibiotics />
-                <aside>
-                    <p className="aside-text">Antibiootit.fi on terveydenhuollon ammattilaisten käyttöön suunniteltu antibioottilaskuri, joka laskee suositellun antibioottiannostuksen diagnoosin ja lapsen painon perusteella. Suositukset perustuvat Käypä hoito -suosituksiin. </p>
-                    <p className="aside-version-update">Tarkistettu ja päivitetty 7.12.2023</p>
-                </aside>
+                <Aside />
             </main>}
 
         </>
