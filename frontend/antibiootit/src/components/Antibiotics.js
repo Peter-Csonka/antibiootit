@@ -35,7 +35,7 @@ export default function Antibiotics({handlePenicillinInfoVisibility}) {
     const [concurrentEBV, setConcurrentEBV] = useState(false);
     const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
     const [penicillinInfo, setPenicillinInfo] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    const [showPenicillinInfo, setShowPenicillinInfo] = useState(false);
 
     const [treatments, setTreatments] = useState(null);
     const [description, setDescription] = useState(null);
@@ -168,14 +168,22 @@ export default function Antibiotics({handlePenicillinInfoVisibility}) {
         opacity: loading ? "0.3" : "1"
     }
 
-    function setPenicillinText() {
-        if (penicillinAllergy === true) {
-            setIsVisible(true);
-        }
+    function handlePenicillinInfoClicked() {
+        setShowPenicillinInfo(false);
     }
 
     const shouldShowPenicillinInfo = formSubmitted && penicillinAllergy === true;
-    handlePenicillinInfoVisibility(shouldShowPenicillinInfo);
+
+    useEffect(() => {
+        if (shouldShowPenicillinInfo) {
+            setShowPenicillinInfo(true);
+        } else {
+            setShowPenicillinInfo(false);
+        }
+      }, [shouldShowPenicillinInfo]);
+    
+
+    handlePenicillinInfoVisibility(showPenicillinInfo);
 
     return (
         <>
@@ -216,10 +224,8 @@ export default function Antibiotics({handlePenicillinInfoVisibility}) {
                     wantsMixture={wantsMixture}
                     setWantsMixture={setWantsMixture}
                 />
-                {shouldShowPenicillinInfo && (
-                <PenicillinInfo
-                    setPenicillinText={setPenicillinText}
-                    isVisible={isVisible}
+                {showPenicillinInfo && (
+                <PenicillinInfo handleClick={handlePenicillinInfoClicked}
                 />
                 )}
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}
