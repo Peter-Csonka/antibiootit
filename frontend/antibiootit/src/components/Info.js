@@ -1,21 +1,51 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import GetInfoTexts from "./GetInfoTexts";
-import getReferences from "./GetReferences";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
+
+
+async function getFunding() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/rahoitus.md');
+    return await response.text();
+}
+
+async function getPrivacy() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/tietosuojaseloste.md');
+    return await response.text();
+}
+
+async function getDisclaimer() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/vastuuvapautuslauseke.md');
+    return await response.text();
+}
+
+async function getCreators() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/tekijät.md');
+    return await response.text();
+}
+
+async function getBackgroundInfo() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/tausta-ja-tavoitteet/tausta-ja-tavoitteet.md');
+    return await response.text();
+}
+
+async function getReferences() {
+    const response = await fetch('/markdowns/tietoa-sivustosta/tausta-ja-tavoitteet/viitteet.md');
+    return await response.text();
+}
+
 
 
 export default function Info() {
 
     const [content, setContent] = useState("background");
     const [activeButton, setActiveButton] = useState("background");
-    const [infoTexts, setInfoTexts] = useState(null);
+    const [funding, setFunding] = useState(null);
+    const [privacy, setPrivacy] = useState(null);
+    const [disclaimer, setDisclaimer] = useState(null);
+    const [creators, setCreators] = useState(null);
+    const [backgroundInfo, setBackgroundInfo] = useState(null);
     const [references, setReferences] = useState(null);
-    const myRef = useRef(null);
-
-    const handleRefClick = (event) => {
-        event.preventDefault();
-        myRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
 
     const location = useLocation();
     let from = location.state ? location.state : "";
@@ -46,77 +76,47 @@ export default function Info() {
     }, [from])
 
     async function fetchData() {
-        const infoTextsList = await GetInfoTexts();
-        setInfoTexts(infoTextsList);
-        const referencesList = await getReferences();
-        setReferences(referencesList);
+        setFunding(await getFunding());
+        setPrivacy(await getPrivacy());
+        setDisclaimer(await getDisclaimer());
+        setCreators(await getCreators());
+        setBackgroundInfo(await getBackgroundInfo());
+        setReferences(await getReferences());
     }
     useEffect(() => {
         fetchData();
     }, []);
 
-      const InfoParagraph = ({ text, citation, onClick }) => (
-        <>
-          {text} <a href="scrollToReferences" onClick={onClick}>{citation}</a>
-        </>
-      );
 
-    const InfoTexts = ({ infoTexts, handleRefClick }) => {
-        const { header, text, citation, text2, citation2, text3, citation3, text4, citation4, text5, citation5, text6, citation6, text7, citation7, text8, citation8, text9, citation9, text10, citation10, infoHeader, info1, info2, howToReferHeader, howToReferText } = infoTexts[1];
+    const InfoTexts = ({ infoTexts }) => {
       
+        const renderers = {
+            p: (props) => <p className="info-paragraph">{props.children}</p>
+        }
         return (
           <>
-            <h3>{header}</h3>
-            <p className="info-paragraph">
-              <InfoParagraph text={text} citation={citation} onClick={handleRefClick} />
-              <InfoParagraph text={text2} citation={citation2} onClick={handleRefClick} />
-              <InfoParagraph text={text3} citation={citation3} onClick={handleRefClick} />
-              <InfoParagraph text={text4} citation={citation4} onClick={handleRefClick} />
-            </p>
-            <p className="info-paragraph">
-              <InfoParagraph text={text5} citation={citation5} onClick={handleRefClick} />
-              <InfoParagraph text={text6} citation={citation6} onClick={handleRefClick} />
-              <InfoParagraph text={text7} citation={citation7} onClick={handleRefClick} />
-              <InfoParagraph text={text8} citation={citation8} onClick={handleRefClick} />
-            </p>
-            <p className="info-paragraph">
-              <InfoParagraph text={text9} citation={citation9} onClick={handleRefClick} />
-              <InfoParagraph text={text10} citation={citation10} onClick={handleRefClick} />
-            </p>
-            <h3>{infoHeader}</h3>
-            <p className="info-paragraph">
-              <span className="info-bolded-text">{info1}</span>
-              <span>{info2}</span>
-            </p>
-            <h3>{howToReferHeader}</h3>
-            <p className="info-paragraph">
-              <span>{howToReferText}</span>
-            </p>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{infoTexts}</ReactMarkdown>
           </>
         );
       };
 
-    const References = ({ references }) => (
-        <>
-        <h3 ref={myRef}>{references[0].header}</h3>
-          {references.map((reference) => (
-            <p key={reference.citation} className="info-references">
-              <span>{reference.text}</span>
-              <span>
-                <a href={reference.citation} target="_blank" rel="noopener noreferrer">{reference.citation}</a>
-                {reference.bonusText && <span>{reference.bonusText}</span>}
-              </span>
-            </p>
-          ))}
-        </>
-      );
+    const References = ({ references }) => {
+        const renderers = {
+            p: (props) => <p className="info-references">{props.children}</p>
+        }
+        return (
+          <>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{references}</ReactMarkdown>
+          </>
+        );
+    };
 
     const Background = () => {
-        if (!!infoTexts && !!references) {
+        if (!!backgroundInfo && !!references) {
 
             return (
                 <>
-                    <InfoTexts infoTexts={infoTexts} handleRefClick={handleRefClick} />
+                    <InfoTexts infoTexts={backgroundInfo}/>
                     <References references={references}/>
                 </>
 
@@ -127,34 +127,14 @@ export default function Info() {
         }
 
     }
-    const Makers = () => {
-        if (!!infoTexts) {
-            const leaderInfo = infoTexts[3]
-            const paragraphs1 = leaderInfo.text.split("\n\n");
-            const medicalProfessionalsInfo = infoTexts[4];
-            const paragraphs2 = medicalProfessionalsInfo.text.split("\n\n");
-            const itProfessionalsInfo = infoTexts[5];
-            const paragraphs3 = itProfessionalsInfo.text.split("\n\n");
-
+    const Creators = () => {
+        if (!!creators) {
+            const renderers = {
+                p: (props) => <p className="info-paragraph">{props.children}</p>
+            }
             return (
                 <>
-                    <h3>{leaderInfo.header}</h3>
-                    <div>
-                        {paragraphs1.map((paragraph, index) => (
-                            <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                        ))}</div>
-
-                    <h3>{medicalProfessionalsInfo.header}</h3>
-                    <div>
-                        {paragraphs2.map((paragraph, index) => (
-                            <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                        ))}</div>
-
-                    <h3>{itProfessionalsInfo.header}</h3>
-                    <div>
-                        {paragraphs3.map((paragraph, index) => (
-                            <p className="info-it" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                        ))}</div>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{creators}</ReactMarkdown>
                 </>
 
             )
@@ -165,14 +145,13 @@ export default function Info() {
     }
 
     const Disclaimer = () => {
-        if (!!infoTexts) {
-            const disclaimerInfo = infoTexts[2].text;
-            const paragraphs = disclaimerInfo.split("\n\n");
+        if (!!disclaimer) {
+            const renderers = {
+                p: (props) => <p className="info-paragraph">{props.children}</p>
+            }
             return (
                 <>
-                    <div>{paragraphs.map((paragraph, index) => (
-                        <p className="info-paragraph" key={index}>{paragraph.split("\n").join("<br>")}</p>
-                    ))}</div>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{disclaimer}</ReactMarkdown>
                 </>
 
             )
@@ -184,15 +163,11 @@ export default function Info() {
     }
 
     const Privacy = () => {
-        if (!!infoTexts) {
-            const privacyPolicy = infoTexts[18].text;
-            const paragraphs = privacyPolicy.split("\n\n");
+        if (!!privacy) {
             return (
                 <>
-                    <div>{paragraphs.map((paragraph, index) => (
-                        <span dangerouslySetInnerHTML={{ __html: paragraph }} />
-                    ))}</div>
-            </>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{privacy}</ReactMarkdown>
+                </>
             )
         }
         else {
@@ -201,19 +176,14 @@ export default function Info() {
     }
 
     const Funding = () => {
-        if (!!infoTexts) {
-            const fundingText = infoTexts[19].text;
-            const add1 = infoTexts[19].addition1;
-            const add2 = infoTexts[19].addition2;
+        if (!!funding) {
+            const renderers = {
+                li: (props) => <li style={{marginLeft : '20px', marginTop : '5px'}}>{props.children}</li>,
+                p: (props) => <p className="info-paragraph">{props.children}</p>
+            }
             return (
                 <>
-                    <p>{fundingText}</p>
-                    <br></br>
-                    <ul>{add1}
-                        <li style={{marginLeft : '20px', marginTop : '5px'}}>
-                            <a href="https://www.hes-saatio.fi/" target="_blank" rel="noopener noreferrer">{add2}</a>
-                        </li>
-                    </ul>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{funding}</ReactMarkdown>
                 </>
             )
         }
@@ -259,7 +229,7 @@ export default function Info() {
             </div>
             <hr className="info-line" />
             {content === "background" && <Background />}
-            {content === "makers" && <Makers />}
+            {content === "makers" && <Creators />}
             {content === "disclaimer" && <Disclaimer />}
             {content === "privacy" && <Privacy />}
             {content === "funding" && <Funding />}

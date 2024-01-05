@@ -1,0 +1,1 @@
+Tarkistettu ja päivitetty 7.12.2023

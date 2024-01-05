@@ -1,107 +1,38 @@
 [
     {
-      "id": "lastUpdated",
-      "header": "Viimeisin päivitys ",
-      "text": "10.07.2023"
-    },
-    {
-      "id": "background",
-      "header": "Tausta",
-      "text": "Antibiootit ovat lapsille eniten määrätty lääkeaineryhmä.",
-      "citation": "[1]",
-      "text2": " Vaikka antibiootit ovat välttämättömiä bakteeriperäisten infektioiden hoidossa, niiden liiallinen käyttö johtaa multiresistenttien bakteerien yleistymiseen.",
-      "citation2": "[2]",
-      "text3": " Suosituksesta poikkeava antiboottivalinta voi johtaa myös hoidon epäonnistumiseen vastustuskykyisten taudinaiheuttajien takia. Toistuvat antibioottihoidot - erityisesti imeväis- ja leikki-iässä - horjuttavat suoliston bakteerikannan tasapainoa ja mahdollisesti lisäävät useiden kroonisten sairauksien (mm. astma, diabetes, tulehdukselliset suolistosairaudet) ja ylipainon riskiä.",
-      "citation3": "[3–6]",
-      "text4": " Antibioottien liiallinen käyttö tavanomaisten ja usein itsestään paranevien lasten hengitystieinfektioiden hoidossa on merkittävä kansanterveydellinen ongelma.",
-      "citation4": "[7]",
-
-      "text5": "Lasten infektiosairauksiin liittyviä Käypä hoito -suosituksia on julkaistu vuosien varrella useita,",
-      "citation5": "[8]",
-      "text6": " mutta niiden jalkauttaminen käytännön tasolle on ollut haastavaa. Pelkkä muistutus hoitosuositusten olemassaolosta ei näytä merkittävästi vaikuttavan avoterveydenhuollon käytäntöihin.",
-      "citation6": "[9–11]",
-      "text7": " Lasten antibioottimääräyksissä hoitosuosituksista poikkeaminen on harvoin aiheellista edes allergian takia, sillä lasten penisilliiniallergia on erittäin harvinainen. Kaikista antibioottiallergiaepäilystä alle 5 % varmistuu allergiaksi.",
-      "citation7": "[12]",
-      "text8": " Vaikean penisilliiniallergian esiintyvyys on noin 0.0005 %.",
-      "citation8": "[13]",
-
-      "text9": "Tutkimusten mukaan lasten riski saada hoitosuosituksista poikkeavaa antibioottihoitoa (toisin sanoen, turhaan määrätty tai vääränlainen antibiootti) on korkeampi avoterveydenhuollossa erikoissairaanhoitoon verrattuna.",
-      "citation9": "[10,14–16]",
-      "text10": " Keskeiset tunnistetut ongelmat ovat seuraavat: 1) virusperäisiä ylä- ja alahengitystietulehduksia hoidetaan virheellisesti antibooteilla; 2) keuhkoputkentulehdukseen (itsestään paraneva virusperäinen bronkiitti) määrätään edelleen aktiivisesti antibiootteja, erityisesti makrolideja; 3) makrolideja käytetään tarpeettoman usein välikorvatulehduksen, sivuontelotulehduksen ja avohoitopneumonian hoidossa. Nämä havainnot ovat merkittäviä, sillä suurin osa antibioottimääräyksistä tapahtuu nimenomaan avoterveydenhuollossa.",
-      "citation10": "[17]",
-
-      "infoHeader": "Tavoitteet",
-      "info1": "Antibiootit.fi -sivuston tavoitteena on",
-      "info2": " tukea ja nopeuttaa lääkärin työtä lasten yleisimpien infektioiden hoidossa. Antibiootit.fi -sivu on tarkoitettu vain lääkäreille. Lääkevalinnat ja lääkkeiden annosteluohjeet perustuvat Käypä hoito -suosituksiin, Lääkäriseura Duodecim julkaisemaan Lääkärin käsikirjaan sekä Pharmaca Fennican ohjeisiin. Sivuston sisällöstä ja oikeellisuudesta vastaa lasten infektiosairauksien hoitoon erikoistunut asiantuntijaryhmä.",
-
-       "howToReferHeader": "Miten viittaan sivustoon",
-       "howToReferText": "Csonka P, Korppi M, Renko M, ym.: Lapsen antibioottilaskuri. Julkaistu 1.6.2023. https://antibiootit.fi. Viitattu [päivämäärä]."
-    },
-    {
-      "id": "disclaimer",
-      "header": "Vastuuvapauslauseke",
-      "text": "Antibiootit.fi-sivu on tarkoitettu vain lääkäreille eikä se ole lääkinnällinen laite. Lääkevalinnat ja lääkkeiden annosteluohjeet perustuvat Käypä hoito -suosituksiin, Lääkäriseura Duodecimin julkaisemaan Lääkärin käsikirjaan sekä Pharmaca Fennican ohjeisiin. Tämä sivusto ei ole tarkoitettu sairauden diagnosointiin, hoitoon, tarkkailuun tai ennaltaehkäisyyn. Antibiootit.fi-sivuston laskuri tekee yksinkertaisen laskutoimituksen lääkärin tekemän diagnoosin ja painon mukaan laajasti saataviin julkaistuihin tietoihin perustuen. Hoitopäätöksiä tehdessä lääkärin tulee jokaisen potilaan kohdalla käyttää harkintaa ja omaa ammattitaitoaan. Lääkäri vastaa itse määräämistään lääkkeistä ja siitä, että valittu lääke ja määrätty annos vastaa voimassa olevia hoitosuosituksia. Lääkäri on aina velvollinen tarkistamaan lääkevalinnan ja -annoksen. Sivuston tekemät laskelmat ovat helposti tarkistettavissa myös ilman laskuria ja laskutoimitusten kaavat ovat sivustolla vapaasti nähtävillä.\n\nSivuston ylläpitäjä ei pysty valvomaan, miten sivuston käyttäjä käyttää sivuston sisältöä, eikä sen vuoksi ole vastuussa mistään suorista, epäsuorista, välittömistä, välillisistä, seuraamuksellisista tai muista vahingoista joita voi seurata sivuston tietojen käytöstä suoraan tai välillisesti. Antibiootit.fi-sivuston tekijät eivät ole vastuussa menetyksistä, oikeudenkäynneistä, vaateista, kanteista, vaatimuksista, tai kustannuksista taikka vahingosta, olivat ne mitä tahansa tai aiheutuivat ne sitten miten tahansa, jotka johtuvat joko suoraan tai välillisesti yhteydestä Antibiootit.fi-sivuston käyttöön."
-    },
-    {
-      "id": "projectLeader",
-      "header": "Hankkeen johtaja",
-      "text": "Péter Csonka, LT, lastentautiopin dosentti, lastentautien erikoislääkäri, lastenallergologi, Tampereen yliopisto ja Terveystalo. Péter on kiinnostunut lasten sairauksien hoidon laadun mittaamisesta, kehittämisestä ja hoitosuositusten soveltamisesta erityisesti avoterveydenhuollossa. Yhteydenotot Palaute-sivun kautta tai s-postilla peter.csonka[]tuni.fi"
-    },
-    {
-      "id": "medicalProfessionals",
-      "header": "Lääketieteen asiantuntijat",
-      "text": "Marjo Renko, LT, lastentautiopin professori, lasten infektiosairauksien erikoislääkäri, Itä-Suomen yliopisto. Marjo on tehnyt tutkimustyötä lasten infektiosairauksien epidemiologiasta. Erityisen innostunut näyttöön perustuvasta lääketieteestä, sen opettamisesta ja jalkauttamisesta käytäntöön. Siviilissä villapaitoja neulova mummi.\n\nMatti Korppi, LT, lastentautiopin emeritusprofessori, lasten infektiosairauksien erikoislääkäri, Tampereen yliopisto. Matti on tutkinut hyvin laajalti lasten infektiosairauksien hoitoa ja on ollut luomassa valtakunnallisia hoitosuosituksia.\n\nMika Mäkelä, LT kliinisen allergologian professori, lastentautien erikoislääkäri, lastenallergologi, HUS Iho- ja allergiasairaala.\n\nIlari Kuitunen, LT, epidemiologian dosentti, lastentauteihin erikoistuva lääkäri, Itä-Suomen yliopisto. Ilari on tehnyt tutkimusta lasten infektiosairauksien hoidosta ja diagnostiikasta."
-    },
-    {
-      "id": "ITProfessionals",
-      "header": "Tietotekniikan asiantuntijat",
-      "text": "Eveliina Sundberg (backend)\n\nJuho Rantala (backend)\n\nLotta Orsmaa (UX/UI, frontend)\n\nMalla Nyrhinen (frontend)\n\nMiia Honkanen (frontend)\n\nNeera Kiviluoma (backend)\n\nRoosa Rintamäki (UX/UI, backend)"
-    },
-    {
-      "id": "shortInfo",
-      "header": "",
-      "text": "Antibiootit.fi on terveydenhuollon ammattilaisten käyttöön suunniteltu antibioottilaskuri, joka laskee suositellun antibioottiannostuksen diagnoosin ja lapsen painon perusteella. Suositukset perustuvat Käypä hoito -suosituksiin."
-    },
-    {
       "id": "step1",
       "header": "Vaihe 1",
       "text": "Valitse lapsen diagnoosi."
     },
-  
     {
       "id": "step2",
       "header": "Vaihe 2",
       "text": "Syötä lapsen paino."
     },
-  
     {
       "id": "step3",
       "header": "Vaihe 3",
       "text": "Laske antibioottisuositus painamalla Laske suositus -painiketta."
     },
-  
+    {
+      "id": "step4",
+      "header": "Hoitosuositukset",
+      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Lääkkeestä riippuen voit tietyissä tilanteissa valita mikstuuran tabletin sijaan"
+    },
     {
       "id": "checkPenisillin",
       "header": "",
       "text": "Tarkista, onko lapsella penisilliiniallergia."
     },
-  
     {
       "id": "checkEBV",
       "header": "",
       "text": "Tarkista, onko lapsella penisilliiniallergia tai EBV-infektio."
     },
-  
     {
       "id": "checkMyko",
       "header": "",
       "text": "Tarkista, onko lapsella penisilliiniallergia tai mykoplasmainfektio."
-    },
-  
-    {
-      "id": "step4",
-      "header": "Hoitosuositukset",
-      "text": "Hoitosuositukset perustuvat valitsemiisi arvoihin. Voit halutessasi muuttaa potilaan tietoja, jolloin hoitosuositukset päivittyvät valintojen mukaan. Lääkkeestä riippuen voit tietyissä tilanteissa valita mikstuuran tabletin sijaan"
     },
     {
       "id": "infoBronchitis",
@@ -112,33 +43,5 @@
       "id": "infoObsBronchitis",
       "header": "",
       "text": "Obstruktiivisen bronkiitin hoitoon ei suositella antibioottia."
-    },
-    {
-      "id": "feedback",
-      "header": "Palaute",
-      "text": "Vastaa pikaiseen palautekyselyyn. Kysely kestää alle minuutin./nJos haluat antaa tarkempaa palautetta, lähetä viesti alla annettuun sähköpostiosoitteeseen."
-    },
-    {
-      "id": "feedbackDone",
-      "header": "",
-      "text": "Vastaus lähetetty. Palaat automaattisesti takaisin laskuriin 10 sekunnin kuluttua."
-    },
-    {
-      "id": "privacyPolicy",
-      "header": "Tietosuojaseloste",
-      "text": "Sivuston toimintaa seurataan Google Analytics -työkalun avulla ja kerättyjä tietoja hyödynnetään Antibiootit.fi-sivuston kehittämisessä. Sivusto käyttää analytiikkaevästeitä, joiden avulla kerätään tietoa sivuston käytöstä ja käyttäjien käyttäytymisestä analyysitarkoituksiin. Google Analyticsin käyttämät evästeet tallentavat esimerkiksi sivustolla vietetyn ajan, sivuston kanssa tapahtuvan vuorovaikutuksen sekä auttavat tunnistamaan käyttäjän selaimen. Google Analyticsin keräämät tiedot ovat anonyymejä, eikä niitä voida yhdistää yksittäiseen henkilöön. Voit halutessasi estää Google Analyticsin evästeiden käytön selaimessasi tai poistaa jo tallennetut evästeet. Lisätietoja Google Analyticsin tietosuojakäytännöistä ja evästeiden hallinnasta löydät <a href=\"https://policies.google.com/technologies/cookies#managing-cookies\" target=\"_blank\" rel=\"noopener noreferrer\">täältä</a>.\n\n Sivusto tallentaa myös Antibioottilaskuriin syötetyt arvot, joiden avulla tutkitaan, millaisen tiedon hakemiseen sivustoa käytetään. Antibiootit.fi-sivusto ei kerää käyttäjän henkilötietoja.",
-      "citation": "https://policies.google.com/technologies/cookies#managing-cookies"
-    },  
-    {
-      "id": "funding",
-      "header": "",
-      "text": "Antibiootit.fi -sivusto on riippumaton poliittisista, kaupallisista ja muista ulkopuolisista intresseistä. Sivuston ensimmäinen versio toteutettiin osana Tampereen yliopiston Software Engineering Project -kurssia. Lääketieteen asiantuntijoille ei makseta palkkioita. Ylläpidon ja jatkokehityksen kustannukset katetaan eri säätiöiltä saaduista apurahoista.",
-      "addition1": "Tukijat",
-      "addition2": "Hengityssairauksien tutkimussäätiö"
-    },
-    {
-      "id": "versionNumber",
-      "header": "Versio 1.0 julkaistu ",
-      "text": "2.6.2023"
     }
 ]

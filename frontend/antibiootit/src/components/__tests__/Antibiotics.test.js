@@ -1,3 +1,13 @@
+jest.mock('react-markdown', () => {
+    return {
+      Markdown: () => <div>Mocked react-markdown component</div>
+    };
+  });
+  
+  jest.mock('remark-gfm', () => {
+    return () => {};
+  });
+
 import '@testing-library/jest-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import Antibiotics from '../Antibiotics';

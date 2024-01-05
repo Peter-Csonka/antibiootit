@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { logUserInputData } from "./logUserInputData";
 
-const STEP2 = 8;
-const STEP3 = 9;
+const STEP2 = "step2";
+const STEP3 = "step3";
 
 export default function Form(props) {
     

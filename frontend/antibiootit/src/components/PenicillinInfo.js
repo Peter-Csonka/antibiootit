@@ -1,12 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
+
+
+async function getPenicillinInfo() {
+    const response = await fetch('/markdowns/penisilliini-info/penisilliini-info.md');
+    return await response.text();
+}
 
 export default function PenicillinInfo(props) {
+
+    const [penicillinInfo, setPenicillinInfo] = useState(null);
+
+    async function fetchData() {
+        setPenicillinInfo(await getPenicillinInfo());
+    }
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    const PenicillinInfo = ({ penicillinInfo }) => {
+        const renderers = {
+        }
+        if (!!penicillinInfo) {
+            return (
+                <>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={renderers}>{penicillinInfo}</ReactMarkdown>
+                </>
+              );
+        } else {
+            return <p>Haetaan tietoja...</p>
+        }
+    };
+
+
     return (
         <div className="penicillin-info">
             <ion-icon className="alert-icon-big" src="./icons/alert-circle-outline.svg" alt="alert-icon"></ion-icon>
-            <p>Lapsilla epäillään usein penisilliiniallergiaa, mutta <strong>todellinen vaikea penisilliiniallergia on erittäin harvinainen.</strong> Kaikista epäilystä alle 5 % varmistuu allergiaksi. Vaikean penisilliiniallergian esiintyvyys on noin 0.0005 %.​
-                Diagnoosin varmistamiseksi tai turhan allergiamerkinnän poistamiseksi suositellaan tarkempia jatkotutkimuksia. </p>
+            <PenicillinInfo penicillinInfo={penicillinInfo}/>
             <div className="penicillin-info-btn">
                 <NavLink to="/penisilliiniallergia" state="penicillin-navlink" target="_blank"> Lue lisää </NavLink>
             </div>
