@@ -6,8 +6,7 @@ import PageNotFound from "./PageNotFound";
 import Allergy from "./Allergy";
 import Aside from "./Aside";
 
-export default function Main(props) {
-    let path = props.path;
+export default function Main({path, handlePenicillinInfoVisibility}) {
     
     return (
         <>
@@ -20,7 +19,7 @@ export default function Main(props) {
 
             {path === "/" &&
             <main>
-                <Antibiotics />
+                <Antibiotics handlePenicillinInfoVisibility={handlePenicillinInfoVisibility}/>
                 <Aside />
             </main>}
 

@@ -18,7 +18,7 @@ const CHECKMYKO = "checkMyko";
 const BRONCHITIS = "infoBronchitis";
 const OBSBRONCHITIS = "infoObsBronchitis";
 
-export default function Antibiotics() {
+export default function Antibiotics({handlePenicillinInfoVisibility}) {
 
     const [chosenDiagnosis, setChosenDiagnosis] = useState("");
     const [diagnosisData, setDiagnosisData] = useState("");
@@ -174,6 +174,8 @@ export default function Antibiotics() {
         }
     }
 
+    const shouldShowPenicillinInfo = formSubmitted && penicillinAllergy === true;
+    handlePenicillinInfoVisibility(shouldShowPenicillinInfo);
 
     return (
         <>
@@ -214,7 +216,7 @@ export default function Antibiotics() {
                     wantsMixture={wantsMixture}
                     setWantsMixture={setWantsMixture}
                 />
-                {formSubmitted && penicillinAllergy === true && (
+                {shouldShowPenicillinInfo && (
                 <PenicillinInfo
                     setPenicillinText={setPenicillinText}
                     isVisible={isVisible}
