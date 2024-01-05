@@ -18,7 +18,7 @@ const CHECKMYKO = "checkMyko";
 const BRONCHITIS = "infoBronchitis";
 const OBSBRONCHITIS = "infoObsBronchitis";
 
-export default function Antibiotics() {
+export default function Antibiotics({handlePenicillinInfoVisibility}) {
 
     const [chosenDiagnosis, setChosenDiagnosis] = useState("");
     const [diagnosisData, setDiagnosisData] = useState("");
@@ -35,7 +35,7 @@ export default function Antibiotics() {
     const [concurrentEBV, setConcurrentEBV] = useState(false);
     const [concurrentMycoplasma, setConcurrentMycoplasma] = useState(false);
     const [penicillinInfo, setPenicillinInfo] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    const [showPenicillinInfo, setShowPenicillinInfo] = useState(false);
 
     const [treatments, setTreatments] = useState(null);
     const [description, setDescription] = useState(null);
@@ -168,12 +168,22 @@ export default function Antibiotics() {
         opacity: loading ? "0.3" : "1"
     }
 
-    function setPenicillinText() {
-        if (penicillinAllergy === true) {
-            setIsVisible(true);
-        }
+    function handlePenicillinInfoClicked() {
+        setShowPenicillinInfo(false);
     }
 
+    const shouldShowPenicillinInfo = formSubmitted && penicillinAllergy === true;
+
+    useEffect(() => {
+        if (shouldShowPenicillinInfo) {
+            setShowPenicillinInfo(true);
+        } else {
+            setShowPenicillinInfo(false);
+        }
+      }, [shouldShowPenicillinInfo]);
+    
+
+    handlePenicillinInfoVisibility(showPenicillinInfo);
 
     return (
         <>
@@ -214,10 +224,8 @@ export default function Antibiotics() {
                     wantsMixture={wantsMixture}
                     setWantsMixture={setWantsMixture}
                 />
-                {formSubmitted && penicillinAllergy === true && (
-                <PenicillinInfo
-                    setPenicillinText={setPenicillinText}
-                    isVisible={isVisible}
+                {showPenicillinInfo && (
+                <PenicillinInfo handleClick={handlePenicillinInfoClicked}
                 />
                 )}
                 {formSubmitted && !!noAntibioticTreatment && <NoTreatment/>}

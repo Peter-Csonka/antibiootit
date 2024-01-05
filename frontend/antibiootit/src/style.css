@@ -1082,6 +1082,10 @@ aside {
     padding-left: 17vw;
 }
 
+.penicillin-info-spacer {
+    height: 150px;
+}
+
 .penicillin-info > p {
     padding-left: 20px;
     padding-right: 5%;

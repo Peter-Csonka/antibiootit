@@ -13,11 +13,11 @@ import { render, screen, waitFor } from '@testing-library/react';
 import Antibiotics from '../Antibiotics';
 
 test('Should render Antibiotics', async () => {
-    render(<Antibiotics />);
+    render(<Antibiotics handlePenicillinInfoVisibility={() => {}}/>);
 });
 
 test('Frontpage includes instructions', async () => {
-	render(<Antibiotics />);
+	render(<Antibiotics handlePenicillinInfoVisibility={() => {}}/>);
 	expect(screen.getByText('Lapsen antibioottilaskuri')).toBeInTheDocument();
     await waitFor(() => screen.getByTestId('instructions'));
     await waitFor(() => screen.getByTestId('instructions-header'));

@@ -9,7 +9,7 @@ async function getPenicillinInfo() {
     return await response.text();
 }
 
-export default function PenicillinInfo(props) {
+export default function PenicillinInfo({handleClick}) {
 
     const [penicillinInfo, setPenicillinInfo] = useState(null);
 
@@ -41,7 +41,7 @@ export default function PenicillinInfo(props) {
             <ion-icon className="alert-icon-big" src="./icons/alert-circle-outline.svg" alt="alert-icon"></ion-icon>
             <PenicillinInfo penicillinInfo={penicillinInfo}/>
             <div className="penicillin-info-btn">
-                <NavLink to="/penisilliiniallergia" state="penicillin-navlink" target="_blank"> Lue lisää </NavLink>
+                <NavLink to="/penisilliiniallergia" state="penicillin-navlink" target="_blank" onClick={handleClick}> Lue lisää </NavLink>
             </div>
         </div>
     )
