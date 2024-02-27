@@ -35,7 +35,11 @@ export default function Recipe(props) {
         const recipeTextEnding = diagnosisForRecipe.get(diagnosisData.id);
 
         if (noTreatment === null) {
-            setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength);
+            if (activeRecipe.sicMark === true) {
+                setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength + " (SIC!)");
+            } else {
+                setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength);
+            }
             if (activeRecipe.dosage.doseMultipliers.length === 1) {
                 setDosageInstructions(`${activeRecipe.text}. ${recipeTextEnding}`)
             }
