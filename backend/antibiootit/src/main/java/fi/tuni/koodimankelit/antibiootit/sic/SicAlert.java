@@ -4,14 +4,14 @@ import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 
 public class SicAlert {
 
-    private final Integer minWeight;
-    private final Integer maxWeight;
+    private final Double minWeight;
+    private final Double maxWeight;
     private final String antibioticName;
     private final int dosesPerDay;
     private final Strength strength;
     private final int tabletsPerDose;
 
-    public SicAlert(Integer minWeight, Integer maxWeight, String antibioticName, int dosesPerDay, Strength strength, int tabletsPerDose) {
+    public SicAlert(Double minWeight, Double maxWeight, String antibioticName, int dosesPerDay, Strength strength, int tabletsPerDose) {
         this.minWeight = minWeight;
         this.maxWeight = maxWeight;
         this.antibioticName = antibioticName;
@@ -20,8 +20,8 @@ public class SicAlert {
         this.tabletsPerDose = tabletsPerDose;
     }
 
-    public boolean hasSicAlert(int weight, String antibioticName, int dosesPerDay, Strength strength, int tabletsPerDose) {
-        if (this.antibioticName != antibioticName) {
+    public boolean hasSicAlert(double weight, String antibioticName, int dosesPerDay, Strength strength, int tabletsPerDose) {
+        if (!this.antibioticName.equals(antibioticName)) {
             return false;
         }
         if (!isWithinWeightLimits(weight)) {
@@ -39,7 +39,7 @@ public class SicAlert {
         return true;
     }
 
-    private boolean isWithinWeightLimits(int weight) {
+    private boolean isWithinWeightLimits(double weight) {
         if (this.minWeight != null) {
             if (weight < this.minWeight) {
                 return false;

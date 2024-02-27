@@ -59,9 +59,11 @@ public abstract class AntibioticTreatmentBuilder {
             canMixture,
             buildFormula(),
             buildResult(),
-            requiresSicMark()
+            requiresSicAlert(instructions)
         );
     }
+
+    protected abstract boolean requiresSicAlert(Instructions instructions);
 
     protected abstract Formula buildFormula();
 
@@ -98,10 +100,6 @@ public abstract class AntibioticTreatmentBuilder {
         } else {
             return false;
         }
-    }
-
-    private boolean requiresSicMark() {
-        return false;
     }
 
 }
