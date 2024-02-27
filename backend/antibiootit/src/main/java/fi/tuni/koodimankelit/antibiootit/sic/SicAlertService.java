@@ -1,11 +1,8 @@
-package fi.tuni.koodimankelit.antibiootit.services;
+package fi.tuni.koodimankelit.antibiootit.sic;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import fi.tuni.koodimankelit.antibiootit.builder.DiagnosisResponseBuilder;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
-import fi.tuni.koodimankelit.antibiootit.sic.SicAlert;
 
 /**
  * Service that is responsible of adding SIC!-mark to API response when predefined rules are met
