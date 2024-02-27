@@ -36,6 +36,9 @@ public class SicAlert {
         if (this.strength.getValue() != strength.getValue()) {
             return false;
         }
+        if (!this.strength.getUnit().equals(strength.getUnit())) {
+            return false;
+        }
         return true;
     }
 
