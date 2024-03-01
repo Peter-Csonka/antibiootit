@@ -14,6 +14,7 @@ public class AntibioticTreatment {
     private final Formula formula;
     private final DosageResult dosageResult;
     private final Boolean canMixture;
+    private final Boolean sicMark;
 
 
     /**
@@ -25,13 +26,15 @@ public class AntibioticTreatment {
      * @param formula how the result was calculated
      * @param result calculated dosage result
      */
-    public AntibioticTreatment(String format, String antibiotic, Instructions instructions, boolean canMixture, Formula formula, DosageResult result) {
+    public AntibioticTreatment(String format, String antibiotic, Instructions instructions, boolean canMixture, Formula formula, DosageResult result, boolean sicMark) {
         this.format = format;
         this.antibiotic = antibiotic;
         this.instructions = instructions;
         this.formula = formula;
         this.dosageResult = result;
         this.canMixture = canMixture;
+        this.sicMark = sicMark;
+        
     }
     
     /** 
@@ -86,6 +89,10 @@ public class AntibioticTreatment {
      */
     public DosageResult getDosageResult() {
         return this.dosageResult;
+    }
+
+    public Boolean getSicMark() {
+        return this.sicMark;
     }
 
 

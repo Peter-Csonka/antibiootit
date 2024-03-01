@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import fi.tuni.koodimankelit.antibiootit.database.data.Dosage;
+import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
 import fi.tuni.koodimankelit.antibiootit.database.data.Mixture;
 import fi.tuni.koodimankelit.antibiootit.models.AccurateDosageResult;
 import fi.tuni.koodimankelit.antibiootit.models.DosageFormula;
@@ -89,5 +90,10 @@ public class MixtureBuilder extends AntibioticTreatmentBuilder {
     private Double roundToNearestHalf(Double value) {
         Double roundedValue = ((int)(value * 2 + 0.5)) / 2.0;
         return roundedValue;
+    }
+
+    @Override
+    protected boolean requiresSicAlert(Instructions instructions) {
+        return false;
     }
 }

@@ -58,9 +58,12 @@ public abstract class AntibioticTreatmentBuilder {
             instructions,
             canMixture,
             buildFormula(),
-            buildResult()
+            buildResult(),
+            requiresSicAlert(instructions)
         );
     }
+
+    protected abstract boolean requiresSicAlert(Instructions instructions);
 
     protected abstract Formula buildFormula();
 

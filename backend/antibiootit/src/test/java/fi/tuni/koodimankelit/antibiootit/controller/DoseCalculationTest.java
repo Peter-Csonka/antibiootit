@@ -158,7 +158,8 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml"),
                     new Measurement("mg/kg/vrk", 80.0)
                 ),
-                null
+                null,
+                false
             )
         );
         when(service.getDiagnosisInfoByID(any())).thenReturn(new DiagnosisInfo(null, null, null, null, false));
@@ -186,7 +187,8 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
                     new Measurement("ml", 3.5),
                     new Measurement("ml", 3.457),
                     new Measurement("ml", 3.457)
-                )
+                ),
+                false
             )
         );
 
@@ -212,7 +214,8 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
                 new Formula(
                     new StrengthMeasurement("mg/ml", 100, "100 mg/ml")
                 ),
-                null
+                null,
+                false
             )
         );
         when(service.getDiagnosisInfoByID(any())).thenReturn(new DiagnosisInfo(null, null, null, null, false));
@@ -233,7 +236,8 @@ public class DoseCalculationTest extends AntibioticsControllerTest {
         response.addTreatment(
             new AntibioticTreatment(null, null, null, false,
                 null,
-                new DosageResult(new Measurement("kpl", 1))
+                new DosageResult(new Measurement("kpl", 1)),
+                false
             )
         );
         when(service.getDiagnosisInfoByID(any())).thenReturn(new DiagnosisInfo(null, null, null, null, false));
