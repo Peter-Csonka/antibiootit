@@ -35,11 +35,7 @@ export default function Recipe(props) {
         const recipeTextEnding = diagnosisForRecipe.get(diagnosisData.id);
 
         if (noTreatment === null) {
-            if (activeRecipe.sicMark === true) {
-                setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength + " (SIC!)");
-            } else {
-                setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength);
-            }
+            setChosenAb(activeRecipe.antibioteName + " " + activeRecipe.antibioteStrength);
             if (activeRecipe.dosage.doseMultipliers.length === 1) {
                 setDosageInstructions(`${activeRecipe.text}. ${recipeTextEnding}`)
             }
@@ -123,11 +119,11 @@ ICD-10 koodi: ${diagnosisCode}`;
                 </div>
                 <div className="recipe-header-container">
                     <h3>Resepti:</h3>
-                    {props.loading ? <></> : <h4>{chosenAb}</h4>}
+                    {props.loading ? <></> : <h4>{chosenAb} {activeRecipe.sicMark ? "(SIC!)" : ""}</h4>}
                 </div>
             </div>
             <div className="recipe-text-container">
-                <p className="recipe-text">{dosageInstructions}
+                <p className="recipe-text">{dosageInstructions} {activeRecipe.sicMark ? "SIC!" : ""}
                 </p>
                 <div className="recipe-container-bottom">
                     <span>ICD-10 koodi: <span className="bold">{diagnosisCode}</span></span>
