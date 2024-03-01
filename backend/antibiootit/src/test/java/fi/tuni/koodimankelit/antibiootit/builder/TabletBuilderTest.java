@@ -2,13 +2,17 @@ package fi.tuni.koodimankelit.antibiootit.builder;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import fi.tuni.koodimankelit.antibiootit.database.data.Instructions;
 import fi.tuni.koodimankelit.antibiootit.database.data.MinMaxMixture;
 import fi.tuni.koodimankelit.antibiootit.database.data.Strength;
 import fi.tuni.koodimankelit.antibiootit.database.data.Tablet;
@@ -84,6 +88,29 @@ public class TabletBuilderTest extends AntibioticTreatmentBuilderTest {
     @Test
     public void testCorrectResultUnit() {
         assertEquals("tabletti", getTreatment(getValidWeight()).getDosageResult().getDose().getUnit());
+    }
+
+    @Test
+    public void sicMarkShouldBeTrueVPen() {
+        Strength strength = new Strength(1000000, 20, "IU", null);
+        Instructions instructions = new Instructions(5, 3, null, null);
+        Tablet tablet = new Tablet("V-Penisilliini", null, new ArrayList<>(List.of(strength)), instructions, 1, minMaxMixture);
+        AntibioticTreatment treatment = new TabletBuilder(tablet, 24).build();
+        assertTrue(treatment.getSicMark());
+    }
+
+    @Test
+    public void sicMarkShouldBeTrueKefaleksiini() {
+        Strength strength = new Strength(750, 20, "mg", null);
+        Instructions instructions = new Instructions(5, 3, null, null);
+        Tablet tablet = new Tablet("Kefaleksiini", null, new ArrayList<>(List.of(strength)), instructions, 1, minMaxMixture);
+        AntibioticTreatment treatment = new TabletBuilder(tablet, 24).build();
+        assertTrue(treatment.getSicMark());
+    }
+
+    @Test
+    public void sicMarkShouldBeFalse() {
+        assertFalse(getTreatment(getValidWeight()).getSicMark());
     }
 
     @Override
