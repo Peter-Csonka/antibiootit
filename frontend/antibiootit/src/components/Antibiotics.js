@@ -95,13 +95,15 @@ export default function Antibiotics({handlePenicillinInfoVisibility}) {
                 const strength = response.treatments[0].formula.strength.text;
                 const dose = response.treatments[0].dosageResult.dose;
                 const dosage = response.treatments[0].instructions;
+                const sicMark = response.treatments[0].sicMark;
 
                 const treatment = {
                     text: recipe,
                     antibioteName: antibiote,
                     antibioteStrength: strength,
                     dose: dose,
-                    dosage: dosage
+                    dosage: dosage,
+                    sicMark: sicMark
                 }
                 setActiveRecipe(treatment);
             })

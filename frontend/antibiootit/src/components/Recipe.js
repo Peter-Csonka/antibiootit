@@ -119,11 +119,11 @@ ICD-10 koodi: ${diagnosisCode}`;
                 </div>
                 <div className="recipe-header-container">
                     <h3>Resepti:</h3>
-                    {props.loading ? <></> : <h4>{chosenAb}</h4>}
+                    {props.loading ? <></> : <h4>{chosenAb} {activeRecipe.sicMark ? "(SIC!)" : ""}</h4>}
                 </div>
             </div>
             <div className="recipe-text-container">
-                <p className="recipe-text">{dosageInstructions}
+                <p className="recipe-text">{dosageInstructions} {activeRecipe.sicMark ? "SIC!" : ""}
                 </p>
                 <div className="recipe-container-bottom">
                     <span>ICD-10 koodi: <span className="bold">{diagnosisCode}</span></span>

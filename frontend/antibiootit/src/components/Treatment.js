@@ -140,7 +140,8 @@ export default function Treatment(props) {
                     antibioteName: antibiote,
                     antibioteStrength: strength,
                     dose: props.treatments[i].dosageResult.dose,
-                    dosage: props.treatments[i].instructions
+                    dosage: props.treatments[i].instructions,
+                    sicMark: props.treatments[i].sicMark
                 }
 
                 props.setActiveRecipe(treatment);
