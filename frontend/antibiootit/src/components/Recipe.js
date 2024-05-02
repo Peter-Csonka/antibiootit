@@ -11,6 +11,7 @@ export default function Recipe(props) {
     const [chosenAb, setChosenAb] = useState(null);
     const [dosageInstructions, setDosageInstructions] = useState("");
     const [showNotification, setShowNotification] = useState(false);
+    const [showSic, setShowSic] = useState(false);
     const diagnosisCode = diagnosisData.id;
 
 
@@ -21,6 +22,18 @@ export default function Recipe(props) {
     if (noTreatment === null && !!treatments && !activeRecipe && !chosenAb) {
         setChosenAb(treatments[0].antibiotic);
     }
+
+    useEffect(() => {
+        if (noTreatment) {
+            setShowSic(false);
+            return;
+        }
+        if (activeRecipe && activeRecipe.sicMark != null) {
+            setShowSic(activeRecipe.sicMark);
+            return;
+        }
+        setShowSic(false);
+    }, [activeRecipe, noTreatment, setShowSic]);
 
     useEffect(() => {
         const diagnosisForRecipe = new Map([
@@ -119,11 +132,11 @@ ICD-10 koodi: ${diagnosisCode}`;
                 </div>
                 <div className="recipe-header-container">
                     <h3>Resepti:</h3>
-                    {props.loading ? <></> : <h4>{chosenAb} {activeRecipe.sicMark ? "(SIC!)" : ""}</h4>}
+                    {props.loading ? <></> : <h4>{chosenAb} {showSic ? "(SIC!)" : ""}</h4>}
                 </div>
             </div>
             <div className="recipe-text-container">
-                <p className="recipe-text">{dosageInstructions} {activeRecipe.sicMark ? "SIC!" : ""}
+                <p className="recipe-text">{dosageInstructions} {showSic ? "SIC!" : ""}
                 </p>
                 <div className="recipe-container-bottom">
                     <span>ICD-10 koodi: <span className="bold">{diagnosisCode}</span></span>
