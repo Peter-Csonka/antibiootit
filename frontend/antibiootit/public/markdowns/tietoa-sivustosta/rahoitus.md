@@ -2,3 +2,4 @@ Antibiootit.fi -sivusto on riippumaton poliittisista, kaupallisista ja muista ul
 
 Tukijat
 - [Hengityssairauksien tutkimussäätiö](https://www.hes-saatio.fi/)
+- [Avohoidon tutkimussäätiö](https://www.avohoidontutkimussaatio.fi/)
