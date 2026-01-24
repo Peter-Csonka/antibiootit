@@ -1129,8 +1129,16 @@ aside {
 .penicillin-info-image {
     width: 100%;
     display: flex;
-    margin: 4rem auto; /* top/bottom space + centers image */
-  }
+    cursor: pointer;
+}
+
+.penicillin-info-image2 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 70px;
+    cursor: pointer;
+    width: 90%;
+}
 
 .penicillin-image-mobile {
     width: 100%;
