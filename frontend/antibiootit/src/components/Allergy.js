@@ -44,7 +44,6 @@ export default function Allergy() {
 
         const [isModalOpen, setIsModalOpen] = useState(false);
         const [selectedImage, setSelectedImage] = useState('');
-        const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 650);
 
         const openModal = (image) => {
             setSelectedImage(image);
@@ -57,35 +56,11 @@ export default function Allergy() {
             document.body.style.overflow = 'auto';
           }; 
 
-        useEffect(() => {
-            const handleResize = () => {
-              setIsLargeScreen(window.innerWidth > 650);
-            };
-        
-            window.addEventListener('resize', handleResize);
-        
-            return () => {
-              window.removeEventListener('resize', handleResize);
-            };
-          }, []);
-
         if (!!antibioticInfoTexts && !!references) {
             return (
                 <>  
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
-                    <h3 className="risk-evaluation-header">1. Riskin arvioiminen</h3>
-                    {isLargeScreen ? (
-                        <img className="penicillin-info-image" src="penicillinallergyimage.PNG" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.PNG')}/>
-                    ) : (
-                        <img className="penicillin-image-mobile" src="penicillinimagemobile.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinimagemobile.png')}/>
-                    )}
-                    <h3 className="risk-evaluation-header">2. Toimintaohjeet</h3>
-                    {isLargeScreen ? (
-                        <img className="penicillin-info-image2" src="penicillinallergyimage2.PNG" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinallergyimage2.PNG')}/>  
-                    ) : (
-                        <img className="penicillin-image-mobile2" src="penicillinimagemobile2.png" alt="Penisilliiniallergia toimintaohjeet" onClick={() => openModal('./penicillinimagemobile2.png')}/>
-                    )}
-
+                    <img className="penicillin-info-image" src="penicillinallergyimage.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.png')}/>
                     <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
                     <div className="modal-content">
                         <img src={selectedImage} alt="Avattu kuva" />
