@@ -60,7 +60,7 @@ export default function Allergy() {
             return (
                 <>  
                     <AntibioticInfoTexts antibioticInfoTexts={antibioticInfoTexts} />
-                    <img className="penicillin-info-image" src="penicillinallergyimage.png" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.png')}/>
+                    <img className="penicillin-info-image" src="penicillinallergyimage.PNG" alt="Penisilliiniallergia riskiarvio" onClick={() => openModal('./penicillinallergyimage.PNG')}/>
                     <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
                     <div className="modal-content">
                         <img src={selectedImage} alt="Avattu kuva" />
